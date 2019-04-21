@@ -1,0 +1,1178 @@
+<!--模板开始-->
+<style type="text/css">
+
+    .showwords
+    {
+        color: black;
+        letter-spacing: 5px;
+        position: absolute;
+        font-weight: bold;
+        z-index: 1;
+        top: 90%;
+        margin: -39px;
+        left: 39px;
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        text-shadow: 2px 2px 20px white, -2px -2px 20px white, -2px 2px 20px white, 2px -2px 20px white;
+        /*background-color: rgba(255, 255, 255, 0.4);*/
+    }
+
+    *
+    {
+        padding: 0px;
+        margin: 0px;
+        -webkit-box-sizing: border-box;
+    }
+
+    body
+    {
+        /*background-color: black;*/
+    }
+
+    #container
+    {
+        width: 500px;
+        height: 815px;
+        position: absolute;
+        overflow: hidden;
+    }
+    #container >div, #container >img
+    {
+        position: absolute;
+    }
+    .leaf
+    {
+        left: 0px;
+        top: 0px;
+    }
+    .sunshine
+    {
+        left: -207px;
+        top: -284px;
+        -webkit-transform-origin: 32.88% 40.31%;
+        -webkit-animation: sunshine 3s ease-in-out infinite alternate;
+    }
+    #word1
+    {
+        left: 111px;
+        top: 85px;
+        opacity: 0;
+    }
+    #word2
+    {
+        left: 189px;
+        top: 149px;
+        opacity: 0;
+    }
+    .line1
+    {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-top: 5px solid #98B4D1;
+        border-right: 5px solid #98B4D1;
+        left: 338px;
+        top: 12px;
+    }
+    .line2
+    {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-bottom: 5px solid #98B4D1;
+        border-left: 5px solid #98B4D1;
+        left: 11px;
+        top: 159px;
+    }
+    .pagediv > img , .pagediv > div
+    {
+        position: absolute;
+    }
+    #div11h
+    {
+        width: 300px;
+        height: 212px;
+        left: 41px;
+        top: 204px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div12h
+    {
+        width: 336px;
+        height: 240px;
+        left: 120px;
+        top: 432px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div11v
+    {
+        width: 235px;
+        height: 311px;
+        left: 41px;
+        top: 188px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div12v
+    {
+        width: 250px;
+        height: 336px;
+        left: 212px;
+        top: 387px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div21v
+    {
+        width: 210px;
+        height: 324px;
+        left: 41px;
+        top: 208px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div22v
+    {
+        width: 219px;
+        height: 398px;
+        left: 251px;
+        top: 208px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div21h
+    {
+        width: 224px;
+        height: 188px;
+        left: 34px;
+        top: 209px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div22h
+    {
+        width: 336px;
+        height: 240px;
+        left: 141px;
+        top: 432px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div31h
+    {
+        width: 282px;
+        height: 212px;
+        left: 33px;
+        top: 209px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div32h
+    {
+        width: 320px;
+        height: 240px;
+        left: 141px;
+        top: 436px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div31v
+    {
+        width: 226px;
+        height: 297px;
+        left: 33px;
+        top: 186px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div32v
+    {
+        width: 232px;
+        height: 298px;
+        left: 234px;
+        top: 401px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div4h
+    {
+        width: 430px;
+        height: 305px;
+        left: 35px;
+        top: 245px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div4v
+    {
+        width: 340px;
+        height: 480px;
+        left: 80px;
+        top: 191px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div51h
+    {
+        width: 225px;
+        height: 212px;
+        left: 28px;
+        top: 229px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div52h
+    {
+        width: 225px;
+        height: 212px;
+        left: 247px;
+        top: 229px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div53h
+    {
+        width: 307px;
+        height: 212px;
+        left: 101px;
+        top: 437px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div51v
+    {
+        width: 200px;
+        height: 255px;
+        left: 53px;
+        top: 188px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div52v
+    {
+        width: 200px;
+        height: 255px;
+        left: 247px;
+        top: 188px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div53v
+    {
+        width: 240px;
+        height: 289px;
+        left: 130px;
+        top: 437px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div61
+    {
+        width: 260px;
+        height: 439px;
+        left: 31px;
+        top: 221px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div62
+    {
+        width: 180px;
+        height: 150px;
+        left: 288px;
+        top: 221px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div63
+    {
+        width: 180px;
+        height: 150px;
+        left: 288px;
+        top: 365px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    #div64
+    {
+        width: 180px;
+        height: 150px;
+        left: 288px;
+        top: 510px;
+        border: 6px solid #D0EBF7;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    .img
+    {
+        position: absolute;
+    }
+    .pao1
+    {
+        left: 100px;
+        top: 815px;
+        width: 30px;
+        -webkit-animation: paopao 20s linear infinite;
+    }
+</style>
+<style type="text/css">
+    @-webkit-keyframes sunshine
+    {
+        from  {-webkit-transform: rotate(-20deg);}
+        to    {-webkit-transform: rotate(20deg);}
+    }
+    @-webkit-keyframes fadefromleft
+    {
+        from  {-webkit-transform: translate(-50px,0px);opacity: 0}
+        to    {-webkit-transform: translate(0px,0px);opacity: 1}
+    }
+    @-webkit-keyframes fadefromright
+    {
+        from  {-webkit-transform: translate(50px,0px);opacity: 0}
+        to    {-webkit-transform: translate(0px,0px);opacity: 1}
+    }
+    @-webkit-keyframes title_in
+    {
+        from  {-webkit-transform: translate(0px,50px);opacity: 0}
+        to    {-webkit-transform: translate(0px,0px);opacity: 1}
+    }
+    @-webkit-keyframes title_out
+    {
+        from  {-webkit-transform: translate(0px,0px);opacity: 1}
+        to    {-webkit-transform: translate(0px,50px);opacity: 0}
+    }
+    @-webkit-keyframes div11_in
+    {
+        from  {-webkit-transform: translate(-80px,-80px);opacity: 0}
+        to    {-webkit-transform: translate(0px,0px);opacity: 1}
+    }
+    @-webkit-keyframes div11_out
+    {
+        from  {-webkit-transform: translate(0px,0px);opacity: 1}
+        to    {-webkit-transform: translate(80px,80px);opacity: 0}
+    }
+    @-webkit-keyframes div12_in
+    {
+        from  {-webkit-transform: translate(80px,80px);opacity: 0}
+        to    {-webkit-transform: translate(0px,0px);opacity: 1}
+    }
+    @-webkit-keyframes div12_out
+    {
+        from  {-webkit-transform: translate(0px,0px);opacity: 1}
+        to    {-webkit-transform: translate(-80px,-80px);opacity: 0}
+    }
+    @-webkit-keyframes div21_in
+    {
+        from  {-webkit-transform: translate(-200px,0px);opacity: 0}
+        to    {-webkit-transform: translate(0px,0px);opacity: 1}
+    }
+    @-webkit-keyframes div21_out
+    {
+        from  {-webkit-transform: translate(0px,0px);opacity: 1}
+        to    {-webkit-transform: translate(-200px,0px);opacity: 0}
+    }
+    @-webkit-keyframes div22_in
+    {
+        from  {-webkit-transform: translate(200px,0px);opacity: 0}
+        to    {-webkit-transform: translate(0px,0px);opacity: 1}
+    }
+    @-webkit-keyframes div22_out
+    {
+        from  {-webkit-transform: translate(0px,0px);opacity: 1}
+        to    {-webkit-transform: translate(200px,0px);opacity: 0}
+    }
+    @-webkit-keyframes div31_in
+    {
+        from  {-webkit-transform: translate(0px,-50px);opacity: 0}
+        to    {-webkit-transform: translate(0px,0px);opacity: 1}
+    }
+    @-webkit-keyframes div31_out
+    {
+        from  {-webkit-transform: translate(0px,0px);opacity: 1}
+        to    {-webkit-transform: translate(0px,50px);opacity: 0}
+    }
+    @-webkit-keyframes div32_in
+    {
+        from  {-webkit-transform: translate(0px,50px);opacity: 0}
+        to    {-webkit-transform: translate(0px,0px);opacity: 1}
+    }
+    @-webkit-keyframes div32_out
+    {
+        from  {-webkit-transform: translate(0px,0px);opacity: 1}
+        to    {-webkit-transform: translate(0px,-50px);opacity: 0}
+    }
+    @-webkit-keyframes div4_in
+    {
+        0%   {-webkit-transform: scale(0.3);opacity: 0}
+        80%  {-webkit-transform: scale(1.05);opacity: 1}
+
+        100% {-webkit-transform: scale(1);opacity: 1}
+    }
+    @-webkit-keyframes div4_out
+    {
+        0%   {-webkit-transform: scale(1);opacity: 1}
+        20%  {-webkit-transform: scale(1.05);opacity: 1}
+        100% {-webkit-transform: scale(0.3);opacity: 0}
+    }
+    @-webkit-keyframes div51_in
+    {
+        from  {-webkit-transform: translate(-100px,0px);opacity: 0}
+        to    {-webkit-transform: translate(0px,0px);opacity: 1}
+    }
+    @-webkit-keyframes div51_out
+    {
+        from  {-webkit-transform: translate(0px,0px);opacity: 1}
+        to    {-webkit-transform: translate(-100px,0px);opacity: 0}
+    }
+    @-webkit-keyframes div52_in
+    {
+        from  {-webkit-transform: translate(100px,0px);opacity: 0}
+        to    {-webkit-transform: translate(0px,0px);opacity: 1}
+    }
+    @-webkit-keyframes div52_out
+    {
+        from  {-webkit-transform: translate(0px,0px);opacity: 1}
+        to    {-webkit-transform: translate(100px,0px);opacity: 0}
+    }
+    @-webkit-keyframes div53_in
+    {
+        from  {-webkit-transform: translate(0px,100px);opacity: 0}
+        to    {-webkit-transform: translate(0px,0px);opacity: 1}
+    }
+    @-webkit-keyframes div53_out
+    {
+        from  {-webkit-transform: translate(0px,0px);opacity: 1}
+        to    {-webkit-transform: translate(0px,100px);opacity: 0}
+    }
+    @-webkit-keyframes fadein
+    {
+        from  {opacity: 0}
+        to    {opacity: 1}
+    }
+    @-webkit-keyframes fadeout
+    {
+        from  {opacity: 1}
+        to    {opacity: 0}
+    }
+    .pagediv
+    {
+        display: none;
+    }
+    @-webkit-keyframes div61_in
+    {
+        from  {-webkit-transform: translate(0px,0px);}
+        to    {-webkit-transform: translate(-300px,0px);}
+    }
+    @-webkit-keyframes paopao
+    {
+        0%  {opacity: 1;-webkit-transform: translate(0px,0px) rotate(0deg);}
+        80% {opacity: 1;-webkit-transform: translate(0px,-560px) rotate(320deg);}
+        100% {opacity: 0;-webkit-transform: translate(0px,-700px) rotate(400deg);}
+    }
+</style>
+<div id='container'>
+    <img src='{$skinurl}skin/summer/bg1.jpg'>
+    <img class='leaf' src='{$skinurl}skin/summer/yezi.png'>
+    <div id='pagetitle' style='position:absolute;width:400px;height:220px;top:273px;left:50px;background-color:rgba(255, 255, 255, 0.37);opacity:0;'>
+        <div class='line1'></div>
+        <div class='line2'></div>
+        <div style='position:absolute;width:360px;height:180px;top:20px;left:20px;overflow:hidden;display:table'>
+            <div id='titlecontent' style='width:360px;height:180px;vertical-align:middle;display:table-cell;text-align:center;font-size:30px;line-height:45px;color: #98B4D1;'></div>
+        </div>
+    </div>
+    <div id='pagediv1' class='pagediv'>
+        <div id='div11h'>
+            <img id='img11h' class='img'>
+            <span id='word11h' class='showwords'></span>
+        </div>
+        <div id='div11v'>
+            <img id='img11v' class='img'>
+            <span id='word11v' class='showwords'></span>
+        </div>
+        <div id='div12v'>
+            <img id='img12v' class='img'>
+            <span id='word12v' class='showwords'></span>
+        </div>
+        <div id='div12h'>
+            <img id='img12h' class='img'>
+            <span id='word12h' class='showwords'></span>
+        </div>
+    </div>
+    <div id='pagediv2' class='pagediv'>
+        <div id='div21h'>
+            <img id='img21h' class='img'>
+            <span id='word21h' class='showwords'></span>
+        </div>
+        <div id='div21v'>
+            <img id='img21v' class='img'>
+            <span id='word21v' class='showwords'></span>
+        </div>
+        <div id='div22v'>
+            <img id='img22v' class='img'>
+            <span id='word22v' class='showwords'></span>
+        </div>
+        <div id='div22h'>
+            <img id='img22h' class='img'>
+            <span id='word22h' class='showwords'></span>
+        </div>
+    </div>
+    <div id='pagediv3' class='pagediv'>
+        <div id='div31h'>
+            <img id='img31h' class='img'>
+            <span id='word31h' class='showwords'></span>
+        </div>
+        <div id='div31v'>
+            <img id='img31v' class='img'>
+            <span id='word31v' class='showwords'></span>
+        </div>
+        <div id='div32v'>
+            <img id='img32v' class='img'>
+            <span id='word32v' class='showwords'></span>
+        </div>
+        <div id='div32h'>
+            <img id='img32h' class='img'>
+            <span id='word32h' class='showwords'></span>
+        </div>
+    </div>
+    <div id='pagediv4' class='pagediv'>
+        <div id='div4h'>
+            <img id='img4h' class='img'>
+            <span id='word4h' class='showwords'></span>
+        </div>
+        <div id='div4v'>
+            <img id='img4v' class='img'>
+            <span id='word4v' class='showwords'></span>
+        </div>
+    </div>
+    <div id='pagediv5' class='pagediv'>
+        <div id='div51h'>
+            <img id='img51h' class='img'>
+            <span id='word51h' class='showwords'></span>
+        </div>
+        <div id='div51v'>
+            <img id='img51v' class='img'>
+            <span id='word51v' class='showwords'></span>
+        </div>
+        <div id='div52v'>
+            <img id='img52v' class='img'>
+            <span id='word52v' class='showwords'></span>
+        </div>
+        <div id='div52h'>
+            <img id='img52h' class='img'>
+            <span id='word52h' class='showwords'></span>
+        </div>
+        <div id='div53v'>
+            <img id='img53v' class='img'>
+            <span id='word53v' class='showwords'></span>
+        </div>
+        <div id='div53h'>
+            <img id='img53h' class='img'>
+            <span id='word53h' class='showwords'></span>
+        </div>
+    </div>
+
+    <div id='pagediv6' class='pagediv'>
+
+        <div id='div61'>
+            <img id='img61h' class='img'>
+            <span id='word61h' class='showwords'></span>
+            <img id='img61v' class='img'>
+            <span id='word61v' class='showwords'></span>
+        </div>
+        <div id='div62'>
+            <img id='img62' class='img'>
+            <span id='word62' class='showwords'></span>
+        </div>
+        <div id='div63'>
+            <img id='img63' class='img'>
+            <span id='word63' class='showwords'></span>
+        </div>
+        <div id='div64'>
+            <img id='img64' class='img'>
+            <span id='word64' class='showwords'></span>
+        </div>
+
+    </div>
+
+    <img class='sunshine' src='{$skinurl}skin/summer/3.png'>
+
+    <img id='word1' src='{$skinurl}skin/summer/summer.png'>
+    <img id='word2' src='{$skinurl}skin/summer/xiatian.png'>
+</div>
+
+<script>
+
+    function id(name)
+    {
+        return document.getElementById(name);
+    }
+    call_me(load_images)
+
+    function showtitle()
+    {
+
+        id('word1').style.webkitAnimation = 'fadefromleft 2s ease-out both';
+        id('word2').style.webkitAnimation = 'fadefromright 2s ease-out both';
+        id('pagetitle').style.webkitAnimation = 'title_in 2s ease-out both';
+        id('titlecontent').innerHTML = e_title;
+
+        // setTimeout(distitle,3000)
+
+    }
+
+    function kuxuan()
+    {
+        id('pagetitle').style.webkitAnimation = 'title_out 1s linear both';
+
+        timeout[1] = setTimeout(show1,1000)
+    }
+
+    function show1()
+    {
+        id('pagediv6').style.display = 'none';
+        setImage('11','no');
+        setImage('12','no');
+        id('pagediv1').style.display = 'block';
+        id('div11v').style.webkitAnimation = 'div11_in 1.5s ease-out both';
+        id('div12v').style.webkitAnimation = 'div12_in 1.5s ease-out both';
+        id('div11h').style.webkitAnimation = 'div11_in 1.5s ease-out both';
+        id('div12h').style.webkitAnimation = 'div12_in 1.5s ease-out both';
+
+        timeout[2] = setTimeout(clear1,6000)
+    }
+
+    function clear1()
+    {
+        id('div11v').style.webkitAnimation = 'div11_out 1.5s ease-in both';
+        id('div12v').style.webkitAnimation = 'div12_out 1.5s ease-in both';
+        id('div11h').style.webkitAnimation = 'div11_out 1.5s ease-in both';
+        id('div12h').style.webkitAnimation = 'div12_out 1.5s ease-in both';
+
+        clearTimeout(timeout[2]);
+
+        timeout[3] = setTimeout(show2, 2000)
+    }
+
+    function show2()
+    {
+        setImage('21','no');
+        setImage('22','no');
+        id('pagediv1').style.display = 'none';
+        id('pagediv2').style.display = 'block';
+        id('div21v').style.webkitAnimation = 'div21_in 1.5s ease-out both';
+        id('div22v').style.webkitAnimation = 'div22_in 1.5s ease-out both';
+        id('div21h').style.webkitAnimation = 'div21_in 1.5s ease-out both';
+        id('div22h').style.webkitAnimation = 'div22_in 1.5s ease-out both';
+
+        clearTimeout(timeout[3]);
+
+        timeout[4] = setTimeout(clear2, 6000)
+    }
+
+    function clear2()
+    {
+        id('div21h').style.webkitAnimation = 'div21_out 1.5s ease-in both';
+        id('div22h').style.webkitAnimation = 'div22_out 1.5s ease-in both';
+        id('div21v').style.webkitAnimation = 'div21_out 1.5s ease-in both';
+        id('div22v').style.webkitAnimation = 'div22_out 1.5s ease-in both';
+
+        clearTimeout(timeout[4]);
+
+        timeout[5] = setTimeout(show3,2000)
+    }
+
+    function show3()
+    {
+        setImage('31','no');
+        setImage('32','no');
+        id('pagediv2').style.display = 'none';
+        id('pagediv3').style.display = 'block';
+        id('div31h').style.webkitAnimation = 'div31_in 1.5s ease-out both';
+        id('div32h').style.webkitAnimation = 'div32_in 1.5s ease-out both';
+        id('div31v').style.webkitAnimation = 'div31_in 1.5s ease-out both';
+        id('div32v').style.webkitAnimation = 'div32_in 1.5s ease-out both';
+
+        clearTimeout(timeout[5]);
+
+        timeout[6] = setTimeout(clear3,6000)
+    }
+
+    function clear3()
+    {
+        id('div31h').style.webkitAnimation = 'div31_out 1.5s ease-in both';
+        id('div32h').style.webkitAnimation = 'div32_out 1.5s ease-in both';
+        id('div31v').style.webkitAnimation = 'div31_out 1.5s ease-in both';
+        id('div32v').style.webkitAnimation = 'div32_out 1.5s ease-in both';
+
+        clearTimeout(timeout[6]);
+
+        timeout[7] = setTimeout(show4,2000)
+    }
+
+    function show4()
+    {
+        setImage('4','no');
+        id('pagediv3').style.display = 'none';
+        id('pagediv4').style.display = 'block';
+        id('div4v').style.webkitAnimation = 'div4_in 1.5s ease both';
+        id('div4h').style.webkitAnimation = 'div4_in 1.5s ease both';
+
+        clearTimeout(timeout[7]);
+
+        timeout[8] = setTimeout(clear4,6000)
+    }
+
+    function clear4()
+    {
+        id('div4v').style.webkitAnimation = 'div4_out 1.5s ease both';
+        id('div4h').style.webkitAnimation = 'div4_out 1.5s ease both';
+
+        clearTimeout(timeout[8]);
+
+        timeout[9] = setTimeout(show5,2000)
+    }
+
+    function show5()
+    {
+        setImage('51','no');
+        setImage('52','no');
+        setImage('53','no');
+        id('pagediv4').style.display = 'none';
+        id('pagediv5').style.display = 'block';
+        id('div51h').style.webkitAnimation = 'div51_in 1.5s ease-out both';
+        id('div52h').style.webkitAnimation = 'div52_in 1.5s 0.3s ease-out both';
+        id('div53h').style.webkitAnimation = 'div53_in 1.5s 0.6s ease-out both';
+        id('div51v').style.webkitAnimation = 'div51_in 1.5s ease-out both';
+        id('div52v').style.webkitAnimation = 'div52_in 1.5s 0.3s ease-out both';
+        id('div53v').style.webkitAnimation = 'div53_in 1.5s 0.6s ease-out both';
+
+        clearTimeout(timeout[9]);
+
+        timeout[10] = setTimeout(clear5,7000)
+    }
+
+    function clear5 ()
+    {
+        id('div51h').style.webkitAnimation = 'div51_out 1.5s 0.6s ease-in both';
+        id('div52h').style.webkitAnimation = 'div52_out 1.5s 0.3s ease-in both';
+        id('div53h').style.webkitAnimation = 'div53_out 1.5s ease-in both';
+        id('div51v').style.webkitAnimation = 'div51_out 1.5s 0.6s ease-in both';
+        id('div52v').style.webkitAnimation = 'div52_out 1.5s 0.3s ease-in both';
+        id('div53v').style.webkitAnimation = 'div53_out 1.5s ease-in both';
+        id('img61h').style.webkitAnimation = '';
+
+        clearTimeout(timeout[10]);
+
+        timeout[11] = setTimeout(show6,2600)
+    }
+
+    function show6 ()
+    {
+        setImage('61','yes');
+        setImage('62','yes');
+        setImage('63','yes');
+        setImage('64','yes');
+        id('pagediv6').style.display = 'block';
+        id('pagediv5').style.display = 'none';
+        id('div61').style.webkitAnimation = 'fadein 1s linear both';
+        id('img61h').style.webkitAnimation = 'div61_in 9.5s linear both';
+        id('div62').style.webkitAnimation = 'fadein 1s 0.5s linear both';
+        id('div63').style.webkitAnimation = 'fadein 1s 1.5s linear both';
+        id('div64').style.webkitAnimation = 'fadein 1s 1s linear both';
+
+        clearTimeout(timeout[11]);
+
+        timeout[12] = setTimeout(clear6,8000)
+    }
+
+    function clear6()
+    {
+        id('div61').style.webkitAnimation = 'fadeout 1s 1s linear both';
+        id('div62').style.webkitAnimation = 'fadeout 1s linear both';
+        id('div63').style.webkitAnimation = 'fadeout 1s 1s linear both';
+        id('div64').style.webkitAnimation = 'fadeout 1s 0.5s linear both';
+
+        clearTimeout(timeout[12]);
+
+        timeout[13] = setTimeout(show1,2500)
+    }
+    //每次执行加载后7张图片
+    var bl_keepload = 'first';
+    var step_loadnum = 7;
+    function step_load()
+    {
+        var load_num = 0
+        //初步加载X张
+        if(image_url_index  == 0 && bl_keepload == 'first')
+        {
+            // console.log('loading continue');
+            if(slider_images_url.length > step_loadnum)
+            {
+                load_num = step_loadnum;
+                bl_keepload = 'next';
+            }
+            else
+            {
+                load_num = slider_images_url.length;
+                bl_keepload = 'end';
+            }
+            for(var i = 0; i< load_num; i++)
+            {
+                var img=new Image();
+                img.index=i;
+                img.src=slider_images_url[i];
+                img.onload=image_onload;
+                img.onerror= image_onerror;
+                Onload_imgs_url[i] = 'loading';
+            }
+        }
+        else if(bl_keepload == 'end')
+        {
+            return;
+        }
+        else
+        {
+            // console.log('loading continue');
+            if(slider_images_url.length - image_url_index >step_loadnum*2)
+            {
+                load_num = step_loadnum;
+            }
+            else
+            {
+                load_num = slider_images_url.length - image_url_index - step_loadnum;
+                bl_keepload = 'end';
+            }
+            for(var i = image_url_index +step_loadnum; i< image_url_index + step_loadnum + load_num; i++)
+            {
+                var img=new Image();
+                img.index=i;
+                img.src=slider_images_url[i];
+                img.onload=image_onload;
+                img.onerror= image_onerror;
+                Onload_imgs_url[i] = 'loading';
+            }
+        }
+    }
+    var image_size_width=[];
+    var image_size_height=[];
+    var image_url_index=0;
+    var have_num = 0;
+    var error_num = 0;
+    var canshow = true;
+    var reshow = false;
+    var delaytime=4000;
+    var timeout = [];
+
+    function load_images()
+    {
+        reshow = false;
+        image_size_width=[];
+        image_size_height=[];
+        Onload_imgs_url=[];
+        image_url_index=0;
+        have_num = 0;
+        error_num = 0;
+        begin_titletime = new Date();
+        begin_titletime = begin_titletime.getTime();
+        canshow = true;
+        showtitle();
+        bl_keepload = 'first';
+        step_load();
+    }
+
+    function image_onerror(event)
+    {
+        var img = event.target;
+        var index = img.index;
+        if(index<step_loadnum)
+            error_num ++;
+        Onload_imgs_url[index] = 'not find';
+
+        if((have_num+error_num >= step_loadnum || slider_images_url.length == (have_num+error_num)) && canshow == true)
+        {
+            reshow = false;
+            canshow =false;
+            if(have_num == 0)
+                return;
+            var end_titletime = new Date();
+            end_titletime = end_titletime.getTime();
+            var dis_titletime = Math.abs(end_titletime-begin_titletime);
+            if(dis_titletime>delaytime)
+            {
+                kuxuan();
+            }
+            else
+            {
+                dis_titletime = delaytime- dis_titletime;
+                timeout[0] = setTimeout(function()
+                {
+                    kuxuan();
+                },dis_titletime);
+            }
+        }
+    }
+
+    function image_onload(event)
+    {
+        if(reshow == true)
+            return;
+
+        var img = event.target;
+        var index = img.index;
+
+        if(index<step_loadnum)
+        {
+            have_num++;
+        }
+        Onload_imgs_url[index] = img.src;
+        image_size_height[index] = img.height;
+        image_size_width[index] = img.width;
+
+        // console.log(Onload_imgs_url[index]);
+
+        if((have_num + error_num >= step_loadnum ||slider_images_url.length == (have_num+error_num)) && canshow == true)
+        {
+            reshow = false;
+            canshow =false;
+            if(have_num == 0)
+                return;
+            var end_titletime = new Date();
+            end_titletime = end_titletime.getTime();
+            var dis_titletime = Math.abs(end_titletime-begin_titletime);
+            if(dis_titletime>delaytime)
+            {
+                kuxuan();
+            }
+            else
+            {
+                dis_titletime = delaytime- dis_titletime;
+                timeout[0] = setTimeout(function()
+                {
+                    kuxuan();
+                },dis_titletime);
+            }
+
+        }
+    }
+    var divwidth  = {'11h':300,'11v':235,'12h':336,'12v':250,'21h':224,'21v':210,'22h':336,'22v':219,'31h':282,'31v':226,'32h':320,'32v':232,'4h':430,'4v':340,'51h':225,'51v':200,'52h':225,'52v':200,'53h':307,'53v':240,'61v':260,'61h':600,'62':180,'63':180,'64':180};
+    var divheight = {'11h':212,'11v':311,'12h':240,'12v':336,'21h':188,'21v':324,'22h':240,'22v':398,'31h':212,'31v':297,'32h':240,'32v':298,'4h':305,'4v':480,'51h':212,'51v':255,'52h':212,'52v':255,'53h':212,'53v':289,'61v':439,'61h':439,'62':150,'63':150,'64':150};
+
+    function insertEnter(str,n){
+        var len = str.length;
+        var strTemp = '';
+        if(len > n){
+            strTemp = str.substring(0,n);
+            str = str.substring(n,len);
+            return strTemp+'\n'+str;
+        }else{
+            return str;
+        }
+    }
+
+    function setImage(idname,type)
+    {
+        console.log('输出结果:' +idname+'---'+type)
+        if(reshow == true)
+            return;
+
+        while(Onload_imgs_url[image_url_index] == 'not find' || Onload_imgs_url[image_url_index] == 'loading')
+        {
+            if(image_url_index % step_loadnum == 0)
+            {
+                step_load();
+            }
+            image_url_index++;
+            if(image_url_index == Onload_imgs_url.length)
+                image_url_index = 0;
+        }
+
+        if(image_url_index % step_loadnum == 0)
+        {
+            step_load();
+        }
+        var img_bili = image_size_width[image_url_index]/image_size_height[image_url_index];
+
+        var div;
+        var div1;
+        var img;
+
+        if(type == 'yes')
+        {
+            var word61v;
+            var word61h;
+            if(idname == '61')
+            {
+                if(img_bili > 1)
+                {
+                    idname = idname + 'h';
+                    id('img61h').style.display = 'block';
+                    id('img61v').style.display = 'none';
+                    word61v = id('word61v');
+                    word61v.style.display = "none";
+
+                    word61h = id('word61h');
+                    word61h.style.display = "block";
+
+                }
+                else
+                {
+                    idname = idname + 'v';
+                    id('img61v').style.display = 'block';
+                    id('img61h').style.display = 'none';
+                    word61v = id('word61v');
+                    word61v.style.display = "block";
+
+                    word61h = id('word61h');
+                    word61h.style.display = "none";
+
+                }
+            }
+            var word = id('word'+idname);
+            var word_string = words[get_pid(Onload_imgs_url[image_url_index])];
+            if(word_string != undefined)
+            {
+                console.log(Onload_imgs_url[image_url_index]);
+                console.log(word_string);
+                console.log(idname);
+                word_string = word_string.replace(/[\n]/ig,'');
+                var word_length = word_string.length;
+                if(word_length < 6)
+                    word.style.fontSize = "18px";
+                else
+                {
+                    if(word_length > 8)
+                        word_string = insertEnter(word_string, 8);
+                    word.style.fontSize = "15px";
+                }
+
+                word.innerText = word_string;
+
+            }else{
+                word.innerText = "";
+            }
+
+        }
+        else
+        {
+            if(img_bili > 1)
+            {
+                div = id('div'+idname + 'h');
+                div1 = id('div'+idname + 'v');
+                idname = idname + 'h';
+            }
+            else
+            {
+                div = id('div'+idname + 'v');
+                div1 = id('div'+idname + 'h');
+                idname = idname + 'v';
+            }
+
+            div.style.display = 'block';
+            div1.style.display = 'none';
+
+            var word = id('word'+idname);
+            var word_string = words[get_pid(Onload_imgs_url[image_url_index])];
+            if(word_string != undefined)
+            {
+                word_string = word_string.replace(/[\n]/ig,'');
+                var word_length = word_string.length;
+                if(word_length < 6)
+                    word.style.fontSize = "18px";
+                else
+                {
+                    if(word_length > 10)
+                        word_string = insertEnter(word_string, 8);
+                    word.style.fontSize = "15px";
+                }
+
+                word.innerText = word_string;
+
+            }else{
+                word.innerText = "";
+            }
+        }
+
+
+        var height = divheight[idname];
+        var width = divwidth[idname];
+
+        var img = id('img'+idname);
+        img.src = Onload_imgs_url[image_url_index];
+        // console.log('setimg:'+img.src);
+
+        if(img_bili > (width/height))
+        {
+            img.style.top = '0px';
+            img.style.height = height + 'px';
+            img.style.width = height*img_bili + 'px';
+            img.style.left = -((height*img_bili-width)/2)+'px';
+        }
+        else
+        {
+            img.style.left = '0px';
+            img.style.width = width+'px';
+            img.style.height = width/img_bili + 'px';
+            img.style.top = -((width/img_bili-height)/2) + 'px';
+        }
+        image_url_index ++;
+        if(image_url_index == Onload_imgs_url.length)
+            image_url_index = 0;
+    }
+
+    function reload_scene()
+    {
+        clearnode();
+        reshow = true;
+        setTimeout(load_images,100);
+    }
+
+    function clearnode()
+    {
+
+        for(var i = 0; i<timeout.length; i++)
+        {
+            clearTimeout(timeout[i])
+        }
+
+        id('pagediv1').style.display = 'none';
+        id('pagediv2').style.display = 'none';
+        id('pagediv3').style.display = 'none';
+        id('pagediv4').style.display = 'none';
+        id('pagediv5').style.display = 'none';
+        id('pagediv6').style.display = 'none';
+
+        id('word1').style.webkitAnimation = 'fadefromleft 2s ease-out both';
+        id('word2').style.webkitAnimation = 'fadefromright 2s ease-out both';
+        id('pagetitle').style.webkitAnimation = 'title_in 2s ease-out both';
+        id('img61h').style.webkitAnimation = '';
+
+    }
+</script>
+<!--模板结束-->

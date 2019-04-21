@@ -1,0 +1,2058 @@
+<!--模板开始-->
+<style type="text/css">
+    * {
+        padding: 0px;
+        margin: 0px;
+        -webkit-box-sizing: border-box
+    }
+
+    body {
+        background-color: white
+    }
+
+    #container {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 500px;
+        height: 815px;
+        overflow: hidden;
+    }
+    #container > img,#container > div {
+        position: absolute;
+    }
+
+    .abs{position:absolute;}
+
+    #bg1{
+        position: absolute;
+        top: 0px;
+        left:0px;
+        -webkit-animation: bg1 12.5s linear both;
+    }
+    #bg2{
+        position: absolute;
+        top: 0px;
+        left: 879px;
+        -webkit-transform: rotateY(180deg);
+        -webkit-animation: bg2 25s linear infinite both;
+    }
+    #bg3{
+        position: absolute;
+        top: 0px;
+        left: 878px;
+        -webkit-animation: bg3 25s 12.5s linear infinite both;
+    }
+
+    #shu1 {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        opacity: 0;
+    }
+
+    #cao {
+        position: absolute;
+        top: 690px;
+        left: 0px;
+        opacity: 0;
+    }
+    #daocaoren {
+        position: absolute;
+        top: 624px;
+        right: 20px;
+        opacity: 0;
+    }
+    #daocaoren_img {
+        -webkit-transform-origin: bottom;
+        -webkit-animation: rotate_r 2s ease-out infinite alternate both;
+    }
+    #fengche {
+        position: absolute;
+        top: 660px;
+        left: 46px;
+        opacity: 0;
+    }
+    #fengche_img {
+        position: absolute;
+        top: -55px;
+        left: -32px;
+        -webkit-animation: fengche_img 8s linear infinite both;
+    }
+    #feng {
+        position: absolute;
+        top: 708px;
+        left: 136px;
+        opacity: 0;
+    }
+    #feng_img {
+        -webkit-transform-origin: bottom;
+        -webkit-animation: rotate_r 1s ease-out infinite alternate both;
+    }
+    #shou {
+        position: absolute;
+        top: 733px;
+        left: 167px;
+        opacity: 0;
+    }
+    #shou_img {
+        -webkit-transform-origin: bottom;
+        -webkit-animation: rotate_l 1.6s ease-out infinite alternate both;
+    }
+    #ji {
+        position: absolute;
+        top: 720px;
+        left: 203px;
+        opacity: 0;
+    }
+    #ji_img {
+        -webkit-transform-origin: bottom;
+        -webkit-animation: rotate_r 1.9s ease-out infinite alternate both;
+    }
+    #jin {
+        position: absolute;
+        top: 730px;
+        left: 245px;
+        opacity: 0;
+    }
+    #jin_img {
+        -webkit-transform-origin: bottom;
+        -webkit-animation: rotate_l 1.2s ease-out infinite alternate both;
+    }
+    #wan {
+        position: absolute;
+        top: 718px;
+        left: 277px;
+        opacity: 0;
+    }
+    #wan_img {
+        -webkit-transform-origin: bottom;
+        -webkit-animation: rotate_r 2.5s ease-out infinite alternate both;
+    }
+    #li {
+        position: absolute;
+        top: 726px;
+        left: 320px;
+        opacity: 0;
+    }
+    #li_img {
+        -webkit-transform-origin: bottom;
+        -webkit-animation: rotate_r 1.3s ease-out infinite alternate both;
+    }
+
+    #luoye007 {
+        position: absolute;
+        top: 20px;
+        left: -20px;
+        -webkit-animation: luoye007 2.5s ease-out infinite both;
+    }
+    #luoye006 {
+        position: absolute;
+        top: 12px;
+        left: 20px;
+        -webkit-animation: luoye006 3s 0.5s ease-out infinite both;
+    }
+    #luoye06 {
+        position: absolute;
+        top: 18px;
+        left: 220px;
+        -webkit-animation: luoye007 4.2s 1.4s ease-out infinite both;
+    }
+    #luoye01 {
+        position: absolute;
+        top: -20px;
+        left: 100px;
+        -webkit-animation: luoye007 3.5s 2.1s ease-out infinite both;
+    }
+
+    #fengye {
+        position: absolute;
+        top: 50px;
+        right: 80px;
+        -webkit-transform: scale(0) rotate(108deg);
+    }
+    #pagetitle {
+        position: absolute;
+        width: 341px;
+        height: 257px;
+        left:79.5px;
+        top:279px;
+        /*opacity: 0;*/
+    }
+
+    .titletable {
+        position: absolute;
+        width: 300px;
+        /*height: 100px;*/
+        top: 107px;
+        left: 20.5px;
+        display: table;
+    }
+    #titlecontent {
+        /*vertical-align:middle;
+        display:table-cell;*/
+        text-align:center;
+        font-size:22px;
+        line-height:33px;
+        color:#E6953D;
+    }
+    #title_bg1 {
+        position: absolute;
+        top: 0;
+        left: 0%;
+        width: 25%;
+        height: 100%;
+        background-image: url({$skinurl}skin/qiutian1/title_bg.png);
+        background-position: 0px 0px;
+        opacity: 0;
+    }
+    #title_bg2 {
+        position: absolute;
+        top: 0;
+        left: 25%;
+        width: 25%;
+        height: 100%;
+        background-image: url({$skinurl}skin/qiutian1/title_bg.png);
+        background-position: -85.25px 0px;
+        opacity: 0;
+    }
+    #title_bg3 {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 25%;
+        height: 100%;
+        background-image: url({$skinurl}skin/qiutian1/title_bg.png);
+        background-position: -170.5px 0px;
+        opacity: 0;
+    }
+    #title_bg4 {
+        position: absolute;
+        top: 0;
+        left: 75%;
+        width: 25%;
+        height: 100%;
+        background-image: url({$skinurl}skin/qiutian1/title_bg.png);
+        background-position: -255.75px 0px;
+        opacity: 0;
+    }
+
+    .title_div {
+        /*display: inline-block;*/
+        width: 22px;
+        display: none;
+        opacity: 0;
+    }
+    .title_div div:first-child {
+        position: absolute;
+        top:0px;
+    }
+    .title_div div:nth-child(2) {
+        position: absolute;
+        top:35px;
+    }
+    .title_div div:nth-child(3) {
+        position: absolute;
+        top:70px;
+    }
+
+
+    #shu2 {
+        position: absolute;
+        top: 0px;
+        left: -30px;
+        opacity: 0;
+    }
+    #shu2_img {
+        -webkit-animation: translate_up 2.7s ease-out infinite alternate both;
+    }
+    #shu3 {
+        position: absolute;
+        top: 110px;
+        left: -105px;
+        opacity: 0;
+    }
+    #shu3_img {
+        -webkit-transform-origin:0% 50%;
+        -webkit-animation: rotate_r 2.6s ease-out infinite alternate both;
+    }
+    #shu4 {
+        position: absolute;
+        top: 35px;
+        left: 0px;
+        opacity: 0;
+    }
+    #shu4_img {
+        -webkit-transform-origin:0% 50%;
+        -webkit-animation: rotate_l 2.6s ease-out infinite alternate both;
+    }
+    #shu5 {
+        position: absolute;
+        top: 0px;
+        right: -50px;
+        opacity: 0;
+    }
+    #shu5_img {
+        -webkit-transform-origin:100% 100%;
+        -webkit-animation: rotate_l 2.5s ease-out infinite alternate both;
+    }
+
+    #cao2 {
+        position: absolute;
+        top: 714px;
+        left: 0;
+        opacity: 0;
+    }
+    #nvhai {
+        position: absolute;
+        top: 700px;
+        left: 40px;
+        opacity: 0;
+
+    }
+    #fugy1 {
+        position: absolute;
+        top: -12px;
+        left: -4px;
+        -webkit-transform: scale(.4);
+    }
+
+    #xiao1 {
+        position: absolute;
+        top: 715px;
+        left: 236px;
+        opacity: 0;
+    }
+    #xiao1_img {
+        -webkit-transform-origin: bottom;
+        -webkit-animation: translate_up 1.6s ease-out infinite alternate both;
+    }
+    #xiao2 {
+        position: absolute;
+        top: 694px;
+        left: 267px;
+        opacity: 0;
+    }
+    #xiao2_img {
+        -webkit-transform-origin: bottom;
+        -webkit-animation: translate_down 2.5s ease-out infinite alternate both;
+    }
+    #yu {
+        position: absolute;
+        top: 716px;
+        left: 303px;
+        opacity: 0;
+    }
+    #yu_img {
+        -webkit-transform-origin: bottom;
+        -webkit-animation: translate_up 2s ease-out infinite alternate both;
+    }
+    #ye {
+        position: absolute;
+        top: 700px;
+        left: 345px;
+        opacity: 0;
+    }
+    #ye_img {
+        -webkit-transform-origin: bottom;
+        -webkit-animation: translate_up 1.2s ease-out infinite alternate both;
+    }
+
+    #zhi {
+        position: absolute;
+        top: 710px;
+        left: 382px;
+        opacity: 0;
+    }
+    #zhi_img {
+        -webkit-transform-origin: bottom;
+        -webkit-animation: translate_up 1.8s ease-out infinite alternate both;
+    }
+    #qiu1 {
+        position: absolute;
+        top: 685px;
+        left: 420px;
+        opacity: 0;
+    }
+    #qiu1_img {
+        -webkit-transform-origin: bottom;
+        -webkit-animation: translate_down 2.0s ease-out infinite alternate both;
+    }
+
+    #fugy2 {
+        position: absolute;
+        top: 300px;
+        left: -50px;
+    }
+    #fugy3 {
+        position: absolute;
+        top: 500px;
+        left: -50px;
+    }
+    #fugy4 {
+        position: absolute;
+        top: 600px;
+        left: -50px;
+    }
+
+    .dayan {
+        position: absolute;
+        -webkit-transform: scale(.3);
+    }
+    .yanchi02{
+        position: absolute;
+        top: -20px;
+        left: 31px;
+        -webkit-transform-origin: bottom;
+        -webkit-animation: yanchi01 0.2s linear infinite alternate both;
+    }
+    .yanchi01{
+        position: absolute;
+        top: -31px;
+        left: 45px;
+        -webkit-transform-origin: bottom;
+        -webkit-animation: yanchi01 0.2s linear infinite alternate both;
+    }
+
+    #dayan_ctn {
+        position: absolute;
+        top: 250px;
+        right: -300px;
+        width: 230px;
+        height: 136px;
+
+    }
+
+    #dayan1 {
+        position: absolute;
+        top: 42px;
+        left: 30px;
+    }
+    #dayan2 {
+        position: absolute;
+        top: 45px;
+        left: 80px;
+    }
+    #dayan3 {
+        position: absolute;
+        top: 50px;
+        left: 120px;
+    }
+    #dayan4 {
+        position: absolute;
+        top: 55px;
+        left: 160px;
+    }
+    #dayan5 {
+        position: absolute;
+        top: 40px;
+        left: -20px;
+    }
+    #dayan6 {
+        position: absolute;
+        top: 60px;
+        left: 0px;
+    }
+    #dayan7 {
+        position: absolute;
+        top: 70px;
+        left: 30px;
+    }
+    #dayan8 {
+        position: absolute;
+        top: 80px;
+        left: 60px;
+    }
+    #dayan9 {
+        position: absolute;
+        top: 90px;
+        left: 90px;
+    }
+    #dayan10 {
+        position: absolute;
+        top: 100px;
+        left: 120px;
+    }
+
+    #qiu2 {
+        position: absolute;
+        top: 45px;
+        left: 235px;
+        opacity: 0;
+    }
+    #qiu2_img {
+        -webkit-transform-origin: top;
+        -webkit-animation: rotate_r 0.8s ease-out infinite alternate both;
+    }
+    #se {
+        position: absolute;
+        top: 0px;
+        left: 275px;
+        opacity: 0;
+    }
+    #se_img {
+        -webkit-transform-origin: top;
+        -webkit-animation: rotate_l 1.5s ease-out infinite alternate both;
+    }
+    #ran {
+        position: absolute;
+        top: 15px;
+        left: 303px;
+        opacity: 0;
+    }
+    #ran_img {
+        -webkit-transform-origin: top;
+        -webkit-animation: rotate_r 1.4s ease-out infinite alternate both;
+    }
+    #ye2 {
+        position: absolute;
+        top: 5px;
+        left: 340px;
+        opacity: 0;
+    }
+    #ye2_img {
+        -webkit-transform-origin: top;
+        -webkit-animation: rotate_r 1.6s ease-out infinite alternate both;
+    }
+
+    #yan {
+        position: absolute;
+        top: 6px;
+        left: 382px;
+        opacity: 0;
+    }
+    #yan_img {
+        -webkit-transform-origin: top;
+        -webkit-animation: rotate_r 0.8s ease-out infinite alternate both;
+    }
+    #ru {
+        position: absolute;
+        top: 7px;
+        left: 420px;
+        opacity: 0;
+    }
+    #ru_img {
+        -webkit-transform-origin: top;
+        -webkit-animation: rotate_l 1.2s ease-out infinite alternate both;
+    }
+    #hua {
+        position: absolute;
+        top: 0px;
+        left: 455px;
+        opacity: 0;
+    }
+    #hua_img {
+        -webkit-transform-origin: top;
+        -webkit-animation: rotate_r 1s ease-out infinite alternate both;
+    }
+
+    #yezi1 {
+        position: absolute;
+        top: -20px;
+        left: 100px;
+    }
+    #yezi2 {
+        position: absolute;
+        top: -80px;
+        left: 120px;
+    }
+
+    #jianguo {
+        position: absolute;
+        top: -20px;
+        left: 200px;
+    }
+
+    #shu31 {
+        position: absolute;
+        top: -20px;
+        left: -15px;
+        opacity: 0;
+    }
+
+    #shu31_img {
+        -webkit-animation: translate_down 1s linear infinite alternate both;
+    }
+    #shu32 {
+        position: absolute;
+        top: -15px;
+        left: 100px;
+        opacity: 0;
+    }
+    #shu32_img {
+        -webkit-animation: translate_up 1s linear infinite alternate both;
+    }
+    #shu33 {
+        position: absolute;
+        top: -20px;
+        left: 200px;
+        opacity: 0;
+    }
+    #shu33_img {
+        -webkit-animation: translate_down 1s linear infinite alternate both;
+    }
+    #shu34 {
+        position: absolute;
+        top: -20px;
+        left: 300px;
+        opacity: 0;
+    }
+    #shu34_img {
+        -webkit-animation: translate_up 1s linear infinite alternate both;
+    }
+    #shu35 {
+        position: absolute;
+        top: -25px;
+        left: 400px;
+        opacity: 0;
+    }
+    #shu35_img {
+        -webkit-animation: translate_down 1s linear infinite alternate both;
+    }
+
+
+
+    #shu36 {
+        position: absolute;
+        top: 600px;
+        left: -30px;
+        opacity: 0;
+    }
+    #shu36_img {
+        -webkit-animation: translate_down 1.6s ease-out infinite alternate both;
+    }
+
+    #shu37 {
+        position: absolute;
+        top: 740px;
+        left: 50px;
+        opacity: 0;
+    }
+    #shu37_img {
+        -webkit-animation: translate_down 1.6s ease-out infinite alternate both;
+    }
+    #shu38 {
+        position: absolute;
+        top: 708px;
+        left: 150px;
+        opacity: 0;
+    }
+    #shu38_img {
+        -webkit-animation: translate_down 2s ease-out infinite alternate both;
+    }
+    #shu39 {
+        position: absolute;
+        top: 740px;
+        left: 240px;
+        opacity: 0;
+    }
+    #shu39_img {
+        -webkit-animation: translate_down 1s ease-out infinite alternate both;
+    }
+
+    #shu40 {
+        position: absolute;
+        top: 708px;
+        left: 305px;
+        opacity: 0;
+    }
+    #shu40_img {
+        -webkit-animation: translate_down 1.8s ease-out infinite alternate both;
+    }
+    #shu41 {
+        position: absolute;
+        top: 724px;
+        left: 344px;
+        opacity: 0;
+    }
+    #shu41_img {
+        -webkit-animation: translate_down 2.3s ease-out infinite alternate both;
+    }
+
+    #shu42 {
+        position: absolute;
+        top: 540px;
+        right: -30px;
+        opacity: 0;
+    }
+    #shu42_img {
+        -webkit-animation: translate_down 1.4s ease-out infinite alternate both;
+    }
+
+
+</style>
+<style type="text/css">
+    @-webkit-keyframes fengche_img
+    {
+        0%  {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(-360deg);
+        }
+    }
+
+    @-webkit-keyframes translate_up
+    {
+        0%  {
+            -webkit-transform: translateY(0px);
+        }
+        100%  {
+            -webkit-transform: translateY(-10px);
+        }
+    }
+    @-webkit-keyframes translate_down
+    {
+        0%  {
+            -webkit-transform: translateY(0px);
+        }
+        100%  {
+            -webkit-transform: translateY(10px);
+        }
+    }
+    @-webkit-keyframes rotate_l
+    {
+        0%  {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(-4deg);
+        }
+    }
+    @-webkit-keyframes rotate_r
+    {
+        0%  {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(4deg);
+        }
+    }
+    @-webkit-keyframes luoye006
+    {
+        0%  {
+            -webkit-transform: translate(0px,0px);
+            opacity: 0;
+        }
+        10% {
+            opacity: 1;
+        }
+        90% {
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translate(-80px,80px);
+            opacity: 0;
+        }
+    }
+    @-webkit-keyframes luoye007
+    {
+        0%  {
+            -webkit-transform: translate(0px,0px);
+            opacity: 0;
+        }
+        10% {
+            opacity: 1;
+        }
+        90% {
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translate(-100px,80px);
+            opacity: 0;
+        }
+    }
+    @-webkit-keyframes bg1
+    {
+        0%  {
+            -webkit-transform: translateX(0px);
+        }
+        100% {
+            -webkit-transform: translateX(-881px);
+        }
+    }
+    @-webkit-keyframes bg2
+    {
+        0%  {
+            -webkit-transform: translateX(0px) rotateY(180deg);
+        }
+        100% {
+            -webkit-transform: translateX(-1758px) rotateY(180deg);
+        }
+    }
+    @-webkit-keyframes bg3
+    {
+        0%  {
+            -webkit-transform: translateX(0px);
+        }
+        100% {
+            -webkit-transform: translateX(-1756px);
+        }
+    }
+    @-webkit-keyframes title_bg1_in
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: scaleY(.5);
+        }
+        75%  {
+            opacity: 1;
+            -webkit-transform: scaleY(1.1);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: scaleY(1);
+        }
+    }
+    @-webkit-keyframes title_bg1_out
+    {
+        0%  {
+            opacity: 1;
+            -webkit-transform: scaleY(1);
+        }
+        25%  {
+            opacity: 1;
+            -webkit-transform: scaleY(1.1);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: scaleY(0.5);
+        }
+    }
+
+    @-webkit-keyframes fengye
+    {
+        0%  {
+            -webkit-transform: translate(0px,0px) scale(0) rotate(108deg);
+        }
+        40%  {
+            -webkit-transform: translate(-300px,300px) scale(0.8) rotate(50deg);
+        }
+        100% {
+            -webkit-transform: translate(200px,600px) scale(1.5) rotate(0deg);
+        }
+    }
+    @-webkit-keyframes fadein
+    {
+        0%  {opacity: 0}
+        100%    {opacity: 1}
+    }
+    @-webkit-keyframes fadeout
+    {
+        0%  {opacity: 1}
+        100%    {opacity: 0}
+    }
+
+
+    @-webkit-keyframes fugy2
+    {
+        0%  {
+            -webkit-transform: translate(0px,0px);
+        }
+        100% {
+            -webkit-transform: translate(600px,-400px);
+        }
+    }
+    @-webkit-keyframes fugy3
+    {
+        0%  {
+            -webkit-transform: translate(0px,0px);
+        }
+        100% {
+            -webkit-transform: translate(600px,-600px);
+        }
+    }
+
+    @-webkit-keyframes dayan_ctn
+    {
+        0%  {
+            -webkit-transform: translate(0px,0px) rotate(0deg);
+        }
+        100% {
+            -webkit-transform: translate(-800px,-400px) rotate(0deg);
+        }
+    }
+    @-webkit-keyframes yanchi01
+    {
+        0%  {
+            -webkit-transform: rotateX(0deg);
+        }
+        100% {
+            -webkit-transform: rotateX(-127deg);
+        }
+    }
+
+    @-webkit-keyframes yezi1
+    {
+        0%  {
+            -webkit-transform: translate(0px,0px) rotate(0deg);
+            opacity: 1;
+        }
+        95% {
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translate(5px,500px) rotate(60deg);
+            opacity: 0;
+        }
+    }
+    @-webkit-keyframes jianguo
+    {
+        0%  {
+            -webkit-transform: translate(0px,0px) rotate(0deg);
+            opacity: 1;
+        }
+        95% {
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translate(20px,600px) rotate(90deg);
+            opacity: 0;
+        }
+    }
+
+    @-webkit-keyframes updownIn
+    {
+        0%  {
+            -webkit-transform: translate(0px,30px);
+            opacity: 0;
+        }
+        92% {
+            opacity: 1;
+            -webkit-transform: translate(0px,-3px);
+        }
+        100% {
+            -webkit-transform: translate(0px,0px);
+            opacity: 1;
+        }
+    }
+
+    .page_ctn {
+        position: absolute;
+        left: 40px;
+
+
+        /*opacity: 0;*/
+
+    }
+    .page {
+        position: absolute;
+        opacity: 0;
+    }
+    .showwords {
+        font-size: 18px;
+        color: white;
+        position: absolute;
+        z-index: 1;
+        bottom: 20px;
+        left: 15%;
+        width: 70%;
+        line-height: 30px;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        letter-spacing: 2px;
+
+        opacity: 0;
+    }
+
+    @-webkit-keyframes word
+    {
+        0% {
+            opacity: 0;
+        }
+        14%  {
+            opacity: 1;
+        }
+        85% {
+            opacity: 1;
+        }
+        91% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 0;
+        }
+
+    }
+    @-webkit-keyframes page1_bg
+    {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale(4);
+        }
+        14%  {
+            opacity: 0.8;
+            -webkit-transform: scale(4);
+        }
+        93% {
+            opacity: 0.8;
+            -webkit-transform: scale(4.5);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: scale(4);
+        }
+    }
+    @-webkit-keyframes page1
+    {
+        0%  {
+            -webkit-transform: translate(-10px,0px);
+            opacity: 0;
+        }
+        5%  {
+            -webkit-transform: translate(0px,0px);
+            opacity: 1;
+        }
+        91% {
+            opacity: 1;
+            -webkit-transform: translate(0px,0px);
+        }
+        100% {
+            -webkit-transform: translate(0px,0px);
+            opacity: 0;
+        }
+    }
+
+    @-webkit-keyframes page2
+    {
+        0%  {
+            -webkit-transform-origin: right;
+            -webkit-transform: scaleX(0);
+            opacity: 0;
+        }
+        6%  {
+            -webkit-transform: scaleX(1);
+            opacity: 1;
+        }
+        94% {
+            opacity: 1;
+            -webkit-transform:scaleX(1);
+        }
+        100% {
+            -webkit-transform-origin: right;
+            -webkit-transform: scaleX(0);
+            opacity: 0;
+        }
+    }
+
+    @-webkit-keyframes page3_1
+    {
+        0%  {
+            -webkit-transform: translate(50px,0px);
+            opacity: 0;
+        }
+        6%  {
+            -webkit-transform: translate(0px,0px);
+            opacity: 1;
+        }
+        94% {
+            opacity: 1;
+            -webkit-transform: translate(0px,0px);
+        }
+        100% {
+            -webkit-transform: translate(50px,0px);
+            opacity: 0;
+        }
+    }
+
+    @-webkit-keyframes page3_2
+    {
+        0%  {
+            -webkit-transform: translate(-50px,0px);
+            opacity: 0;
+        }
+        6%  {
+            -webkit-transform: translate(0px,0px);
+            opacity: 1;
+        }
+        94% {
+            opacity: 1;
+            -webkit-transform: translate(0px,0px);
+        }
+        100% {
+            -webkit-transform: translate(50px,0px);
+            opacity: 0;
+        }
+    }
+
+</style>
+
+<body>
+<div id='container'>
+    <img id='bg1' src="{$skinurl}skin/qiutian1/bg.jpg"/>
+    <img id='bg2' src="{$skinurl}skin/qiutian1/bg.jpg"/>
+    <img id='bg3' src="{$skinurl}skin/qiutian1/bg.jpg"/>
+
+    <!-- <div id='page1_ctn' class='page_ctn'>
+        <div id='page1' class='page'>
+            <span id='word1' class='showwords'></span>
+        </div>
+    </div> -->
+    <div id='page1_ctn_bg' class='page'>
+    </div>
+    <div id='page1_ctn' class='page_ctn'>
+        <div id='page1_ctn_1' class='page'>
+            <div id='page1_1'>
+            </div>
+        </div>
+        <div id='page1_ctn_2' class='page'>
+            <div id='page1_2'>
+            </div>
+        </div>
+        <div id='page1_ctn_3' class='page'>
+            <div id='page1_3'>
+            </div>
+        </div>
+        <div id='page1_ctn_4' class='page'>
+            <div id='page1_4'>
+            </div>
+        </div>
+        <span id='word1' class='showwords'></span>
+    </div>
+
+    <div id='page2_ctn_bg' class='page'>
+    </div>
+    <div id='page2_ctn' class='page_ctn'>
+        <div id='page2_ctn_1' class='page'>
+            <div id='page2_1'>
+            </div>
+        </div>
+        <div id='page2_ctn_2' class='page'>
+            <div id='page2_2'>
+            </div>
+        </div>
+        <div id='page2_ctn_3' class='page'>
+            <div id='page2_3'>
+            </div>
+        </div>
+        <div id='page2_ctn_4' class='page'>
+            <div id='page2_4'>
+            </div>
+        </div>
+        <div id='page2_ctn_5' class='page'>
+            <div id='page2_5'>
+            </div>
+        </div>
+        <div id='page2_ctn_6' class='page'>
+            <div id='page2_6'>
+            </div>
+        </div>
+        <div id='page2_ctn_7' class='page'>
+            <div id='page2_7'>
+            </div>
+        </div>
+        <div id='page2_ctn_8' class='page'>
+            <div id='page2_8'>
+            </div>
+        </div>
+        <div id='page2_ctn_9' class='page'>
+            <div id='page2_9'>
+            </div>
+        </div>
+        <div id='page2_ctn_10' class='page'>
+            <div id='page2_10'>
+            </div>
+        </div>
+        <span id='word2' class='showwords'></span>
+    </div>
+
+    <div id='page3_ctn_bg' class='page'>
+    </div>
+    <div id='page3_ctn' class='page_ctn'>
+        <div id='page3_ctn_1' class='page'>
+            <div id='page3_1'>
+            </div>
+        </div>
+        <div id='page3_ctn_2' class='page'>
+            <div id='page3_2'>
+            </div>
+        </div>
+        <div id='page3_ctn_3' class='page'>
+            <div id='page3_3'>
+            </div>
+        </div>
+        <div id='page3_ctn_4' class='page'>
+            <div id='page3_4'>
+            </div>
+        </div>
+        <div id='page3_ctn_5' class='page'>
+            <div id='page3_5'>
+            </div>
+        </div>
+        <div id='page3_ctn_6' class='page'>
+            <div id='page3_6'>
+            </div>
+        </div>
+        <div id='page3_ctn_7' class='page'>
+            <div id='page3_7'>
+            </div>
+        </div>
+        <div id='page3_ctn_8' class='page'>
+            <div id='page3_8'>
+            </div>
+        </div>
+        <div id='page3_ctn_9' class='page'>
+            <div id='page3_9'>
+            </div>
+        </div>
+        <div id='page3_ctn_10' class='page'>
+            <div id='page3_10'>
+            </div>
+        </div>
+        <span id='word3' class='showwords'></span>
+    </div>
+
+    <div id='shu1'>
+        <img id='shu1_img' src="{$skinurl}skin/qiutian1/shu1.png"/>
+
+        <img id='luoye007' src="{$skinurl}skin/qiutian1/luoye007.png"/>
+        <img id='luoye006' src="{$skinurl}skin/qiutian1/luoye006.png"/>
+        <img id='luoye06' src="{$skinurl}skin/qiutian1/luoye06.png"/>
+        <img id='luoye01' src="{$skinurl}skin/qiutian1/luoye01.png"/>
+    </div>
+    <div id='fengche'>
+        <img id='fang' src="{$skinurl}skin/qiutian1/fang.png"/>
+        <img id='fengche_img' src="{$skinurl}skin/qiutian1/fengche.png"/>
+    </div>
+    <div id='daocaoren'>
+        <img id='daocaoren_img' src="{$skinurl}skin/qiutian1/daocaoren.png"/>
+    </div>
+
+    <div id='feng'>
+        <img id='feng_img' src="{$skinurl}skin/qiutian1/feng.png"/>
+    </div>
+    <div id='shou'>
+        <img id='shou_img' src="{$skinurl}skin/qiutian1/shou.png"/>
+    </div>
+    <div id='ji'>
+        <img id='ji_img' src="{$skinurl}skin/qiutian1/ji.png"/>
+    </div>
+    <div id='jin'>
+        <img id='jin_img' src="{$skinurl}skin/qiutian1/jin.png"/>
+    </div>
+    <div id='wan'>
+        <img id='wan_img' src="{$skinurl}skin/qiutian1/wan.png"/>
+    </div>
+    <div id='li'>
+        <img id='li_img' src="{$skinurl}skin/qiutian1/li.png"/>
+    </div>
+    <img id='cao' src="{$skinurl}skin/qiutian1/cao1.png"/>
+
+
+    <div id='dayan_ctn'>
+        <div id='dayan1' class='dayan'>
+            <img class='yanchi02' src="{$skinurl}skin/qiutian1/yanchi02.png"/>
+            <img src="{$skinurl}skin/qiutian1/dayanshen.png"/>
+            <img class='yanchi01' src="{$skinurl}skin/qiutian1/yanchi01.png"/>
+        </div>
+        <div id='dayan2' class='dayan'>
+            <img class='yanchi02' src="{$skinurl}skin/qiutian1/yanchi02.png"/>
+            <img src="{$skinurl}skin/qiutian1/dayanshen.png"/>
+            <img class='yanchi01' src="{$skinurl}skin/qiutian1/yanchi01.png"/>
+        </div>
+        <div id='dayan3' class='dayan'>
+            <img class='yanchi02' src="{$skinurl}skin/qiutian1/yanchi02.png"/>
+            <img src="{$skinurl}skin/qiutian1/dayanshen.png"/>
+            <img class='yanchi01' src="{$skinurl}skin/qiutian1/yanchi01.png"/>
+        </div>
+        <div id='dayan4' class='dayan'>
+            <img class='yanchi02' src="{$skinurl}skin/qiutian1/yanchi02.png"/>
+            <img src="{$skinurl}skin/qiutian1/dayanshen.png"/>
+            <img class='yanchi01' src="{$skinurl}skin/qiutian1/yanchi01.png"/>
+        </div>
+        <div id='dayan5' class='dayan'>
+            <img class='yanchi02' src="{$skinurl}skin/qiutian1/yanchi02.png"/>
+            <img src="{$skinurl}skin/qiutian1/dayanshen.png"/>
+            <img class='yanchi01' src="{$skinurl}skin/qiutian1/yanchi01.png"/>
+        </div>
+        <div id='dayan6' class='dayan'>
+            <img class='yanchi02' src="{$skinurl}skin/qiutian1/yanchi02.png"/>
+            <img src="{$skinurl}skin/qiutian1/dayanshen.png"/>
+            <img class='yanchi01' src="{$skinurl}skin/qiutian1/yanchi01.png"/>
+        </div>
+        <div id='dayan7' class='dayan'>
+            <img class='yanchi02' src="{$skinurl}skin/qiutian1/yanchi02.png"/>
+            <img src="{$skinurl}skin/qiutian1/dayanshen.png"/>
+            <img class='yanchi01' src="{$skinurl}skin/qiutian1/yanchi01.png"/>
+        </div>
+        <div id='dayan8' class='dayan'>
+            <img class='yanchi02' src="{$skinurl}skin/qiutian1/yanchi02.png"/>
+            <img src="{$skinurl}skin/qiutian1/dayanshen.png"/>
+            <img class='yanchi01' src="{$skinurl}skin/qiutian1/yanchi01.png"/>
+        </div>
+        <div id='dayan9' class='dayan'>
+            <img class='yanchi02' src="{$skinurl}skin/qiutian1/yanchi02.png"/>
+            <img src="{$skinurl}skin/qiutian1/dayanshen.png"/>
+            <img class='yanchi01' src="{$skinurl}skin/qiutian1/yanchi01.png"/>
+        </div>
+        <div id='dayan10' class='dayan'>
+            <img class='yanchi02' src="{$skinurl}skin/qiutian1/yanchi02.png"/>
+            <img src="{$skinurl}skin/qiutian1/dayanshen.png"/>
+            <img class='yanchi01' src="{$skinurl}skin/qiutian1/yanchi01.png"/>
+        </div>
+    </div>
+
+    <div id='shu3'>
+        <img id='shu3_img' src="{$skinurl}skin/qiutian1/shu3.png"/>
+    </div>
+    <div id='shu4'>
+        <img id='shu4_img' src="{$skinurl}skin/qiutian1/shu3.png"/>
+    </div>
+    <div id='shu2'>
+        <img id='shu2_img' src="{$skinurl}skin/qiutian1/shu2.png"/>
+    </div>
+
+    <div id='shu5'>
+        <img id='shu5_img' src="{$skinurl}skin/qiutian1/shu5.png"/>
+    </div>
+
+    <div id='xiao1'>
+        <img id='xiao1_img' src="{$skinurl}skin/qiutian1/xiao1.png"/>
+    </div>
+    <div id='xiao2'>
+        <img id='xiao1_img' src="{$skinurl}skin/qiutian1/xiao2.png"/>
+    </div>
+    <div id='yu'>
+        <img id='yu_img' src="{$skinurl}skin/qiutian1/yu.png"/>
+    </div>
+    <div id='ye'>
+        <img id='ye_img' src="{$skinurl}skin/qiutian1/ye.png"/>
+    </div>
+    <div id='zhi'>
+        <img id='zhi_img' src="{$skinurl}skin/qiutian1/zhi.png"/>
+    </div>
+    <div id='qiu1'>
+        <img id='qiu1_img' src="{$skinurl}skin/qiutian1/qiu1.png"/>
+    </div>
+    <img id='cao2' src="{$skinurl}skin/qiutian1/cao2.png"/>
+    <div id='nvhai'>
+        <img src="{$skinurl}skin/qiutian1/nvhai.png"/>
+        <img id='fugy1' src="{$skinurl}skin/qiutian1/fugy.png"/>
+    </div>
+
+    <img id='fugy2' src="{$skinurl}skin/qiutian1/fugy.png"/>
+    <img id='fugy3' src="{$skinurl}skin/qiutian1/fugy.png"/>
+    <img id='fugy4' src="{$skinurl}skin/qiutian1/fugy.png"/>
+
+    <div id='qiu2'>
+        <img id='qiu2_img' src="{$skinurl}skin/qiutian1/qiu2.png"/>
+    </div>
+    <div id='se'>
+        <img id='se_img' src="{$skinurl}skin/qiutian1/se.png"/>
+    </div>
+    <div id='ran'>
+        <img id='ran_img' src="{$skinurl}skin/qiutian1/ran.png"/>
+    </div>
+    <div id='ye2'>
+        <img id='ye2_img' src="{$skinurl}skin/qiutian1/ye2.png"/>
+    </div>
+    <div id='yan'>
+        <img id='yan_img' src="{$skinurl}skin/qiutian1/yan.png"/>
+    </div>
+    <div id='ru'>
+        <img id='ru_img' src="{$skinurl}skin/qiutian1/ru.png"/>
+    </div>
+    <div id='hua'>
+        <img id='hua_img' src="{$skinurl}skin/qiutian1/hua.png"/>
+    </div>
+
+    <div id='shu31'>
+        <img id='shu31_img' src="{$skinurl}skin/qiutian1/shu31.png"/>
+    </div>
+    <div id='shu32'>
+        <img id='shu32_img' src="{$skinurl}skin/qiutian1/shu32.png"/>
+    </div>
+    <div id='shu33'>
+        <img id='shu33_img' src="{$skinurl}skin/qiutian1/shu31.png"/>
+    </div>
+    <div id='shu34'>
+        <img id='shu34_img' src="{$skinurl}skin/qiutian1/shu32.png"/>
+    </div>
+    <div id='shu35'>
+        <img id='shu35_img' src="{$skinurl}skin/qiutian1/shu31.png"/>
+    </div>
+
+    <div id='shu37'>
+        <img id='shu37_img' src="{$skinurl}skin/qiutian1/shu37.png"/>
+    </div>
+    <div id='shu39'>
+        <img id='shu39_img' src="{$skinurl}skin/qiutian1/shu37.png"/>
+    </div>
+    <div id='shu38'>
+        <img id='shu38_img' src="{$skinurl}skin/qiutian1/shu38.png"/>
+    </div>
+    <div id='shu36'>
+        <img id='shu36_img' src="{$skinurl}skin/qiutian1/shu36.png"/>
+    </div>
+    <div id='shu42'>
+        <img id='shu42_img' src="{$skinurl}skin/qiutian1/shu42.png"/>
+    </div>
+    <div id='shu40'>
+        <img id='shu40_img' src="{$skinurl}skin/qiutian1/shu38.png"/>
+    </div>
+    <div id='shu41'>
+        <img id='shu41_img' src="{$skinurl}skin/qiutian1/shu38.png"/>
+    </div>
+
+
+    <img id='yezi1' src="{$skinurl}skin/qiutian1/yezi1.png"/>
+    <img id='yezi2' src="{$skinurl}skin/qiutian1/yezi2.png"/>
+    <img id='jianguo' src="{$skinurl}skin/qiutian1/jianguo.png"/>
+
+
+    <div id='pagetitle'>
+        <div id='title_bg1'></div>
+        <div id='title_bg2'></div>
+        <div id='title_bg3'></div>
+        <div id='title_bg4'></div>
+        <div id='titletable' class='titletable'>
+            <div id='titlecontent'>
+                <div id='title_div0' class="title_div"></div>
+                <div id='title_div1' class="title_div"></div>
+                <div id='title_div2' class="title_div"></div>
+                <div id='title_div3' class="title_div"></div>
+                <div id='title_div4' class="title_div"></div>
+                <div id='title_div5' class="title_div"></div>
+                <div id='title_div6' class="title_div"></div>
+                <div id='title_div7' class="title_div"></div>
+            </div>
+        </div>
+    </div>
+
+    <img id='fengye' src="{$skinurl}skin/qiutian1/fengye.png"/>
+
+</div>
+</body>
+
+<script>
+    var image_size_width=[];
+    var image_size_height=[];
+    var image_url_index=0;
+    var have_num = 0;
+    var error_num = 0;
+    var canshow = true;
+    var reshow = false;
+    var timeout = [];
+    var delaytime=4800;
+
+    var get_pid = function(url){
+        var index1 = url.indexOf("?");
+        if(index1 != -1)
+        {
+            url = url.substr(0, index1);
+        }
+        return url.toString().substr(url.lastIndexOf("/") + 1);
+    }
+
+    function id(name)
+    {
+        return document.getElementById(name);
+    }
+
+    function showTitleText() {
+        var title_len = e_title.length;
+        var title_arr = e_title.split('');
+        if(title_len <=8) {
+            id('titletable').style.top = '107px';
+
+        }else if(title_len > 8 && title_len <=16){
+            id('titletable').style.top = '91px';
+        }else {
+            id('titletable').style.top = '74px';
+        }
+        var c_div;
+        var txet_n;
+        var title_index;
+
+        for (var i = 0; i < title_len; i++) {
+            c_div=document.createElement("div");
+            txet_n = document.createTextNode(title_arr[i]);
+            c_div.appendChild(txet_n);
+            if(i <8) {
+                id('title_div'+i).appendChild(c_div);
+                id('title_div'+i).style.display = 'inline-block';
+            }else if(i >= 8 && i <16){
+                title_index = i%8;
+                id('title_div'+title_index).appendChild(c_div);
+            }else {
+                title_index = i%16;
+                id('title_div'+title_index).appendChild(c_div);
+            }
+        }
+    }
+
+
+    function load_images()
+    {
+        reshow = false;
+        image_size_width=[];
+        image_size_height=[];
+        Onload_imgs_url=[];
+        image_url_index=0;
+        have_num = 0;
+        error_num = 0;
+        begin_titletime = new Date();
+        begin_titletime = begin_titletime.getTime();
+        showtitle();
+        canshow = true;
+        for(var i=0;i<slider_images_url.length;i++)
+        {
+            var img=new Image();
+            img.index=i;
+            img.src=slider_images_url[i];
+            img.onload=image_onload;
+            img.onerror= image_onerror;
+            Onload_imgs_url[i] = 'loading';
+        }
+    }
+
+    function image_onerror(event)
+    {
+        var img = event.target;
+        var index = img.index;
+        if(index<10)
+            error_num ++;
+        Onload_imgs_url[index] = 'not find';
+        console.log(Onload_imgs_url[index]);
+        console.log(have_num + '-' + error_num);
+        if((have_num+error_num >= 10 || slider_images_url.length == (have_num+error_num)) && canshow == true)
+        {
+            reshow = false;
+            canshow =false;
+            if(have_num == 0)
+                return;
+            var end_titletime = new Date();
+            end_titletime = end_titletime.getTime();
+            var dis_titletime = Math.abs(end_titletime-begin_titletime);
+            if(dis_titletime>delaytime)
+            {
+                kuxuan();
+            }
+            else
+            {
+                dis_titletime = delaytime- dis_titletime;
+                timeout[0] = setTimeout(function()
+                {
+                    kuxuan();
+                },dis_titletime);
+            }
+        }
+    }
+
+    function image_onload(event)
+    {
+        if(reshow == true)
+            return;
+
+        var img = event.target;
+        var index = img.index;
+
+        if(index<10)
+        {
+            have_num++;
+        }
+        Onload_imgs_url[index] = img.src;
+        image_size_height[index] = img.height;
+        image_size_width[index] = img.width;
+
+        // console.log(Onload_imgs_url[index]);
+        // console.log(have_num + '-' + error_num);
+
+        if((have_num + error_num >= 10 ||slider_images_url.length == (have_num+error_num)) && canshow == true)
+        {
+            reshow = false;
+            canshow =false;
+            if(have_num == 0)
+                return;
+            var end_titletime = new Date();
+            end_titletime = end_titletime.getTime();
+            var dis_titletime = Math.abs(end_titletime-begin_titletime);
+            if(dis_titletime>delaytime)
+            {
+                kuxuan();
+            }
+            else
+            {
+                dis_titletime = delaytime- dis_titletime;
+                timeout[0] = setTimeout(function()
+                {
+                    kuxuan();
+                },dis_titletime);
+            }
+
+        }
+    }
+    function showtitle()
+    {
+
+        id('shu1').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('fengche').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('daocaoren').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('feng').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('shou').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('ji').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('jin').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('wan').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('li').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('cao').style.webkitAnimation = 'fadein 0.6s ease-out both';
+
+        id('fengye').style.webkitAnimation = 'fengye 6.4s cubic-bezier(.89,.93,.9,.98)';
+        id('title_bg1').style.webkitAnimation = 'title_bg1_in 0.4s 0.9s ease-out both';
+        id('title_bg2').style.webkitAnimation = 'title_bg1_in 0.4s 1s ease-out both';
+        id('title_bg3').style.webkitAnimation = 'title_bg1_in 0.4s 1.1s ease-out both';
+        id('title_bg4').style.webkitAnimation = 'title_bg1_in 0.4s 1.2s ease-out both';
+
+
+        showTitleText();
+
+        timeout[4] = setTimeout(function () {
+            for (var i = 0; i < 8; i++) {
+                id('title_div'+i).style.webkitAnimation = 'fadein 0.4s ' +i*1/10+'s ease-out both';
+            }
+        },1300);
+
+    }
+
+    function kuxuan()
+    {
+        for (var i = 0; i < 8; i++) {
+            id('title_div'+i).style.webkitAnimation = 'fadeout 0.4s ' +i*1/10+'s ease-out both';
+        }
+        timeout[5] = setTimeout(function () {
+            id('title_bg1').style.webkitAnimation = 'title_bg1_out 0.4s ease-out both';
+            id('title_bg2').style.webkitAnimation = 'title_bg1_out 0.4s 0.1s ease-out both';
+            id('title_bg3').style.webkitAnimation = 'title_bg1_out 0.4s 0.2s ease-out both';
+            id('title_bg4').style.webkitAnimation = 'title_bg1_out 0.4s 0.3s ease-out both';
+        },800);
+
+
+        timeout[6] = setTimeout(function () {
+            show1_1();
+        },1400);
+
+    }
+
+
+    function show1_1()
+    {
+        setImage('1');
+
+        id('page1_ctn_1').style.webkitAnimation = 'page1 5.5s cubic-bezier(0,0,.67,.96) both';
+        id('page1_ctn_2').style.webkitAnimation = 'page1 5.5s 0.2s cubic-bezier(0,0,.67,.96) both';
+        id('page1_ctn_3').style.webkitAnimation = 'page1 5.5s 0.3s cubic-bezier(0,0,.67,.96) both';
+        id('page1_ctn_4').style.webkitAnimation = 'page1 5.5s 0.4s cubic-bezier(0,0,.67,.96) both';
+
+        id('page1_ctn_bg').style.webkitAnimation = 'page1_bg 5.8s cubic-bezier(0,0,.67,.96) both';
+        id('word1').style.webkitAnimation = 'word 5.5s cubic-bezier(0,0,.67,.96) both';
+
+        timeout[1] = setTimeout(show2,5000);
+
+    }
+    function show1_2()
+    {
+        setImage('1');
+
+        id('fugy2').style.webkitAnimation = '';
+        id('fugy3').style.webkitAnimation = '';
+        id('fugy4').style.webkitAnimation = '';
+        id('dayan_ctn').style.webkitAnimation = '';
+
+        for (var i = 0; i < 10; i++) {
+            id('page2_ctn_'+(i+1)).style.webkitAnimation = '';
+        }
+        id('page2_ctn_bg').style.webkitAnimation = '';
+        id('word2').style.webkitAnimation = '';
+
+        id('qiu2').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('se').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('ran').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('ye2').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('yan').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('ru').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('hua').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('shu31').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('shu32').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('shu33').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('shu34').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('shu35').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('shu36').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('shu37').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('shu38').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('shu39').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('shu40').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('shu41').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('shu42').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+
+        id('shu1').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('fengche').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('daocaoren').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('feng').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('shou').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('ji').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('jin').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('wan').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('li').style.webkitAnimation = 'fadein 0.6s ease-out both';
+        id('cao').style.webkitAnimation = 'fadein 0.6s ease-out both';
+
+        id('page1_ctn_1').style.webkitAnimation = 'page1 5.5s cubic-bezier(0,0,.67,.96) both';
+        id('page1_ctn_2').style.webkitAnimation = 'page1 5.5s 0.2s cubic-bezier(0,0,.67,.96) both';
+        id('page1_ctn_3').style.webkitAnimation = 'page1 5.5s 0.3s cubic-bezier(0,0,.67,.96) both';
+        id('page1_ctn_4').style.webkitAnimation = 'page1 5.5s 0.4s cubic-bezier(0,0,.67,.96) both';
+
+        id('page1_ctn_bg').style.webkitAnimation = 'page1_bg 5.8s cubic-bezier(0,0,.67,.96) both';
+        id('word1').style.webkitAnimation = 'word 5.5s cubic-bezier(0,0,.67,.96) both';
+
+        timeout[1] = setTimeout(show2,5000);
+
+    }
+
+
+    function show2()
+    {
+        var img_bili = setImage('2');
+
+        id('yezi1').style.webkitAnimation = '';
+        id('yezi2').style.webkitAnimation = '';
+        id('jianguo').style.webkitAnimation = '';
+
+        for (var i = 0; i < 10; i++) {
+            id('page3_ctn_'+(i+1)).style.webkitAnimation = '';
+
+        }
+        id('page3_ctn_bg').style.webkitAnimation = '';
+        id('word3').style.webkitAnimation = '';
+
+
+        id('shu1').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('fengche').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('daocaoren').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('feng').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('shou').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('ji').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('jin').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('wan').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('li').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('cao').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+
+
+        id('shu3').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('shu4').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('shu2').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('shu5').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('xiao1').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('xiao2').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('yu').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('ye').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('zhi').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('qiu1').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('cao2').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('nvhai').style.webkitAnimation = 'fadein 0.8s ease-out both';
+
+        id('fugy2').style.webkitAnimation = 'fugy2 7.5s ease-out both';
+        id('fugy3').style.webkitAnimation = 'fugy3 6.7s 0.8s ease-out both';
+        id('fugy4').style.webkitAnimation = 'fugy2 7.1s 0.4s ease-out both';
+        id('dayan_ctn').style.webkitAnimation = 'dayan_ctn 8.3s ease-out both';
+
+        for (var i = 0; i < 10; i++) {
+            id('page2_ctn_'+(i+1)).style.webkitAnimation = 'page2 '+ (55 - (9-i))/10 + 's '+ (9-i)/10 + 's cubic-bezier(0,0,.67,.96) both';
+        }
+        id('page2_ctn_bg').style.webkitAnimation = 'page1_bg 5.8s cubic-bezier(0,0,.67,.96) both';
+        id('word2').style.webkitAnimation = 'word 5s 0.5s cubic-bezier(0,0,.67,.96) both';
+
+        timeout[2] = setTimeout(show3,5500);
+
+    }
+
+    function show3()
+    {
+        var img_bili = setImage('3');
+
+        id('page1_ctn_1').style.webkitAnimation = 'h';
+        id('page1_ctn_2').style.webkitAnimation = '';
+        id('page1_ctn_3').style.webkitAnimation = '';
+        id('page1_ctn_4').style.webkitAnimation = '';
+
+        id('page1_ctn_bg').style.webkitAnimation = '';
+        id('word1').style.webkitAnimation = '';
+
+        id('shu3').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('shu4').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('shu2').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('shu5').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('xiao1').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('xiao2').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('yu').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('ye').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('zhi').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('qiu1').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('cao2').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+        id('nvhai').style.webkitAnimation = 'fadeout 0.6s ease-out both';
+
+        id('qiu2').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('se').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('ran').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('ye2').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('yan').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('ru').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('hua').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('shu31').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('shu32').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('shu33').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('shu34').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('shu35').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('shu36').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('shu37').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('shu38').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('shu39').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('shu40').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('shu41').style.webkitAnimation = 'fadein 0.8s ease-out both';
+        id('shu42').style.webkitAnimation = 'fadein 0.8s ease-out both';
+
+        id('yezi1').style.webkitAnimation = 'yezi1 7.5s ease-out both';
+        id('yezi2').style.webkitAnimation = 'yezi1 7.5s ease-out both';
+        id('jianguo').style.webkitAnimation = 'jianguo 7.5s ease-out both';
+
+        for (var i = 0; i < 10; i++) {
+            if(i%2 == 0){
+                id('page3_ctn_'+(i+1)).style.webkitAnimation = 'page3_1 5.5s '+ (i)/10 + 's cubic-bezier(0,0,.67,.96) both';
+            }else {
+                id('page3_ctn_'+(i+1)).style.webkitAnimation = 'page3_2 5.5s '+ (i)/10 + 's cubic-bezier(0,0,.67,.96) both';
+            }
+
+        }
+        id('page3_ctn_bg').style.webkitAnimation = 'page1_bg 6s cubic-bezier(0,0,.67,.96) both';
+        id('word3').style.webkitAnimation = 'word 5s 1s cubic-bezier(0,0,.67,.96) both';
+
+        timeout[3] = setTimeout(show1_2,6000);
+
+    }
+
+
+
+    function setImage(idname)
+    {
+        if(reshow == true)
+            return;
+
+        while(Onload_imgs_url[image_url_index] == 'not find' || Onload_imgs_url[image_url_index] == 'loading')
+        {
+            // console.log(Onload_imgs_url[image_url_index]);
+            image_url_index++;
+            if(image_url_index == Onload_imgs_url.length)
+                image_url_index = 0;
+        }
+
+        var img_bili = image_size_width[image_url_index]/image_size_height[image_url_index];
+        var div,div1;
+        var div_ctn,div_page;
+        var height;
+        var width;
+        var top;
+        var left;
+        var word,word1;
+
+        if(img_bili < (380/600))
+        {
+            height = 600;
+            width = 600 * img_bili;
+            top = 80;
+            left = (500-width)/2 - 0;
+        }
+        else if(img_bili <= 1)
+        {
+            width = 400;
+            height = 400 / img_bili;
+            left = 50 - 8;
+            top = (740-height)/2
+        }
+        else if(img_bili > 1)
+        {
+            width = 400;
+            height = 400/img_bili;
+            left = 50 - 8;
+            top = (740-height)/2;
+        }
+
+
+        div = id('page'+idname);
+        div_ctn = id('page'+idname + '_ctn');
+
+        if (idname == '1') {
+            for (var i = 0; i < 4; i++) {
+                div = id('page'+idname + '_'+(i+1));
+
+
+                div.style.width = width/4 + 'px';
+                div.style.height = height + 'px';
+                div.style.backgroundSize = 'cover';
+                div.style.backgroundImage = 'url('+Onload_imgs_url[image_url_index]+')';
+                div.style.backgroundRepeat = 'no-repeat';
+                div.style.backgroundPosition = -(i*(width/4))+'px' +' 0px';
+
+                div_page =  id('page'+idname + '_ctn' + '_'+(i+1));
+                div_page.style.top = '0px';
+                div_page.style.left = (width/4)*i + 'px';
+
+                if (i == 0) {
+                    div_page.style.borderTop = 'solid 8px #fff';
+                    div_page.style.borderLeft = 'solid 8px #fff';
+                    div_page.style.borderBottom = 'solid 8px #fff';
+                    div_page.style.left = '-8px';
+                } else if(i == 3){
+                    div_page.style.borderTop = 'solid 8px #fff';
+                    div_page.style.borderRight = 'solid 8px #fff';
+                    div_page.style.borderBottom = 'solid 8px #fff';
+                }else {
+                    div_page.style.borderTop = 'solid 8px #fff';
+                    div_page.style.borderBottom = 'solid 8px #fff';
+                }
+
+            }
+            div_ctn.style.top = (top) + 'px';
+            div_ctn.style.left = (left + 8) + 'px';
+        } else if(idname == '2') {
+            for (var i = 0; i < 10; i++) {
+                div = id('page'+idname + '_'+(i+1));
+
+                div.style.width = width/10 + 'px';
+                div.style.height = height + 'px';
+                div.style.backgroundSize = 'cover';
+                div.style.backgroundImage = 'url('+Onload_imgs_url[image_url_index]+')';
+                div.style.backgroundRepeat = 'no-repeat';
+                div.style.backgroundPosition = -(i*(width/10))+'px' +' 0px';
+
+                div_page =  id('page'+idname + '_ctn' + '_'+(i+1));
+                div_page.style.top = '0px';
+                div_page.style.left = (width/10)*i + 'px';
+
+                if (i == 0) {
+                    div_page.style.borderTop = 'solid 8px #fff';
+                    div_page.style.borderLeft = 'solid 8px #fff';
+                    div_page.style.borderBottom = 'solid 8px #fff';
+                    div_page.style.left = '-8px';
+                } else if(i == 9){
+                    div_page.style.borderTop = 'solid 8px #fff';
+                    div_page.style.borderRight = 'solid 8px #fff';
+                    div_page.style.borderBottom = 'solid 8px #fff';
+                }else {
+                    div_page.style.borderTop = 'solid 8px #fff';
+                    div_page.style.borderBottom = 'solid 8px #fff';
+                }
+
+            }
+            div_ctn.style.top = (top) + 'px';
+            div_ctn.style.left = (left + 8) + 'px';
+        }else if(idname == '3'){
+            for (var i = 0; i < 10; i++) {
+                div = id('page'+idname + '_'+(i+1));
+
+                div.style.left = '0px';
+                div.style.top = (height/10)*i + 'px';
+                div.style.width = width + 'px';
+                div.style.height = height/10 + 'px';
+                div.style.backgroundSize = 'cover';
+                div.style.backgroundImage = 'url('+Onload_imgs_url[image_url_index]+')';
+                div.style.backgroundRepeat = 'no-repeat';
+                div.style.backgroundPosition =  '0px ' + (-(i*(height/10)))+'px';
+
+                div_page =  id('page'+idname + '_ctn' + '_'+(i+1));
+                div_page.style.left = '0px';
+                div_page.style.top = (height/10)*i + 'px';
+
+                if (i == 0) {
+                    div_page.style.borderTop = 'solid 8px #fff';
+                    div_page.style.borderLeft = 'solid 8px #fff';
+                    div_page.style.borderRight = 'solid 8px #fff';
+                    div_page.style.top = '-8px';
+                } else if(i == 9){
+                    div_page.style.borderRight = 'solid 8px #fff';
+                    div_page.style.borderLeft = 'solid 8px #fff';
+                    div_page.style.borderBottom = 'solid 8px #fff';
+                }else {
+                    div_page.style.borderLeft = 'solid 8px #fff';
+                    div_page.style.borderRight = 'solid 8px #fff';
+                }
+
+            }
+            div_ctn.style.top = (top +8) + 'px';
+            div_ctn.style.left = (left) + 'px';
+        }
+
+        div_ctn.style.width = (width+ 16) + 'px';
+        div_ctn.style.height = (height + 16) + 'px';
+
+
+        div_ctn_bg = id('page'+idname + '_ctn_bg');
+
+        div_ctn_bg.style.width = width + 'px';
+        div_ctn_bg.style.height = height + 'px';
+        div_ctn_bg.style.backgroundSize = (width) + 'px ' + (height) + 'px';
+        div_ctn_bg.style.backgroundImage = 'url('+Onload_imgs_url[image_url_index]+')';
+        div_ctn_bg.style.backgroundRepeat = 'no-repeat';
+
+        div_ctn_bg.style.width = (width+ 16) + 'px';
+        div_ctn_bg.style.height = (height + 16) + 'px';
+        div_ctn_bg.style.top = (top) + 'px';
+        div_ctn_bg.style.left = (left) + 'px';
+
+
+        word = id('word'+idname);
+
+        var word_string = words[get_pid(Onload_imgs_url[image_url_index])];
+        if(word_string != undefined)
+        {
+            word_string = word_string.replace(/[\n]/ig,'');
+
+            word.innerText = word_string;
+        }
+        else
+        {
+            word.innerText = "";
+        }
+
+        image_url_index++;
+        if(image_url_index==Onload_imgs_url.length)
+            image_url_index = 0;
+
+        return img_bili;
+    }
+
+    call_me(load_images);
+
+    function reload_scene()
+    {
+        clearnode();
+        reshow = true;
+        setTimeout(load_images,100);
+    }
+
+    function clearnode()
+    {
+        for(var i = 0; i<timeout.length; i++)
+        {
+            clearTimeout(timeout[i]);
+        }
+
+        for (var i = 0; i < 8; i++) {
+            id('title_div'+i).style.webkitAnimation = '';
+            id('title_div'+i).innerHTML = '';
+        }
+
+        for (var i = 0; i < 10; i++) {
+            id('page2_ctn_'+(i+1)).style.webkitAnimation = '';
+        }
+        for (var i = 0; i < 10; i++) {
+            id('page3_ctn_'+(i+1)).style.webkitAnimation = '';
+
+        }
+
+        var xinArr = ['title_bg1','title_bg2','title_bg3','title_bg4','shu1','fengche','daocaoren','feng','shou','ji','jin','wan','li','cao','shu3','shu4','shu2','shu5','xiao1','xiao2','yu','ye','zhi','qiu1','cao2','nvhai','fugy2','fugy3','fugy4','dayan_ctn','qiu2','se','ran','ye2','yan','ru','hua','shu31','shu32','shu33','shu34','shu35','shu36','shu37','shu38','shu39','shu40','shu41','shu42','yezi1','yezi2','jianguo','page1_ctn_1','page1_ctn_2','page1_ctn_3','page1_ctn_4','page1_ctn_bg','page2_ctn_bg','page3_ctn_bg','word1','word2','word3'];
+
+        for(var i = 0 ;i < xinArr.length ;i++)
+        {
+            id(xinArr[i]).style.webkitAnimation = '';
+        }
+    }
+
+</script>
+<!--模板结束-->

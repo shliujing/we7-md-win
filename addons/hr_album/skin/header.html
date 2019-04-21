@@ -1,0 +1,74 @@
+<!doctype html>
+<meta charset='utf-8'>
+<script type='text/javascript' src='{$_W['siteroot']}addons/hr_album/style/js/zepto.min.js' charset='utf-8'></script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+{php echo register_jssdk(false);}
+<script>
+    var _speedMark = new Date();
+    function init_viewport()
+    {
+        if(/Android (\d+\.\d+)/.test(navigator.userAgent))
+        {
+            var version = parseFloat(RegExp.$1);
+
+            if(version>2.3)
+            {
+                var width = window.outerWidth == 0 ? window.screen.width : window.outerWidth;
+                var phoneScale = parseInt(width)/500;
+                document.write('<meta name="viewport" content="width=500, minimum-scale = '+ phoneScale +', maximum-scale = '+ phoneScale +', target-densitydpi=device-dpi">');
+            }
+            else
+            {
+                document.write('<meta name="viewport" content="width=500, target-densitydpi=device-dpi">');
+            }
+        }
+        else if(navigator.userAgent.indexOf('iPhone') != -1)
+        {
+            var phoneScale = parseInt(window.screen.width)/500;
+            document.write('<meta name="viewport" content="width=500; min-height=750;initial-scale=' + phoneScale +'; user-scalable=no;" /> ');         //0.75   0.82
+        }
+        else
+        {
+            document.write('<meta name="viewport" content="width=500, height=750, initial-scale=0.64" /> ');         //0.75   0.82
+        }
+    }
+
+    init_viewport();
+    document.ontouchmove = function(e)
+    {
+        e.preventDefault();
+    }
+    var module_inits = [];
+    function load_init_modules()
+    {
+        for(var i=0; i<module_inits.length; i++)
+        {
+            module_inits[i]();
+        }
+    }
+    function call_me(fun)
+    {
+        module_inits.push(fun);
+    }
+    var ua = navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i) == 'micromessenger')
+    {
+        wx.ready(load_init_modules);
+    }
+    else
+    {
+        onload = load_init_modules;
+    }
+    var slider_images_url = [];
+    {loop $data $items}
+    {if !empty($items['pics'])}
+    slider_images_url.push('{php echo $this->imgurl().$items['pics']}');
+    {/if}
+        {/loop}
+            var pid = {$id};
+            var e_desc = '{$item['desc']}';
+            var e_title = '{if $item['title']}{$item['title']}{else}个性相册{/if}';
+            var words = {{loop $data $index $words}{if $words['text']}"{$words['textindex']}":"{$words['text']}",{/if}{/loop}};
+            var e_music_url = '{if $item['music']}{$item['music']}{/if}';
+</script>
+<div style="width:100%;height: 100%;position: fixed;opacity: 0;z-index:40;"></div>

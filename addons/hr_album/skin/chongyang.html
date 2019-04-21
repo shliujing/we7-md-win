@@ -1,0 +1,1070 @@
+<!--模板开始-->
+<style type="text/css">
+    * {
+        padding: 0px;
+        margin: 0px;
+        -webkit-box-sizing: border-box
+    }
+
+    body {
+        background-color: white
+    }
+
+    #container {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 500px;
+        height: 815px;
+        overflow: hidden;
+    }
+    #container > img,#container > div {
+        position: absolute;
+    }
+
+    .abs{position:absolute;}
+
+    #bg {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        opacity: 0;
+    }
+    #shu1 {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        opacity: 0;
+        -webkit-transform-origin: right;
+    }
+    #shu2 {
+        position: absolute;
+        top: 404px;
+        right: -26px;
+        opacity: 0;
+    }
+    #laoren {
+        position: absolute;
+        top: 672px;
+        left: 226px;
+        opacity: 0;
+    }
+    #laoren_img {
+        -webkit-animation:  translate_r 1.6s linear infinite alternate both;
+    }
+    #yun {
+        position: absolute;
+        top: 655px;
+        left: 0px;
+        opacity: 0;
+    }
+    #cao {
+        position: absolute;
+        top: 725px;
+        left: 0px;
+        opacity: 0;
+    }
+    #lu {
+        position: absolute;
+        top: 646px;
+        left: 50px;
+        width: 125px;
+        height: 110px;
+        opacity: 0;
+    }
+    #lu1_img {
+        position: absolute;
+        opacity: 0;
+        -webkit-animation: lu1_img 2s linear infinite both;
+    }
+    #lu2_img {
+        position: absolute;
+        opacity: 0;
+        -webkit-animation: lu2_img 2s linear infinite both;
+    }
+    #lu3_img {
+        position: absolute;
+        opacity: 0;
+        -webkit-animation: lu3_img 2s linear infinite both;
+    }
+    #dian1 {
+        position: absolute;
+        top: 0px;
+        left: 15px;
+        opacity: 0;
+    }
+    #dian2 {
+        position: absolute;
+        top: 0px;
+        left: 40px;
+        opacity: 0;
+    }
+    #dian3 {
+        position: absolute;
+        top: 0px;
+        left: 120px;
+        opacity: 0;
+    }
+    #dian4 {
+        position: absolute;
+        top: 30px;
+        left: 70px;
+        opacity: 0;
+    }
+    #dian5 {
+        position: absolute;
+        top: 50px;
+        left: 120px;
+        opacity: 0;
+    }
+
+    #he1 {
+        position: absolute;
+        top: 50px;
+        right: -100px;
+    }
+    #he2 {
+        position: absolute;
+        top: 340px;
+        right: -100px;
+    }
+    #he3 {
+        position: absolute;
+        top: 600px;
+        right: -100px;
+    }
+    #he2_img {
+        -webkit-transform: scale(.8);
+    }
+    #he3_img {
+        -webkit-transform: scale(.6);
+    }
+
+    #niao1 {
+        position: absolute;
+        top: 440px;
+        left: -50px;
+    }
+    #niao2 {
+        position: absolute;
+        top: 500px;
+        left: -100px;
+    }
+    #niao1_img{
+        -webkit-transform: scale(.6);
+    }
+
+
+    #luo1 {
+        position: absolute;
+        top: -200px;
+        left: 200px;
+    }
+    #luo2 {
+        position: absolute;
+        top: -200px;
+        left: 350px;
+    }
+    #luo3 {
+        position: absolute;
+        top: -100px;
+        right: -200px;
+    }
+    #luo4 {
+        position: absolute;
+        top: 100px;
+        right: -200px;
+    }
+
+    #title_bg {
+        position: absolute;
+        width: 456px;
+        height: 236px;
+        left:22px;
+        top:259.5px;
+        opacity: 0;
+    }
+    #pagetitle {
+        position: absolute;
+        width: 456px;
+        height: 236px;
+        left:22px;
+        top:259.5px;
+        opacity: 0;
+    }
+
+    .titletable {
+        position: absolute;
+        width: 160px;
+        height: 150px;
+        top: 14px;
+        left: 165.5px;
+        display: table;
+    }
+    #titlecontent {
+        vertical-align:middle;
+        display:table-cell;
+        text-align:center;
+        font-size:20px;
+        line-height:33px;
+        color:#000;
+    }
+
+</style>
+<style type="text/css">
+    @-webkit-keyframes fadein
+    {
+        0%  {opacity: 0}
+        100%    {opacity: 1}
+    }
+    @-webkit-keyframes fadeout
+    {
+        0%  {opacity: 1}
+        100%    {opacity: 0}
+    }
+
+    @-webkit-keyframes rotate_l
+    {
+        0%  {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(-6deg);
+        }
+    }
+    @-webkit-keyframes rotate_r
+    {
+        0%  {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(6deg);
+        }
+    }
+
+    @-webkit-keyframes translate_up
+    {
+        0%  {
+            -webkit-transform: translateY(0px);
+        }
+        100%  {
+            -webkit-transform: translateY(-10px);
+        }
+    }
+
+    @-webkit-keyframes translate_down
+    {
+        0%  {
+            -webkit-transform: translateY(0px);
+        }
+        100%  {
+            -webkit-transform: translateY(10px);
+        }
+    }
+    @-webkit-keyframes translate_l
+    {
+        0%  {
+            -webkit-transform: translateX(0px);
+        }
+        100%  {
+            -webkit-transform: translateX(-10px);
+        }
+    }
+    @-webkit-keyframes translate_r
+    {
+        0%  {
+            -webkit-transform: translateX(0px);
+        }
+        100%  {
+            -webkit-transform: translateX(10px);
+        }
+    }
+
+    @-webkit-keyframes lu1_img
+    {
+        0%  {
+            opacity: 0;
+        }
+        33.3%  {
+            opacity: 1;
+        }
+        66.6%  {
+            opacity: 0;
+        }
+        100%  {
+            opacity: 0;
+        }
+    }
+    @-webkit-keyframes lu2_img
+    {
+        0%  {
+            opacity: 0;
+        }
+        33.3%  {
+            opacity: 0;
+        }
+        66.6%  {
+            opacity: 1;
+        }
+        100%  {
+            opacity: 0;
+        }
+    }
+    @-webkit-keyframes lu3_img
+    {
+        0%  {
+            opacity: 1;
+        }
+        33.3%  {
+            opacity: 0;
+        }
+        66.6%  {
+            opacity: 0;
+        }
+        100%  {
+            opacity: 1;
+        }
+    }
+
+    @-webkit-keyframes bg
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: scale(1.2);
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform: scale(1);
+        }
+    }
+    @-webkit-keyframes shu1
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:translateY(-20px) scale(2);
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform:translateY(0px) scale(1);
+        }
+    }
+    @-webkit-keyframes lu
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:translate(-50px,50px) scale(1.5);
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform:translate(0px,0px) scale(1);
+        }
+    }
+    @-webkit-keyframes shu2
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: translateX(100px);
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform: translateX(0px);
+        }
+    }
+    @-webkit-keyframes cao
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: translateY(100px);
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+        }
+    }
+    @-webkit-keyframes yun
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:translate(-50px,0px) scale(1.5);
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform:translate(0px,0px) scale(1);
+        }
+    }
+    @-webkit-keyframes laoren
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:translate(0px,50px) scale(1.5);
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform:translate(0px,0px) scale(1);
+        }
+    }
+    @-webkit-keyframes dian1
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:translateY(0px) scale(.8);
+        }
+        5% {
+            opacity: 1;
+        }
+
+        58%  {
+            opacity: 1;
+        }
+        100%  {
+            opacity: 0;
+            -webkit-transform:translateY(200px) scale(.8);
+        }
+    }
+    @-webkit-keyframes dian2
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:translate(0px,0px) scale(.8);
+        }
+        5% {
+            opacity: 1;
+        }
+        50%  {
+            opacity: 1;
+        }
+        100%  {
+            opacity: 0;
+            -webkit-transform:translate(10px,80px) scale(.8);
+        }
+    }
+    @-webkit-keyframes dian4
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:translate(0px,0px) scale(.8);
+        }
+        5% {
+            opacity: 1;
+        }
+        50%  {
+            opacity: 1;
+        }
+        100%  {
+            opacity: 0;
+            -webkit-transform:translate(5px,60px) scale(.8);
+        }
+    }
+    @-webkit-keyframes he
+    {
+        0%  {
+            -webkit-transform:translate(0px,0px);
+        }
+        100%  {
+            -webkit-transform:translate(-600px,-150px);
+        }
+    }
+    @-webkit-keyframes niao
+    {
+        0%  {
+            -webkit-transform:translate(0px,0px);
+        }
+        100%  {
+            -webkit-transform:translate(600px,-150px);
+        }
+    }
+    @-webkit-keyframes luo1
+    {
+        0%  {
+            -webkit-transform:translate(0px,0px) rotate(0deg);
+        }
+        100%  {
+            -webkit-transform:translate(-550px,500px) rotate(90deg);;
+        }
+    }
+    @-webkit-keyframes luo2
+    {
+        0%  {
+            -webkit-transform:translate(0px,0px) rotate(0deg);
+        }
+        100%  {
+            -webkit-transform:translate(-750px,600px) rotate(-90deg);;
+        }
+    }
+
+
+    @-webkit-keyframes title_bgin
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:scale(1.2);
+        }
+        24%  {
+            opacity: 1;
+            -webkit-transform:scale(1);
+        }
+        64%  {
+            -webkit-transform:scale(1.1);
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform:scale(1);
+        }
+    }
+    @-webkit-keyframes title_bgout
+    {
+        0%  {
+            opacity: 1;
+            -webkit-transform:scale(1);
+        }
+        100%  {
+            opacity: 0;
+            -webkit-transform:scale(1.1);
+        }
+    }
+    @-webkit-keyframes titlein
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:scale(.8);
+        }
+        24%  {
+            opacity: 1;
+            -webkit-transform:scale(1);
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform:scale(1);
+        }
+    }
+
+    @-webkit-keyframes titleout
+    {
+        0%  {
+            opacity: 1;
+            -webkit-transform:scale(1);
+        }
+        100%  {
+            opacity: 0;
+            -webkit-transform:scale(.8);
+        }
+    }
+
+    .page_ctn {
+        position: absolute;
+        left: 40px;
+        /*border:solid 4px rgba(255,255,255, 1);*/
+
+        opacity: 0;
+
+
+    }
+    .page_bg {
+        position: absolute;
+        border: 120px solid;
+        border-image-source: url({$skinurl}skin/chongyang/border_v.png);
+        border-image-slice: 128 114 121 106;
+        border-image-repeat: round;
+        opacity: 0;
+    }
+    .page {
+
+    }
+    .showwords {
+        font-size: 18px;
+        color: white;
+        position: absolute;
+        z-index: 1;
+        bottom: 20px;
+        left: 15%;
+        width: 70%;
+        line-height: 30px;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        letter-spacing: 2px;
+    }
+
+
+    @-webkit-keyframes page1
+    {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale(1.1) rotate(15deg);
+        }
+        23%  {
+            opacity: 1;
+            -webkit-transform: scale(1) rotate(5deg);
+        }
+        78% {
+            opacity: 1;
+            -webkit-transform: scale(1) rotate(-5deg);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: scale(1.1) rotate(-15deg);
+        }
+    }
+    @-webkit-keyframes page2
+    {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale(.8) rotate(-15deg);
+        }
+        23%  {
+            opacity: 1;
+            -webkit-transform: scale(1) rotate(-5deg);
+        }
+        78% {
+            opacity: 1;
+            -webkit-transform: scale(1) rotate(5deg);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: scale(1.1) rotate(15deg);
+        }
+    }
+    @-webkit-keyframes page3
+    {
+        0% {
+            opacity: 0;
+            -webkit-transform: scale(.8) translateX(0px);
+        }
+        23%  {
+            opacity: 1;
+            -webkit-transform: scale(1) translateX(0px);;
+        }
+        78% {
+            opacity: 1;
+            -webkit-transform: scale(1) translateX(10px);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: scale(1.1) translateX(0px);
+        }
+    }
+
+
+
+
+
+</style>
+
+<body>
+<div id='container'>
+    <img id='bg'  src="{$skinurl}skin/chongyang/bg.png"/>
+    <img id='shu1'  src="{$skinurl}skin/chongyang/shu1.png"/>
+    <img id='shu2'  src="{$skinurl}skin/chongyang/shu2.png"/>
+
+    <div id='he1'>
+        <img id='he1_img'  src="{$skinurl}skin/chongyang/he.png"/>
+    </div>
+    <div id='he2'>
+        <img id='he2_img'  src="{$skinurl}skin/chongyang/he.png"/>
+    </div>
+    <div id='he3'>
+        <img id='he3_img'  src="{$skinurl}skin/chongyang/he.png"/>
+    </div>
+
+    <div id='page1_ctn' class='page_ctn'>
+        <div id='page1' class='page'>
+            <span id='word1' class='showwords'></span>
+        </div>
+    </div>
+    <div id='page1_bg' class='page_bg'></div>
+
+    <div id='page2_ctn' class='page_ctn'>
+        <div id='page2' class='page'>
+            <span id='word2' class='showwords'></span>
+        </div>
+    </div>
+    <div id='page2_bg' class='page_bg'></div>
+
+    <div id='page3_ctn' class='page_ctn'>
+        <div id='page3' class='page'>
+            <span id='word3' class='showwords'></span>
+        </div>
+    </div>
+    <div id='page3_bg' class='page_bg'></div>
+
+    <div id='laoren'>
+        <img id='laoren_img'  src="{$skinurl}skin/chongyang/laoren.png"/>
+    </div>
+
+    <div id='lu'>
+        <img id='lu1_img'  src="{$skinurl}skin/chongyang/lu1.png"/>
+        <img id='lu2_img'  src="{$skinurl}skin/chongyang/lu2.png"/>
+        <img id='lu3_img'  src="{$skinurl}skin/chongyang/lu3.png"/>
+    </div>
+    <img id='yun'  src="{$skinurl}skin/chongyang/yun.png"/>
+    <img id='cao'  src="{$skinurl}skin/chongyang/cao.png"/>
+
+
+    <div id='niao1'>
+        <img id='niao1_img'  src="{$skinurl}skin/chongyang/niao.png"/>
+    </div>
+    <div id='niao2'>
+        <img id='niao2_img'  src="{$skinurl}skin/chongyang/niao.png"/>
+    </div>
+
+    <img id='dian1'  src="{$skinurl}skin/chongyang/dian.png"/>
+    <img id='dian2'  src="{$skinurl}skin/chongyang/dian.png"/>
+    <img id='dian3'  src="{$skinurl}skin/chongyang/dian.png"/>
+    <img id='dian4'  src="{$skinurl}skin/chongyang/dian.png"/>
+    <img id='dian5'  src="{$skinurl}skin/chongyang/dian.png"/>
+
+    <img id='title_bg' src="{$skinurl}skin/chongyang/title_bg.png"/>
+    <div id='pagetitle'>
+        <div class='titletable'>
+            <div id='titlecontent'>
+            </div>
+        </div>
+    </div>
+
+    <img id='luo1'  src="{$skinurl}skin/chongyang/luo.png"/>
+    <img id='luo2'  src="{$skinurl}skin/chongyang/luo.png"/>
+    <img id='luo3'  src="{$skinurl}skin/chongyang/luo.png"/>
+    <img id='luo4'  src="{$skinurl}skin/chongyang/luo.png"/>
+
+
+
+</div>
+</body>
+
+
+<script>
+    var image_size_width=[];
+    var image_size_height=[];
+    var image_url_index=0;
+    var have_num = 0;
+    var error_num = 0;
+    var canshow = true;
+    var reshow = false;
+    var timeout = [];
+    var delaytime=3300;
+
+    var get_pid = function(url){
+        var index1 = url.indexOf("?");
+        if(index1 != -1)
+        {
+            url = url.substr(0, index1);
+        }
+        return url.toString().substr(url.lastIndexOf("/") + 1);
+    }
+
+    function id(name)
+    {
+        return document.getElementById(name);
+    }
+
+    function load_images()
+    {
+        reshow = false;
+        image_size_width=[];
+        image_size_height=[];
+        Onload_imgs_url=[];
+        image_url_index=0;
+        have_num = 0;
+        error_num = 0;
+        begin_titletime = new Date();
+        begin_titletime = begin_titletime.getTime();
+        showtitle();
+        canshow = true;
+        for(var i=0;i<slider_images_url.length;i++)
+        {
+            var img=new Image();
+            img.index=i;
+            img.src=slider_images_url[i];
+            img.onload=image_onload;
+            img.onerror= image_onerror;
+            Onload_imgs_url[i] = 'loading';
+        }
+    }
+
+    function image_onerror(event)
+    {
+        var img = event.target;
+        var index = img.index;
+        if(index<10)
+            error_num ++;
+        Onload_imgs_url[index] = 'not find';
+        console.log(Onload_imgs_url[index]);
+        console.log(have_num + '-' + error_num);
+        if((have_num+error_num >= 10 || slider_images_url.length == (have_num+error_num)) && canshow == true)
+        {
+            reshow = false;
+            canshow =false;
+            if(have_num == 0)
+                return;
+            var end_titletime = new Date();
+            end_titletime = end_titletime.getTime();
+            var dis_titletime = Math.abs(end_titletime-begin_titletime);
+            if(dis_titletime>delaytime)
+            {
+                kuxuan();
+            }
+            else
+            {
+                dis_titletime = delaytime- dis_titletime;
+                timeout[0] = setTimeout(function()
+                {
+                    kuxuan();
+                },dis_titletime);
+            }
+        }
+    }
+
+    function image_onload(event)
+    {
+        if(reshow == true)
+            return;
+
+        var img = event.target;
+        var index = img.index;
+
+        if(index<10)
+        {
+            have_num++;
+        }
+        Onload_imgs_url[index] = img.src;
+        image_size_height[index] = img.height;
+        image_size_width[index] = img.width;
+
+        if((have_num + error_num >= 10 ||slider_images_url.length == (have_num+error_num)) && canshow == true)
+        {
+            reshow = false;
+            canshow =false;
+            if(have_num == 0)
+                return;
+            var end_titletime = new Date();
+            end_titletime = end_titletime.getTime();
+            var dis_titletime = Math.abs(end_titletime-begin_titletime);
+            if(dis_titletime>delaytime)
+            {
+                kuxuan();
+            }
+            else
+            {
+                dis_titletime = delaytime- dis_titletime;
+                timeout[0] = setTimeout(function()
+                {
+                    kuxuan();
+                },dis_titletime);
+            }
+
+        }
+    }
+    function showtitle()
+    {
+
+
+        id('bg').style.webkitAnimation = 'bg 1.5s ease-out both';
+        id('shu1').style.webkitAnimation = 'shu1 1.4s ease-out both';
+        id('shu2').style.webkitAnimation = 'shu2 1.5s ease-out both';
+        id('laoren').style.webkitAnimation = 'laoren 1.4s ease-out both';
+        id('lu').style.webkitAnimation = 'lu 1.4s ease-out both';
+        id('yun').style.webkitAnimation = 'yun 1.4s ease-out both';
+        id('cao').style.webkitAnimation = 'cao 1.4s ease-out both';
+
+        id('he1').style.webkitAnimation = 'he 6.8s ease-out infinite both';
+        id('he2').style.webkitAnimation = 'he 9.4s ease-out infinite both';
+        id('he3').style.webkitAnimation = 'he 30.4s ease-out infinite both';
+        id('niao1').style.webkitAnimation = 'niao 10.8s ease-out infinite both';
+        id('niao2').style.webkitAnimation = 'niao 10.8s ease-out infinite both';
+        id('dian1').style.webkitAnimation = 'dian1 3.1s 1.4s ease-out infinite both';
+        id('dian2').style.webkitAnimation = 'dian2 1.2s 1.4s ease-out infinite both';
+        id('dian3').style.webkitAnimation = 'dian2 1.2s 1.4s ease-out infinite both';
+        id('dian4').style.webkitAnimation = 'dian2 1.2s 1.4s ease-out infinite both';
+        id('dian5').style.webkitAnimation = 'dian2 1.2s 1.4s ease-out infinite both';
+        id('luo1').style.webkitAnimation = 'luo1 10s ease-out infinite both';
+        id('luo2').style.webkitAnimation = 'luo1 13.5s ease-out infinite both';
+        id('luo3').style.webkitAnimation = 'luo2 6.4s ease-out infinite both';
+        id('luo4').style.webkitAnimation = 'luo2 6.4s ease-out infinite both';
+
+
+
+        id('pagetitle').style.webkitAnimation = 'titlein 3.3s ease-out both';
+        id('title_bg').style.webkitAnimation = 'title_bgin 3.3s ease-out both';
+
+
+        id('titlecontent').innerHTML = e_title;
+
+    }
+
+    function kuxuan()
+    {
+        id('pagetitle').style.webkitAnimation = 'titleout 1.1s ease-out both';
+        id('title_bg').style.webkitAnimation = 'title_bgout 1.1s ease-out both';
+
+        timeout[4] =setTimeout(function() {
+            show1();
+        },500);
+
+
+
+    }
+
+    function show1()
+    {
+        setImage('1');
+
+        id('page2_ctn').style.webkitAnimation = '';
+        id('page2_bg').style.webkitAnimation = '';
+
+        id('page1_ctn').style.webkitAnimation = 'page1 5s cubic-bezier(0,0,.67,.96) both';
+        id('page1_bg').style.webkitAnimation = 'page1 5s cubic-bezier(0,0,.67,.96) both';
+
+        timeout[1] = setTimeout(show2,5000);
+
+
+    }
+
+
+
+    function show2()
+    {
+        var img_bili = setImage('2');
+
+        id('page3_ctn').style.webkitAnimation = '';
+        id('page3_bg').style.webkitAnimation = '';
+
+        id('page2_ctn').style.webkitAnimation = 'page2 5s cubic-bezier(0,0,.67,.96) both';
+        id('page2_bg').style.webkitAnimation = 'page2 5s cubic-bezier(0,0,.67,.96) both';
+
+        timeout[2] = setTimeout(show3,5500);
+
+    }
+
+    function show3()
+    {
+        var img_bili = setImage('3');
+
+        id('page1_ctn').style.webkitAnimation = '';
+        id('page1_bg').style.webkitAnimation = '';
+
+
+        id('page3_ctn').style.webkitAnimation = 'page3 5s cubic-bezier(0,0,.67,.96) both';
+        id('page3_bg').style.webkitAnimation = 'page3 5s cubic-bezier(0,0,.67,.96) both';
+
+        timeout[3] = setTimeout(show1,5000);
+
+    }
+
+
+
+    function setImage(idname)
+    {
+        if(reshow == true)
+            return;
+
+        while(Onload_imgs_url[image_url_index] == 'not find' || Onload_imgs_url[image_url_index] == 'loading')
+        {
+            // console.log(Onload_imgs_url[image_url_index]);
+            image_url_index++;
+            if(image_url_index == Onload_imgs_url.length)
+                image_url_index = 0;
+        }
+
+        var img_bili = image_size_width[image_url_index]/image_size_height[image_url_index];
+        var div,div1;
+        var div_ctn;
+        var height;
+        var width;
+        var top;
+        var left;
+        var word,word1;
+
+        if(img_bili < (380/600))
+        {
+            height = 600;
+            width = 600 * img_bili;
+            top = 80;
+            left = (500-width)/2 - 0;
+        }
+        else if(img_bili <= 1)
+        {
+            width = 440;
+            height = 440 / img_bili;
+            left = 30-0;
+            top = (740-height)/2
+        }
+        else if(img_bili > 1)
+        {
+            width = 440;
+            height = 440/img_bili;
+            left = 30 - 0;
+            top = (740-height)/2;
+        }
+
+
+        div = id('page'+idname);
+        div_ctn = id('page'+idname + '_ctn');
+
+        div.style.width = width + 'px';
+        div.style.height = height + 'px';
+        div.style.backgroundSize = (width) + 'px ' + (height) + 'px';
+        div.style.backgroundImage = 'url('+Onload_imgs_url[image_url_index]+')';
+        div.style.backgroundRepeat = 'no-repeat';
+
+        div_ctn.style.width = (width+ 0) + 'px';
+        div_ctn.style.height = (height + 0) + 'px';
+        div_ctn.style.top = (top) + 'px';
+        div_ctn.style.left = (left) + 'px';
+
+        var div_bg;
+        div_bg = id('page'+idname + '_bg');
+        div_bg.style.width = (width +0) + 'px';
+        div_bg.style.height = (height+0) + 'px';
+        div_bg.style.top = (top - 0) + 'px';
+        div_bg.style.left = (left -0) + 'px';
+
+
+
+        word = id('word'+idname);
+
+
+        var word_string = words[get_pid(Onload_imgs_url[image_url_index])];
+        if(word_string != undefined)
+        {
+            word_string = word_string.replace(/[\n]/ig,'');
+
+            word.innerText = word_string;
+        }
+        else
+        {
+            word.innerText = "";
+        }
+
+        image_url_index++;
+        if(image_url_index==Onload_imgs_url.length)
+            image_url_index = 0;
+
+        return img_bili;
+    }
+
+    call_me(load_images);
+
+    function reload_scene()
+    {
+        clearnode();
+        reshow = true;
+        setTimeout(load_images,100);
+    }
+
+    function clearnode()
+    {
+        for(var i = 0; i<timeout.length; i++)
+        {
+            clearTimeout(timeout[i]);
+        }
+
+
+        var xinArr = ['pagetitle','title_bg','bg','shu1','shu2','laoren','lu','yun','cao','he1','he2','he3','niao1','niao2','dian1','dian2','dian3','dian4','dian5','luo1','luo2','luo3','luo4','page1_ctn','page1_bg','page2_ctn','page2_bg','page3_ctn','page3_bg'];
+
+        for(var i = 0 ;i < xinArr.length ;i++)
+        {
+            id(xinArr[i]).style.webkitAnimation = '';
+        }
+    }
+
+</script>
+<!--模板结束-->

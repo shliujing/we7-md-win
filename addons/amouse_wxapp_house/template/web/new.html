@@ -1,0 +1,504 @@
+{template 'common/header'}
+<div class='container' style='padding:0 5px 10px;margin:0;width:100%'>
+<ul class="nav nav-tabs">
+  <li {if $op == 'post' && empty($id)}class="active"{/if}><a href="{php echo $this->createWebUrl('new', array('op' => 'post'));}">添加新楼盘</a> </li>
+  <li {if $op == 'display'}class="active"{/if}><a href="{php echo $this->createWebUrl('new',array('op'=>'display'));}">管理新楼盘</a> </li>
+  {if !empty($id) && $op == 'post'}
+  <li class="active">  <a href="{php echo $this->createWebUrl('new',array('op'=>'post','id'=>$id));}">编辑新楼盘</a> </li>
+  {/if}
+</ul>
+
+{if $op =='display'}
+<div class="panel panel-info">
+	<div class="panel-heading">筛选</div>
+	<div class="panel-body">
+        <form role="form" class="form-horizontal" method="get" action="./index.php">
+        <input type="hidden" name="m" value="amouse_wxap_house" >
+        <input type="hidden" name="do" value="new" >
+        <input type="hidden" name="c" value="site" />
+        <input type="hidden" name="a" value="entry" />
+        <input type="hidden" value="display" name="op">
+		<div class="form-group">
+			<label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">关键字</label>
+			<div class="col-sm-8">
+					<input type="text" placeholder="搜索新楼盘名称" value="{$_GPC['keyword']}" id="" name="keyword" class="form-control">
+			</div>				
+		</div>
+
+		<div class="form-group">
+			<div class="pull-right col-xs-12 col-sm-2 col-lg-1">
+				<button class="btn btn-block"><i class="fa fa-search"></i> 搜索</button>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>
+
+<div style="padding:15px;">
+	<form id="form2" class="form-horizontal" method="post">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+					<th style="width:50px;">全选</th>
+					<th style="width:120px;">名称</th>
+					<th>建筑类型</th>
+					<th>开发商</th>
+                    <th>物业公司</th>
+                    <th>所属区域</th>
+					<th style="width:150px;">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+                <tr>
+                    <td class="row-first">
+                        <input type="checkbox"  onclick="var ck = this.checked;$(':checkbox').each(function(){this.checked = ck});" name=''></td>
+                    <td colspan="8" style="text-align:left;">
+                        <input name="token" type="hidden" value="{$_W['token']}"/>
+                        <input type="submit" class="btn btn-primary" name="submit1" value="批量删除"/>
+                    </td>
+                </tr>
+				{loop $list $item}
+				<tr>
+					<td>
+						<input type="checkbox" value="{$item['id']}" name="delete[]">
+					</td>
+                    <td><img src="{php echo tomedia($item['imgs'][0])}" style='width:30px;height:30px;padding:1px;border:1px solid #ccc' /> {$item['name']}</td>
+
+					<th>{php echo cutstr($item['type'],30)} </th>
+					<td title="{$v['developers']}">
+						 {php echo cutstr($item['developers'],30)}
+					</td>
+                    <td title="{$v['property_compay']}">
+                        {php echo cutstr($item['property_compay'],30)}
+                    </td>
+                    <td style="text-align:left;">
+                        {$item['area']['name']}
+                    </td>
+					<td>
+					<a href="{php echo $this->createWebUrl('new', array('op' => 'post', 'id' => $item['id']))}" title="编辑" class="btn btn-mini btn-primary"><i class="fa fa-edit"></i></a>
+					<a onclick="return confirm('此操作不可恢复，确认吗？'); return false;" href="{php echo $this->createWebUrl('new', array('id' => $item['id'],'op'=>'del'))}" title="删除" class="btn btn-mini btn-danger"><i class="fa fa-times"></i></a>
+					</td>				
+				</tr>
+				{/loop}
+                <tr>
+				    <td colspan="3">
+                    <input type="checkbox"  onclick="var ck = this.checked;$(':checkbox').each(function(){this.checked = ck});" name=''>
+				    <input class="btn btn-primary" type="submit" value="删除" name="submit" ></td><td></td><td></td><td></td>
+				</tr>
+			</tbody>
+		</table>
+        <div style="margin:0 auto;margin-right: auto;vertical-align: middle;text-align: center;" >
+            {$pager}
+        </div>
+
+    </form>
+
+</div>
+{elseif $op == 'post'}
+    <div class="main">
+	<form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" onsubmit="return validate(this);">
+	<div class="panel panel-default">
+
+        <div class="panel-heading"><h4>基本信息</h4></div>
+        <div class="panel-body">
+            <div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label"> <span style='color:red'>*</span>楼盘名称</label>
+				<div class="col-sm-4">
+					<input type="text" name="name" id="name" class="form-control" value="{$item['name']}" />
+				</div>
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">所属区域</label>
+                <div class="col-sm-4">
+                    <select name="area_id" class="form-control">
+                        {loop $areas $m}
+                        <option value="{$m['id']}" {if $item['area_id']==$m['id']} selected{/if}> {$m['name']} </option>
+                        {/loop}
+                    </select>
+                </div>
+			</div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">图片</label>
+                <div class="col-sm-9">
+                    {php echo tpl_form_field_multi_image('imgs',$piclist)}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                  建筑类型
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" name="type" class="form-control" value="{$item['type']}" placeholder="比如：多层" />
+                </div>
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    产权年限
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" name="years" class="form-control" value="{$item['years']}" placeholder="70" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">用途</label>
+                <div class="col-sm-4">
+                    <select name="use_id" class="form-control">
+                        {loop $uses $type}
+                        <option value="{$type['id']}" {if $house['use_id']==$type['id']} selected{/if}> {$type['name']}  </option>
+                        {/loop}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        均　　价
+                    </label>
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <input type="text" name="average_price" class="form-control" value="{$item['average_price']}" placeholder="5800" />
+                            <span class="input-group-addon">元/m²</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    物业类别
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" name="wytype" class="form-control" value="{$item['wytype']}" placeholder="普通住宅,商铺,建筑综合体" />
+                </div>
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    咨询电话
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" name="design" class="form-control" value="{$item['design']}" placeholder="400-890-0000" />
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    建筑面积
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" name="jzarea" class="form-control" value="{$item['jzarea']}" placeholder="320000平方米 " />
+                </div>
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    容  积  率
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" name="ratio" class="form-control" value="{$item['ratio']}" placeholder="2.50" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    占地面积
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" name="floor_area" class="form-control" value="{$item['floor_area']}" placeholder="115000平方米" />
+                </div>
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    绿  化  率
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" name="afforestation" class="form-control" value="{$item['afforestation']}" placeholder="53%" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    视频
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" name="total" class="form-control" value="{$item['total']}" placeholder="http://kaleido-10011010.anjukestatic.com/kaleido/933323700218916864.mp4.f30.mp4?sign=kCH0ZiNbgNIa7kT2X4yQVwo1T5lhPTEwMDExMDEwJms9QUtJRDV4UDhscUtoSVd4eUpHbnJXd3NiY0xTRzJZRmJ2Zlp4JmU9MTUxMjM3MzMxNCZ0PTE1MTIzNzI3MTQmcj0xODA0MzA3NjA4JmY9JmI9a2FsZWlkbw==" />
+                </div>
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    户型面积
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" name="door_area" class="form-control" value="{$item['door_area']}" placeholder="二居86平米 三居101.24平米 三居125.74平米" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    开  发  商
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" name="developers" class="form-control" value="{$item['developers']}" placeholder="置业有限公司" />
+                </div>
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    物业公司
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" name="property_compay" class="form-control" value="{$item['property_compay']}" placeholder="物业服务有限公司" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    物  业  费
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" name="propertypay" class="form-control" value="{$item['propertypay']}" placeholder="1.8元/月/平方米" />
+                </div>
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                    楼盘特色
+                </label>
+                <div class="col-sm-4">
+                    <input type="text" name="features" class="form-control" value="{$item['features']}" placeholder="品牌地产|科技住宅" />
+                    <span class="help-block m-b-none"> 用|隔开 比如： 品牌地产|科技住宅|学区房|宜居生态地产</span>
+                </div>
+            </div>
+
+            <div class="panel-heading"><h4>销售信息</h4></div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        售楼地址
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="sales_addres" class="form-control" value="{$item['sales_addres']}" placeholder="与环城北路交汇" />
+                    </div>
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        入住时间
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="checkin_time" class="form-control" value="{$item['checkin_time']}" placeholder="二期2015.09.30" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        销售状况
+                    </label>
+                    <div class="col-sm-4">
+                         <select name="sales_status" class="form-control" >
+                             <option value="">请选择</option>
+                             <option {if $item['sales_status']=='在售'}selected{/if} value="在售">在售</option>
+                             <option {if $item['sales_status']=='售罄'}selected{/if} value="售罄">售罄</option>
+                             <option {if $item['sales_status']=='待罄'}selected{/if} value="待罄">待罄</option>
+                         </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-heading"><h4>配套信息</h4></div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        商业配套
+                    </label>
+                    <div class="col-sm-4">
+                        <textarea name="business" class="form-control" cols="60" style="margin: 0px; width: 348px; height: 51px;">{$item['business']}</textarea>
+                    </div>
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        银行
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="banks" class="form-control" value="{$item['banks']}" placeholder="中国银行、建设银行、农业银行" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        商圈
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="trading_area" class="form-control" value="{$item['trading_area']}" placeholder="平洋商业中心|海岸城" />
+                    </div>
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        酒店
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="hotel" class="form-control" value="{$item['hotel']}" placeholder="速8,金钱豹大酒店" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        超市
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="supermarket" class="form-control" value="{$item['supermarket']}" placeholder="华润万家、乐购、家乐福等" />
+                    </div>
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        车  位  数
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="parking_number" class="form-control" value="{$item['parking_number']}" placeholder="1640（地上602、地下1038）" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        周边医院
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="hospitals" class="form-control" value="{$item['hospitals']}" placeholder="人民医院" />
+                    </div>
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        周边学校
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="school" class="form-control" value="{$item['school']}" placeholder="一中" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        周边交通
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="traffic" class="form-control" value="{$item['traffic']}" placeholder="21路，18路，5路，119路" />
+                    </div>
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                        销售公司
+                    </label>
+                    <div class="col-sm-4">
+                        <input type="text" name="salecom" class="form-control" value="{$item['salecom']}" placeholder="" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label">
+                项目介绍
+            </label>
+            <div class="col-sm-9 col-xs-12">
+                <textarea id="introduction" name="introduction" class="form-control" cols="60">{$item['introduction']}</textarea>
+            </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">经度</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="longitude" name="lng" value="{$item['lng']}">
+                </div>
+            </div>
+
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">纬度</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="latitude" name="lat" value="{$item['lat']}">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <script charset="utf-8" src="//map.qq.com/api/js?v=2.exp"></script>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">地图:</label>
+                <div class="col-sm-10">
+                    <div class="input-group">
+                        <input type="text" id="address" name="address" class="form-control" value="{$item['address']}">
+                        <span class="input-group-btn">
+                            <button type="button"  id="mapseacrh" class="btn btn-primary">搜索</button></span>
+                    </div>
+                    <span class="help-block m-b-none"> 地图上选自己公司的位置会自动获取到你的经纬度</span>
+                    <div id="container" style="width:100%;height:300px;"></div>
+                </div>
+            </div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+				<div class="col-sm-4">
+				<input type="hidden" name="id" value="{$item[id]}">
+				<input type="hidden" name="token" value="{$_W['token']}" />
+					<input name="submit" type="submit" value="提交" class="btn btn-primary span3" />
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	</form>
+        <script>
+            $(function(){
+                var geocoder,citylocation,map,marker = null;
+                var markersArray=[];
+                var x=$("#longitude").val();
+                var y=$("#latitude").val();
+                var center = new qq.maps.LatLng(y,x);
+                map = new qq.maps.Map(document.getElementById('container'),{
+                    center: center,
+                    zoom: 13
+                });
+                geocoder = new qq.maps.Geocoder({
+                    complete : function(result){
+                        map.setCenter(result.detail.location);
+                        var marker = new qq.maps.Marker({
+                            map:map,
+                            position: result.detail.location
+                        });
+                    }
+                });
+                marker = new qq.maps.Marker({
+                    position: new qq.maps.LatLng(y,x),
+                    map: map
+                });
+                //获取城市列表接口设置中心点
+                if(y==''||x==''){
+                    citylocation = new qq.maps.CityService({
+                        complete : function(result){
+                            map.setCenter(result.detail.latLng);
+                        }
+                    });
+                    citylocation.searchLocalCity();
+                }
+
+                geocoder = new qq.maps.Geocoder({
+                    complete : function(result){
+                        marker.setMap(null);
+                        map.setCenter(result.detail.location);
+                        marker = new qq.maps.Marker({
+                            map:map,
+                            position: result.detail.location
+                        });
+                        $("#latitude").attr("value",marker.position.lat);
+                        $("#longitude").attr("value",marker.position.lng);
+                    }
+                });
+                qq.maps.event.addListener(map, 'click', function(event) {
+                    qq.maps.event.addListener(map, 'click', function(event) {
+                        marker.setMap(null);
+                        $("#longitude").attr("value","");
+                        $("#longitude").attr("value",event.latLng.getLng());
+                        $("#latitude").attr("value","");
+                        $("#latitude").attr("value",event.latLng.getLat());
+                        var latLng = new qq.maps.LatLng(event.latLng.getLat(), event.latLng.getLng());
+                        marker=new qq.maps.Marker({
+                            position:latLng,
+                            map:map
+                        });
+                    });
+                });
+                $("#mapseacrh").click(function(){
+                    var address =$("#address").val();
+                    geocoder.getLocation(address);
+                });
+
+                {if $id>0}
+                var address =$("#address").val();
+                geocoder.getLocation(address);
+                {/if}
+
+                    document.onkeydown=function(event){
+                        var e = event || window.event || arguments.callee.caller.arguments[0];
+                        if(e && e.keyCode==27){ // 按 Esc
+                        }
+                        if(e && e.keyCode==113){ // 按 F2
+                        }
+                        if(e && e.keyCode==13){ // enter 键
+                            $("#mapseacrh").click();
+                            return false;
+                        }
+                    };
+
+                });
+        </script>
+</div>
+<script text="text/javascript">
+
+
+$(function () {
+    require(['jquery', 'util'], function ($, u) {
+        $(function () {
+           // u.editor($('#introduction')[0]);
+        });
+    });
+});
+</script>
+{/if}	
+</div>

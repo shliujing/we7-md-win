@@ -1,0 +1,998 @@
+<!--模板开始-->
+<style type="text/css">
+	
+	*
+	{
+        padding: 0px;
+        margin: 0px;
+        -webkit-box-sizing: border-box;
+	}
+
+    body
+    {
+        background-color: white;
+    }
+
+    #container
+    {
+        width: 500px;
+        height: 815px;
+        position: absolute;
+        overflow: hidden;
+    }
+#hua 
+{
+    position: absolute;
+    left: -178px;
+    bottom: -100px;
+}
+.divborder
+{
+    position: absolute;
+    overflow: hidden;
+    border: 33px solid;
+    border-image: url({$skinurl}skin/hetang/zhou1.png) 36 70;
+    background-repeat: no-repeat;
+}
+
+#moshui
+{
+    left: -25px;
+    top: 249px;
+    position: absolute;
+    width: 584px;
+    height: 320px;
+    opacity: 0;
+}
+@-webkit-keyframes moshui
+{
+    from  {-webkit-transform: scale(0.7);opacity: 0}
+    to    {-webkit-transform: scale(1);opacity: 1}
+}
+@-webkit-keyframes fadein
+{
+    from  {opacity: 0}
+    to    {opacity: 1}
+}
+@-webkit-keyframes titleout
+{
+    from  {-webkit-transform: scale(1);opacity: 1}
+    to    {-webkit-transform: scale(1.2);opacity: 0}
+}
+#div1,#div2,#div3
+{
+    opacity: 0;
+}
+@-webkit-keyframes div1_in
+{
+    from  {-webkit-transform: translate(-200px,0px);opacity: 0}
+    to    {-webkit-transform: translate(0px,0px);opacity: 1}
+}
+@-webkit-keyframes div1_out
+{
+    from  {-webkit-transform: translate(0px,0px);opacity: 1}
+    to    {-webkit-transform: translate(150px,0px);opacity: 0}
+}
+@-webkit-keyframes div2_in
+{
+    from  {-webkit-transform: translate(0px,-100px);opacity: 0}
+    to    {-webkit-transform: translate(0px,0px);opacity: 1}
+}
+@-webkit-keyframes div2_out
+{
+    from  {-webkit-transform: translate(0px,0px);opacity: 1}
+    to    {-webkit-transform: translate(0px,100px);opacity: 0}
+}
+@-webkit-keyframes div3_in
+{
+    from  {-webkit-transform: translate(0px,100px);opacity: 0}
+    to    {-webkit-transform: translate(0px,0px);opacity: 1}
+}
+@-webkit-keyframes div3_out
+{
+    from  {-webkit-transform: translate(0px,0px);opacity: 1}
+    to    {-webkit-transform: translate(0px,-100px);opacity: 0}
+}
+@-webkit-keyframes div4_in
+{
+    from  {-webkit-transform: translate(200px,0px);opacity: 0}
+    to    {-webkit-transform: translate(0px,0px);opacity: 1}
+}
+@-webkit-keyframes div4_out
+{
+    from  {-webkit-transform: translate(0px,0px);opacity: 1}
+    to    {-webkit-transform: translate(-200px,0px);opacity: 0}
+}
+@-webkit-keyframes div5_in
+{
+    from  {-webkit-transform: scale(0.5);opacity: 0}
+    to    {-webkit-transform: scale(1);opacity: 1}
+}
+@-webkit-keyframes div5_out
+{
+    0%   {-webkit-transform: scale(1);opacity: 1}
+    15%  {-webkit-transform: scale(1.03);opacity: 1}
+    100% {-webkit-transform: scale(0.5);opacity: 0}
+}
+.lefttoright
+{
+    position: absolute;
+    -webkit-animation: lefttoright 1.5s linear infinite alternate;
+}
+@-webkit-keyframes lefttoright
+{
+    from  {-webkit-transform: translate(-3px, 0px);}
+    to    {-webkit-transform: translate(3px,0px);}
+}
+#yezi_1,#yezi_2,#hua_1,#yezi_10,#yezi_12{
+    -webkit-transition : -webkit-transform 4s ;
+     -webkit-transform-origin:50% 50%;
+}
+#yezi_3,#yezi_4,#yezi_8,#yezi_9,#yezi_13{
+    -webkit-transition : -webkit-transform 4s ;
+}
+#yezi_5,#yezi_6,#yezi_7,#yezi_11{
+    -webkit-transform-origin:50% 50%;
+    -webkit-transition : -webkit-transform 4s ;
+}
+#yu1{
+    position:absolute;
+    width:100px;
+    left:0px;top:50px;
+}
+#wei{
+    position:absolute;
+    width:100px;
+    left:84px;top:8px;
+    -webkit-transform-origin:0% 60%;
+    -webkit-animation:WeiRoll 3s  linear infinite;
+} 
+#yu2_1{
+    position:absolute;
+    width:50px;
+    left:10px;top:45px;
+    -webkit-transform-origin:50% 100%;
+    -webkit-animation:yu2_1_Move 3s linear infinite;
+}
+#yu2_2{
+    position:absolute;
+    width:55px;
+    left:25px;top:90px;
+    -webkit-transform-origin:50% 0%;
+    -webkit-animation:yu2_2_Move 3s linear infinite;
+}
+#yu3_1{
+    position:absolute;
+    width:50px;
+    left:60px;top:33px;
+    -webkit-transform-origin:50% 100%;
+    -webkit-animation:yu3_1_Move 3s 1s linear infinite;
+}
+#yu3_2{
+    position:absolute;
+    width:60px;
+    left:58px;top:75px;
+    -webkit-transform-origin:50% 0%;
+    -webkit-animation:yu3_2_Move 3s 1s linear infinite;
+}
+#Fish_1{
+    left:200px;top:-100px;
+    -webkit-transform-origin:50% 50%;
+    -webkit-animation:FishMove_1 27s linear infinite ;
+}
+#Fish_2{
+    left:50px;top:-100px;
+    -webkit-transform-origin:50% 50%;
+    -webkit-animation:FishMove_2 14s linear infinite ;
+}
+#Fish_3{
+    left:-50px;top:200px;
+    -webkit-transform-origin:50% 50%;
+    -webkit-animation:FishMove_3 14s linear infinite ;
+}
+#Fish_4{
+    left:-50px;top:700px;
+    -webkit-transform-origin:50% 50%;
+    -webkit-animation:FishMove_3 19s linear infinite ;
+}
+#Fish_5{
+    left:-50px;top:810px;
+    -webkit-transform-origin:50% 50%;
+    -webkit-animation:FishMove_4 17s linear infinite ;
+}
+#Fish_6{
+    left:300px;top:810px;
+    -webkit-transform-origin:50% 50%;
+    -webkit-animation:FishMove_5 15s linear infinite ;
+}
+#Fish_7{
+    left:460px;top:810px;
+    -webkit-transform-origin:50% 50%;
+    -webkit-animation:FishMove_5 15s 5s linear infinite ;
+}
+@-webkit-keyframes WeiRoll{
+    0%{
+        -webkit-transform:rotate(0deg);
+    }
+    25%{
+        -webkit-transform:translate(3px,-2px) rotate(10deg);
+    }
+    50%{
+        -webkit-transform:rotate(0deg);
+    }
+    75%{
+        -webkit-transform:translate(0px,1px) rotate(-20deg) ;
+    }
+    100%{
+        -webkit-transform:rotate(0deg);
+    }
+}
+@-webkit-keyframes yu2_1_Move{
+    0%{
+        -webkit-transform:rotate(0deg);
+    }
+    50%{
+        -webkit-transform:translate(0px,10px) rotate(30deg);
+    }
+    100%{
+        -webkit-transform:translate(0px,0px) rotate(0deg);
+    }
+}
+@-webkit-keyframes yu2_2_Move{
+    0%{
+        -webkit-transform:rotate(0deg);
+    }
+    50%{
+        -webkit-transform:translate(0px,-6px) rotate(-40deg);
+    }
+    100%{
+        -webkit-transform:translate(0px,0px) rotate(0deg);
+    }
+}
+@-webkit-keyframes yu3_1_Move{
+    0%{
+        -webkit-transform:rotate(0deg);
+    }
+    50%{
+        -webkit-transform:translate(0px,5px) rotate(25deg);
+    }
+    100%{
+        -webkit-transform:translate(0px,0px) rotate(0deg);
+    }
+}
+@-webkit-keyframes yu3_2_Move{
+    0%{
+        -webkit-transform:rotate(0deg);
+    }
+    50%{
+        -webkit-transform:translate(0px,-25px) rotate(-55deg);
+    }
+    100%{
+        -webkit-transform:translate(0px,0px) rotate(0deg);
+    }
+}
+@-webkit-keyframes FishMove_1{
+    0%{
+        -webkit-transform:translate(0px,0px) rotate(0deg) scale(0.8);
+    }
+    25%{
+        -webkit-transform:translate(-30px,280px) rotate(-90deg) scale(0.8);
+    }
+    50%{
+        -webkit-transform:translate(30px,470px) rotate(-90deg) scale(0.8);
+    }
+    75%{
+        -webkit-transform:translate(80px,750px) rotate(-70deg) scale(0.8);
+    }
+    100%{
+        -webkit-transform:translate(100px,940px) rotate(-70deg) scale(0.8);
+    }
+}
+
+@-webkit-keyframes FishMove_2{
+    0%{
+        -webkit-transform:translate(0px,0px) rotate(-30deg) scale(0.5);
+    }
+    25%{
+        -webkit-transform:translate(50px,260px) rotate(-60deg) scale(0.5);
+    }
+    50%{
+        -webkit-transform:translate(0px,470px) rotate(-50deg) scale(0.5);
+    }
+    75%{
+        -webkit-transform:translate(80px,750px) rotate(-90deg) scale(0.5);
+    }
+    100%{
+        -webkit-transform:translate(110px,930px) rotate(-60deg) scale(0.5);
+    }
+}
+@-webkit-keyframes FishMove_3{
+    0%{
+        -webkit-transform:translate(0px,0px) rotate(180deg) scale(0.7);
+    }
+    25%{
+        -webkit-transform:translate(170px,0px) rotate(190deg) scale(0.7);
+    }
+    50%{
+        -webkit-transform:translate(270px,0px) rotate(210deg) scale(0.7);
+    }
+    75%{
+        -webkit-transform:translate(440px,0px) rotate(200deg) scale(0.7);
+    }
+    100%{
+        -webkit-transform:translate(650px,0px) rotate(180deg) scale(0.7);
+    }
+}
+@-webkit-keyframes FishMove_4{
+    0%{
+        -webkit-transform:translate(0px,0px) rotate(110deg) scale(0.6);
+    }
+    25%{
+        -webkit-transform:translate(170px,-50px) rotate(120deg) scale(0.6);
+    }
+    50%{
+        -webkit-transform:translate(270px,-100px) rotate(160deg) scale(0.6);
+    }
+    75%{
+        -webkit-transform:translate(440px,-190px) rotate(170deg) scale(0.6);
+    }
+    100%{
+        -webkit-transform:translate(650px,-240px) rotate(190deg) scale(0.6);
+    }
+}
+@-webkit-keyframes FishMove_5{
+    0%{
+        -webkit-transform:translate(0px,0px) rotate(110deg) scale(0.4);
+    }
+    25%{
+        -webkit-transform:translate(0px,-200px) rotate(110deg) scale(0.4);
+    }
+    50%{
+        -webkit-transform:translate(0px,-400px) rotate(110deg) scale(0.4);
+    }
+    75%{
+        -webkit-transform:translate(0px,-600px) rotate(110deg) scale(0.4);
+    }
+    100%{
+        -webkit-transform:translate(0px,-840px) rotate(110deg) scale(0.4);
+    }
+}
+@-webkit-keyframes WaterMove{
+    0%{
+        opacity:1;
+        -webkit-transform:scale(0.5);
+    }
+    70%{
+        opacity:0;
+        -webkit-transform:scale(1.4);
+    }
+    100%{
+        opacity:0;
+        -webkit-transform:scale(1.4);
+    }
+}
+@-webkit-keyframes YeziMove_1{
+    0%{
+        -webkit-transform:translate(200px,300px);
+    }
+    25%{
+        -webkit-transform:translate(170px,290px);
+    }
+    50%{
+        -webkit-transform:translate(196px,295px);
+    }
+    75%{
+        -webkit-transform:translate(210px,315px);
+    }
+    100%{
+        -webkit-transform:translate(200px,300px);
+    }
+}
+@-webkit-keyframes YeziMove_2{
+    0%{
+        -webkit-transform:translate(-170px,0px) rotate(0deg);
+    }
+    25%{
+        -webkit-transform:translate(-170px,0px) rotate(90deg);
+    }
+    50%{
+        -webkit-transform:translate(-170px,0px) rotate(0deg);
+    }
+    75%{
+        -webkit-transform:translate(-170px,0px) rotate(-90deg);
+    }
+    100%{
+        -webkit-transform:translate(-170px,0px) rotate(0deg);
+    }
+}
+@-webkit-keyframes YeziMove_3{
+    0%{
+        -webkit-transform:translate(-250px,150px);
+    }
+    25%{
+        -webkit-transform:translate(-254px,150px);
+    }
+    50%{
+        -webkit-transform:translate(-254px,145px);
+    }
+    75%{
+        -webkit-transform:translate(-250px,145px);
+    }
+    100%{
+        -webkit-transform:translate(-250px,150px);
+    }
+}
+@-webkit-keyframes YeziMove_4{
+    0%{
+        -webkit-transform:translate(220px,70px) rotate(0deg);
+    }
+    25%{
+        -webkit-transform:translate(220px,70px) rotate(30deg);
+    }
+    50%{
+        -webkit-transform:translate(220px,70px) rotate(0deg);
+    }
+    75%{
+        -webkit-transform:translate(220px,70px) rotate(-30deg);
+    }
+    100%{
+        -webkit-transform:translate(220px,70px) rotate(0deg);
+    }
+}
+@-webkit-keyframes YeziMove_5{
+    0%{
+        -webkit-transform:translate(210px,200px);
+    }
+    25%{
+        -webkit-transform:translate(220px,210px);
+    }
+    50%{
+        -webkit-transform:translate(240px,200px);
+    }
+    75%{
+        -webkit-transform:translate(210px,190px);
+    }
+    100%{
+        -webkit-transform:translate(200px,170px);
+    }
+}
+@-webkit-keyframes YeziMove_6{
+    0%{
+        -webkit-transform:translate(-300px,0px);
+    }
+    25%{
+        -webkit-transform:translate(-304px,0px);
+    }
+    50%{
+        -webkit-transform:translate(-304px,-5px);
+    }
+    75%{
+        -webkit-transform:translate(-300px,-5px);
+    }
+    100%{
+        -webkit-transform:translate(-300px,0px);
+    }
+}
+@-webkit-keyframes YeziMove_13{
+    0%{
+        -webkit-transform:translate(120px,300px);
+    }
+    25%{
+        -webkit-transform:translate(116px,300px);
+    }
+    50%{
+        -webkit-transform:translate(116px,295px);
+    }
+    75%{
+        -webkit-transform:translate(120px,295px);
+    }
+    100%{
+        -webkit-transform:translate(120px,300px);
+    }
+}
+@-webkit-keyframes YeziMove_10{
+    0%{
+        -webkit-transform:translate(0px,200px) rotate(0deg);
+    }
+    25%{
+        -webkit-transform:translate(0px,200px) rotate(90deg);
+    }
+    50%{
+        -webkit-transform:translate(0px,200px) rotate(0deg);
+    }
+    75%{
+        -webkit-transform:translate(0px,200px) rotate(-90deg);
+    }
+    100%{
+        -webkit-transform:translate(0px,200px) rotate(0deg);
+    }
+}
+.wordspan
+{
+    width: 80%;
+    left: 10%;
+    position: absolute;
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+    bottom: 35px;
+    text-shadow: 1px 1px 2px #000;
+    font-weight: bold;
+}
+</style>
+
+
+<div id='container'>
+
+    <img id='bg' src='{$skinurl}skin/hetang/8.jpg' style='position:absolute;opacity:0.4'>
+    <div style='position:absolute'>
+        <img id="water_1" src="{$skinurl}skin/hetang/9.png" style="position: absolute; width: 50px; height: 60px; left: 293px; top: 510px; opacity: 0; animation: WaterMove 6s linear infinite;">
+        <img id="water_2" src="{$skinurl}skin/hetang/9.png" style="position: absolute; width: 70px; height: 60px; left: 323px; top: 177px; opacity: 0; animation: WaterMove 5s linear infinite;">
+        <img id="water_3" src="{$skinurl}skin/hetang/9.png" style="position: absolute; width: 80px; height: 80px; left: 392px; top: 263px; opacity: 0; animation: WaterMove 6s linear infinite;">
+    </div>
+    <div id="Fish_1" style="position: absolute;">
+        <img src="{$skinurl}skin/hetang/1.png" id="yu2_1" style="position: absolute; left: 10px; top: 45px; width: 50px;">
+        <img src="{$skinurl}skin/hetang/2.png" id="yu2_2" style="position: absolute; left: 25px; top: 90px; width: 55px;">
+        <img src="{$skinurl}skin/hetang/3.png" id="yu3_1" style="position: absolute; left: 60px; top: 33px; width: 50px;">
+        <img src="{$skinurl}skin/hetang/4.png" id="yu3_2" style="position: absolute; left: 58px; top: 75px; width: 60px;">
+        <img src="{$skinurl}skin/hetang/5.png" id="wei" style="position: absolute; left: 80px; top: 11px; width: 100px;">
+        <img src="{$skinurl}skin/hetang/6.png" id="yu1" style="position: absolute; left: 0px; top: 50px; width: 100px;">
+    </div>
+    <div id="Fish_2" style="position: absolute;">
+        <img src="{$skinurl}skin/hetang/1.png" id="yu2_1" style="position: absolute; left: 10px; top: 45px; width: 50px;">
+        <img src="{$skinurl}skin/hetang/2.png" id="yu2_2" style="position: absolute; left: 25px; top: 90px; width: 55px;">
+        <img src="{$skinurl}skin/hetang/3.png" id="yu3_1" style="position: absolute; left: 60px; top: 33px; width: 50px;">
+        <img src="{$skinurl}skin/hetang/4.png" id="yu3_2" style="position: absolute; left: 58px; top: 75px; width: 60px;">
+        <img src="{$skinurl}skin/hetang/5.png" id="wei" style="position: absolute; left: 80px; top: 11px; width: 100px;">
+        <img src="{$skinurl}skin/hetang/6.png" id="yu1" style="position: absolute; left: 0px; top: 50px; width: 100px;">
+    </div>
+    <div id="Fish_3" style="position: absolute;">
+        <img src="{$skinurl}skin/hetang/1.png" id="yu2_1" style="position: absolute; left: 10px; top: 45px; width: 50px;">
+        <img src="{$skinurl}skin/hetang/2.png" id="yu2_2" style="position: absolute; left: 25px; top: 90px; width: 55px;">
+        <img src="{$skinurl}skin/hetang/3.png" id="yu3_1" style="position: absolute; left: 60px; top: 33px; width: 50px;">
+        <img src="{$skinurl}skin/hetang/4.png" id="yu3_2" style="position: absolute; left: 58px; top: 75px; width: 60px;">
+        <img src="{$skinurl}skin/hetang/5.png" id="wei" style="position: absolute; left: 80px; top: 11px; width: 100px;">
+        <img src="{$skinurl}skin/hetang/6.png" id="yu1" style="position: absolute; left: 0px; top: 50px; width: 100px;">
+    </div>
+    <div id="Fish_4" style="position: absolute;">
+        <img src="{$skinurl}skin/hetang/1.png" id="yu2_1" style="position: absolute; left: 10px; top: 45px; width: 50px;">
+        <img src="{$skinurl}skin/hetang/2.png" id="yu2_2" style="position: absolute; left: 25px; top: 90px; width: 55px;">
+        <img src="{$skinurl}skin/hetang/3.png" id="yu3_1" style="position: absolute; left: 60px; top: 33px; width: 50px;">
+        <img src="{$skinurl}skin/hetang/4.png" id="yu3_2" style="position: absolute; left: 58px; top: 75px; width: 60px;">
+        <img src="{$skinurl}skin/hetang/5.png" id="wei" style="position: absolute; left: 80px; top: 11px; width: 100px;">
+        <img src="{$skinurl}skin/hetang/6.png" id="yu1" style="position: absolute; left: 0px; top: 50px; width: 100px;">
+    </div>
+    <div id="Fish_5" style="position: absolute;">
+        <img src="{$skinurl}skin/hetang/1.png" id="yu2_1" style="position: absolute; left: 10px; top: 45px; width: 50px;">
+        <img src="{$skinurl}skin/hetang/2.png" id="yu2_2" style="position: absolute; left: 25px; top: 90px; width: 55px;">
+        <img src="{$skinurl}skin/hetang/3.png" id="yu3_1" style="position: absolute; left: 60px; top: 33px; width: 50px;">
+        <img src="{$skinurl}skin/hetang/4.png" id="yu3_2" style="position: absolute; left: 58px; top: 75px; width: 60px;">
+        <img src="{$skinurl}skin/hetang/5.png" id="wei" style="position: absolute; left: 80px; top: 11px; width: 100px;">
+        <img src="{$skinurl}skin/hetang/6.png" id="yu1" style="position: absolute; left: 0px; top: 50px; width: 100px;">
+    </div>
+    <div id="Fish_6" style="position: absolute;">
+        <img src="{$skinurl}skin/hetang/1.png" id="yu2_1" style="position: absolute; left: 10px; top: 45px; width: 50px;">
+        <img src="{$skinurl}skin/hetang/2.png" id="yu2_2" style="position: absolute; left: 25px; top: 90px; width: 55px;">
+        <img src="{$skinurl}skin/hetang/3.png" id="yu3_1" style="position: absolute; left: 60px; top: 33px; width: 50px;">
+        <img src="{$skinurl}skin/hetang/4.png" id="yu3_2" style="position: absolute; left: 58px; top: 75px; width: 60px;">
+        <img src="{$skinurl}skin/hetang/5.png" id="wei" style="position: absolute; left: 80px; top: 11px; width: 100px;">
+        <img src="{$skinurl}skin/hetang/6.png" id="yu1" style="position: absolute; left: 0px; top: 50px; width: 100px;">
+    </div>
+    <div id="Fish_7" style="position: absolute;">
+        <img src="{$skinurl}skin/hetang/1.png" id="yu2_1" style="position: absolute; left: 10px; top: 45px; width: 50px;">
+        <img src="{$skinurl}skin/hetang/2.png" id="yu2_2" style="position: absolute; left: 25px; top: 90px; width: 55px;">
+        <img src="{$skinurl}skin/hetang/3.png" id="yu3_1" style="position: absolute; left: 60px; top: 33px; width: 50px;">
+        <img src="{$skinurl}skin/hetang/4.png" id="yu3_2" style="position: absolute; left: 58px; top: 75px; width: 60px;">
+        <img src="{$skinurl}skin/hetang/5.png" id="wei" style="position: absolute; left: 80px; top: 11px; width: 100px;">
+        <img src="{$skinurl}skin/hetang/6.png" id="yu1" style="position: absolute; left: 0px; top: 50px; width: 100px;">
+    </div>
+    <img id='yezi_1' src='{$skinurl}skin/hetang/10.png' style="position:absolute;width:120px;left:-110px;top:-50px;">
+    <img id='yezi_2' src='{$skinurl}skin/hetang/11.png' style="position:absolute;width:90px;height:90px;left:500px;top:550px;">
+    <img id='yezi_3' src='{$skinurl}skin/hetang/11.png' style="position:absolute;width:105px;left:500px;top:200px;">
+    <img id='yezi_4' src='{$skinurl}skin/hetang/11.png' style='position:absolute;width:120px;height:120px;left:-250px;top:600px;'>
+    <img id='yezi_5' src='{$skinurl}skin/hetang/10.png' style='position:absolute;width:100px;left:-160px;top:300px;'>
+    <img id='yezi_6' src='{$skinurl}skin/hetang/11.png' style="position:absolute;width:90px;left:500px;top:400px;">
+    <img id='yezi_7' src='{$skinurl}skin/hetang/10.png' style="position:absolute;width:180px;left:500px;top:750px;">
+    <img id='yezi_8' src='{$skinurl}skin/hetang/11.png' style='position:absolute;width:190px;left:500px;top:-30px;'>
+    <img id='yezi_9' src='{$skinurl}skin/hetang/10.png' style='position:absolute;width:150px;left:600px;top:300px;'>
+    <img id='yezi_10' src='{$skinurl}skin/hetang/10.png' style='position:absolute;width:90px;height:90px;left:300px;top:-100px;'>
+    <img id='yezi_11' src='{$skinurl}skin/hetang/10.png' style='position:absolute;width:170px;left:50px;top:-80px;'>
+    <img id='yezi_12' src='{$skinurl}skin/hetang/10.png' style='position:absolute;width:120px;left:600px;top:100px;'>
+    <img id='yezi_13' src='{$skinurl}skin/hetang/12.png' style='position:absolute;width:250px;left:100px;top:-160px;'>
+
+    <img id='moshui' src='{$skinurl}skin/hetang/moji2.png' sytle='position:absolute' >
+    <div id='pagetitle' style='position:absolute;top:298px;left:89px;width:288px;height:171px;'>
+        <div style='position:absolute;width:288px;height:171px;top:22px;left:17px;overflow:hidden;display:table'>
+            <div id='titlecontent' style='width:288px;height:171px;vertical-align:middle;display:table-cell;text-align:center;font-size:26px;line-height:45px;color:#fff;text-shadow: 1px 1px 2px #0E439A;'></div>
+        </div>
+    </div>
+
+
+
+    <div class='lefttoright'>
+        <div id='div1' class='divborder' style='position:absolute'>
+            <div id='img1' ></div>
+            <div id='word1' class='wordspan'></div>
+        </div>
+    </div>
+    
+    <div class='lefttoright'>
+        <div id='div2' class='divborder' style='position:absolute'>
+            <div id='img2' ></div>
+            <div id='word2' class='wordspan'></div>
+        </div>
+    </div>
+    
+    <div class='lefttoright'>
+        <div id='div3' class='divborder' style='position:absolute'>
+            <div id='img3' ></div>
+            <div id='word3' class='wordspan'></div>
+        </div>
+    </div>
+</div>
+
+<script>
+function id(name)
+{
+    return document.getElementById(name);
+}
+function CreateYezi()
+{
+    id('yezi_1').style.webkitTransform = 'translate(200px,300px)';
+    // id('hua_1').style.webkitTransform = 'translate(300px,300px)';
+    timeout[1] = setTimeout("id('yezi_2').style.webkitTransform = 'translate(-170px,0px)';",800);
+    id('yezi_3').style.webkitTransform = 'translate(-250px,150px)';
+    id('yezi_4').style.webkitTransform = 'translate(220px,70px)';
+    id('yezi_5').style.webkitTransform = 'translate(210px,200px)';
+    id('yezi_6').style.webkitTransform = 'translate(-300px,0px) ';
+    id('yezi_7').style.webkitTransform = 'translate(-100px,-100px) ';
+    timeout[2] = setTimeout("id('yezi_8').style.webkitTransform = 'translate(-250px,0px)';",500);
+    id('yezi_9').style.webkitTransform = 'translate(-200px,0px) ';
+    id('yezi_10').style.webkitTransform = 'translate(0px,200px) ';
+    id('yezi_11').style.webkitTransform = 'translate(0px,150px) ';
+    id('yezi_12').style.webkitTransform = 'translate(-100px,50px) ';
+    id('yezi_13').style.webkitTransform = 'translate(120px,300px) ';
+    timeout[3] = setTimeout(function()
+    {
+        id('yezi_1').style.webkitAnimation = 'YeziMove_1 9s 0.5s linear infinite alternate';
+        id('yezi_2').style.webkitAnimation = 'YeziMove_2 22s 0.7s linear infinite ';
+        id('yezi_3').style.webkitAnimation = 'YeziMove_3 2.5s 1s linear infinite ';
+        id('yezi_4').style.webkitAnimation = 'YeziMove_4 18s linear infinite ';
+        id('yezi_5').style.webkitAnimation = 'YeziMove_5 10s 1.5s linear infinite alternate';
+        //id('yezi_13').style.webkitAnimation = 'YeziMove_13 3.5s 0.5s linear infinite ';
+        id('yezi_10').style.webkitAnimation = 'YeziMove_10 28s 0.5s linear infinite ';
+        id('yezi_6').style.webkitAnimation = 'YeziMove_6 3s 1s linear infinite ';
+    },3500);
+}
+
+
+function showtitle()
+{
+    id('moshui').style.webkitAnimation = 'moshui 3s ease-out both';
+    id('pagetitle').style.webkitAnimation = 'fadein 1s 2s linear both';
+    id('titlecontent').innerHTML = e_title;
+}
+
+function liangziyun_kawa()
+{
+    id('pagetitle').style.webkitAnimation = 'titleout 2s ease-in both';
+    id('moshui').style.webkitAnimation = 'titleout 2s ease-in both';
+
+    timeout[4] = setTimeout(show1,2000)
+}
+
+function show1()
+{
+    setImage('1');
+    id('div1').style.webkitAnimation = 'div1_in 1.5s ease-out both';
+
+
+    timeout[5] = setTimeout(show2, 6000)
+}
+
+function show2()
+{
+    id('div1').style.webkitAnimation = 'div1_out 1.5s ease-in both';
+    setImage('2');
+    id('div2').style.webkitAnimation = 'div2_in 1.5s 1.3s ease-out both';
+
+    timeout[6] = setTimeout(show3, 6000)
+}
+
+function show3()
+{
+    id('div2').style.webkitAnimation = 'div2_out 1.5s ease-in both';
+    setImage('1');
+    id('div1').style.webkitAnimation = 'div3_in 1.5s 1.3s ease-out both';
+
+    timeout[7] = setTimeout(show4, 6000)
+}
+
+function show4()
+{
+    id('div1').style.webkitAnimation = 'div3_out 1.5s ease-in both';
+    setImage('2');
+    id('div2').style.webkitAnimation = 'div4_in 1.5s 1.3s ease-out both';
+
+    timeout[8] = setTimeout(show5, 6000)
+}
+
+function show5()
+{
+    id('div2').style.webkitAnimation = 'div4_out 1.5s ease-in both';
+    setImage('3');
+    id('div3').style.webkitAnimation = 'div5_in 1.5s 1.3s ease-out both';
+
+    timeout[9] = setTimeout(show6, 6000)
+}
+
+function show6()
+{
+    id('div3').style.webkitAnimation = 'div5_out 1.5s ease-in both';
+    setImage('1');
+    id('div1').style.webkitAnimation = 'div1_in 1.5s 1.3s ease-out both';
+
+    timeout[10] = setTimeout(show2, 6000)
+}
+
+call_me(load_images);
+
+function setImage(idname)
+{
+
+    if(reshow == true)
+        return;
+
+    while(Onload_imgs_url[image_url_index] == 'not find' || Onload_imgs_url[image_url_index] == 'loading')
+    {
+        if(image_url_index % step_loadnum == 0)
+        {
+            step_load();
+        }
+        image_url_index++;
+        if(image_url_index == Onload_imgs_url.length)
+            image_url_index = 0;
+    }
+
+    if(image_url_index % step_loadnum == 0)
+    {
+        step_load();
+    }
+    var img_bili = image_size_width[image_url_index]/image_size_height[image_url_index];
+
+    var img = id('img'+idname);
+    var div = id('div' + idname);
+
+    img.style.backgroundImage = 'url('+Onload_imgs_url[image_url_index]+')';
+
+    var word = id('word' + idname);
+    var str = words[get_pid(Onload_imgs_url[image_url_index])];
+    if(str != undefined)
+    {
+        word.innerHTML = str;
+    }
+    else
+    {
+        word.innerHTML = '';
+    }
+    //500 760
+    if(img_bili < (440/660))
+    {
+        var height = 660;
+        var width = 660 * img_bili;
+        var top = 50;
+        var left = (500-width)/2;
+    }
+    else if(img_bili <= 1)
+    {
+        var width = 440;
+        var height = 440 / img_bili;
+        var left = 30;
+        var top = (750-height)/2
+    }
+    else if(img_bili > 1)
+    {
+        var width = 480;
+        var height = 480/img_bili;
+        var left = 10;
+        var top = (750-height)/2;
+    } 
+
+    div.style.width = width + 'px';
+    div.style.height = height + 'px';
+    div.style.left = left + 'px';
+    div.style.top = top + 'px';
+    img.style.backgroundSize = (width-66) + 'px ' + (height-66) + 'px';
+    img.style.width = width + 'px';
+    img.style.height = height + 'px';
+    // div.style.backgroundPosition = '4px 4px';
+
+
+    image_url_index ++;
+    if(image_url_index == Onload_imgs_url.length)
+      image_url_index = 0;
+}
+//每次执行加载后5张图片
+var bl_keepload = 'first';
+var step_loadnum = 5;
+function step_load()
+{
+    var load_num = 0
+    //初步加载X张
+    if(image_url_index  == 0 && bl_keepload == 'first')
+    {
+        console.log('loading continue');
+        if(slider_images_url.length > step_loadnum)
+        {
+            load_num = step_loadnum;
+            bl_keepload = 'next';
+        }
+        else
+        {
+            load_num = slider_images_url.length;
+            bl_keepload = 'end';
+        }
+        for(var i = 0; i< load_num; i++)
+        {
+            var img=new Image();
+            img.index=i;
+            img.src=slider_images_url[i];
+            img.onload=image_onload;
+            img.onerror= image_onerror;
+            Onload_imgs_url[i] = 'loading';
+        }
+    }
+    else if(bl_keepload == 'end')
+    {
+        return;
+    }
+    else
+    {
+         console.log('loading continue');
+        if(slider_images_url.length - image_url_index >step_loadnum*2)
+        { 
+            load_num = step_loadnum;
+        }
+        else
+        {
+            load_num = slider_images_url.length - image_url_index - step_loadnum;
+            bl_keepload = 'end';
+        }
+        for(var i = image_url_index +step_loadnum; i< image_url_index + step_loadnum + load_num; i++)
+        {
+            var img=new Image();
+            img.index=i;
+            img.src=slider_images_url[i];
+            img.onload=image_onload;
+            img.onerror= image_onerror;
+            Onload_imgs_url[i] = 'loading';
+        }
+    }
+
+}
+function load_images()
+{
+    reshow = false;
+    image_size_width=[];
+    image_size_height=[];
+    Onload_imgs_url=[];
+    image_url_index=0;
+    have_num = 0;
+    error_num = 0;
+    begin_titletime = new Date();
+    begin_titletime = begin_titletime.getTime();
+    canshow = true;
+    showtitle();
+    bl_keepload = 'first';
+    step_load();    
+    CreateYezi();
+}
+
+function image_onerror(event)
+{
+    var img = event.target;
+    var index = img.index;
+    if(index<step_loadnum)
+        error_num ++;
+    Onload_imgs_url[index] = 'not find';
+
+    if((have_num+error_num >= step_loadnum || slider_images_url.length == (have_num+error_num)) && canshow == true)
+    {   
+        reshow = false;
+        canshow =false;
+        if(have_num == 0)
+            return;
+        var end_titletime = new Date();
+        end_titletime = end_titletime.getTime();
+        var dis_titletime = Math.abs(end_titletime-begin_titletime);
+        if(dis_titletime>delaytime)
+        {
+            liangziyun_kawa();
+        }
+        else
+        {
+            dis_titletime = delaytime- dis_titletime;
+            timeout[0] = setTimeout(function()
+                {
+                    liangziyun_kawa();
+                },dis_titletime);
+        }
+    }
+}
+function image_onload(event)
+{
+    if(reshow == true)
+        return;
+
+    var img = event.target;
+    var index = img.index;
+
+    if(index<step_loadnum)
+    {
+        have_num++;
+    }
+    Onload_imgs_url[index] = img.src;
+    image_size_height[index] = img.height;
+    image_size_width[index] = img.width;
+
+    console.log(Onload_imgs_url[index]);
+    // console.log(have_num + '-' + error_num);
+
+    if((have_num + error_num >= step_loadnum ||slider_images_url.length == (have_num+error_num)) && canshow == true)
+    {   
+        reshow = false;
+        canshow =false;
+        if(have_num == 0)
+            return;
+        var end_titletime = new Date();
+        end_titletime = end_titletime.getTime();
+        var dis_titletime = Math.abs(end_titletime-begin_titletime);
+        if(dis_titletime>delaytime)
+        {
+            liangziyun_kawa();
+        }
+        else
+        {
+            dis_titletime = delaytime- dis_titletime;
+            timeout[0] = setTimeout(function()
+                {
+                    liangziyun_kawa();
+                },dis_titletime);
+        }
+
+    }
+}
+var image_size_width=[];
+var image_size_height=[];
+var image_url_index=0;
+var have_num = 0;
+var error_num = 0;
+var canshow = true;
+var reshow = false;
+var delaytime=6000;
+var timeout = [];
+
+function reload_scene()
+{
+    clearnode();
+    reshow = true;
+    setTimeout(load_images,100);
+}
+
+function clearnode()
+{
+
+    for(var i = 0; i<timeout.length; i++)
+    {
+        clearTimeout(timeout[i]);
+    }
+
+    var itemlist = ['pagetitle','moshui','div3','div1','div2'];
+
+    for(var i =0; i<itemlist.length;i++)
+    {
+        id(itemlist[i]).style.webkitAnimation = '';
+    }
+
+}
+</script>

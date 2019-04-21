@@ -1,0 +1,1174 @@
+<!--模板开始-->
+<style type="text/css">
+    * {
+        padding: 0px;
+        margin: 0px;
+        -webkit-box-sizing: border-box
+    }
+
+    body {
+        background-color: white
+    }
+
+    #container {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 500px;
+        height: 815px;
+        overflow: hidden;
+    }
+    #container > img,#container > div {
+        position: absolute;
+    }
+
+    .abs{position:absolute;}
+
+    #yuan1 {
+        position: absolute;
+        top: -162px;
+        left:-319.5px;
+        -webkit-transform: scale(2);
+    }
+    #yuan2 {
+        position: absolute;
+        top: -174px;
+        left:-331.5px;
+        -webkit-transform: scale(2);
+    }
+    #yuan3 {
+        position: absolute;
+        top: -119.5px;
+        left:-277px;
+        -webkit-transform: scale(2);
+    }
+    #yuan4 {
+        position: absolute;
+        top: -139px;
+        left:-296.5px;
+        -webkit-transform: scale(2);
+    }
+    #yuan1_img{
+        -webkit-animation: yuan_zhuan 37.5s 1s linear infinite both;
+    }
+    #yuan2_img{
+        -webkit-animation: yuan_zhuan 42.5s 1.3s linear infinite both;
+    }
+    #yuan3_img{
+        -webkit-animation: yuan_zhuan 47.5s 1.5s linear infinite both;
+    }
+    #yuan4_img{
+        -webkit-animation: yuan_zhuan 52.5s 1.8s linear infinite both;
+    }
+
+    #pagetitle_ctn {
+        position:absolute;
+        width:458px;
+        height:293px;
+        top: 261px;
+        left: 46px;
+        overflow: hidden;
+        opacity: 0;
+
+    }
+
+    #pagetitle {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left:-25px;
+        top:0;
+    }
+
+    .titletable {
+        position: absolute;
+        width: 230px;
+        height: 166px;
+        top: 61px;
+        left: 110px;
+        display: table;
+    }
+    #titletable {
+    }
+
+    #titlecontent {
+        vertical-align:middle;
+        display:table-cell;
+        text-align:center;
+        font-size:22px;
+        line-height:33px;
+        color:#EA8F4B;
+    }
+    #title_bian1 {
+        position: absolute;
+        left: -1px;
+        top: 31px;
+    }
+    #title_y1 {
+        position:absolute;
+        top: 0px;
+        left: 29px;
+    }
+    #title_z1 {
+        position:absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    #title_bian {
+        position:absolute;
+        top: 292px;
+        left: 391px;
+        width: 57px;
+        height: 227px;
+        -webkit-transform: translate(-650px,-50px) rotate(-60deg);
+    }
+    #title_y {
+        position:absolute;
+        top: 0px;
+        left: 29px;
+    }
+    #title_z {
+        position:absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    #bianpao{
+        left:86px;
+        top:-83px;
+    }
+    #bp1-wrap{
+        left:4px;
+        top:23px;
+    }
+    #bp1{
+        width:100px;
+        height:92px;
+        left:0;top:0;
+        -webkit-transform-origin:44px -2px;
+    }
+    #bp2-wrap{
+        left:0px;
+        top:51px;
+    }
+    #bp2{
+        width:124px;
+        height:125px;
+        left:0;top:0;
+        -webkit-transform-origin:55px 10px;
+    }
+    #bp3-wrap{
+        left:14px;
+        top:109px;
+    }
+    #bp3{
+        width:106px;
+        height:103px;
+        left:0;top:0;
+        -webkit-transform-origin:56px -1px;
+    }
+    #bp4-wrap{
+        left:22px;
+        top:136px;
+    }
+    #bp4{
+        width:117px;
+        height:106px;
+        left:0;top:0;
+        -webkit-transform-origin:55px 6px;
+    }
+    #bp5-wrap{
+        left:5px;
+        top:185px;
+    }
+    #bp5{
+        width:110px;
+        height:107px;
+        left:0;top:0;
+        -webkit-transform-origin:52px -22px;
+    }
+    #denglong1{
+        width:332px;
+        height:351px;
+        left:0;top:0;
+    }
+    #denglong1-wrap{
+        left:310px;
+        top:559px;
+    }
+    #denglong2{
+        width:269px;
+        height:294px;
+        left:0;top:0;
+    }
+    #denglong2-wrap{
+        left:-70px;
+        top:-23px;
+    }
+    #denglong3{
+        width:170px;
+        height:207px;
+        left:0;top:0;
+    }
+    #denglong3-wrap{
+        left:371px;
+        top:-12px;
+    }
+    #denglong4{
+        width:243px;
+        height:229px;
+        left:0;top:0;
+    }
+    #denglong4-wrap{
+        left:-18px;
+        top:811px;
+    }
+    #gouqiqiu1-wrap{
+        left:438px;
+        top:521px;
+    }
+    #gouqiqiu1{
+        width:93px;
+        height:173px;
+        left:0;top:0;
+    }
+    #gouqiqiu2-wrap{
+        left:116px;
+        top:500px;
+    }
+    #gouqiqiu2{
+        width:75px;
+        height:140px;
+        left:0;top:0;
+    }
+    #gou1-wrap{
+        left:60px;
+        top:644px;
+    }
+    #gou1{
+        width:61px;
+        height:99px;
+        left:0;top:0;
+    }
+    #gou2-wrap{
+        left:220px;
+        top:684px;
+    }
+    #gou2{
+        width:61px;
+        height:99px;
+        left:0;top:0;
+        opacity: 0;
+    }
+
+    .page_ctn {
+        position: absolute;
+        left: 40px;
+        border:solid 8px rgba(255,255,255, 1);
+        opacity: 0;
+    }
+    .page {
+    }
+    .showwords {
+        font-size: 18px;
+        color: white;
+        position: absolute;
+        z-index: 1;
+        bottom: 20px;
+        left: 15%;
+        width: 70%;
+        line-height: 30px;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        letter-spacing: 2px;
+    }
+</style>
+<style type="text/css">
+    @-webkit-keyframes page3
+    {
+        0%  {
+            -webkit-transform: scale(1);
+            opacity: 0;
+        }
+        4%  {
+            -webkit-transform: scale(1.1);
+            opacity: 1;
+        }
+        7%  {
+            -webkit-transform: scale(1);
+        }
+        11%  {
+            -webkit-transform: scale(1.1);
+        }
+        16%  {
+            -webkit-transform: scale(1.05);
+        }
+        46%  {
+            -webkit-transform: scale(1);
+        }
+        86%  {
+            -webkit-transform: scale(1.05);
+            opacity: 1;
+        }
+        100%  {
+            -webkit-transform: scale(1);
+            opacity: 0;
+        }
+    }
+    @-webkit-keyframes page2
+    {
+        0%  {
+            -webkit-transform: scale(.9);
+            opacity: 0;
+        }
+        17%  {
+            -webkit-transform: scale(1);
+            opacity: 1;
+        }
+        47%  {
+            -webkit-transform: scale(1.06);
+        }
+        86%  {
+            -webkit-transform: scale(1);
+            opacity: 1;
+        }
+        100%  {
+            -webkit-transform: scale(.9);
+            opacity: 0;
+        }
+    }
+    @-webkit-keyframes page1
+    {
+        0%  {
+            -webkit-transform: translate(-100px,-200px);
+            opacity: 0;
+        }
+        19%  {
+            -webkit-transform: translate(0px,0px);
+            opacity: 1;
+        }
+        55%  {
+            -webkit-transform: translate(-10px,20px);
+        }
+        68%  {
+            -webkit-transform: translate(-10px,0px);
+        }
+        87%  {
+            -webkit-transform: translate(-10px,20px);
+            opacity: 1;
+        }
+        100%  {
+            -webkit-transform: translate(100px,150px);
+            opacity: 0;
+        }
+    }
+
+    @-webkit-keyframes fadein
+    {
+        0%  {opacity: 0}
+        100%    {opacity: 1}
+    }
+    @-webkit-keyframes fadeout
+    {
+        0%  {opacity: 1}
+        100%    {opacity: 0}
+    }
+    @-webkit-keyframes yuan
+    {
+        0%  {
+            -webkit-transform: scale(2);
+        }
+        100%  {
+            -webkit-transform: scale(1);
+        }
+    }
+    @-webkit-keyframes yuan_zhuan
+    {
+        0%  {
+            -webkit-transform: rotate(0deg);
+        }
+        100%  {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @-webkit-keyframes titletablein
+    {
+        0%  {
+            -webkit-transform: translateY(0px);
+        }
+        50%  {
+            -webkit-transform: translateY(-2px);
+        }
+        100%  {
+            -webkit-transform: translateY(0px);
+        }
+    }
+    @-webkit-keyframes titlecontentin
+    {
+        0%  {
+            color:#EA8F4B;
+        }
+        23%  {
+            color:#FEE550;
+        }
+        54%  {
+            color:#EA8F4B;
+        }
+        77%  {
+            color:#FEE550;
+        }
+        100%  {
+            color:#EA8F4B;
+        }
+    }
+    @-webkit-keyframes title_ctnin
+    {
+        0%  {
+            -webkit-transform: translate(347px,0px);
+            opacity: 0;
+        }
+        14%  {
+            -webkit-transform: translate(347px,0px);
+            opacity: 0;
+        }
+        14.1%  {
+            -webkit-transform: translate(347px,0px);
+            opacity: 1;
+        }
+        35%  {
+            -webkit-transform: translate(0px,-10px);
+        }
+        58%  {
+            -webkit-transform: translate(0px,0px);
+        }
+        78%  {
+            -webkit-transform: translate(0px,-10px);
+        }
+        88%  {
+            -webkit-transform: translate(347px,0px);
+            opacity: 1;
+        }
+        88.1%  {
+            -webkit-transform: translate(347px,0px);
+            opacity: 0;
+        }
+        100%  {
+            -webkit-transform: translate(347px,0px);
+            opacity: 0;
+        }
+    }
+    @-webkit-keyframes titlein
+    {
+        0%  {
+            -webkit-transform: translateX(-347px);
+        }
+        14%  {
+            -webkit-transform: translateX(-347px);
+        }
+        35%  {
+            -webkit-transform: translateX(0px);
+        }
+        78%  {
+            -webkit-transform: translateX(0px);
+        }
+        88%  {
+            -webkit-transform: translateX(-347px);
+        }
+        100%  {
+            -webkit-transform: translateX(-347px);
+        }
+    }
+
+
+    @-webkit-keyframes title_z
+    {
+        0%  {
+            -webkit-transform: translateX(0px);
+        }
+        14%  {
+            -webkit-transform: translateX(0px);
+            opacity: 1;
+        }
+        14.1%  {
+            opacity: 0;
+            -webkit-transform: translateX(0px);
+        }
+        35%  {
+            -webkit-transform: translateX(-341px);
+        }
+        78%  {
+            -webkit-transform: translateX(-341px);
+        }
+
+        88%  {
+            opacity: 0;
+            -webkit-transform: translateX(0px);
+        }
+        88.1%  {
+            opacity: 1;
+            -webkit-transform: translateX(0px);
+        }
+        100%  {
+            -webkit-transform: translateX(0px);
+            opacity: 1;
+        }
+    }
+    @-webkit-keyframes title_bian
+    {
+        0%  {
+            -webkit-transform: translate(-650px,-280px) rotate(-60deg);
+        }
+        10%  {
+            -webkit-transform: translate(0px,0px) rotate(723deg);
+        }
+        13%  {
+            -webkit-transform: translate(0px,0px) rotate(717deg);
+        }
+        13.5%  {
+            -webkit-transform: translate(0px,0px) rotate(717deg);
+        }
+        14%  {
+            -webkit-transform: translate(0px,0px) rotate(720deg);
+        }
+        35%  {
+            -webkit-transform: translate(0px,-10px) rotate(720deg);
+        }
+        58%  {
+            -webkit-transform: translate(0px,0px) rotate(720deg);
+        }
+        78%  {
+            -webkit-transform: translate(0px,-10px) rotate(720deg);
+        }
+        88%  {
+            -webkit-transform: translate(0px,0px) rotate(720deg);
+        }
+        100%  {
+            -webkit-transform: translate(200px,-100px) rotate(820deg);
+        }
+    }
+
+    @-webkit-keyframes bianpao
+    {
+        0%      {transform:translate(449px,-587px) scale(2.31,2.31);}
+        100%    {transform:translate(0,0) scale(1,1);}
+    }
+    @-webkit-keyframes bp1
+    {
+        0%      {transform:rotate(-15deg);}
+        10%     {transform:rotate(-30deg);}
+        20%     {transform:rotate(-39deg);}
+        30%     {transform:rotate(-43.2deg);}
+        40%     {transform:rotate(-34.7deg);}
+        50%     {transform:rotate(-24.7deg);}
+        60%     {transform:rotate(-14.5deg);}
+        70%     {transform:rotate(-14.5deg);}
+        80%     {transform:rotate(-10.4deg);}
+        90%     {transform:rotate(-12.5deg);}
+        100%    {transform:rotate(-15deg);}
+    }
+    @-webkit-keyframes bp2wrap
+    {
+        0%      {transform:translate(0,0);}
+        10%     {transform:translate(8px,-3px);}
+        20%     {transform:translate(20px,-10px);}
+        30%     {transform:translate(20px,-10px);}
+        40%     {transform:translate(12px,-4px);}
+        50%     {transform:translate(-4px,0px);}
+        60%     {transform:translate(-10px,8px);}
+        70%     {transform:translate(-11px,5px);}
+        80%     {transform:translate(-10px,3px);}
+        90%     {transform:translate(-5px,2px);}
+        100%    {transform:translate(0,0);}
+    }
+    @-webkit-keyframes bp2
+    {
+        0%      {transform:rotate(-15deg);}
+        10%     {transform:rotate(-15deg);}
+        20%     {transform:rotate(-21.5deg);}
+        30%     {transform:rotate(-31deg);}
+        40%     {transform:rotate(-48.7deg);}
+        50%     {transform:rotate(-48.7deg);}
+        60%     {transform:rotate(-48.7deg);}
+        70%     {transform:rotate(-33.2deg);}
+        80%     {transform:rotate(-27.3deg);}
+        90%     {transform:rotate(-21.3deg);}
+        100%    {transform:rotate(-15deg);}
+    }
+    @-webkit-keyframes bp3wrap
+    {
+        0%      {transform:translate(0,0);}
+        10%     {transform:translate(3px,-1px);}
+        20%     {transform:translate(17px,-10px);}
+        30%     {transform:translate(20px,-12px);}
+        40%     {transform:translate(21px,-13px);}
+        50%     {transform:translate(4px,-13px);}
+        60%     {transform:translate(-7px,-7px);}
+        70%     {transform:translate(-14px,-7px);}
+        80%     {transform:translate(-16px,-4px);}
+        90%     {transform:translate(-8px,-2px);}
+        100%    {transform:translate(0,0);}
+    }
+    @-webkit-keyframes bp3
+    {
+        0%      {transform:rotate(-15deg);}
+        10%     {transform:rotate(-9.3deg);}
+        20%     {transform:rotate(-9.3deg);}
+        30%     {transform:rotate(-34deg);}
+        40%     {transform:rotate(-49deg);}
+        50%     {transform:rotate(-64deg);}
+        60%     {transform:rotate(-64deg);}
+        70%     {transform:rotate(-64deg);}
+        80%     {transform:rotate(-48.2deg);}
+        90%     {transform:rotate(-32.3deg);}
+        100%    {transform:rotate(-15deg);}
+    }
+    @-webkit-keyframes bp4wrap
+    {
+        0%      {transform:translate(0,0);}
+        10%     {transform:translate(-7px,0px);}
+        20%     {transform:translate(2px,-9px);}
+        30%     {transform:translate(27px,-10px);}
+        40%     {transform:translate(35px,-13px);}
+        50%     {transform:translate(35px,-13px);}
+        60%     {transform:translate(22px,-10px);}
+        70%     {transform:translate(10px,-8px);}
+        80%     {transform:translate(-2px,-5px);}
+        90%     {transform:translate(-1px,-3px);}
+        100%    {transform:translate(0,0);}
+    }
+    @-webkit-keyframes bp4
+    {
+        0%      {transform:rotate(-15deg);}
+        10%     {transform:rotate(-15deg);}
+        20%     {transform:rotate(-6deg);}
+        30%     {transform:rotate(-0.3deg);}
+        40%     {transform:rotate(-0.3deg);}
+        50%     {transform:rotate(-10.5deg);}
+        60%     {transform:rotate(-34.3deg);}
+        70%     {transform:rotate(-41deg);}
+        80%     {transform:rotate(-38.3deg);}
+        90%     {transform:rotate(-31.5deg);}
+        100%    {transform:rotate(-15deg);}
+    }
+    @-webkit-keyframes bp5wrap
+    {
+        0%      {transform:translate(0,0);}
+        10%     {transform:translate(-5px,0px);}
+        20%     {transform:translate(0px,-5px);}
+        30%     {transform:translate(21px,-5px);}
+        40%     {transform:translate(26px,-5px);}
+        50%     {transform:translate(33px,-15px);}
+        60%     {transform:translate(22px,-15px);}
+        70%     {transform:translate(22px,-11px);}
+        80%     {transform:translate(15px,-7px);}
+        90%     {transform:translate(8px,-4px);}
+        100%    {transform:translate(0,0);}
+    }
+    @-webkit-keyframes bp5
+    {
+        0%      {transform:rotate(-30deg);}
+        10%     {transform:rotate(-37.9deg);}
+        20%     {transform:rotate(-7.9deg);}
+        30%     {transform:rotate(22.1deg);}
+        40%     {transform:rotate(30.8deg);}
+        50%     {transform:rotate(15.8deg);}
+        60%     {transform:rotate(-44.2deg);}
+        70%     {transform:rotate(-60.7deg);}
+        80%     {transform:rotate(-64.9deg);}
+        90%     {transform:rotate(-54.1deg);}
+        100%    {transform:rotate(-30deg);}
+    }
+    @-webkit-keyframes denglong1wrap
+    {
+        0%      {transform:translate(374px,71px) scale(2.31,2.31);}
+        100%    {transform:translate(0,0) scale(1,1);}
+
+    }
+    @-webkit-keyframes denglong2wrap
+    {
+        0%      {transform:translate(162px,-565px) scale(2.31,2.31);}
+        100%    {transform:translate(0,0) scale(1,1);}
+
+    }
+    @-webkit-keyframes denglong4wrap
+    {
+        0%      {transform:translate(0,0);}
+        100%    {transform:translate(26px,-179px);}
+
+    }
+    @-webkit-keyframes denglong1
+    {
+        0%      {transform:rotate(0);}
+        50%     {transform:rotate(15deg);}
+        100%    {transform:rotate(0);}
+    }
+    @-webkit-keyframes denglong2
+    {
+        0%      {transform:rotate(0);}
+        50%     {transform:rotate(15deg);}
+        100%    {transform:rotate(0);}
+    }
+    @-webkit-keyframes denglong3
+    {
+        0%      {transform:rotate(0);}
+        50%     {transform:rotate(15deg);}
+        100%    {transform:rotate(0);}
+    }
+    @-webkit-keyframes gouqiqiu1
+    {
+        0%      {transform:translateY(0);}
+        100%    {transform:translateY(-758px);}
+    }
+    @-webkit-keyframes gouqiqiu1wrap
+    {
+        0%      {opacity:0;}
+        10%     {opacity: 1;}
+        100%    {opacity: 1;}
+    }
+    @-webkit-keyframes gouqiqiu2
+    {
+        0%      {transform:translateY(0);}
+        100%    {transform:translateY(-758px);}
+    }
+    @-webkit-keyframes gouqiqiu2wrap
+    {
+        0%      {opacity:0;}
+        10%     {opacity: 1;}
+        100%    {opacity: 1;}
+    }
+    @-webkit-keyframes gou1
+    {
+        0%      {transform:translateY(0);}
+        50%     {transform:translateY(-125px);}
+        100%    {transform:translateY(0);}
+    }
+    @-webkit-keyframes gou1wrap
+    {
+        0%      {transform:translateX(0);}
+        100%    {transform:translateX(356px);}
+    }
+    @-webkit-keyframes gou2
+    {
+        0%      {transform:translateY(0);opacity:1;}
+        50%     {transform:translateY(-256px);}
+        100%    {transform:translateY(0);opacity:1;}
+    }
+    @-webkit-keyframes gou2wrap
+    {
+        0%      {transform:translateX(0);}
+        100%    {transform:translateX(-424px);}
+    }
+
+</style>
+<body>
+<div id='container'>
+    <img src="{$skinurl}skin/chunjie/bg.jpg"/>
+
+    <div id='yuan1'>
+        <img id='yuan1_img' src="{$skinurl}skin/chunjie/yuan1.png"/>
+    </div>
+    <div id='yuan2'>
+        <img id='yuan2_img' src="{$skinurl}skin/chunjie/yuan2.png"/>
+    </div>
+
+    <div id='page2_ctn' class='page_ctn'>
+        <div id='page2' class='page'>
+            <span id='word2' class='showwords'></span>
+        </div>
+    </div>
+
+    <div id='yuan3'>
+        <img id='yuan3_img' src="{$skinurl}skin/chunjie/yuan3.png"/>
+    </div>
+
+    <div id='page1_ctn' class='page_ctn'>
+        <div id='page1' class='page'>
+            <span id='word1' class='showwords'></span>
+        </div>
+    </div>
+
+    <div id='page3_ctn' class='page_ctn'>
+        <div id='page3' class='page'>
+            <span id='word3' class='showwords'></span>
+        </div>
+    </div>
+
+    <div id="gouqiqiu1-wrap" class="abs">
+        <img src="{$skinurl}skin/chunjie/gou2.png" alt="" id="gouqiqiu1" class="abs">
+    </div>
+    <div id="gouqiqiu2-wrap" class="abs">
+        <img src="{$skinurl}skin/chunjie/gou2.png" alt="" id="gouqiqiu2" class="abs">
+    </div>
+
+    <div id='yuan4'>
+        <img id='yuan4_img' src="{$skinurl}skin/chunjie/yuan4.png"/>
+    </div>
+
+    <div class="abs" id="bianpao">
+        <div id="bp5-wrap" class="abs">
+            <img src="{$skinurl}skin/chunjie/di5.png" alt="" class="abs" id="bp5">
+        </div>
+        <div id="bp4-wrap" class="abs">
+            <img src="{$skinurl}skin/chunjie/di4.png" alt="" class="abs" id="bp4">
+        </div>
+        <div id="bp3-wrap" class="abs">
+            <img src="{$skinurl}skin/chunjie/di3.png" alt="" class="abs" id="bp3">
+        </div>
+        <div id="bp2-wrap" class="abs">
+            <img src="{$skinurl}skin/chunjie/di2.png" alt="" class="abs" id="bp2">
+        </div>
+        <div id="bp1-wrap" class="abs">
+            <img src="{$skinurl}skin/chunjie/di1.png" alt="" class="abs" id="bp1">
+        </div>
+    </div>
+
+    <div id="gou1-wrap" class="abs">
+        <img src="{$skinurl}skin/chunjie/gou1.png" alt="" id="gou1" class="abs">
+    </div>
+    <div id="gou2-wrap" class="abs">
+        <img src="{$skinurl}skin/chunjie/gou1.png" alt="" id="gou2" class="abs">
+    </div>
+
+    <div id="denglong1-wrap" class="abs">
+        <img src="{$skinurl}skin/chunjie/denglong1.png" alt="" id="denglong1" class="abs">
+    </div>
+    <div id="denglong2-wrap" class="abs">
+        <img src="{$skinurl}skin/chunjie/denglong2.png" alt="" id="denglong2" class="abs">
+    </div>
+    <div id="denglong3-wrap" class="abs">
+        <img src="{$skinurl}skin/chunjie/denglong3.png" alt="" id="denglong3" class="abs">
+    </div>
+    <div id="denglong4-wrap" class="abs">
+        <img src="{$skinurl}skin/chunjie/denglong4.png" alt="" id="denglong4" class="abs">
+    </div>
+
+
+    <div id='pagetitle_ctn'>
+        <div id='pagetitle'>
+            <img src='{$skinurl}skin/chunjie/title_bg.png'/>
+            <div id='titletable' class='titletable'>
+                <div id='titlecontent'>
+                </div>
+            </div>
+        </div>
+        <div id='title_bian1'>
+            <img id='title_z1' src='{$skinurl}skin/chunjie/title_left.png'/>
+        </div>
+    </div>
+
+    <div id='title_bian'>
+        <img id='title_y' src='{$skinurl}skin/chunjie/title_right.png'/>
+        <img id='title_z' src='{$skinurl}skin/chunjie/title_left.png'/>
+    </div>
+
+</div>
+</body>
+
+<script>
+    var image_size_width=[];
+    var image_size_height=[];
+    var image_url_index=0;
+    var have_num = 0;
+    var error_num = 0;
+    var canshow = true;
+    var reshow = false;
+    var timeout = [];
+    var delaytime=7600;
+
+    function id(name)
+    {
+        return document.getElementById(name);
+    }
+    function load_images()
+    {
+        reshow = false;
+        image_size_width=[];
+        image_size_height=[];
+        Onload_imgs_url=[];
+        image_url_index=0;
+        have_num = 0;
+        error_num = 0;
+        begin_titletime = new Date();
+        begin_titletime = begin_titletime.getTime();
+        showtitle();
+        canshow = true;
+        for(var i=0;i<slider_images_url.length;i++)
+        {
+            var img=new Image();
+            img.index=i;
+            img.src=slider_images_url[i];
+            img.onload=image_onload;
+            img.onerror= image_onerror;
+            Onload_imgs_url[i] = 'loading';
+        }
+    }
+
+    function image_onerror(event)
+    {
+        var img = event.target;
+        var index = img.index;
+        if(index<10)
+            error_num ++;
+        Onload_imgs_url[index] = 'not find';
+        console.log(Onload_imgs_url[index]);
+        console.log(have_num + '-' + error_num);
+        if((have_num+error_num >= 10 || slider_images_url.length == (have_num+error_num)) && canshow == true)
+        {
+            reshow = false;
+            canshow =false;
+            if(have_num == 0)
+                return;
+            var end_titletime = new Date();
+            end_titletime = end_titletime.getTime();
+            var dis_titletime = Math.abs(end_titletime-begin_titletime);
+            if(dis_titletime>delaytime)
+            {
+                kuxuan();
+            }
+            else
+            {
+                dis_titletime = delaytime- dis_titletime;
+                timeout[0] = setTimeout(function()
+                {
+                    kuxuan();
+                },dis_titletime);
+            }
+        }
+    }
+
+    function image_onload(event)
+    {
+        if(reshow == true)
+            return;
+
+        var img = event.target;
+        var index = img.index;
+
+        if(index<10)
+        {
+            have_num++;
+        }
+        Onload_imgs_url[index] = img.src;
+        image_size_height[index] = img.height;
+        image_size_width[index] = img.width;
+        
+        if((have_num + error_num >= 10 ||slider_images_url.length == (have_num+error_num)) && canshow == true)
+        {
+            reshow = false;
+            canshow =false;
+            if(have_num == 0)
+                return;
+            var end_titletime = new Date();
+            end_titletime = end_titletime.getTime();
+            var dis_titletime = Math.abs(end_titletime-begin_titletime);
+            if(dis_titletime>delaytime)
+            {
+                kuxuan();
+            }
+            else
+            {
+                dis_titletime = delaytime- dis_titletime;
+                timeout[0] = setTimeout(function()
+                {
+                    kuxuan();
+                },dis_titletime);
+            }
+
+        }
+    }
+    function showtitle()
+    {
+
+        id('yuan1').style.webkitAnimation = 'yuan 1s ease-out both';
+        id('yuan2').style.webkitAnimation = 'yuan 1.3s ease-out both';
+        id('yuan3').style.webkitAnimation = 'yuan 1.5s ease-out both';
+        id('yuan4').style.webkitAnimation = 'yuan 1.8s ease-out both';
+
+        id('bianpao').style.webkitAnimation = 'bianpao 2.2s linear both';
+        id('gouqiqiu1-wrap').style.webkitAnimation = 'gouqiqiu1wrap 16s linear infinite both';
+        id('gouqiqiu2-wrap').style.webkitAnimation = 'gouqiqiu1wrap 22s 1.2s linear infinite both';
+
+        id('gouqiqiu1').style.webkitAnimation = 'gouqiqiu1 16s linear infinite both';
+        id('gouqiqiu2').style.webkitAnimation = 'gouqiqiu1 22s 1.2s linear infinite both';
+
+        id('bp5-wrap').style.webkitAnimation = 'bp5wrap 4.1s linear infinite';
+        id('bp5').style.webkitAnimation = 'bp5 4.1s linear infinite';
+        id('bp4-wrap').style.webkitAnimation = 'bp4wrap 4.1s linear infinite';
+        id('bp4').style.webkitAnimation = 'bp4 4.1s linear infinite';
+        id('bp3-wrap').style.webkitAnimation = 'bp3wrap 4.1s linear infinite';
+        id('bp3').style.webkitAnimation = 'bp3 4.1s linear infinite';
+        id('bp2-wrap').style.webkitAnimation = 'bp2wrap 4.1s linear infinite';
+        id('bp2').style.webkitAnimation = 'bp2 4.1s linear infinite';
+        id('bp1').style.webkitAnimation = 'bp1 4.1s linear infinite';
+        id('gou1-wrap').style.webkitAnimation = 'gou1wrap 5.8s linear infinite both';
+        id('gou1').style.webkitAnimation = 'gou1 5.8s ease  infinite both';
+        id('gou2-wrap').style.webkitAnimation = 'gou2wrap 10s linear infinite both';
+        id('gou2').style.webkitAnimation = 'gou2 10s ease infinite both';
+        id('denglong1-wrap').style.webkitAnimation = 'denglong1wrap 2.3s linear both';
+        id('denglong1').style.webkitAnimation = 'denglong1 8s linear infinite';
+        id('denglong2-wrap').style.webkitAnimation = 'denglong2wrap 2.2s linear both';
+        id('denglong2').style.webkitAnimation = 'denglong2 8s linear infinite';
+        id('denglong3-wrap').style.webkitAnimation = 'denglong2wrap 2.5s linear both';
+        id('denglong3').style.webkitAnimation = 'denglong3 8s linear infinite';
+        id('denglong4-wrap').style.webkitAnimation = 'denglong4wrap 1s 2.3s linear both';
+
+        id('title_bian').style.webkitAnimation = 'title_bian 7.8s linear both';
+        id('title_z').style.webkitAnimation = 'title_z 7.8s linear both';
+
+        id('pagetitle_ctn').style.webkitAnimation = 'title_ctnin 7.8s linear both';
+        id('pagetitle').style.webkitAnimation = 'titlein 7.8s linear both';
+        id('titletable').style.webkitAnimation = 'titletablein 1s linear infinite both';
+        id('titlecontent').style.webkitAnimation = 'titlecontentin 1.3s 2.7s linear both';
+
+        id('titlecontent').innerHTML = e_title
+
+    }
+
+    function kuxuan()
+    {
+
+        show1();
+    }
+
+    function show1()
+    {
+        setImage('1');
+        id('page2_ctn').style.webkitAnimation = '';
+
+        id('page1_ctn').style.webkitAnimation = 'page1 6.5s cubic-bezier(.41,.6,.63,.99) both';
+
+
+        timeout[1] = setTimeout(show2,6000);
+    }
+
+
+    function show2()
+    {
+        setImage('2');
+        id('page3_ctn').style.webkitAnimation = '';
+
+        id('page2_ctn').style.webkitAnimation = 'page2 6.5s cubic-bezier(.41,.6,.63,.99) both';
+
+
+        timeout[2] = setTimeout(show3,6500);
+    }
+
+    function show3()
+    {
+        setImage('3');
+        id('page1_ctn').style.webkitAnimation = '';
+
+        id('page3_ctn').style.webkitAnimation = 'page3 6.5s cubic-bezier(.41,.6,.63,.99) both';
+
+        timeout[3] = setTimeout(show1,6000);
+    }
+
+
+    function setImage(idname)
+    {
+        if(reshow == true)
+            return;
+
+        while(Onload_imgs_url[image_url_index] == 'not find' || Onload_imgs_url[image_url_index] == 'loading')
+        {
+            // console.log(Onload_imgs_url[image_url_index]);
+            image_url_index++;
+            if(image_url_index == Onload_imgs_url.length)
+                image_url_index = 0;
+        }
+
+        var img_bili = image_size_width[image_url_index]/image_size_height[image_url_index];
+        var div;
+        var div_ctn;
+        var height;
+        var width;
+        var top;
+        var left;
+        var word;
+
+        if(img_bili < (380/600))
+        {
+            height = 600;
+            width = 600 * img_bili;
+            top = 80;
+            left = (500-width)/2;
+        }
+        else if(img_bili <= 1)
+        {
+            width = 420;
+            height = 420 / img_bili;
+            left = 32;
+            top = (740-height)/2
+        }
+        else if(img_bili > 1)
+        {
+            width = 420;
+            height = 420/img_bili;
+            left = 32;
+            top = (740-height)/2;
+        }
+
+        div = id('page'+idname);
+        div_ctn = id('page'+idname + '_ctn');
+
+        div.style.width = width + 'px';
+        div.style.height = height + 'px';
+        div.style.backgroundSize = (width) + 'px ' + (height) + 'px';
+        div.style.backgroundImage = 'url('+Onload_imgs_url[image_url_index]+')';
+        div.style.backgroundRepeat = 'no-repeat';
+
+        div_ctn.style.width = (width+ 16) + 'px';
+        div_ctn.style.height = (height +16) + 'px';
+        div_ctn.style.top = (top) + 'px';
+        div_ctn.style.left = (left) + 'px';
+
+        word = id('word'+idname);
+
+
+        var word_string = words[get_pid(Onload_imgs_url[image_url_index])];
+        if(word_string != undefined)
+        {
+            word_string = word_string.replace(/[\n]/ig,'');
+
+            word.innerText = word_string;
+        }
+        else
+        {
+            word.innerText = "";
+        }
+
+        image_url_index++;
+        if(image_url_index==Onload_imgs_url.length)
+            image_url_index = 0;
+
+        return img_bili;
+    }
+
+    call_me(load_images);
+
+    function reload_scene()
+    {
+        clearnode();
+        reshow = true;
+        setTimeout(load_images,100);
+    }
+
+    function clearnode()
+    {
+        for(var i = 0; i<timeout.length; i++)
+        {
+            clearTimeout(timeout[i]);
+        }
+
+        var xinArr = ['pagetitle','pagetitle_ctn','titletable','titlecontent','yuan1','yuan2','yuan3','yuan4','gouqiqiu1-wrap','gouqiqiu2-wrap','bp5-wrap','bp5','bp4-wrap','bp4','bp3-wrap','bp3','bp2-wrap','bp2','bp1','gou1-wrap','gou1','gou2-wrap','gou2','denglong1-wrap','denglong1','denglong2-wrap','denglong2','denglong3-wrap','denglong3','denglong4-wrap','title_bian','title_z','page1_ctn','page2_ctn','page3_ctn','bianpao','gouqiqiu1','gouqiqiu2'];
+
+        for(var i = 0 ;i < xinArr.length ;i++)
+        {
+            id(xinArr[i]).style.webkitAnimation = '';
+        }
+    }
+
+</script>
+<!--模板结束-->

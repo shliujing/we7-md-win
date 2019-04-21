@@ -1,0 +1,109 @@
+{template 'common/header'}
+<style>
+    .label-red {
+        background-color: red;
+    }
+</style>
+<ul class="nav nav-tabs">
+    <li {if $operation == 'post'}class="active"{/if}><a href="{php echo $this->createWebUrl('use', array('op' => 'post'))}">{if $id==0}添加用途设置{else}修改用途设置{/if}</a></li>
+    <li {if $operation == 'display'}class="active"{/if}><a href="{php echo $this->createWebUrl('use', array('op' => 'display'))}">管理用途设置</a></li>
+</ul>
+{if $operation == 'display'}
+<a class="btn btn-default btn-sm" onclick="return confirm('初始化需要删除已经存在的记录，确认吗？');return false;" href="{php echo $this->createWebUrl('use', array('op' => 'initData'))}" ><i class="fa fa-plus">初始化数据</i></a>
+<div class="main">
+    <div class="panel panel-default">
+        <form id="form2" class="form-horizontal" method="post">
+            <div class="table-responsive panel-body">
+                <table class="table table-hover">
+                    <thead class="navbar-inner">
+                    <tr>
+                        <th style="width:10px;">全选</th>
+                        <th style="width:10px;">ID</th>
+                        <th style="width:20px;">名称</th>
+                        <th style="text-align:center;width:20px;">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="row-first">
+                            <input type="checkbox"  onclick="var ck = this.checked;$(':checkbox').each(function(){this.checked = ck});" name=''></td>
+                        <td colspan="8" style="text-align:left;">
+                            <input name="token" type="hidden" value="{$_W['token']}"/>
+                            <input type="submit" class="btn btn-primary" name="submit1" value="批量删除"/>
+                        </td>
+                    </tr>
+                    {loop $list $item}
+                    <tr>
+                        <td> <input type="checkbox" value="{$item['id']}" name="delete[]">  </td>
+                        <td> {$item['id']}</td>
+                        <td style="text-align:left;">
+                            {$item['name']}
+                        </td>
+                        <td style="text-align:center;">
+                            <a href="{php echo $this->createWebUrl('use', array('op' => 'post','id' => $item['id']))}" title="详情" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="详情" >
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a onclick="return confirm('删除无法恢复，确认吗？');return false;"
+                               href="{php echo $this->createWebUrl('use', array('op' => 'delete','id' => $item['id']))}" class="btn btn-default btn-sm"> <i class="fa fa-times"></i></a>
+                        </td>
+                    </tr>
+                    {/loop}
+                    </tbody>
+                </table>
+                {$pager}
+            </div>
+        </form>
+    </div>
+</div>
+{elseif $operation == 'post'}
+{if $id==0}
+<a class="btn btn-default btn-sm" href="javascript:;" id="add_parament"><i class="fa fa-plus">添加</i></a>
+{/if}
+<div class="main">
+    <form action="" method="post" class="form-horizontal form" id="form1">
+        <div class="panel panel-default">
+            <div class="panel-heading">提交用途</div>
+            <div class="panel-body">
+                <input type="hidden" name="type" value="3">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">名称</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" name="name[0]"   class="form-control" value="{$age['name']}" />
+                        <input type="hidden" name="id[0]"  class="form-control" value="{$age['id']}" />
+                    </div>
+                </div>
+                <div id="mutil_parament_">
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input name="submit" type="submit" value="提交" class="btn btn-primary col-lg-1">
+                <input type="hidden" name="token" value="{$_W['token']}" />
+            </div>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    var mutil_num = 100;
+    $(function(){
+        $("#add_parament").click(function(){
+            var html='<div class="form-group">';
+            html+='<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style="color:red">*</span>名称</label>';
+            html+='<div class="col-sm-8">';
+            html+='<input type="text" class="form-control" name="name['+mutil_num+']" value=""/>';
+            html+='</div></div>';
+            $("#mutil_parament_").append(html);
+            mutil_num++;
+        });
+
+    });
+    function del_device(num) {
+        $("#add_parament_" + num).remove();
+    }
+</script>
+
+{/if}
+{template 'common/footer'}

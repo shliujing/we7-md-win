@@ -1,0 +1,375 @@
+{template 'common/header'}
+<script src="../addons/amouse_wxapp_house/style/admin/js/region_select.js" ></script>
+<ul class="nav nav-tabs">
+    <li {if $op=='base'}class="active"{/if}><a href="{php echo $this->createWebUrl('sysset',array('op'=>'base'))}">系统基本设置</a></li>
+    <li {if $op=='tpl'}class="active"{/if}><a href="{php echo $this->createWebUrl('sysset',array('op'=>'tpl'));}">模板/分享设置</a></li>
+    <li {if $op=='credit'}class="active"{/if}><a href="{php echo $this->createWebUrl('sysset',array('op'=>'credit'));}">费用设置</a></li>
+</ul>
+<div class="main">
+	<form action="" method="post" class="form-horizontal form" enctype="multipart/form-data">
+	    <input type="hidden" name="id" value="{$set['id']}" />
+        {if $op == 'base'}
+        <div class="panel panel-default">
+            <div class="panel-heading">系统基本设置</div>
+            <div class="panel-body">
+                <!--<div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label">所在城市</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" id="qqmap_ak" name="qqmap_ak"  class="form-control" value="{$set['qqmap_ak']}">
+                        <select name="location_p" id="location_p" class="form-control"></select>
+                        <select name="location_c" id="location_c" class="form-control"></select>
+                        <script type="text/javascript">
+                            var location_p = "{if !empty($set['location_p'])}{$set['location_p']}{else}上海市{/if}";
+                            var location_c = "{if !empty($set['location_c'])}{$set['location_c']}{else}市辖区{/if}";
+                            new PCAS("location_p", "location_c", "location_a", location_p, location_c, '');
+                        </script>
+                    </div>
+                </div>-->
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label">同一公众号下关联的另一个小程序appid</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <input type="text"  name="wxapp_url1"  class="form-control" value="{$set['wxapp_url1']}">
+                        <div class="help-block">打开同一公众号下关联的另一个小程序 </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label">同一公众号下关联的另一个小程序名称</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <input type="text"  name="wxapp_name1"  class="form-control" value="{$set['wxapp_name1']}" placeholder="我的同城">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label">联系客服电话</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <input type="text" id="systel" name="systel"  class="form-control" value="{$set['systel']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label">腾讯地图AK</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <input type="text" id="qqmap_ak" name="qqmap_ak"  class="form-control" value="{$set['qqmap_ak']}">
+
+                        <div class="help-block"><a href="http://lbs.qq.com/console/mykey.html">点我去申请</a> </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label"><span class="require">*</span>发布信息是否开启获取地理位置</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <label class="radio-inline"><input type="radio"  name="enable" value="0" {if $set['enable'] == 0|| $set['enable']}checked{/if}>地图选择</label>
+                        <label class="radio-inline"><input type="radio"  name="enable" value="1" {if $set['enable'] == 1 }checked{/if}>手动输入地址</label>
+                        <div class="help-block">前台发布是否获取当前地理位置. </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label">版权</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <input type="text" id="copyright" name="copyright"  class="form-control" value="{$set['copyright']}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label"><span class="require">*</span>客户定制首页</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <label class="radio-inline"><input type="radio"  name="is_custom" value="1" {if $set['is_custom'] == 1}checked{/if}>是</label>
+                        <label class="radio-inline"><input type="radio"  name="is_custom" value="0" {if $set['is_custom'] == 0}checked{/if}>否</label>
+                        <div class="help-block">默认关闭</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label"><span class="require">*</span>小程序首页是否显示求购求租</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <label class="radio-inline"><input type="radio"  name="isrent" value="1" {if $set['isrent'] == 1}checked{/if}>是</label>
+                        <label class="radio-inline"><input type="radio"  name="isrent" value="0" {if $set['isrent'] == 0}checked{/if}>否</label>
+                        <div class="help-block">默认关闭</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label"><span class="require">*</span>是否隐藏号码</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <label class="radio-inline"><input type="radio"  name="is_shield" value="1" {if $set['is_shield'] == 1}checked{/if}>是</label>
+                        <label class="radio-inline"><input type="radio"  name="is_shield" value="0" {if $set['is_shield'] == 0}checked{/if}>否</label>
+                        <div class="help-block">如果开启隐藏号码，经纪人，房源详情立即联系直接联系到官方客服。显示用*代替 </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label"><span class="require">*</span>个人号开启审核</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <label class="radio-inline"><input type="radio"  name="isshare" value="0" {if $set['isshare'] == 0}checked{/if}>开启</label>
+                        <label class="radio-inline"><input type="radio"  name="isshare" value="1" {if $set['isshare']==1}checked{/if}>关闭</label>
+                        <div class="help-block">个人号提交微信审核开启，直接跳转到信息查询. </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label"><span class="require">*</span>是否开启审核</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <label class="radio-inline"><input type="radio"  name="is_public" value="0" {if $set['is_public'] == 0}checked{/if}>开启</label>
+                        <label class="radio-inline"><input type="radio"  name="is_public" value="1" {if $set['is_public']==1}checked{/if}>关闭</label>
+                        <div class="help-block">我要委托发布房源，是否管理员审核. </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label"><span class="require">*</span>是否支付成功免审核</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <label class="radio-inline"><input type="radio"  name="is_pay_public" value="0" {if $set['is_pay_public']==0}checked{/if}>开启</label>
+                        <label class="radio-inline"><input type="radio"  name="is_pay_public" value="1" {if $set['is_pay_public']==1}checked{/if}>关闭</label>
+                        <div class="help-block">付费成功设置为已审核状态. </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label"><span class="require">*</span>首页是否关闭门店</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <label class="radio-inline"><input type="radio"  name="is_close_shop" value="1" {if $set['is_close_shop']==1}checked{/if}>开启</label>
+                        <label class="radio-inline"><input type="radio"  name="is_close_shop" value="0" {if $set['is_close_shop']==0}checked{/if}>关闭</label>
+                        <div class="help-block">关闭门店，最好选择新样式 </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label"><span class="require">*</span>首页图标样式</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <label class="radio-inline"><input type="radio"  name="is_style" value="0" {if $set['is_style']==0}checked{/if}>新样式(弹出)</label>
+                        <label class="radio-inline"><input type="radio"  name="is_style" value="1" {if $set['is_style']==1}checked{/if}>老样式(两行图标)</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label"><span class="require">*</span>是否开启经纪人入驻</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <label class="radio-inline"><input type="radio" name="iscreate" value="1" {if $set['iscreate']==1}checked{/if}>开启</label>
+                        <label class="radio-inline"><input type="radio" name="iscreate" value="0" {if $set['iscreate']==0}checked{/if}>关闭</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label">经纪人入驻是否审核</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <label class="radio-inline"><input type="radio" name="check" value="1" {if $set['check']==1}checked{/if}>开启</label>
+                        <label class="radio-inline"><input type="radio" name="check" value="0" {if $set['check']==0}checked{/if}>关闭</label>
+                    </div>
+                </div>
+
+                <!--
+              <div class="form-group">
+                  <label class="col-xs-12 col-sm-4 col-md-3 control-label">第三方小程序名称二</label>
+                  <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                      <input type="text" id="wxapp_name1" name="wxapp_name2"  class="form-control" placeholder="我的名片" value="{$set['wxapp_name2']}">
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-xs-12 col-sm-4 col-md-3 control-label">第三方小程序链接二</label>
+                  <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                      <input type="text" id="wxapp_url2" name="wxapp_url2"  class="form-control" value="{$set['wxapp_url2']}">
+                  </div>
+              </div>
+
+             <div class="form-group">
+                 <label class="col-xs-12 col-sm-4 col-md-3 control-label"><span class="require">*</span>是否短信验证手机号</label>
+                 <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                     <label class="radio-inline"><input type="radio" onclick="sendtypeshow(0)" name="mobile_verify_status" value="0" {if $set['mobile_verify_status'] == 0|| $set['mobile_verify_status']}checked{/if}>不验证</label>
+                     <label class="radio-inline"><input type="radio" onclick="sendtypeshow(1)" name="mobile_verify_status" value="1" {if $set['mobile_verify_status'] == 1 }checked{/if}>验证手机号</label>
+                     <div class="help-block">开启验证手机号,需要配置短信参数. </div>
+                 </div>
+             </div>
+             <div class="form-group model2">
+                 <label class="col-xs-12 col-sm-4 col-md-3 control-label">短信平台用户(Access Key ID)</label>
+                 <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                     <input type="text" name="sms_user" class="form-control" value="{$set['sms_user']}"/>
+                     <p class="help-block">短信平台用户名</p>
+                 </div>
+             </div>
+             <div class="form-group model2">
+                 <label class="col-xs-12 col-sm-4 col-md-3 control-label">短信平台密码(Access Key Secret)</label>
+                 <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                     <input type="text" name="sms_secret" class="form-control" value="{$set['sms_secret']}"/>
+                     <p class="help-block">短信平台密匙，用户API发送短信(支持短信宝)</p>
+                 </div>
+             </div>
+
+             <div class="form-group model2">
+                 <label class="col-xs-12 col-sm-4 col-md-3 control-label">阿里短信接口</label>
+                 <div class="col-sm-9 col-xs-9 col-md-7">
+                     <label for="sms_type2" class="radio-inline">
+                         <input type="radio" name="sms_type" value="1" id="sms_type2" {if $set['sms_type']==1}checked="true"{/if}/>新接口 (阿里云短信服务）
+                     </label>
+                     <label for="sms_type1" class="radio-inline">
+                         <input type="radio" name="sms_type" value="0" id="sms_type1" {if $set['sms_type']==0}checked="true"{/if}/>老接口 (阿里大于)
+                     </label>
+                     <p class="help-block">老接口填写的是 appkey secretKey，
+                         新接口为阿里云短信服务Access Key ID Access Key Secret</p>
+                 </div>
+             </div>
+
+             <div class="form-group model2">
+                 <label class="col-xs-12 col-sm-4 col-md-3 control-label">阿里大鱼短信签名</label>
+                 <div class="col-sm-8 col-xs-12">
+                     <input type="text" name="sms_free_sign_name" class="form-control" value="{$set['sms_free_sign_name']}"/>
+                     <p class="help-block">阿里云/短信服务-短信签名-签名名称</p>
+                     <strong class="text-danger"> 模板内容:  验证码${number}，您正进行身份验证，打死不告诉别人！</strong>
+                 </div>
+             </div>
+
+             <div class="form-group model2">
+                 <label class="col-xs-12 col-sm-4 col-md-3 control-label">注册短信模板Code</label>
+                 <div class="col-sm-8 col-xs-12">
+                     <input type="text" name="reg_sms_code" class="form-control" value="{$set['reg_sms_code']}"/>
+                     <p class="help-block">阿里云/短信服务-短信模版-模版CODE</p>
+                 </div>
+             </div>
+            -->
+
+            </div>
+        </div>
+        {elseif $op == 'tpl'}
+        <div class="panel panel-default">
+            <div class="panel-heading">模板设置</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label">管理员审核模板</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <input type="text" id="aduit_tpl" name="aduit_tpl"  class="form-control" value="{$set['aduit_tpl']}">
+                        <div class="help-block">标题:审核通过提醒,关键字：申请人，申请内容，发布时间 ，审核时间，备注</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label">分享标题</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <input type="text" id="share_title" name="share_title"  class="form-control" value="{$set['share_title']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label">分享描述</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <input type="text" id="share_desc" name="share_desc"  class="form-control" value="{$set['share_desc']}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label">分享图标</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        {php echo tpl_form_field_image('share_thumb', $set['share_thumb']);}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {elseif $op == 'credit'}
+        <div class="panel panel-default">
+            <div class="panel-heading">费用设置</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label">发布房源费用</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" name="public_price" class="form-control" value="{$set['public_price']}"/>
+                        <p class="help-block">费用为0则为免费发布。</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label"><span class="require">*</span>是否开启置顶</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <label class="radio-inline"><input type="radio" onclick="showTop(0)" name="show_top" value="0" {if $set['show_top']==0}checked{/if}>开启</label>
+                        <label class="radio-inline"><input type="radio" onclick="showTop(1)" name="show_top" value="1" {if $set['show_top']==1}checked{/if}>关闭</label>
+                    </div>
+                </div>
+                <div class="form-group show_top">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-3 control-label">置顶信息</label>
+                    <div class="col-sm-9 col-xs-10">
+                        <div class="price-groups">
+                            {loop $rules $index $value}
+                            <div class="row row-fix  price-group">
+                                <div class="col-sm-12 col-xs-12">
+                                    <div class="input-group">
+                                        <input type="number" step="1" min="1" name="top_days[]"  class="form-control" placeholder="置顶天数" value="{$value['day']}">
+                                        <span class="input-group-addon">天</span>
+                                        <input type="number" step="1"  name="top_amounts[]"  class="form-control" placeholder="置顶金额" value="{$value['amount']}">
+                                        <span class="input-group-addon">元</span>
+                                        <span class="input-group-btn">
+                                                <button class="btn btn-default btn-warning remove-price" type="button"  title="删除"> <i class="fa fa-remove"></i>
+                                                </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            {/loop}
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block new-toprule btn-danger" style="margin-top: 10px;">
+                            <i class="fa fa-plus"></i> 添加置顶信息
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label">经纪人入驻费用</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" name="enter_price" class="form-control" value="{$set['enter_price']}"/>
+                        <p class="help-block">入驻费用为0则为不需要支付。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {/if}
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input name="submit" type="submit" value="提交" class="btn btn-primary col-lg-1">
+                <input type="hidden" name="token" value="{$_W['token']}"/>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    function sendtypeshow(sf) {
+        if (sf==0) {
+            $(".model2").hide();
+        } else {
+            $(".model2").show();
+        }
+    }
+    function showTop(val) {
+        if (val==1) {
+            $(".show_top").hide();
+        } else {
+            $(".show_top").show();
+        }
+    }
+    require(['jquery', 'util'], function ($, u) {
+        $(function () {
+            /*var mobile_verify_status = "{$set['mobile_verify_status']}";
+            if (mobile_verify_status ==0) {
+                $(".model2").hide();
+            } else {
+                $(".model2").show();
+            }*/
+            var show_top = "{$set['show_top']}";
+            if (show_top ==1) {
+                $(".show_top").hide();
+            } else {
+                $(".show_top").show();
+            }
+        });
+    });
+
+    function new_top_rule(){
+        var content = '<div class="row row-fix  price-group">';
+        content+=' <div class="col-sm-12 col-xs-12">';
+        content+='<div class="input-group">';
+        content+=' <input type="number" step="1" min="1" name="top_days[]"  class="form-control" placeholder="置顶天数" >';
+        content+='<span class="input-group-addon">天</span>';
+        content+=' <input type="number" step="1" min="1" name="top_amounts[]"  class="form-control" placeholder="置顶金额" >';
+        content+=' <span class="input-group-addon">元</span>';
+        content+=' <span class="input-group-btn">';
+        content+=' <button class="btn btn-default btn-warning remove-price" type="button"  title="删除"><i class="fa fa-remove"></i>';
+        content+=' </button>';
+        content+=' </span>';
+        content+=' </div>';
+        content+=' </div>';
+        content+=' </div>';
+        $(".price-groups").append(content);
+    };
+
+
+    $(function() {
+        $('.new-toprule').click(new_top_rule);
+        $(document).on('click', '.remove-price', function() {
+            $(this).closest('.price-group').remove();
+        });
+    });
+</script>
+

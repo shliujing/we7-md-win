@@ -1,0 +1,1540 @@
+<!--模板开始-->
+<style type="text/css">
+    * {
+        padding: 0px;
+        margin: 0px;
+        -webkit-box-sizing: border-box
+    }
+
+    body {
+        background-color: white
+    }
+
+    #container {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 500px;
+        height: 815px;
+        overflow: hidden;
+    }
+    #container > img,#container > div {
+        position: absolute;
+    }
+
+    .abs{position:absolute;}
+
+    #san1,#san1_1 {
+        position: absolute;
+        top: 0px;
+        right: -13px;
+        opacity: 0;
+        -webkit-transform-origin: 100% 0%;
+        -webkit-transform: rotate(-25deg);
+    }
+    #san2,#san2_1 {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        -webkit-transform-origin: 100% 0%;
+        -webkit-transform: rotate(-28deg);
+    }
+    #san3,#san3_1 {
+        position: absolute;
+        top: 0px;
+        right: -3px;
+        -webkit-transform-origin: 100% 0%;
+        -webkit-transform: rotate(-38deg);
+    }
+    #san4,#san4_1 {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        -webkit-transform-origin: 100% 0%;
+        -webkit-transform: rotate(-50deg);
+    }
+    #san5,#san5_1 {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        -webkit-transform-origin: 100% 0%;
+        -webkit-transform: rotate(-66deg);
+    }
+    #san6,#san6_1 {
+        position: absolute;
+        top: 5px;
+        right: 0px;
+        -webkit-transform-origin: 100% 0%;
+        -webkit-transform: rotate(-85deg);
+    }
+    #san7,#san7_1 {
+        position: absolute;
+        top: 5px;
+        right: 0px;
+        opacity: 0;
+        -webkit-transform-origin: 100% 0%;
+        -webkit-transform: rotate(-25deg);
+    }
+
+    #duo_ctn,#duo_ctn_1{
+        top: -95px;
+        right: -112px;
+        width: 214px;
+        height: 211px;
+        -webkit-transform: scale(.5);
+        opacity: 0;
+    }
+
+    #duo,#duo_1 {
+        position: absolute;
+        -webkit-animation: duo 1s linear infinite alternate both;
+    }
+    #duo_y,#duo_y_1 {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        -webkit-animation: duo 1s linear infinite alternate both;
+    }
+
+    #yanjing,#yanjing_1 {
+        position: absolute;
+        top: 12px;
+        left: 94px;
+        opacity: 0;
+    }
+    #caomei1,#caomei1_1 {
+        position: absolute;
+        top: 680px;
+        right: 60px;
+        -webkit-transform: translateX(180px);
+    }
+    #caomei1_img,#caomei1_img_1 {
+        -webkit-animation: caomei1_img 5.8s linear infinite  both;
+    }
+    #caomei2,#caomei2_1 {
+        position: absolute;
+        top: 658px;
+        right: 12px;
+        -webkit-transform: scale(.7) translateX(180px);
+    }
+    #caomei2_img,#caomei2_img_1 {
+        -webkit-transform-origin: top;
+        -webkit-animation: caomei2_img 4.8s linear infinite  both;
+
+    }
+    #tuoxie,#tuoxie_1 {
+        position: absolute;
+        top: 680px;
+        left: 40px;
+        -webkit-transform: translateX(500px);
+    }
+    #jita,#jita_1 {
+        position: absolute;
+        top: 512px;
+        left: 10px;
+        -webkit-transform: translateX(500px);
+    }
+    #jita_img,#jita_img_1{
+        -webkit-animation: jita_img 2s linear infinite alternate both;
+    }
+
+    #pagetitle {
+        position: absolute;
+        width: 391px;
+        height: 315px;
+        left:54.5px;
+        top:230px;
+        opacity: 0;
+    }
+
+    .titletable {
+        position: absolute;
+        width: 300px;
+        height: 200px;
+        top: 46.5px;
+        left: 51.5px;
+        display: table;
+    }
+    #titlecontent {
+        vertical-align:middle;
+        display:table-cell;
+        text-align:center;
+        font-size:22px;
+        line-height:33px;
+        color:#fff;
+    }
+
+    #lv {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        opacity: 0;
+    }
+
+    #huang {
+        position: absolute;
+        top: 98px;
+        left: 0px;
+        opacity: 0;
+        -webkit-transform: rotateY(180deg) rotateZ(-90deg);
+    }
+
+    #fen {
+        position: absolute;
+        top: 80px;
+        right: 0px;
+        opacity: 0;
+    }
+    #lan {
+        position: absolute;
+        top: 258px;
+        left: 0px;
+        opacity: 0;
+    }
+    #cheng {
+        position: absolute;
+        top: 480px;
+        right: 0px;
+        opacity: 0;
+    }
+    #bai {
+        position: absolute;
+        top: -100px;
+        left: -166px;
+        opacity: 0;
+    }
+
+    #mao1 {
+        position: absolute;
+        top: 40px;
+        left: -50px;
+        opacity: 0;
+    }
+    #mao2 {
+        position: absolute;
+        top: -20px;
+        left: -50px;
+        opacity: 0;
+    }
+
+    #mao3 {
+        position: absolute;
+        top: -30px;
+        left: -30px;
+        opacity: 0;
+    }
+
+
+    #mao4 {
+        position: absolute;
+        top: -50px;
+        right: -30px;
+        opacity: 0;
+    }
+    #mao5 {
+        position: absolute;
+        top: -20px;
+        right: -60px;
+        opacity: 0;
+        -webkit-transform: rotate(-10deg);
+
+    }
+    #sunmer {
+        position: absolute;
+        top: 590px;
+        left:-12px;
+        opacity: 0;
+    }
+    #yezi {
+        position: absolute;
+        top: 620px;
+        right: 0px;
+        opacity: 0;
+    }
+
+
+    #lanshan {
+        position: absolute;
+        top: 320px;
+        right:0px;
+        opacity: 0;
+        -webkit-transform-origin: 100% 100%;
+    }
+    #hongda {
+        position: absolute;
+        top: 30px;
+        left:-96px;
+        opacity: 0;
+    }
+    #chengda {
+        position: absolute;
+        top: 270px;
+        left:-206px;
+        opacity: 0;
+    }
+    #huangda {
+        position: absolute;
+        top: 30px;
+        left:0px;
+        opacity: 0;
+    }
+    #lvda {
+        position: absolute;
+        top: -35px;
+        right:-100px;
+        opacity: 0;
+    }
+
+    #chengx {
+        position: absolute;
+        top: -50px;
+        left:115px;
+        opacity: 0;
+    }
+
+    #huangx {
+        position: absolute;
+        top: 0px;
+        right:40px;
+        opacity: 0;
+    }
+    #lvx {
+        position: absolute;
+        top: 90px;
+        right:-5px;
+        opacity: 0;
+    }
+
+    #mao6 {
+        position: absolute;
+        top: 0px;
+        left:-70px;
+        opacity: 0;
+        -webkit-transform-origin: 0% 0%;
+    }
+    #mao7 {
+        position: absolute;
+        top: 30px;
+        left:-50px;
+        opacity: 0;
+        -webkit-transform-origin: 0% 0%;
+    }
+    #mao8 {
+        position: absolute;
+        top: 40px;
+        left:-50px;
+        opacity: 0;
+        -webkit-transform-origin: 0% 0%;
+    }
+    #quan {
+        position: absolute;
+        top: 600px;
+        left:-60px;
+        opacity: 0;
+    }
+    #xigua {
+        position: absolute;
+        top: 620px;
+        right:90px;
+        opacity: 0;
+    }
+    #guozhi {
+        position: absolute;
+        top: 560px;
+        right:-10px;
+        opacity: 0;
+    }
+
+
+
+    .page_ctn {
+        position: absolute;
+        left: 40px;
+        border:solid 8px rgba(255,255,255, 1);
+
+        opacity: 0;
+
+    }
+    .page {
+    }
+    .showwords {
+        font-size: 18px;
+        color: white;
+        position: absolute;
+        z-index: 1;
+        bottom: 20px;
+        left: 15%;
+        width: 70%;
+        line-height: 30px;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        letter-spacing: 2px;
+    }
+
+    .page_h {
+        position: absolute;
+        /*	top: 50px;
+            left: 50px;*/
+        width: 420px;
+        height: 280px;
+
+        opacity: 0;
+        display: none;
+        border:solid 8px rgba(255,255,255, 1);
+        /*box-shadow: 3px 6px 5px #A3B7A9;*/
+    }
+
+
+    .page_h_top {
+        position: absolute;
+        top: 56px;
+        left: 50px;
+    }
+    .page_h_btm {
+        position: absolute;
+        top: 425px;
+        left: 30px;
+    }
+
+
+    .page_v {
+        position: absolute;
+        /*	top: 50px;
+            left: 50px;*/
+        width: 260px;
+        height: 390px;
+
+        opacity: 0;
+        display: none;
+        border:solid 8px rgba(255,255,255, 1);
+        /*box-shadow: 3px 6px 5px #A3B7A9;*/
+
+    }
+
+    .page_v_top {
+        position: absolute;
+        top: 20px;
+        right: 33px;
+    }
+    .page_v_btm {
+        position: absolute;
+        top: 350px;
+        left: 33px;
+    }
+
+
+</style>
+<style type="text/css">
+    @-webkit-keyframes page4
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:translate(-50px,100px) rotate(-6deg);
+        }
+        3% {
+            opacity: 1;
+        }
+        8% {
+            opacity: 1;
+            -webkit-transform:translate(0px,0px) rotate(-3deg);
+        }
+        66% {
+            -webkit-transform:scale(1) rotate(1deg);
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform:scale(1) rotate(-2deg);
+        }
+    }
+    @-webkit-keyframes page3
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:scale(.4) rotate(-8deg);
+        }
+        3% {
+            opacity: 1;
+        }
+        8% {
+            opacity: 1;
+            -webkit-transform:scale(1) rotate(-4deg);
+        }
+        66% {
+            -webkit-transform:scale(1) rotate(-2deg);
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform:scale(1) rotate(-3deg);
+        }
+    }
+    @-webkit-keyframes page2
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:translate(-300px,100px) rotate(0deg);
+        }
+        5% {
+            opacity: 1;
+        }
+        13% {
+            opacity: 1;
+            -webkit-transform:translate(0px,0px) rotate(3deg);
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform:translate(0px,10px) rotate(5deg);
+        }
+    }
+    @-webkit-keyframes page1
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:translate(-300px,100px) rotate(0deg);
+        }
+        3%  {
+            opacity: 0;
+            -webkit-transform:translate(-300px,100px) rotate(0deg);
+        }
+        5% {
+            opacity: 1;
+        }
+        17% {
+            opacity: 1;
+            -webkit-transform:translate(0px,0px) rotate(3deg);
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform:translate(10px,-10px) rotate(5deg);
+        }
+    }
+
+    @-webkit-keyframes xigua
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:translateX(100px);
+        }
+        5% {
+            opacity: 1;
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform:translateX(0px);
+        }
+    }
+    @-webkit-keyframes quan
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:translateX(-200px) rotate(-40deg);
+        }
+        5% {
+            opacity: 1;
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform:translateX(0px) rotate(0deg);
+        }
+    }
+    @-webkit-keyframes mao8
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:rotate(-40deg);
+        }
+        5% {
+            opacity: 1;
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform:rotate(0deg);
+        }
+    }
+    @-webkit-keyframes mao7
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:rotate(-30deg);
+        }
+        5% {
+            opacity: 1;
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform:rotate(0deg);
+        }
+    }
+    @-webkit-keyframes mao6
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:rotate(-20deg);
+        }
+        5% {
+            opacity: 1;
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform:rotate(0deg);
+        }
+    }
+    @-webkit-keyframes lanshan
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:scale(.1);
+        }
+        5% {
+            opacity: 1;
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform:scale(1);
+        }
+    }
+    @-webkit-keyframes sunmer
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:rotate(-30deg) translateX(-200px);
+        }
+        5% {
+            opacity: 1;
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform:rotate(0deg) translateX(0px);
+        }
+    }
+    @-webkit-keyframes mao5
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:rotate(30deg);
+        }
+        5% {
+            opacity: 1;
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform: rotate(-10deg);
+        }
+    }
+    @-webkit-keyframes mao4
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:rotate(30deg);
+        }
+        5% {
+            opacity: 1;
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform: rotate(0deg);
+        }
+    }
+    @-webkit-keyframes mao1
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:rotate(-30deg) translate(-30px,-30px);
+        }
+        5% {
+            opacity: 1;
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform: rotate(0deg) translate(0px,0px);
+        }
+    }
+
+    @-webkit-keyframes huang
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:translateY(50px) rotateY(180deg) rotateZ(-90deg);
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform: translateY(0px) rotateY(180deg) rotateZ(-90deg);
+        }
+    }
+    @-webkit-keyframes bai
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform:translateY(50px);
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+        }
+    }
+    @-webkit-keyframes titlein
+    {
+        0%  {
+            -webkit-transform: translate(300px,0px) rotate(20deg);
+            opacity: 0;
+        }
+        3% {
+            opacity: 1;
+        }
+        8% {
+            -webkit-transform: translate(0px,0px) rotate(0deg);
+        }
+        100%  {
+            -webkit-transform: translate(0px,10px) rotate(0deg);
+            opacity: 1;
+        }
+    }
+
+    @-webkit-keyframes yanjing
+    {
+        0%  {
+            -webkit-transform: translateY(-10px);
+            opacity: 0;
+        }
+        5% {
+            opacity: 1;
+        }
+        50%  {
+            -webkit-transform: translateY(30px);
+        }
+        100%  {
+            -webkit-transform: translateY(0px);
+            opacity: 1;
+        }
+    }
+    @-webkit-keyframes caomei2
+    {
+        0%  {
+            -webkit-transform: scale(.7) translateX(180px);
+        }
+        100%  {
+            -webkit-transform: scale(.7) translateX(0px);
+        }
+    }
+    @-webkit-keyframes caomei1
+    {
+        0%  {
+            -webkit-transform: translateX(180px);
+        }
+        100%  {
+            -webkit-transform: translateX(0px);
+        }
+    }
+    @-webkit-keyframes jita
+    {
+        0%  {
+            -webkit-transform: translateX(500px);
+        }
+        100%  {
+            -webkit-transform: translateX(0px);
+        }
+    }
+    @-webkit-keyframes caomei2_img
+    {
+        0%  {
+            -webkit-transform: rotate(0deg);
+        }
+        58%  {
+            -webkit-transform: rotate(-10deg);
+        }
+        100%  {
+            -webkit-transform: rotate(0deg);
+        }
+    }
+    @-webkit-keyframes caomei1_img
+    {
+        0%  {
+            -webkit-transform: translate(0px,0px);
+        }
+        52%  {
+            -webkit-transform: translate(-10px,10px);
+        }
+        100%  {
+            -webkit-transform: translate(0px,0px);
+        }
+    }
+    @-webkit-keyframes jita_img
+    {
+        0%  {
+            -webkit-transform: rotate(-10deg);
+        }
+        100%  {
+            -webkit-transform: rotate(0deg);
+        }
+    }
+    @-webkit-keyframes san7
+    {
+        0%  {
+            -webkit-transform: rotate(-25deg);
+            opacity: 0;
+        }
+        5% {
+            opacity: 1;
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform: rotate(77deg);
+        }
+    }
+    @-webkit-keyframes san6
+    {
+        0%  {
+            -webkit-transform: rotate(-85deg);
+        }
+        100%  {
+            -webkit-transform: rotate(0deg);
+        }
+    }
+    @-webkit-keyframes san5
+    {
+        0%  {
+            -webkit-transform: rotate(-66deg);
+        }
+        100%  {
+            -webkit-transform: rotate(0deg);
+        }
+    }
+    @-webkit-keyframes san4
+    {
+        0%  {
+            -webkit-transform: rotate(-50deg);
+        }
+        100%  {
+            -webkit-transform: rotate(0deg);
+        }
+    }
+    @-webkit-keyframes san3
+    {
+        0%  {
+            -webkit-transform: rotate(-38deg);
+        }
+        100%  {
+            -webkit-transform: rotate(0deg);
+        }
+    }
+    @-webkit-keyframes san2
+    {
+        0%  {
+            -webkit-transform: rotate(-28deg);
+        }
+        100%  {
+            -webkit-transform: rotate(0deg);
+        }
+    }
+    @-webkit-keyframes san1
+    {
+        0%  {
+            -webkit-transform: rotate(-25deg);
+            opacity: 0;
+        }
+        5% {
+            opacity: 1;
+        }
+        100%  {
+            -webkit-transform: rotate(0deg);
+            opacity: 1;
+        }
+    }
+    @-webkit-keyframes duo_ctn
+    {
+        0%  {
+            -webkit-transform: scale(.5) rotate(0deg);
+            opacity: 0;
+        }
+        5% {
+            opacity: 1;
+        }
+        71%  {
+            -webkit-transform: scale(1.05) rotate(10deg);
+        }
+        100%  {
+            opacity: 1;
+            -webkit-transform: scale(1) rotate(0deg);
+        }
+    }
+    @-webkit-keyframes duo
+    {
+        0%  {
+            -webkit-transform: rotate(0deg);
+        }
+        100%  {
+            -webkit-transform: rotate(5deg);
+        }
+    }
+
+    @-webkit-keyframes fadein
+    {
+        0%  {opacity: 0}
+        100%    {opacity: 1}
+    }
+    @-webkit-keyframes fadeout
+    {
+        0%  {opacity: 1}
+        100%    {opacity: 0}
+    }
+</style>
+
+<body>
+<div id='container'>
+    <img id='san7' src="{$skinurl}skin/binfen/san1.png"/>
+    <img id='san1' src="{$skinurl}skin/binfen/san1.png"/>
+    <img id='san2' src="{$skinurl}skin/binfen/san2.png"/>
+    <img id='san3' src="{$skinurl}skin/binfen/san3.png"/>
+    <img id='san4' src="{$skinurl}skin/binfen/san4.png"/>
+    <img id='san5' src="{$skinurl}skin/binfen/san5.png"/>
+    <img id='san6' src="{$skinurl}skin/binfen/san6.png"/>
+
+    <div id='duo_ctn'>
+        <img id='duo_y' src="{$skinurl}skin/binfen/duo_y.png"/>
+        <img id='duo' src="{$skinurl}skin/binfen/duo.png"/>
+    </div>
+
+    <img id='yanjing' src="{$skinurl}skin/binfen/yanjing.png"/>
+    <div id='caomei1'>
+        <img id='caomei1_img' src="{$skinurl}skin/binfen/caomei1.png"/>
+    </div>
+    <div id='caomei2'>
+        <img id='caomei2_img' src="{$skinurl}skin/binfen/caomei2.png"/>
+    </div>
+    <img id='tuoxie' src="{$skinurl}skin/binfen/tuoxie.png"/>
+    <div id='jita'>
+        <img id='jita_img' src="{$skinurl}skin/binfen/jita.png"/>
+    </div>
+
+    <div id='pagetitle'>
+        <img id='title_bg' src="{$skinurl}skin/binfen/title_bg.png"/>
+        <div class='titletable'>
+            <div id='titlecontent'>
+            </div>
+        </div>
+    </div>
+
+    <img id='lv' src="{$skinurl}skin/binfen/lv.png"/>
+    <img id='huang' src="{$skinurl}skin/binfen/huang.png"/>
+    <img id='fen' src="{$skinurl}skin/binfen/fen.png"/>
+    <img id='lan' src="{$skinurl}skin/binfen/lan.png"/>
+    <img id='cheng' src="{$skinurl}skin/binfen/cheng.png"/>
+    <img id='bai' src="{$skinurl}skin/binfen/bai.png"/>
+
+    <img id='mao3' src="{$skinurl}skin/binfen/mao3.png"/>
+    <img id='mao1' src="{$skinurl}skin/binfen/mao1.png"/>
+    <img id='mao2' src="{$skinurl}skin/binfen/mao2.png"/>
+    <img id='mao5' src="{$skinurl}skin/binfen/mao4.png"/>
+    <img id='mao4' src="{$skinurl}skin/binfen/mao4.png"/>
+
+    <img id='yezi' src="{$skinurl}skin/binfen/yezi.png"/>
+    <img id='sunmer' src="{$skinurl}skin/binfen/sunmer.png"/>
+
+    <div id='page2_h' class='page_h page_h_btm'>
+        <div id='word2_h' class='showwords'></div>
+    </div>
+    <div id='page2_v' class='page_v page_v_btm'>
+        <div id='word2_v' class='showwords'></div>
+    </div>
+
+    <div id='page1_h' class='page_h page_h_top'>
+        <div id='word1_h' class='showwords'></div>
+    </div>
+    <div id='page1_v' class='page_v page_v_top'>
+        <div id='word1_v' class='showwords'></div>
+    </div>
+
+    <img id='lanshan' src="{$skinurl}skin/binfen/lanshan.png"/>
+    <img id='hongda' src="{$skinurl}skin/binfen/hongda.png"/>
+    <img id='chengda' src="{$skinurl}skin/binfen/chengda.png"/>
+
+    <img id='huangda' src="{$skinurl}skin/binfen/huangda.png"/>
+    <img id='lvda' src="{$skinurl}skin/binfen/lvda.png"/>
+
+    <div id='page3_ctn' class='page_ctn'>
+        <div id='page3' class='page'>
+            <span id='word3' class='showwords'></span>
+        </div>
+    </div>
+
+    <img id='chengx' src="{$skinurl}skin/binfen/chengx.png"/>
+    <img id='huangx' src="{$skinurl}skin/binfen/huangx.png"/>
+    <img id='lvx' src="{$skinurl}skin/binfen/lvx.png"/>
+
+    <img id='mao6' src="{$skinurl}skin/binfen/mao6.png"/>
+    <img id='mao8' src="{$skinurl}skin/binfen/mao8.png"/>
+    <img id='mao7' src="{$skinurl}skin/binfen/mao7.png"/>
+    <img id='quan' src="{$skinurl}skin/binfen/quan.png"/>
+    <img id='xigua' src="{$skinurl}skin/binfen/xigua.png"/>
+    <img id='guozhi' src="{$skinurl}skin/binfen/guozhi.png"/>
+
+
+
+
+    <img id='san7_1' src="{$skinurl}skin/binfen/san1.png"/>
+    <img id='san1_1' src="{$skinurl}skin/binfen/san1.png"/>
+    <img id='san2_1' src="{$skinurl}skin/binfen/san2.png"/>
+    <img id='san3_1' src="{$skinurl}skin/binfen/san3.png"/>
+    <img id='san4_1' src="{$skinurl}skin/binfen/san4.png"/>
+    <img id='san5_1' src="{$skinurl}skin/binfen/san5.png"/>
+    <img id='san6_1' src="{$skinurl}skin/binfen/san6.png"/>
+
+    <div id='page4_ctn' class='page_ctn'>
+        <div id='page4' class='page'>
+            <span id='word4' class='showwords'></span>
+        </div>
+    </div>
+
+    <div id='duo_ctn_1'>
+        <img id='duo_y_1' src="{$skinurl}skin/binfen/duo_y.png"/>
+        <img id='duo_1' src="{$skinurl}skin/binfen/duo.png"/>
+    </div>
+
+    <img id='yanjing_1' src="{$skinurl}skin/binfen/yanjing.png"/>
+    <div id='caomei1_1'>
+        <img id='caomei1_img_1' src="{$skinurl}skin/binfen/caomei1.png"/>
+    </div>
+    <div id='caomei2_1'>
+        <img id='caomei2_img_1' src="{$skinurl}skin/binfen/caomei2.png"/>
+    </div>
+    <img id='tuoxie_1' src="{$skinurl}skin/binfen/tuoxie.png"/>
+    <div id='jita_1'>
+        <img id='jita_img_1' src="{$skinurl}skin/binfen/jita.png"/>
+    </div>
+
+</div>
+</body>
+
+
+<script>
+    var image_size_width=[];
+    var image_size_height=[];
+    var image_url_index=0;
+    var have_num = 0;
+    var error_num = 0;
+    var canshow = true;
+    var reshow = false;
+    var timeout = [];
+    var delaytime=2800;
+    
+    function id(name)
+    {
+        return document.getElementById(name);
+    }
+    function load_images()
+    {
+        reshow = false;
+        image_size_width=[];
+        image_size_height=[];
+        Onload_imgs_url=[];
+        image_url_index=0;
+        have_num = 0;
+        error_num = 0;
+        begin_titletime = new Date();
+        begin_titletime = begin_titletime.getTime();
+        showtitle();
+        canshow = true;
+        for(var i=0;i<slider_images_url.length;i++)
+        {
+            var img=new Image();
+            img.index=i;
+            img.src=slider_images_url[i];
+            img.onload=image_onload;
+            img.onerror= image_onerror;
+            Onload_imgs_url[i] = 'loading';
+        }
+    }
+
+    function image_onerror(event)
+    {
+        var img = event.target;
+        var index = img.index;
+        if(index<10)
+            error_num ++;
+        Onload_imgs_url[index] = 'not find';
+        console.log(Onload_imgs_url[index]);
+        console.log(have_num + '-' + error_num);
+        if((have_num+error_num >= 10 || slider_images_url.length == (have_num+error_num)) && canshow == true)
+        {
+            reshow = false;
+            canshow =false;
+            if(have_num == 0)
+                return;
+            var end_titletime = new Date();
+            end_titletime = end_titletime.getTime();
+            var dis_titletime = Math.abs(end_titletime-begin_titletime);
+            if(dis_titletime>delaytime)
+            {
+                kuxuan();
+            }
+            else
+            {
+                dis_titletime = delaytime- dis_titletime;
+                timeout[0] = setTimeout(function()
+                {
+                    kuxuan();
+                },dis_titletime);
+            }
+        }
+    }
+
+    function image_onload(event)
+    {
+        if(reshow == true)
+            return;
+
+        var img = event.target;
+        var index = img.index;
+
+        if(index<10)
+        {
+            have_num++;
+        }
+        Onload_imgs_url[index] = img.src;
+        image_size_height[index] = img.height;
+        image_size_width[index] = img.width;
+
+        // console.log(Onload_imgs_url[index]);
+        // console.log(have_num + '-' + error_num);
+
+        if((have_num + error_num >= 10 ||slider_images_url.length == (have_num+error_num)) && canshow == true)
+        {
+            reshow = false;
+            canshow =false;
+            if(have_num == 0)
+                return;
+            var end_titletime = new Date();
+            end_titletime = end_titletime.getTime();
+            var dis_titletime = Math.abs(end_titletime-begin_titletime);
+            if(dis_titletime>delaytime)
+            {
+                kuxuan();
+            }
+            else
+            {
+                dis_titletime = delaytime- dis_titletime;
+                timeout[0] = setTimeout(function()
+                {
+                    kuxuan();
+                },dis_titletime);
+            }
+
+        }
+    }
+    function showtitle()
+    {
+        id('san7').style.webkitAnimation = 'san7 0.6s ease-out both';
+        id('san1').style.webkitAnimation = 'san1 0.6s ease-out both';
+        id('san2').style.webkitAnimation = 'san2 0.6s ease-out both';
+        id('san3').style.webkitAnimation = 'san3 0.6s ease-out both';
+        id('san4').style.webkitAnimation = 'san4 0.6s ease-out both';
+        id('san5').style.webkitAnimation = 'san5 0.6s ease-out both';
+        id('san6').style.webkitAnimation = 'san6 0.6s ease-out both';
+
+        id('duo_ctn').style.webkitAnimation = 'duo_ctn 0.7s ease-out both';
+
+        id('yanjing').style.webkitAnimation = 'yanjing 0.2s 0.4s ease-out both';
+        id('tuoxie').style.webkitAnimation = 'jita 0.8s ease-out both';
+        id('jita').style.webkitAnimation = 'jita 0.8s ease-out both';
+        id('caomei1').style.webkitAnimation = 'caomei1 0.9s ease-out both';
+        id('caomei2').style.webkitAnimation = 'caomei2 0.7s 0.2s ease-out both';
+
+        id('pagetitle').style.webkitAnimation = 'titlein 2.4s 0.4s ease-out both';
+
+        id('titlecontent').innerHTML = e_title
+    }
+
+    function kuxuan()
+    {
+
+        id('pagetitle').style.webkitAnimation = 'fadeout 1s 1s ease-out both';
+        timeout[4] =setTimeout(function () {
+            id('san7').style.webkitAnimation = '';
+            id('san1').style.webkitAnimation = '';
+            id('san2').style.webkitAnimation = '';
+            id('san3').style.webkitAnimation = '';
+            id('san4').style.webkitAnimation = '';
+            id('san5').style.webkitAnimation = '';
+            id('san6').style.webkitAnimation = '';
+            id('duo_ctn').style.webkitAnimation = '';
+            id('yanjing').style.webkitAnimation = '';
+            id('tuoxie').style.webkitAnimation = '';
+            id('jita').style.webkitAnimation = '';
+            id('caomei1').style.webkitAnimation = '';
+            id('caomei2').style.webkitAnimation = '';
+        }, 2000);
+        show1();
+    }
+
+    function show1()
+    {
+        var img_bili1 = setImage('1');
+        var img_bili2 = setImage('2');
+
+
+        if (img_bili2 > 1 && img_bili1 > 1) {
+            id('page2_h').style.top = (425-25) +'px';
+            id('page1_h').style.top = (56 + 30) +'px';
+
+        }else {
+            id('page2_h').style.top = '';
+            id('page1_h').style.top = '';
+        };
+
+        id('lanshan').style.webkitAnimation = '';
+        id('hongda').style.webkitAnimation = '';
+        id('chengda').style.webkitAnimation = '';
+        id('huangda').style.webkitAnimation = '';
+        id('lvda').style.webkitAnimation = '';
+        id('chengx').style.webkitAnimation = '';
+
+        id('huangx').style.webkitAnimation = '';
+        id('lvx').style.webkitAnimation = '';
+        id('mao6').style.webkitAnimation = '';
+        id('mao8').style.webkitAnimation = '';
+        id('mao7').style.webkitAnimation = '';
+        id('quan').style.webkitAnimation = '';
+        id('xigua').style.webkitAnimation = '';
+        id('guozhi').style.webkitAnimation = '';
+
+        id('page3_ctn').style.webkitAnimation = '';
+
+        id('lv').style.zIndex = 1;
+        id('huang').style.zIndex = 1;
+        id('fen').style.zIndex = 1;
+        id('lan').style.zIndex = 1;
+        id('cheng').style.zIndex = 1;
+        id('bai').style.zIndex = 1;
+
+        id('mao3').style.zIndex = 1;
+        id('mao1').style.zIndex = 1;
+        id('mao2').style.zIndex = 1;
+        id('mao5').style.zIndex = 1;
+        id('mao4').style.zIndex = 1;
+        id('yezi').style.zIndex = 1;
+        id('sunmer').style.zIndex = 1;
+
+        id('page1_h').style.zIndex = 1;
+        id('page1_v').style.zIndex = 1;
+        id('page2_h').style.zIndex = 1;
+        id('page2_v').style.zIndex = 1;
+
+
+        id('lv').style.webkitAnimation = 'bai 0.25s 1s ease-out both';
+        id('huang').style.webkitAnimation = 'huang 0.25s 0.75s ease-out both';
+        id('fen').style.webkitAnimation = 'bai 0.25s 0.5s ease-out both';
+        id('lan').style.webkitAnimation = 'bai 0.25s 0.25s ease-out both';
+        id('cheng').style.webkitAnimation = 'bai 0.25s ease-out both';
+        id('bai').style.webkitAnimation = 'bai 0.5s 1.5s ease-out both';
+
+        id('mao3').style.webkitAnimation = 'mao1 0.3s 1.5s ease-out both';
+        id('mao1').style.webkitAnimation = 'mao1 0.3s 1.5s ease-out both';
+        id('mao2').style.webkitAnimation = 'mao1 0.3s 1.5s ease-out both';
+        id('mao5').style.webkitAnimation = 'mao5 0.3s 1.5s ease-out both';
+        id('mao4').style.webkitAnimation = 'mao4 0.3s 1.5s ease-out both';
+        id('yezi').style.webkitAnimation = 'fadein 0.1s 1.5s ease-out both';
+        id('sunmer').style.webkitAnimation = 'sunmer 0.2s 1.5s ease-out both';
+
+
+        id('page1_h').style.webkitAnimation = 'page1 4s 0.2s cubic-bezier(0,0,.67,.96) both';
+        id('page1_v').style.webkitAnimation = 'page1 4s 0.2s cubic-bezier(0,0,.67,.96) both';
+
+        id('page2_h').style.webkitAnimation = 'page2 4s 0.2s cubic-bezier(0,0,.67,.96) both';
+        id('page2_v').style.webkitAnimation = 'page2 4s 0.2s cubic-bezier(0,0,.67,.96) both';
+
+
+        timeout[1] = setTimeout(show2,4000);
+
+
+    }
+
+
+    function show2()
+    {
+        var img_bili = setImage('3');
+
+        id('lv').style.zIndex ='';
+        id('huang').style.zIndex = '';
+        id('fen').style.zIndex = '';
+        id('lan').style.zIndex = '';
+        id('cheng').style.zIndex = '';
+        id('bai').style.zIndex = '';
+        id('mao3').style.zIndex = '';
+        id('mao1').style.zIndex = '';
+        id('mao2').style.zIndex = '';
+        id('mao5').style.zIndex = '';
+        id('mao4').style.zIndex = '';
+        id('yezi').style.zIndex = '';
+        id('sunmer').style.zIndex = '';
+
+        id('page1_h').style.zIndex = '';
+        id('page1_v').style.zIndex = '';
+        id('page2_h').style.zIndex = '';
+        id('page2_v').style.zIndex = '';
+
+
+        id('san7_1').style.webkitAnimation = '';
+        id('san1_1').style.webkitAnimation = '';
+        id('san2_1').style.webkitAnimation = '';
+        id('san3_1').style.webkitAnimation = '';
+        id('san4_1').style.webkitAnimation = '';
+        id('san5_1').style.webkitAnimation = '';
+        id('san6_1').style.webkitAnimation = '';
+        id('duo_ctn_1').style.webkitAnimation = '';
+        id('yanjing_1').style.webkitAnimation = '';
+        id('tuoxie_1').style.webkitAnimation = '';
+        id('jita_1').style.webkitAnimation = '';
+        id('caomei1_1').style.webkitAnimation = '';
+        id('caomei2_1').style.webkitAnimation = '';
+
+        id('page4_ctn').style.webkitAnimation = '';
+
+
+        id('lanshan').style.webkitAnimation = 'lanshan 0.3s ease-out both';
+        id('hongda').style.webkitAnimation = 'lanshan 0.3s 0.1s ease-out both';
+        id('chengda').style.webkitAnimation = 'lanshan 0.3s 0.3s ease-out both';
+        id('huangda').style.webkitAnimation = 'lanshan 0.3s 0.2s ease-out both';
+        id('lvda').style.webkitAnimation = 'lanshan 0.3s 0.4s ease-out both';
+        id('chengx').style.webkitAnimation = 'lanshan 0.3s 0.5s ease-out both';
+
+        id('huangx').style.webkitAnimation = 'lanshan 0.3s 0.7s ease-out both';
+        id('lvx').style.webkitAnimation = 'lanshan 0.3s 0.8s ease-out both';
+        id('mao6').style.webkitAnimation = 'mao6 0.3s 0.5s ease-out both';
+        id('mao8').style.webkitAnimation = 'mao8 0.3s 0.7s ease-out both';
+        id('mao7').style.webkitAnimation = 'mao7 0.3s 0.6s ease-out both';
+        id('quan').style.webkitAnimation = 'quan 0.3s 0.8s ease-out both';
+        id('xigua').style.webkitAnimation = 'xigua 0.3s 0.7s ease-out both';
+        id('guozhi').style.webkitAnimation = 'xigua 0.3s 0.9s ease-out both';
+
+
+        id('page3_ctn').style.webkitAnimation = 'page3 4s 0.5s cubic-bezier(0,0,.67,.96) both';
+
+
+        timeout[2] = setTimeout(show3,4000);
+
+    }
+
+    function show3()
+    {
+        var img_bili = setImage('4');
+
+        id('lv').style.webkitAnimation = '';
+        id('huang').style.webkitAnimation = '';
+        id('fen').style.webkitAnimation = '';
+        id('lan').style.webkitAnimation = '';
+        id('cheng').style.webkitAnimation = '';
+        id('bai').style.webkitAnimation = '';
+
+        id('mao3').style.webkitAnimation = '';
+        id('mao1').style.webkitAnimation = '';
+        id('mao2').style.webkitAnimation = '';
+        id('mao5').style.webkitAnimation = '';
+        id('mao4').style.webkitAnimation = '';
+        id('yezi').style.webkitAnimation = '';
+        id('sunmer').style.webkitAnimation = '';
+
+        id('san7_1').style.webkitAnimation = 'san7 0.6s ease-out both';
+        id('san1_1').style.webkitAnimation = 'san1 0.6s ease-out both';
+        id('san2_1').style.webkitAnimation = 'san2 0.6s ease-out both';
+        id('san3_1').style.webkitAnimation = 'san3 0.6s ease-out both';
+        id('san4_1').style.webkitAnimation = 'san4 0.6s ease-out both';
+        id('san5_1').style.webkitAnimation = 'san5 0.6s ease-out both';
+        id('san6_1').style.webkitAnimation = 'san6 0.6s ease-out both';
+
+        id('duo_ctn_1').style.webkitAnimation = 'duo_ctn 0.7s ease-out both';
+
+        id('yanjing_1').style.webkitAnimation = 'yanjing 0.2s 0.4s ease-out both';
+        id('tuoxie_1').style.webkitAnimation = 'jita 0.8s ease-out both';
+        id('jita_1').style.webkitAnimation = 'jita 0.8s ease-out both';
+        id('caomei1_1').style.webkitAnimation = 'caomei1 0.9s ease-out both';
+        id('caomei2_1').style.webkitAnimation = 'caomei2 0.7s 0.2s ease-out both';
+
+
+        id('page1_h').style.webkitAnimation = '';
+        id('page1_v').style.webkitAnimation = '';
+        id('page2_h').style.webkitAnimation = '';
+        id('page2_v').style.webkitAnimation = '';
+
+        id('page4_ctn').style.webkitAnimation = 'page4 4s 0.5s cubic-bezier(0,0,.67,.96) both';
+
+
+        timeout[3] = setTimeout(show1,4000);
+
+    }
+
+
+
+    function setImage(idname)
+    {
+        if(reshow == true)
+            return;
+
+        while(Onload_imgs_url[image_url_index] == 'not find' || Onload_imgs_url[image_url_index] == 'loading')
+        {
+            // console.log(Onload_imgs_url[image_url_index]);
+            image_url_index++;
+            if(image_url_index == Onload_imgs_url.length)
+                image_url_index = 0;
+        }
+
+        var img_bili = image_size_width[image_url_index]/image_size_height[image_url_index];
+        var div,div1;
+        var div_ctn;
+        var height;
+        var width;
+        var top;
+        var left;
+        var word,word1;
+
+        if(img_bili < (380/600))
+        {
+            height = 600;
+            width = 600 * img_bili;
+            top = 80;
+            left = (500-width)/2 - 0;
+        }
+        else if(img_bili <= 1)
+        {
+            width = 400;
+            height = 400 / img_bili;
+            left = 50 - 8;
+            top = (740-height)/2
+        }
+        else if(img_bili > 1)
+        {
+            width = 400;
+            height = 400/img_bili;
+            left = 50 - 8;
+            top = (740-height)/2;
+        }
+
+
+        if (idname == '1' || idname == '2') {
+            if (img_bili > 1) {
+                div = id('page'+idname + '_h');
+                div1 = id('page'+idname + '_v');
+
+                word = id('word'+idname + '_h');
+                word1 = id('word'+idname + '_v');
+
+                width_div = 420;
+                height_div = 280;
+
+                width = 420;
+                height = width_div / img_bili;
+
+                if (height < height_div) {
+                    width = height_div * img_bili;
+                    height = height_div;
+                };
+
+            }else {
+                div = id('page'+idname + '_v');
+                div1 = id('page'+idname + '_h');
+
+                word = id('word'+idname + '_v');
+                word1 = id('word'+idname + '_h');
+
+                width_div = 260;
+                height_div = 390;
+
+                height = 390;
+                width = height * img_bili;
+                if (width < width_div) {
+                    height = width_div / img_bili;
+                    width = width_div;
+                };
+            }
+
+            div.style.display = 'block';
+            div1.style.display = 'none';
+
+            div.style.backgroundSize = (width) + 'px ' + (height) + 'px';
+            div.style.backgroundImage = 'url('+Onload_imgs_url[image_url_index]+')';
+            div.style.backgroundRepeat = 'no-repeat';
+            div.style.backgroundPosition = -((width - width_div)/2)+'px ' + (-((height - height_div)/2)) + 'px';
+
+
+        } else{
+            div = id('page'+idname);
+            div_ctn = id('page'+idname + '_ctn');
+
+            div.style.width = width + 'px';
+            div.style.height = height + 'px';
+            div.style.backgroundSize = (width) + 'px ' + (height) + 'px';
+            div.style.backgroundImage = 'url('+Onload_imgs_url[image_url_index]+')';
+            div.style.backgroundRepeat = 'no-repeat';
+
+            div_ctn.style.width = (width+ 16) + 'px';
+            div_ctn.style.height = (height + 16) + 'px';
+            div_ctn.style.top = (top) + 'px';
+            div_ctn.style.left = (left) + 'px';
+
+            word = id('word'+idname);
+        };
+
+
+        var word_string = words[get_pid(Onload_imgs_url[image_url_index])];
+        if(word_string != undefined)
+        {
+            word_string = word_string.replace(/[\n]/ig,'');
+
+            word.innerText = word_string;
+        }
+        else
+        {
+            word.innerText = "";
+        }
+
+        image_url_index++;
+        if(image_url_index==Onload_imgs_url.length)
+            image_url_index = 0;
+
+        return img_bili;
+    }
+
+    call_me(load_images);
+
+    function reload_scene()
+    {
+        clearnode();
+        reshow = true;
+        setTimeout(load_images,100);
+    }
+
+    function clearnode()
+    {
+        for(var i = 0; i<timeout.length; i++)
+        {
+            clearTimeout(timeout[i]);
+        }
+
+
+        var xinArr = ['pagetitle','san7','san1','san2','san3','san4','san5','san6','duo_ctn','yanjing','tuoxie','jita','caomei1','caomei2','san7_1','san1_1','san2_1','san3_1','san4_1','san5_1','san6_1','duo_ctn_1','yanjing_1','tuoxie_1','jita_1','caomei1_1','caomei2_1','lv','huang','fen','lan','cheng','bai','mao3','mao1','mao2','mao4','mao5','yezi','sunmer','lanshan','hongda','chengda','huangda','lvda','chengx','lvx','mao6','mao7','mao8','quan','xigua','guozhi','page1_h','page1_v','page2_h','page2_v','page3_ctn','page4_ctn'];
+
+        for(var i = 0 ;i < xinArr.length ;i++)
+        {
+            id(xinArr[i]).style.webkitAnimation = '';
+        }
+
+        id('lv').style.zIndex ='';
+        id('huang').style.zIndex = '';
+        id('fen').style.zIndex = '';
+        id('lan').style.zIndex = '';
+        id('cheng').style.zIndex = '';
+        id('bai').style.zIndex = '';
+        id('mao3').style.zIndex = '';
+        id('mao1').style.zIndex = '';
+        id('mao2').style.zIndex = '';
+        id('mao5').style.zIndex = '';
+        id('mao4').style.zIndex = '';
+        id('yezi').style.zIndex = '';
+        id('sunmer').style.zIndex = '';
+
+        id('page1_h').style.zIndex = '';
+        id('page1_v').style.zIndex = '';
+        id('page2_h').style.zIndex = '';
+        id('page2_v').style.zIndex = '';
+    }
+
+</script>
+<!-- 模板结束 -->

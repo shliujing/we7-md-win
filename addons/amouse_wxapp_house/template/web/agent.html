@@ -1,0 +1,230 @@
+{template 'common/header'}
+<style>
+    .label-red {
+        background-color: red;
+    }
+</style>
+<ul class="nav nav-tabs">
+    <li {if $operation == 'post'}class="active"{/if}><a href="{php echo $this->createWebUrl('agent', array('op' => 'post'))}">{if $id==0}添加经纪人{else}修改经纪人{/if}</a></li>
+    <li {if $operation == 'display'}class="active"{/if}><a href="{php echo $this->createWebUrl('agent', array('op' => 'display'))}">管理经纪人</a></li>
+</ul>
+{if $operation == 'display'}
+<div class="main">
+    <div class="panel panel-info">
+        <div class="panel-heading">筛选</div>
+        <div class="panel-body">
+            <form action="./index.php" method="get" class="form-horizontal" role="form">
+                <input type="hidden" name="c" value="site" />
+                <input type="hidden" name="a" value="entry" />
+                <input type="hidden" name="m" value="amouse_wxapp_house" />
+                <input type="hidden" name="do" value="agent" />
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">联系方式</label>
+                    <div class="col-sm-2 col-lg-2">
+                        <input class="form-control" name="mobile" id="" type="text" value="{$_GPC['mobile']}">
+                    </div>
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">姓名</label>
+                    <div class="col-sm-2 col-lg-2">
+                        <input class="form-control" name="realname"  type="text" value="{$_GPC['realname']}">
+                    </div>
+                    <div class="col-sm-2 col-lg-2">
+                        <button class="btn btn-default">  <i class="fa fa-search"></i> 搜索</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <style>
+        .page-nav {
+            margin: 0;
+            width: 100%;
+            min-width: 800px;
+        }
+
+        .page-nav > li > a {
+            display: block;
+        }
+
+        .page-nav-tabs {
+            background: #EEE;
+        }
+
+        .page-nav-tabs > li {
+            line-height: 40px;
+            float: left;
+            list-style: none;
+            display: block;
+            text-align: -webkit-match-parent;
+        }
+
+        .page-nav-tabs > li > a {
+            font-size: 14px;
+            color: #666;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;
+            margin: 0;
+            border: 1px solid transparent;
+            border-bottom-width: 0px;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+        }
+
+        .page-nav-tabs > li > a, .page-nav-tabs > li > a:focus {
+            border-radius: 0 !important;
+            background-color: #f9f9f9;
+            color: #999;
+            margin-right: -1px;
+            position: relative;
+            z-index: 11;
+            border-color: #c5d0dc;
+            text-decoration: none;
+        }
+
+        .page-nav-tabs >li >a:hover {
+            background-color: #FFF;
+        }
+
+        .page-nav-tabs > li.active > a, .page-nav-tabs > li.active > a:hover, .page-nav-tabs > li.active > a:focus {
+            color: #576373;
+            border-color: #c5d0dc;
+            border-top: 2px solid #4c8fbd;
+            border-bottom-color: transparent;
+            background-color: #FFF;
+            z-index: 12;
+            margin-top: -1px;
+            box-shadow: 0 -2px 3px 0 rgba(0, 0, 0, 0.15);
+        }
+    </style>
+
+    <div class="panel panel-default">
+        <form id="form2" class="form-horizontal" method="post">
+            <div class="table-responsive panel-body">
+                <table class="table table-hover">
+                    <thead class="navbar-inner">
+                    <tr>
+                        <th style="width:10px;">全选</th>
+                        <th style="width:30px;">名称</th>
+                        <th style="width:30px;">所在门店</th>
+                        <th style="width:30px;">号码</th>
+                        <th style="width:30px;">状态</th>
+                        <th style="text-align:right;width:20px;">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="row-first">
+                            <input type="checkbox"  onclick="var ck = this.checked;$(':checkbox').each(function(){this.checked = ck});" name=''></td>
+                        <td colspan="8" style="text-align:left;">
+                            <input name="token" type="hidden" value="{$_W['token']}"/>
+                            <input type="submit" class="btn btn-primary" name="submit1" value="批量删除"/>
+                        </td>
+                    </tr>
+                    {loop $list $item}
+                    <tr>
+                        <td> <input type="checkbox" value="{$item['id']}" name="delete[]"></td>
+                        <td><img src="{php echo tomedia($item['icon_url'])}" style='width:30px;height:30px;padding:1px;border:1px solid #ccc' />
+                            {$item['realname']}
+                        </td>
+                        <td>{$item['shop_name']}</td>
+                        <td>
+                            <label class='label label-primary'>{$item['mobile']} </label>
+                        </td>
+                        <td>
+                            <label title="点击自动切换是否审核" data="{$item['status']}" class='label label-default {if $item['status']==0}label-success{/if}' onclick="setProperty(this,{$item['id']},'status')">{if $item['status']==0}已审核{else if $item['status']==1}待审核{/if}
+                            </label>
+                        </td>
+                        <td style="text-align:right;">
+                            <a href="{php echo $this->createWebUrl('agent', array('op' => 'post','id' => $item['id']))}" title="详情" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="详情" >
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a onclick="return confirm('删除无法恢复，确认吗？');return false;"
+                               href="{php echo $this->createWebUrl('agent', array('op' => 'delete','id' => $item['id']))}" class="btn btn-default btn-sm"> <i class="fa fa-times"></i></a>
+                        </td>
+                    </tr>
+                    {/loop}
+                    </tbody>
+                </table>
+                {$pager}
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    function setProperty(obj, id,type) {
+        $(obj).html($(obj).html() + "...");
+        $.post("{php echo $this->createWebUrl('agent',array('op'=>'setstatus','version_id'=>$_GPC['version_id']))}",{id: id,type: type,data: obj.getAttribute("data")},function (d) {
+            $(obj).html($(obj).html().replace("...", ""));
+            $(obj).html(d.data == '0' ? '已审核' : '待审核');
+            $(obj).attr("data", d.data);
+            if (d.result == 1) {
+                $(obj).toggleClass("label-info");
+            }
+        }, "json");
+    }
+</script>
+{elseif $operation == 'post'}
+<div class="main">
+    <form action="" method="post" class="form-horizontal form" id="form1">
+        <div class="panel panel-default">
+            <div class="panel-heading">提交经纪人</div>
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">名称</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" name="realname" class="form-control" value="{$slide['realname']}" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">号码</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" name="mobile" class="form-control" value="{$slide['mobile']}" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">所属门店</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <select class="form-control" name="shop_id">
+                            {loop $shops $shop}
+                            <option value="{$shop['id']}" {if $shop['id']==$slide['shop_id']}selected{/if}> {$shop['name']}</option>
+                            {/loop}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">头像</label>
+                    <div class="col-sm-9 col-xs-12">
+                        {php echo tpl_form_field_image('icon_url', $slide['icon_url']);}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">描述</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" name="desc" class="form-control" value="{$slide['desc']}" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 control-label"> 审核状态</label>
+                    <div class="col-sm-9 col-xs-9 col-md-7 col-xs-12">
+                        <label class="radio-inline"><input type="radio"  name="status" value="1" {if $set['status'] == 1}checked{/if}>待审核</label>
+                        <label class="radio-inline"><input type="radio"  name="status" value="0" {if $set['status'] == 0}checked{/if}>已审核</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input name="submit" type="submit" value="提交" class="btn btn-primary col-lg-1">
+                <input type="hidden" name="token" value="{$_W['token']}" />
+            </div>
+        </div>
+    </form>
+</div>
+
+{/if}

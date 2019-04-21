@@ -1,0 +1,94 @@
+{template 'common/header'}
+
+<ul class="nav nav-tabs">
+    <li {if $operation == 'post'}class="active"{/if}><a href="{php echo $this->createWebUrl('vill', array('op' => 'post'))}">{if $id==0}添加小区{else}修改小区{/if}</a></li>
+    <li {if $operation == 'display'}class="active"{/if}><a href="{php echo $this->createWebUrl('vill', array('op' => 'display'))}">管理小区</a></li>
+</ul>
+{if $operation == 'display'}
+<div class="main">
+    <div class="panel panel-default">
+        <form id="form2" class="form-horizontal" method="post">
+            <div class="table-responsive panel-body">
+                <table class="table table-hover">
+                    <thead class="navbar-inner">
+                    <tr>
+                        <th style="width:10px;">排序</th>
+                        <th style="width:30px;">名称</th>
+                        <th style="width:30px;">区域</th>
+                        <th style="text-align:right;width:20px;">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {loop $list $item}
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" name="displayorder[{$item['id']}]"  value="{$item['displayorder']}">
+                        </td>
+                        <td> {$item['name']} </td>
+
+                        <td> <label class='label label-primary'>{$item['area']} </label></td>
+                        <td style="text-align:right;">
+                            <a href="{php echo $this->createWebUrl('vill', array('op' => 'post','id' => $item['id']))}" title="详情" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="详情" >
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a onclick="return confirm('删除订单无法恢复，确认吗？');return false;"
+                               href="{php echo $this->createWebUrl('vill', array('op' => 'delete','id' => $item['id']))}" class="btn btn-default btn-sm"> <i class="fa fa-times"></i></a>
+                        </td>
+                    </tr>
+                    {/loop}
+                    <tr>
+                        <td class="row-first">
+                            <input type="checkbox"  onclick="var ck = this.checked;$(':checkbox').each(function(){this.checked = ck});" name=''>
+                            <input name="token" type="hidden" value="{$_W['token']}"/>
+                            <input type="submit" class="btn btn-primary" name="submit" value="批量更新"/>
+                          </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+                {$pager}
+            </div>
+        </form>
+    </div>
+</div>
+{elseif $operation == 'post'}
+<div class="main">
+    <form action="" method="post" class="form-horizontal form" id="form1">
+        <div class="panel panel-default">
+            <div class="panel-heading">小区设置</div>
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">名称</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" name="name" class="form-control" value="{$vill['name']}" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">排序</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" name="displayorder" class="form-control" value="{$vill['displayorder']}" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">所属区域</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <select class="form-control" name="area_id">
+                            {loop $areas $area}
+                            <option value="{$area['id']}" {if $vill['area_id']==$area['id']}selected{/if}> {$area['name']}</option>
+                            {/loop}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input name="submit" type="submit" value="提交" class="btn btn-primary col-lg-1">
+                <input type="hidden" name="token" value="{$_W['token']}" />
+            </div>
+        </div>
+    </form>
+</div>
+{/if}

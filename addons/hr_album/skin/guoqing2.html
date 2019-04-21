@@ -1,0 +1,922 @@
+<!--模板开始-->
+<style type="text/css">
+    * {
+        padding: 0px;
+        margin: 0px;
+        -webkit-box-sizing: border-box
+    }
+
+    body {
+        background-color: white
+    }
+
+    #container {
+        position: relative;
+        width: 500px;
+        height: 815px;
+        overflow: hidden;
+    }
+    #container > img,#container > div {
+        position: absolute;
+    }
+
+    #qiqiu_ctn {
+        position: absolute;
+        top: 30px;
+        left: 50px;
+        -webkit-transform: rotate(8deg);
+        opacity: 0;
+    }
+    #qiqiu {
+    }
+
+    #shuzhi {
+        position: absolute;
+        top: -16px;
+        right: -300px;
+        -webkit-transform: rotateY(180deg);
+        -webkit-transform-origin: left;
+    }
+    #yun1 {
+        position: absolute;
+        top: 25px;
+        right: -90px;
+    }
+    #yun2 {
+        position: absolute;
+        top: 60px;
+        right: 140px;
+    }
+    #yun3 {
+        position: absolute;
+        top: 550px;
+        right: -90px;
+    }
+    #huaban1 {
+        position: absolute;
+        top: -50px;
+        right: 50px;
+        opacity: 0;
+    }
+    #huaban2 {
+        position: absolute;
+        top: 100px;
+        right: -50px;
+        opacity: 0;
+
+    }
+    #huaban3 {
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        opacity: 0;
+    }
+    #huaban4 {
+        top: -50px;
+        right: -50px;
+        opacity: 0;
+    }
+    #huaban5 {
+        position: absolute;
+        top: -50px;
+        right: 50px;
+        opacity: 0;
+    }
+    #huaban6 {
+        position: absolute;
+        top: 50px;
+        right: -50px;
+        opacity: 0;
+    }
+    #huaban7 {
+        position: absolute;
+        top: 0px;
+        right: -50px;
+        opacity: 0;
+    }
+
+
+    #bg_btm1 {
+        position: absolute;
+        top: 596px;
+        left: 0px;
+    }
+    #bg_btm2 {
+        position: absolute;
+        top: 596px;
+        left: 500px;
+    }
+    #gugong {
+        position: absolute;
+        top: 567px;
+        left: 625px;
+    }
+    #tianan {
+        position: absolute;
+        top: 659px;
+        left: 630px;
+    }
+    #tiantan{
+        position: absolute;
+        top: 589px;
+        left: 660px;
+    }
+    #ta{
+        position: absolute;
+        top: 495px;
+        left: 725px;
+    }
+    #caiyun {
+        position: absolute;
+        top: 675px;
+        left: 500px;
+    }
+
+    #pagetitle {
+        position:absolute;
+        width:500px;
+        height:99px;
+        top: 310px;
+        left: 0px;
+        opacity:0.3;
+    }
+
+    .titletable {
+        position: absolute;
+        width: 400px;
+        height: 99px;
+        top: 0px;
+        left: 50px;
+        display: table;
+    }
+
+    #titlecontent {
+        vertical-align:middle;
+        display:table-cell;
+        text-align:center;
+        font-size:22px;
+        line-height:33px;
+        color:#939D9B;
+        opacity: 0;
+    }
+
+    .page {
+        position: absolute;
+        opacity: 0;
+    }
+    .page_box {
+        position: absolute;
+        /*top: 80px;
+        left: 22px;*/
+        width: 450px;
+        height: 630px;
+        border: 120px solid;
+        border-image-source: url({$skinurl}skin/guoqing2/page_box.png);
+        border-image-slice:120 120 130 110;
+        /*border-image-slice: 84 112 100 106;*/
+        border-image-repeat: round;
+        opacity: 0;
+    }
+
+    .showwords {
+        font-size: 20px;
+        color: white;
+        position: absolute;
+        z-index: 1;
+        bottom: 20px;
+        left: 15%;
+        width: 70%;
+        line-height: 30px;
+        text-align: center;
+        text-shadow: 1px 1px 2px #000;
+        letter-spacing: 2px;
+    }
+</style>
+<style type="text/css">
+    @-webkit-keyframes page1
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: translateX(550px);
+        }
+        5% {
+            opacity: 1;
+        }
+        95% {
+            opacity: 1;
+        }
+        100%   {
+            -webkit-transform: translateX(-700px);
+            opacity: 0;
+        }
+    }
+    @-webkit-keyframes page2
+    {
+        0%  {
+            opacity: 0;
+            /*-webkit-transform: scale(.8) translateX(550px);*/
+            -webkit-transform: scale(.8);
+        }
+        5% {
+            opacity: 1;
+        }
+        95% {
+            opacity: 1;
+        }
+        100%   {
+            /*-webkit-transform: scale(.8) translateX(-800px);
+            opacity: 0;*/
+            -webkit-transform: scale(.8);
+            opacity: 1;
+        }
+    }
+    @-webkit-keyframes page3
+    {
+        0%  {
+            opacity: 0;
+            /*-webkit-transform: scale(.7) translateX(550px);*/
+            -webkit-transform: scale(.7);
+        }
+        5% {
+            opacity: 1;
+        }
+        95% {
+            opacity: 1;
+        }
+        100%   {
+            /*-webkit-transform: scale(.7) translateX(-850px);
+            opacity: 0;*/
+            -webkit-transform: scale(.7);
+            opacity: 1;
+        }
+    }
+    @-webkit-keyframes titlein
+    {
+        0%  {
+            opacity: 0.3;
+            -webkit-transform: rotateX(0deg);
+        }
+        5%  {
+            -webkit-transform: rotateX(87deg);
+        }
+        11%  {
+            opacity: 1;
+            -webkit-transform: rotateX(0deg);
+        }
+        18%  {
+            -webkit-transform: rotateX(87deg);
+        }
+        23%  {
+            -webkit-transform: rotateX(0deg);
+        }
+        77%  {
+            -webkit-transform: rotateX(0deg);
+        }
+        89%  {
+            -webkit-transform: rotateX(87deg);
+            opacity: 1;
+        }
+        100%  {
+            -webkit-transform: rotateX(0deg);
+            opacity: 0;
+        }
+    }
+    @-webkit-keyframes fadein
+    {
+        0%  {opacity: 0}
+        100%    {opacity: 1}
+    }
+    @-webkit-keyframes fadeout
+    {
+        from  {opacity: 1}
+        to    {opacity: 0}
+    }
+    @-webkit-keyframes qiqiu_ctn
+    {
+        0%  {
+            -webkit-transform: translate(-110px,150px) rotate(8deg);
+            opacity: 0;
+        }
+        5% {
+            opacity: 1;
+        }
+        30%  {
+            -webkit-transform: translate(-75px,120px) rotate(8deg);
+        }
+        50%  {
+            -webkit-transform: translate(-55px,75px) rotate(8deg);
+        }
+        80%  {
+            -webkit-transform: translate(-20px,45px) rotate(8deg);
+        }
+        100%  {
+            -webkit-transform: translate(0px,0px) rotate(8deg);
+            opacity: 1;
+        }
+    }
+    @-webkit-keyframes qiqiu
+    {
+        0%  {
+            -webkit-transform: translateY(20px);
+        }
+        100% {
+            -webkit-transform: translateY(0px);
+        }
+    }
+
+    @-webkit-keyframes shuzhi
+    {
+        0%  {
+            -webkit-transform: rotateY(180deg) rotate(-4deg);
+        }
+        100% {
+            -webkit-transform: rotateY(180deg) rotate(0deg);
+        }
+    }
+
+    @-webkit-keyframes yun1
+    {
+        0%  {
+            -webkit-transform: translateX(0px);
+        }
+        100% {
+            -webkit-transform: translateX(-600px);
+        }
+    }
+
+    @-webkit-keyframes yun2
+    {
+        0%  {
+            -webkit-transform: translateX(0px);
+        }
+        62%  {
+            -webkit-transform: translateX(-370px);
+            opacity: 1
+        }
+        63% {
+            opacity: 0;
+            -webkit-transform: translateX(-370px);
+        }
+        64% {
+            opacity: 0;
+            -webkit-transform: translateX(230px);
+        }
+        65%  {
+            opacity: 1;
+            -webkit-transform: translateX(230px);
+        }
+        100% {
+            -webkit-transform: translateX(0px);
+        }
+    }
+
+    @-webkit-keyframes huaban1 {
+        0%{
+            -webkit-transform: translate(0px, 0px);
+            opacity: 0;
+        }
+        5% {
+            opacity: 1
+        }
+        100%{
+            -webkit-transform: translate(-600px, 200px) rotateZ(90deg);
+            opacity: 1
+        }
+    }
+    @-webkit-keyframes huaban2 {
+        0%{
+            -webkit-transform: translate(0px, 0px);
+            opacity: 0;
+        }
+        5% {
+            opacity: 1
+        }
+        100%{
+            -webkit-transform: translate(-600px, 150px) rotateX(180deg);
+            opacity: 1
+        }
+    }
+    @-webkit-keyframes huaban3 {
+        0%{
+            -webkit-transform: translate(0px, 0px);
+            opacity: 0;
+        }
+        5% {
+            opacity: 1
+        }
+        100%{
+            -webkit-transform: translate(-600px, 200px) rotateZ(180deg);
+            opacity: 1
+        }
+    }
+    @-webkit-keyframes huaban4 {
+        0%{
+            -webkit-transform: translate(0px, 0px);
+            opacity: 0;
+        }
+        5% {
+            opacity: 1
+        }
+        100%{
+            -webkit-transform: translate(-600px, 200px) rotate(90deg);
+            opacity: 1
+        }
+    }
+    @-webkit-keyframes huaban5 {
+        0%{
+            -webkit-transform: translate(0px, 0px);
+            opacity: 0;
+        }
+        5% {
+            opacity: 1
+        }
+        100%{
+            -webkit-transform: translate(-600px, 300px) rotate(-90deg);
+            opacity: 1
+        }
+    }
+    @-webkit-keyframes huaban6 {
+        0%{
+            -webkit-transform: translate(0px, 0px);
+            opacity: 0;
+        }
+        5% {
+            opacity: 1
+        }
+        100%{
+            -webkit-transform: translate(-600px, 250px) rotate(180deg);
+            opacity: 1
+        }
+    }
+    @-webkit-keyframes huaban7 {
+        0%{
+            -webkit-transform: translate(0px, 0px);
+            opacity: 0;
+        }
+        5% {
+            opacity: 1
+        }
+        100%{
+            -webkit-transform: translate(-600px, 350px) rotate(-180deg);
+            opacity: 1
+        }
+    }
+
+    @-webkit-keyframes bg_btm1
+    {
+        0%  {
+            -webkit-transform: translateX(0px);
+        }
+        50.3%  {
+            -webkit-transform: translateX(-502px);
+            opacity: 1
+        }
+        50.301% {
+            -webkit-transform: translateX(-502px);
+            opacity: 0;
+        }
+        50.3011%  {
+            opacity: 0;
+            -webkit-transform: translateX(496px);
+        }
+        50.3012% {
+            opacity: 1;
+            -webkit-transform: translateX(496px);
+        }
+        100% {
+            -webkit-transform: translateX(0px);
+        }
+    }
+    @-webkit-keyframes bg_btm2
+    {
+        0%  {
+            -webkit-transform: translateX(0px);
+        }
+        50.3012%  {
+            -webkit-transform: translateX(-500px);
+        }
+        100%  {
+            -webkit-transform: translateX(-1000px);
+        }
+    }
+    @-webkit-keyframes left_move
+    {
+        0%  {
+            -webkit-transform: translateX(0px);
+        }
+        50.3012%  {
+            -webkit-transform: translateX(-500px);
+        }
+        100%  {
+            -webkit-transform: translateX(-1000px);
+        }
+    }
+</style>
+
+<body>
+<div id='container'>
+    <img src="{$skinurl}skin/guoqing2/bg.jpg"/>
+    <img id='yun1' src="{$skinurl}skin/guoqing2/yun.png"/>
+    <img id='yun2' src="{$skinurl}skin/guoqing2/yun.png"/>
+    <img id='yun3' src="{$skinurl}skin/guoqing2/yun.png"/>
+    <div id='qiqiu_ctn'>
+        <img id='qiqiu' src="{$skinurl}skin/guoqing2/qiqiu.png"/>
+    </div>
+
+    <img id='bg_btm1' src="{$skinurl}skin/guoqing2/bg_btm1.png"/>
+    <img id='bg_btm2' src="{$skinurl}skin/guoqing2/bg_btm2.png"/>
+    <img id='caiyun' src="{$skinurl}skin/guoqing2/caiyun.png"/>
+    <img id='gugong' src="{$skinurl}skin/guoqing2/gugong.png"/>
+    <img id='tianan' src="{$skinurl}skin/guoqing2/tianan.png"/>
+    <img id='tiantan' src="{$skinurl}skin/guoqing2/tiantan.png"/>
+    <img id='ta' src="{$skinurl}skin/guoqing2/ta.png"/>
+
+    <div id='pagetitle'>
+        <img src='{$skinurl}skin/guoqing2/titie_bg.png'/>
+        <div class='titletable'>
+            <div id='titlecontent'>
+            </div>
+        </div>
+    </div>
+
+    <div id='page1' class='page'>
+        <span id='word1' class='showwords'></span>
+    </div>
+    <div id='page1_box' class='page_box' ></div>
+
+    <div id='page2' class='page'>
+        <span id='word2' class='showwords'></span>
+    </div>
+    <div id='page2_box' class='page_box' ></div>
+
+    <div id='page3' class='page'>
+        <span id='word3' class='showwords'></span>
+    </div>
+    <div id='page3_box' class='page_box' ></div>
+
+    <img id='shuzhi' src="{$skinurl}skin/guoqing2/shuzhi.png"/>
+    <img id='huaban1' src='{$skinurl}skin/guoqing2/huaban1.png'/>
+    <img id='huaban2' src='{$skinurl}skin/guoqing2/huaban2.png'/>
+    <img id='huaban3' src='{$skinurl}skin/guoqing2/huaban3.png'/>
+    <img id='huaban4' src='{$skinurl}skin/guoqing2/huaban4.png'/>
+    <img id='huaban5' src='{$skinurl}skin/guoqing2/huaban5.png'/>
+    <img id='huaban6' src='{$skinurl}skin/guoqing2/huaban4.png'/>
+    <img id='huaban7' src='{$skinurl}skin/guoqing2/huaban5.png'/>
+
+</div>
+</body>
+
+
+<script>
+    var image_size_width=[];
+    var image_size_height=[];
+    var image_url_index=0;
+    var have_num = 0;
+    var error_num = 0;
+    var canshow = true;
+    var reshow = false;
+    var timeout = [];
+    var delaytime=4000;
+    var interval;
+
+    var get_pid = function(url){
+        var index1 = url.indexOf("?");
+        if(index1 != -1)
+        {
+            url = url.substr(0, index1);
+        }
+        return url.toString().substr(url.lastIndexOf("/") + 1);
+    }
+
+    function id(name)
+    {
+        return document.getElementById(name);
+    }
+    function load_images()
+    {
+        reshow = false;
+        image_size_width=[];
+        image_size_height=[];
+        Onload_imgs_url=[];
+        image_url_index=0;
+        have_num = 0;
+        error_num = 0;
+        begin_titletime = new Date();
+        begin_titletime = begin_titletime.getTime();
+        showtitle();
+        canshow = true;
+        for(var i=0;i<slider_images_url.length;i++)
+        {
+            var img=new Image();
+            img.index=i;
+            img.src=slider_images_url[i];
+            img.onload=image_onload;
+            img.onerror= image_onerror;
+            Onload_imgs_url[i] = 'loading';
+        }
+    }
+
+    function image_onerror(event)
+    {
+        var img = event.target;
+        var index = img.index;
+        if(index<10)
+            error_num ++;
+        Onload_imgs_url[index] = 'not find';
+        console.log(Onload_imgs_url[index]);
+        console.log(have_num + '-' + error_num);
+        if((have_num+error_num >= 10 || slider_images_url.length == (have_num+error_num)) && canshow == true)
+        {
+            reshow = false;
+            canshow =false;
+            if(have_num == 0)
+                return;
+            var end_titletime = new Date();
+            end_titletime = end_titletime.getTime();
+            var dis_titletime = Math.abs(end_titletime-begin_titletime);
+            if(dis_titletime>delaytime)
+            {
+                liangziyun_kawa();
+            }
+            else
+            {
+                dis_titletime = delaytime- dis_titletime;
+                timeout[0] = setTimeout(function()
+                {
+                    liangziyun_kawa();
+                },dis_titletime);
+            }
+        }
+    }
+
+    function image_onload(event)
+    {
+        if(reshow == true)
+            return;
+
+        var img = event.target;
+        var index = img.index;
+
+        if(index<10)
+        {
+            have_num++;
+        }
+        Onload_imgs_url[index] = img.src;
+        image_size_height[index] = img.height;
+        image_size_width[index] = img.width;
+
+        // console.log(Onload_imgs_url[index]);
+        // console.log(have_num + '-' + error_num);
+
+        if((have_num + error_num >= 10 ||slider_images_url.length == (have_num+error_num)) && canshow == true)
+        {
+            reshow = false;
+            canshow =false;
+            if(have_num == 0)
+                return;
+            var end_titletime = new Date();
+            end_titletime = end_titletime.getTime();
+            var dis_titletime = Math.abs(end_titletime-begin_titletime);
+            if(dis_titletime>delaytime)
+            {
+                liangziyun_kawa();
+            }
+            else
+            {
+                dis_titletime = delaytime- dis_titletime;
+                timeout[0] = setTimeout(function()
+                {
+                    liangziyun_kawa();
+                },dis_titletime);
+            }
+
+        }
+    }
+    function showtitle()
+    {
+        id('pagetitle').style.webkitAnimation = 'titlein 5s ease-out both';
+        id('titlecontent').style.webkitAnimation = 'fadein 0.5s 0.5s ease-out both';
+
+        id('huaban1').style.webkitAnimation = 'huaban1 10s ease 0s infinite';
+        id('huaban2').style.webkitAnimation = 'huaban2 10s ease-out infinite';
+        id('huaban3').style.webkitAnimation = 'huaban3 6s linear 0.2s infinite';
+        id('huaban4').style.webkitAnimation = 'huaban4 6s ease-out 0s infinite';
+        id('huaban5').style.webkitAnimation = 'huaban5 10s linear 1.5s infinite';
+        id('huaban6').style.webkitAnimation = 'huaban6 8s linear 0s infinite';
+        id('huaban7').style.webkitAnimation = 'huaban7 8s linear 2.5s infinite';
+
+        id('qiqiu_ctn').style.webkitAnimation = 'qiqiu_ctn 6.1s linear both';
+        id('qiqiu').style.webkitAnimation = 'qiqiu 1.5s 6.1s ease-out infinite alternate both';
+        id('shuzhi').style.webkitAnimation = 'shuzhi 0.9s linear infinite alternate both';
+
+        id('yun1').style.webkitAnimation = 'yun1 8.5s linear infinite both';
+        id('yun2').style.webkitAnimation = 'yun2 8.5s linear infinite both';
+        id('yun3').style.webkitAnimation = 'yun1 11.5s linear infinite both';
+
+        id('bg_btm1').style.webkitAnimation = 'bg_btm1 17.1s linear infinite both';
+        id('bg_btm2').style.webkitAnimation = 'bg_btm2 17.1s linear infinite both';
+
+        id('caiyun').style.webkitAnimation = 'left_move 10s linear infinite both';
+
+        var i = 1,option_num,btm_img_id,last_img_id;
+
+        showBtmImg('gugong','ta');
+        interval = setInterval(function  () {
+            option_num = i % 4;
+            switch(option_num){
+                case 0:
+                    btm_img_id = 'gugong';
+                    last_img_id = 'tiantan';
+                    break;
+                case 1:
+                    btm_img_id = 'tianan';
+                    last_img_id = 'ta';
+                    break;
+                case 2:
+                    btm_img_id = 'tiantan';
+                    last_img_id = 'gugong';
+                    break;
+                case 3:
+                    btm_img_id = 'ta';
+                    last_img_id = 'tianan';
+                    break;
+            }
+            showBtmImg (btm_img_id,last_img_id);
+            i++;
+        }, 8550);
+
+        id('titlecontent').innerHTML = e_title;
+
+    }
+
+    function showBtmImg (btm_img_id,last_img_id) {
+        id(btm_img_id).style.webkitAnimation = 'left_move 17.1s linear both';
+        id(last_img_id).style.webkitAnimation = '';
+    }
+
+    function liangziyun_kawa()
+    {
+        show1();
+
+    }
+
+    function show1()
+    {
+        setImage('1');
+        id('page2').style.webkitAnimation = '';
+        id('page2_box').style.webkitAnimation = '';
+
+        id('page1').style.webkitAnimation = 'page1 18s linear both';
+        id('page1_box').style.webkitAnimation = 'page1 18s linear both';
+
+        timeout[1] = setTimeout(show2,7500);
+    }
+
+    function show2()
+    {
+        setImage('2');
+        id('page3').style.webkitAnimation = '';
+        id('page3_box').style.webkitAnimation = '';
+
+        id('page2').style.webkitAnimation = 'page1 18s linear both';
+        id('page2_box').style.webkitAnimation = 'page1 18s linear both';
+
+        timeout[2] = setTimeout(show3,7500);
+    }
+
+    function show3()
+    {
+        setImage('3');
+        id('page1').style.webkitAnimation = '';
+        id('page1_box').style.webkitAnimation = '';
+
+        id('page3').style.webkitAnimation = 'page1 18s linear both';
+        id('page3_box').style.webkitAnimation = 'page1 18s linear both';
+
+        timeout[3] = setTimeout(show1,7500);
+    }
+
+    function setImage(idname)
+    {
+        if(reshow == true)
+            return;
+
+        while(Onload_imgs_url[image_url_index] == 'not find' || Onload_imgs_url[image_url_index] == 'loading')
+        {
+            // console.log(Onload_imgs_url[image_url_index]);
+            image_url_index++;
+            if(image_url_index == Onload_imgs_url.length)
+                image_url_index = 0;
+        }
+
+        var img_bili = image_size_width[image_url_index]/image_size_height[image_url_index];
+        var div;
+        var div_ctn;
+
+
+
+        div = id('page'+idname);
+        div_box = id('page'+idname + '_box');
+
+
+        if(img_bili < (380/600))
+        {
+            var height = 600;
+            var width = 600 * img_bili;
+            var top = 80;
+            var left = (500-width)/2;
+        }
+        else if(img_bili <= 1)
+        {
+            var width = 400;
+            var height = 400 / img_bili;
+            var left = 50;
+            var top = (740-height)/2
+        }
+        else if(img_bili > 1)
+        {
+            var width = 400;
+            var height = 400/img_bili;
+            var left = 50;
+            var top = (740-height)/2;
+        }
+        div.style.width = width + 'px';
+        div.style.height = height + 'px';
+        div.style.backgroundSize = (width) + 'px ' + (height) + 'px';
+        div.style.backgroundImage = 'url('+Onload_imgs_url[image_url_index]+')';
+        div.style.backgroundRepeat = 'no-repeat';
+
+        div_box.style.width = (width + 40) + 'px';
+        div_box.style.height = (height + 52) + 'px';
+
+        if (idname == '1') {
+            div.style.left = left + 'px';
+            div.style.top = top + 'px';
+
+            div_box.style.left = (left-20) + 'px';
+            div_box.style.top = (top-29) + 'px';
+        }else if (idname == '2'){
+            div.style.left = left + 'px';
+            div_box.style.left = (left-20) + 'px';
+
+            div.style.top = '120px';
+            div_box.style.top = '91px';
+        }else {
+            div.style.left = left + 'px';
+            div_box.style.left = (left-20) + 'px';
+
+            div.style.bottom = '170px';
+            div_box.style.bottom ='151px';
+
+            div_box.style.height = (height + 46) + 'px';
+        };
+
+
+        var word = id('word'+idname);
+
+        var word_string = words[get_pid(Onload_imgs_url[image_url_index])];
+        if(word_string != undefined)
+        {
+            word_string = word_string.replace(/[\n]/ig,'');
+
+            word.innerText = word_string;
+        }
+        else
+        {
+            word.innerText = "";
+        }
+
+        image_url_index++;
+        if(image_url_index==Onload_imgs_url.length)
+            image_url_index = 0;
+    }
+
+    call_me(load_images);
+
+    function reload_scene()
+    {
+        clearnode();
+        reshow = true;
+        setTimeout(load_images,100);
+    }
+
+    function clearnode()
+    {
+        for(var i = 0; i<timeout.length; i++)
+        {
+            clearTimeout(timeout[i]);
+        }
+
+
+        var xinArr = ['pagetitle','titlecontent','huaban1','huaban2','huaban3','huaban4','huaban5','huaban6','huaban7','qiqiu_ctn','qiqiu','shuzhi','yun1','yun2','yun3','bg_btm1','bg_btm2','caiyun','gugong','tiantan','tianan','ta','page1','page2','page3','page1_box','page2_box','page3_box'];
+
+        for(var i = 0 ;i < xinArr.length ;i++)
+        {
+            id(xinArr[i]).style.webkitAnimation = '';
+        }
+
+        clearInterval(interval);
+    }
+
+</script>
+<!-- 模板结束 -->

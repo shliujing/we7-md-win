@@ -1,0 +1,1013 @@
+<!--模板开始-->
+<style type="text/css">
+
+.showwords 
+{
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: 6px;
+    position: absolute;
+    font-weight: bold;
+    z-index: 1;
+    top: 98%;
+    margin: -39px;
+    left: 39px;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    text-shadow:  2px 2px 3px #000;
+    /*background-color: rgba(255, 255, 255, 0.4);*/
+}
+
+*
+{
+    padding: 0px;
+    margin: 0px;
+    -webkit-box-sizing: border-box;
+}
+
+body
+{
+    background-color: black;
+}
+
+#container
+{
+    width: 500px;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+#container>img
+{
+    position: absolute;
+}
+.treebottom
+{
+    left: 0px;
+    top: 625px;
+    position: absolute;
+}
+.timo1
+{
+    left: 202px;
+    top: 579px;
+}
+.timo1_1
+{
+    left: 202px;
+    top: 579px;
+    -webkit-animation: fade_in 1.2s linear infinite alternate;
+}
+.timo2
+{
+    left: 83px;
+    top: 670px;
+}
+.timo2_2
+{
+    left: 83px;
+    top: 670px;
+    -webkit-animation: fade_in 1.2s 0.3s linear infinite alternate;
+    opacity: 0;
+}
+.timo3
+{
+    left: 44px;
+    top: 707px;
+}
+.timo3_3
+{
+    left: 44px;
+    top: 707px;
+    -webkit-animation: fade_in 1.2s 0.9s linear infinite alternate;
+    opacity: 0;
+}
+.timo4
+{
+    left: 8px;
+    top: 708px;
+}
+.timo4_4
+{
+    left: 8px;
+    top: 708px;
+    -webkit-animation: fade_in 1.2s 0.5s linear infinite alternate;
+    opacity: 0;
+}
+.timo5
+{
+    left: 158px;
+    top: 738px;
+}
+.timo5_5
+{
+    left: 169px;
+    top: 738px;
+    -webkit-animation: fade_in 1.2s 0.1s linear infinite alternate;
+    opacity: 0;
+}
+.timo6
+{
+    left: 101px;
+    top: 701px;
+}
+.timo6_6
+{
+    left: 104px;
+    top: 700px;
+    -webkit-animation: fade_in 1.2s 1.0s linear infinite alternate;
+    opacity: 0;
+}
+.timo7
+{
+    left: 135px;
+    top: 693px;
+}
+.timo7_7
+{
+    left: 127px;
+    top: 697px;
+    -webkit-animation: fade_in 1.2s 0.7s linear infinite alternate;
+    opacity: 0;
+}
+.guangban
+{
+    left: 224px;
+    top: -11px;
+    -webkit-animation: guangbanfade 2s linear infinite alternate;
+}
+.guangban1
+{
+    left: 326px;
+    top: -10px;
+    width: 91px;
+    -webkit-animation: guangban2 4s linear infinite;
+}
+.guangban2
+{
+    left: 380px;
+    top: 49px;
+    -webkit-animation: fade_in 3s linear infinite alternate;
+}
+.guangban3
+{
+    left: 465px;
+    top: 133px;
+    width: 60px;
+    opacity: 0;
+    -webkit-animation: fade_in 3s 3s linear infinite alternate;
+}
+.yinghuochong
+{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+}
+.yinghuochong > img
+{
+    position: absolute;
+}
+.yan
+{
+    left: 66px;
+    top: 31px;
+}
+.chileft
+{
+    left: 80px;
+    top: 47px;
+    -webkit-transform-origin: 0% 0%;
+    -webkit-transform: scale(-1,1) rotate(0deg);
+    -webkit-animation: wingingleft 0.1s linear infinite alternate;
+}
+.chiright
+{
+    left: 77px;
+    top: 47px;
+    -webkit-transform-origin: 0% 0%;
+    -webkit-transform: rotate(0deg);
+    -webkit-animation: wingingright 0.1s linear infinite alternate;
+}
+.yingguang
+{
+    -webkit-animation: yingguang 0.6s linear infinite alternate;
+}
+#yinghuochong1
+{
+    left: -46px;
+    top: 105px;
+    -webkit-transform: scale(0.15) rotate(27deg);
+}
+#yinghuochong2
+{
+    left: 37px;
+    top: 702px;
+    -webkit-transform: scale(0.15) rotate(64deg);
+}
+#yinghuochong3
+{
+    left: 271px;
+    top: 649px;
+    -webkit-transform: scale(0.15) rotate(-20deg);
+    /*-webkit-transform: translate(-77px,-116px) scale(0.15) rotate(21deg);*/
+    -webkit-animation: yinghuochong3 10s linear infinite;
+}
+#yinghuochong4
+{
+    left: 161px;
+    top: 551px;
+    -webkit-transform: scale(0.15);
+    -webkit-animation: yinghuochong4 12s linear infinite;
+}
+#yinghuochong5
+{
+    left: 157px;
+    top: 730px;
+    -webkit-transform: scale(0.15);
+    -webkit-animation: yinghuochong5 10s linear infinite;
+}
+#yinghuochong6
+{
+    left: 191px;
+    top: 631px;
+    -webkit-transform: scale(0.12) rotate(-74deg);
+}
+#yinghuochong7
+{
+    left: 438px;
+    top: 10px;
+    -webkit-transform: scale(0.15) rotate(-75deg);
+    -webkit-animation: yinghuochong7 12s linear infinite;
+}
+#yinghuochong8
+{
+    left: 196px;
+    top: -39px;
+    -webkit-transform: scale(0.15);
+    -webkit-transform-origin: 0% 0%;
+    -webkit-animation: yinghuochong8 10s linear infinite;
+}
+.yanwu
+{
+    left: 126px;
+    top: 122px;
+    width: 279px;
+    -webkit-transform-origin: 50% 0%;
+    opacity: 0;
+}
+.yanwu1
+{
+    left: 0px;
+    top: 0px;
+    -webkit-animation: yanwu1 3s linear infinite;
+
+}
+.yanwu2
+{
+    left: 0px;
+    top: 0px;
+    -webkit-animation: yanwu1 5s linear infinite;
+}
+.kuangh
+{
+    left: 10px;
+    top: 200px;
+    position: absolute;
+}
+#img1h,#img1v,#img2h,#img2v,#div1,#div2
+{
+    position: absolute;
+}
+.divh
+{
+    position: absolute;
+    width: 435px;
+    height: 300px;
+    overflow: hidden;
+    left: 35px;
+    top: 222px;
+}
+.kuangv
+{
+    left: 44px;
+    top: 112px;
+    position: absolute;
+}
+.divv
+{
+    width: 383px;
+    height: 585px;
+    position: absolute;
+    left: 58px;
+    top: 128px;
+    overflow: hidden;
+}
+#page1,#page2
+{
+    opacity: 0;
+}
+</style>
+<style type="text/css">
+@-webkit-keyframes fade_in
+{
+    from  {opacity: 0}
+    to    {opacity: 0.5}
+}
+@-webkit-keyframes guangbanfade
+{
+    from  {opacity: 0}
+    to    {opacity: 0.7}
+}
+@-webkit-keyframes guangban2
+{
+    0%  {opacity: 0.7;-webkit-transform: rotate(0deg);}
+    60% {opacity: 0.7;-webkit-transform: rotate(0deg);}
+    65% {opacity: 0.7;-webkit-transform: rotate(30deg);}
+    75% {opacity: 0;-webkit-transform: rotate(30deg);}
+    92% {opacity: 0.7;-webkit-transform: rotate(30deg);}
+    97% {opacity: 0.7;-webkit-transform: rotate(0deg);}
+    100%{opacity: 0.7;-webkit-transform: rotate(0deg);}
+}
+@-webkit-keyframes wingingleft
+{
+    from  {-webkit-transform: scale(-1,1) rotate(0deg);}
+    to    {-webkit-transform: scale(-1,1) rotate(-30deg);}
+}
+@-webkit-keyframes wingingright
+{
+    from  {-webkit-transform: rotate(0deg);}
+    to    {-webkit-transform: rotate(-30deg);}
+}
+@-webkit-keyframes yingguang
+{
+    from  {opacity: 1}
+    to    {opacity: 0.5}
+}
+@-webkit-keyframes yinghuochong3
+{
+    0%  {-webkit-transform: scale(0.15) rotate(-30deg);}
+    36% {-webkit-transform: translate(-77px,-116px) scale(0.15) rotate(-30deg);}
+    37% {-webkit-transform: translate(-77px,-116px) scale(0.15) rotate(21deg);}
+    46% {-webkit-transform: translate(-75px,-141px) scale(0.15) rotate(2deg);}
+    50% {-webkit-transform: translate(-83px,-156px) scale(0.15) rotate(-31deg);}
+    58% {-webkit-transform: translate(-114px,-164px) scale(0.15) rotate(-92deg);}
+    65% {-webkit-transform: translate(-153px,-157px) scale(0.15) rotate(-73deg);}
+    100%{-webkit-transform: translate(-355px,-189px) scale(0.15) rotate(-65deg);}
+}
+@-webkit-keyframes yinghuochong4
+{
+    0%  {-webkit-transform: scale(0.15) rotate(60deg);}
+    15% {-webkit-transform: translate(71px,-32px) scale(0.15) rotate(20deg);}
+    /*16% {-webkit-transform: translate(71px,-32px) scale(0.15) rotate(10deg);}*/
+    /*24% {-webkit-transform: translate(76px,-73px) scale(0.15) rotate(10deg);}*/
+    25% {-webkit-transform: translate(76px,-73px) scale(0.15) rotate(60deg);}
+    34% {-webkit-transform: translate(102px,-86px) scale(0.15) rotate(10deg);}
+    40% {-webkit-transform: translate(105px,-111px) scale(0.15) rotate(-45deg);}
+    51% {-webkit-transform: translate(70px,-154px) scale(0.15) rotate(30deg);}
+    59% {-webkit-transform: translate(82px,-178px) scale(0.15) rotate(70deg);}
+    82% {-webkit-transform: translate(186px,-211px) scale(0.15) rotate(100deg);}
+    92% {-webkit-transform: translate(219px,-207px) scale(0.15) rotate(110deg);}
+    100%{-webkit-transform: translate(272px,-201px) scale(0.15) rotate(110deg);}
+}
+@-webkit-keyframes yinghuochong5
+{
+    0%  {-webkit-transform: translate(0px,0px) scale(0.15) rotate(60deg);}
+    27%  {-webkit-transform: translate(106px,-63px) scale(0.15) rotate(45deg);}
+    34%  {-webkit-transform: translate(120px,-82px) scale(0.15) rotate(-20deg);}
+    41%  {-webkit-transform: translate(110px,-108px) scale(0.15) rotate(40deg);}
+    49%  {-webkit-transform: translate(127px,-132px) scale(0.15) rotate(70deg);}
+    58%  {-webkit-transform: translate(167px,-143px) scale(0.15) rotate(90deg);}
+    69%  {-webkit-transform: translate(218px,-146px) scale(0.15) rotate(45deg);}
+    79%  {-webkit-transform: translate(243px,-175px) scale(0.15) rotate(20deg);}
+    89%  {-webkit-transform: translate(245px,-209px) scale(0.15) rotate(45deg);}
+    100%  {-webkit-transform: translate(273px,-235px) scale(0.15) rotate(60deg);}
+}
+@-webkit-keyframes yinghuochong7
+{
+    0%  {-webkit-transform: scale(0.15) rotate(-75deg);}
+    50% {-webkit-transform: translate(-192px,-95px) scale(0.15) rotate(-75deg);}
+    100%{-webkit-transform: translate(-192px,-95px) scale(0.15) rotate(-75deg);}
+}
+@-webkit-keyframes yinghuochong8
+{
+    0%  {-webkit-transform: scale(0.15) rotate(160deg);}
+    18% {-webkit-transform: translate(26px,91px) scale(0.15) rotate(120deg);}
+    31% {-webkit-transform: translate(75px,123px) scale(0.15) rotate(100deg);}
+    41% {-webkit-transform: translate(127px,119px) scale(0.15) rotate(80deg);}
+    51% {-webkit-transform: translate(158px,89px) scale(0.15) rotate(60deg);}
+    61% {-webkit-transform: translate(175px,55px) scale(0.15) rotate(45deg);}
+    70% {-webkit-transform: translate(196px,84px) scale(0.15) rotate(120deg);}
+    78% {-webkit-transform: translate(223px,99px) scale(0.15) rotate(100deg);}
+    90% {-webkit-transform: translate(263px,100px) scale(0.15) rotate(90deg);}
+    100%{-webkit-transform: translate(305px,69px) scale(0.15) rotate(50deg);}
+}
+@-webkit-keyframes pubu
+{
+    0%  {-webkit-transform: scale(1,0.5);opacity: 0}
+    10% {-webkit-transform: scale(1,1);opacity: 1}
+    25% {-webkit-transform: translate(0px,200px) scale(1,1.1);opacity: 0}
+    100%{opacity: 0}
+}
+@-webkit-keyframes yanwu1
+{
+    0%  {-webkit-transform: translate(0px,0px);opacity: 0}
+    20%  {-webkit-transform: translate(0px,0px);opacity: 1}
+    100%  {-webkit-transform: translate(0px,200px);opacity: 0;}
+}
+@-webkit-keyframes title_in
+{
+    from  {opacity: 0;-webkit-transform: translate(0px,-50px);}
+    to    {opacity: 1;-webkit-transform: translate(0px,0px);}
+}
+@-webkit-keyframes title_out
+{
+    from  {opacity: 1;-webkit-transform: translate(0px,0px);}
+    to    {opacity: 0;-webkit-transform: translate(0px,50px);}
+}
+@-webkit-keyframes in_up
+{
+    from  {-webkit-transform: translate(0px,20px);opacity: 0}
+    to    {-webkit-transform: translate(0px,0px);opacity: 1}
+}
+@-webkit-keyframes out_up
+{
+    from  {-webkit-transform: translate(0px,0px);opacity: 1}
+    to    {-webkit-transform: translate(0px,-20px);opacity: 0}
+}
+@-webkit-keyframes in_down
+{
+    from  {-webkit-transform: translate(0px,-20px);opacity: 0}
+    to    {-webkit-transform: translate(0px,0px);opacity: 1}
+}
+@-webkit-keyframes out_down
+{
+    from  {-webkit-transform: translate(0px,0px);opacity: 1}
+    to    {-webkit-transform: translate(0px,20px);opacity: 0}
+}
+@-webkit-keyframes in_left
+{
+    from  {-webkit-transform: translate(20px,0px);opacity: 0}
+    to    {-webkit-transform: translate(0px,0px);opacity: 1}
+}
+@-webkit-keyframes out_left
+{
+    from  {-webkit-transform: translate(0px,0px);opacity: 1}
+    to    {-webkit-transform: translate(-20px,0px);opacity: 0}
+}
+@-webkit-keyframes in_right
+{
+    from  {-webkit-transform: translate(-20px,0px);opacity: 0}
+    to    {-webkit-transform: translate(0px,0px);opacity: 1}
+}
+@-webkit-keyframes out_right
+{
+    from  {-webkit-transform: translate(0px,0px);opacity: 1}
+    to    {-webkit-transform: translate(20px,0px);opacity: 0}
+}
+@-webkit-keyframes movingup
+{
+    from  {-webkit-transform: translate(0px,20px);}
+    to    {-webkit-transform: translate(0px,-0px);}
+}
+@-webkit-keyframes movingdown
+{
+    from  {-webkit-transform: translate(0px,-20px);}
+    to    {-webkit-transform: translate(0px,0px);}
+}
+@-webkit-keyframes movingleft
+{
+    from  {-webkit-transform: translate(20px,0px);}
+    to    {-webkit-transform: translate(-0px,0px);}
+}
+@-webkit-keyframes movingright
+{
+    from  {-webkit-transform: translate(-20px,0px);}
+    to    {-webkit-transform: translate(0px,0px);}
+}
+</style>
+<div id='container'>
+    <img src='{$skinurl}skin/senlin/bkg.jpg'>
+    <img class='treebottom' src='{$skinurl}skin/senlin/di.png'>
+
+    <img class='timo1' src='{$skinurl}skin/senlin/timoi.png'>
+    <img class='timo1_1' src='{$skinurl}skin/senlin/timoguang.png'>
+
+
+    <div id='yinghuochong4' class='yinghuochong'>
+        <img class='yingguang' src='{$skinurl}skin/senlin/yingguang.png'>
+        <img class='yan' src='{$skinurl}skin/senlin/yan.png'>
+        <img class='chileft' src='{$skinurl}skin/senlin/chibang.png'>
+        <img class='chiright' src='{$skinurl}skin/senlin/chibang.png'>
+    </div>
+
+    <div id='div1'>
+        <div id='page1'>
+            <img id='kuang1h' class='kuangh' src='{$skinurl}skin/senlin/dizihen.png'>
+            <div id='div1h' class='divh'>
+                <img id='img1h'>
+                <span id='word1h' class='showwords'></span>
+            </div>
+
+            <img id='kuang1v' class='kuangv' src='{$skinurl}skin/senlin/dizipian.png'>
+            <div id='div1v' class='divv'>
+                <img id='img1v'>
+                <span id='word1v' class='showwords'></span>
+            </div>
+        </div>
+    </div>
+
+    <div id='div2'>
+        <div id='page2'>
+            <img id='kuang2h' class='kuangh' src='{$skinurl}skin/senlin/dizihen.png'>
+            <div id='div2h' class='divh'>
+                <img id='img2h'>
+                <span id='word2h' class='showwords'></span>
+            </div>
+
+            <img id='kuang2v' class='kuangv' src='{$skinurl}skin/senlin/dizipian.png'>
+            <div id='div2v' class='divv'>
+                <img id='img2v'>
+                <span id='word2v' class='showwords'></span>
+            </div>
+        </div>
+    </div>
+
+    <img class='timo2' src='{$skinurl}skin/senlin/timo13.png'>
+    <!-- <img class='timo2_2' src='{$skinurl}skin/senlin/timo14.png'> -->
+
+    <img class='timo3' src='{$skinurl}skin/senlin/timo11.png'>
+    <!-- <img class='timo3_3' src='{$skinurl}skin/senlin/timo12.png'> -->
+
+    <img class='timo4' src='{$skinurl}skin/senlin/timo9.png'>
+    <!-- <img class='timo4_4' src='{$skinurl}skin/senlin/timo10.png'> -->
+
+    <img class='timo5' src='{$skinurl}skin/senlin/tinmo7.png'>
+    <!-- <img class='timo5_5' src='{$skinurl}skin/senlin/timo8.png'> -->
+
+    <img class='timo6' src='{$skinurl}skin/senlin/timo5.png'>
+    <!-- <img class='timo6_6' src='{$skinurl}skin/senlin/timo6.png'> -->
+
+    <img class='timo7' src='{$skinurl}skin/senlin/timo4.png'>
+    <!-- <img class='timo7_7' src='{$skinurl}skin/senlin/timo3.png'> -->
+
+    <img src='{$skinurl}skin/senlin/shu.png'>
+
+    <img class='guangban' src='{$skinurl}skin/senlin/pian.png'>
+    <img class='guangban1' src='{$skinurl}skin/senlin/pian.png'>
+    <img class='guangban2' src='{$skinurl}skin/senlin/pian.png'>
+    <img class='guangban3' src='{$skinurl}skin/senlin/pian.png'>
+
+    <div id='yinghuochong1' class='yinghuochong'>
+        <img class='yingguang' src='{$skinurl}skin/senlin/yingguang.png'>
+        <img class='yan' src='{$skinurl}skin/senlin/yan.png'>
+        <img class='chileft' src='{$skinurl}skin/senlin/chibang.png'>
+        <img class='chiright' src='{$skinurl}skin/senlin/chibang.png'>
+    </div>
+<!-- 
+    <div id='yinghuochong2' class='yinghuochong'>
+        <img class='yingguang' src='{$skinurl}skin/senlin/yingguang.png'>
+        <img class='yan' src='{$skinurl}skin/senlin/yan.png'>
+        <img class='chileft' src='{$skinurl}skin/senlin/chibang.png'>
+        <img class='chiright' src='{$skinurl}skin/senlin/chibang.png'>
+    </div> -->
+
+    <div id='yinghuochong3' class='yinghuochong'>
+        <img class='yingguang' src='{$skinurl}skin/senlin/yingguang.png'>
+        <img class='yan' src='{$skinurl}skin/senlin/yan.png'>
+        <img class='chileft' src='{$skinurl}skin/senlin/chibang.png'>
+        <img class='chiright' src='{$skinurl}skin/senlin/chibang.png'>
+    </div>
+
+    <div id='yinghuochong5' class='yinghuochong'>
+        <img class='yingguang' src='{$skinurl}skin/senlin/yingguang.png'>
+        <img class='yan' src='{$skinurl}skin/senlin/yan.png'>
+        <img class='chileft' src='{$skinurl}skin/senlin/chibang.png'>
+        <img class='chiright' src='{$skinurl}skin/senlin/chibang.png'>
+    </div>
+
+    <div id='yinghuochong7' class='yinghuochong'>
+        <img class='yingguang' src='{$skinurl}skin/senlin/yingguang.png'>
+        <img class='yan' src='{$skinurl}skin/senlin/yan.png'>
+        <img class='chileft' src='{$skinurl}skin/senlin/chibang.png'>
+        <img class='chiright' src='{$skinurl}skin/senlin/chibang.png'>
+    </div>
+
+    <div id='yinghuochong8' class='yinghuochong'>
+        <img class='yingguang' src='{$skinurl}skin/senlin/yingguang.png'>
+        <img class='yan' src='{$skinurl}skin/senlin/yan.png'>
+        <img class='chileft' src='{$skinurl}skin/senlin/chibang.png'>
+        <img class='chiright' src='{$skinurl}skin/senlin/chibang.png'>
+    </div>
+
+    <img class='yanwu1' src='{$skinurl}skin/senlin/yanwu2.png'>
+    <img class='yanwu2' src='{$skinurl}skin/senlin/yanwu2.png'>     
+
+    <img id='yanwu' class='yanwu' src='{$skinurl}skin/senlin/yanwu.png'>
+
+    <div id='pagetitle' style='position:absolute;width:260px;height:290px;top:200px;left:120px;font-size:30px;color:#fff;overflow:hidden;'>
+        <div style='position:absolute;width:260px;height:290px;top:0px;left:0px;overflow:hidden;'>
+            <div style='position:absolute;width:260px;height:290px;display:table;overflow:hidden;'>
+                <div id='titlecontent' style='width:260px;height:290px;vertical-align:middle;display:table-cell;text-align:center;line-height:45px;'></div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+function id(name)
+{
+    return document.getElementById(name)
+}
+var image_size_width=[];
+var image_size_height=[];
+var image_url_index=0;
+var have_num = 0;
+var error_num = 0;
+var canshow = true;
+var reshow = false;
+var timeout0;
+var timeout1;
+var timeout2;
+var timeout3;
+var timeout4;
+var timeout5;
+var timeout6;
+
+var delaytime=4000;
+
+function load_images()
+{
+    reshow = false;
+    image_size_width=[];
+    image_size_height=[];
+    Onload_imgs_url=[];
+    image_url_index=0;
+    have_num = 0;
+    error_num = 0;
+    begin_titletime = new Date();
+    begin_titletime = begin_titletime.getTime();
+    showtitle();
+    canshow = true;
+    bl_keepload = 'first';
+    step_load();        
+}
+//每次执行加载后5张图片
+var bl_keepload = 'first';
+var step_loadnum = 5;
+function step_load()
+{
+    var load_num = 0
+    //初步加载X张
+    if(image_url_index  == 0 && bl_keepload == 'first')
+    {
+        console.log('loading continue');
+        if(slider_images_url.length > step_loadnum)
+        {
+            load_num = step_loadnum;
+            bl_keepload = 'next';
+        }
+        else
+        {
+            load_num = slider_images_url.length;
+            bl_keepload = 'end';
+        }
+        for(var i = 0; i< load_num; i++)
+        {
+            var img=new Image();
+            img.index=i;
+            img.src=slider_images_url[i];
+            img.onload=image_onload;
+            img.onerror= image_onerror;
+            Onload_imgs_url[i] = 'loading';
+        }
+    }
+    else if(bl_keepload == 'end')
+    {
+        return;
+    }
+    else
+    {
+         console.log('loading continue');
+        if(slider_images_url.length - image_url_index >step_loadnum*2)
+        { 
+            load_num = step_loadnum;
+        }
+        else
+        {
+            load_num = slider_images_url.length - image_url_index - step_loadnum;
+            bl_keepload = 'end';
+        }
+        for(var i = image_url_index +step_loadnum; i< image_url_index + step_loadnum + load_num; i++)
+        {
+            var img=new Image();
+            img.index=i;
+            img.src=slider_images_url[i];
+            img.onload=image_onload;
+            img.onerror= image_onerror;
+            Onload_imgs_url[i] = 'loading';
+        }
+    }
+
+}
+
+function image_onerror(event)
+{
+    var img = event.target;
+    var index = img.index;
+    if(index<step_loadnum)
+        error_num ++;
+    Onload_imgs_url[index] = 'not find';
+    // console.log(Onload_imgs_url[index]);
+    // console.log(have_num + '-' + error_num);
+    if((have_num+error_num >= step_loadnum || slider_images_url.length == (have_num+error_num)) && canshow == true)
+    {   
+        reshow = false;
+        canshow =false;
+        if(have_num == 0)
+            return;
+        var end_titletime = new Date();
+        end_titletime = end_titletime.getTime();
+        var dis_titletime = Math.abs(end_titletime-begin_titletime);
+        if(dis_titletime>delaytime)
+        {
+            liangziyun_kawa();
+        }
+        else
+        {
+            dis_titletime = delaytime- dis_titletime;
+            timeout0 = setTimeout(function()
+                {
+                    liangziyun_kawa();
+                },dis_titletime);
+        }
+    }
+}
+
+function image_onload(event)
+{
+    if(reshow == true)
+        return;
+
+    var img = event.target;
+    var index = img.index;
+
+    if(index<step_loadnum)
+    {
+        have_num++;
+    }
+    Onload_imgs_url[index] = img.src;
+    image_size_height[index] = img.height;
+    image_size_width[index] = img.width;
+
+    console.log(Onload_imgs_url[index]);
+    // console.log(have_num + '-' + error_num);
+
+    if((have_num + error_num >= step_loadnum ||slider_images_url.length == (have_num+error_num)) && canshow == true)
+    {   
+        reshow = false;
+        canshow =false;
+        if(have_num == 0)
+            return;
+        var end_titletime = new Date();
+        end_titletime = end_titletime.getTime();
+        var dis_titletime = Math.abs(end_titletime-begin_titletime);
+        if(dis_titletime>delaytime)
+        {
+            liangziyun_kawa();
+        }
+        else
+        {
+            dis_titletime = delaytime- dis_titletime;
+            timeout0 = setTimeout(function()
+                {
+                    liangziyun_kawa();
+                },dis_titletime);
+        }
+
+    }
+}
+function showtitle()
+{
+    id('yanwu').style.webkitAnimation = 'pubu 12s linear both';
+    id('pagetitle').style.webkitAnimation = 'title_in 1.5s linear both';
+    id('titlecontent').innerHTML = e_title;
+
+}
+
+function liangziyun_kawa()
+{
+    id('pagetitle').style.webkitAnimation = 'title_out 1s linear both';
+
+    timeout6 = setTimeout(show1,1000)
+}
+
+function show1()
+{
+    setImage('1');
+    id('page1').style.webkitAnimation = 'in_up 2s linear both';
+
+    id('div1').style.webkitAnimation = 'movingup 5s linear both';
+
+    timeout1 = setTimeout(show2,5000)
+}
+function show2()
+{
+    setImage('2');
+    id('page1').style.webkitAnimation = 'out_up 1.2s linear both';
+    id('page2').style.webkitAnimation = 'in_down 2s 1s linear both';
+
+    id('div2').style.webkitAnimation = 'movingdown 5s linear both';
+
+    timeout2 = setTimeout(show3,5000)
+}
+function show3()
+{
+    setImage('1');
+    id('page2').style.webkitAnimation = 'out_down 1.2s linear both'
+    id('page1').style.webkitAnimation = 'in_right 2s 1s linear both';
+
+    id('div1').style.webkitAnimation = 'movingright 5s linear both';
+
+    timeout3 = setTimeout(show4,5000)
+}
+function show4()
+{
+    setImage('2');
+    id('page1').style.webkitAnimation = 'out_right 1.2s linear both';
+    id('page2').style.webkitAnimation = 'in_left 2s 1s linear both';
+
+    id('div2').style.webkitAnimation = 'movingleft 5s linear both';
+
+    timeout4 = setTimeout(show5,5000)
+}
+function show5() 
+{
+    setImage('1');
+    id('page2').style.webkitAnimation = 'out_left 1.2s linear both';
+    id('page1').style.webkitAnimation = 'in_up 2s 1s linear both';
+
+    id('div1').style.webkitAnimation = 'movingup 5s linear both';
+
+    timeout5 = setTimeout(show2,5000)
+}
+
+function insertEnter(str,n){
+    var len = str.length;
+    var strTemp = '';
+    if(len > n){
+    strTemp = str.substring(0,n);
+    str = str.substring(n,len);
+    return strTemp+'\n'+str;
+    }else{
+    return str;
+    }
+}
+
+function setImage(idname)
+{
+    if(reshow == true)
+        return;
+
+    while(Onload_imgs_url[image_url_index] == 'not find' || Onload_imgs_url[image_url_index] == 'loading')
+    {
+        if(image_url_index % step_loadnum == 0)
+        {
+            step_load();
+        }
+        image_url_index++;
+        if(image_url_index == Onload_imgs_url.length)
+            image_url_index = 0;
+    }
+
+    var img_bili = image_size_width[image_url_index]/image_size_height[image_url_index];
+    if(image_url_index % step_loadnum == 0)
+    {
+        // alert()
+        step_load();
+    }
+    var div;
+    var div1;
+    var divname;
+
+    if(img_bili > 1)
+    {
+        divname = idname + 'h';
+        div = id('div'+idname+'h');
+        div1 = id('div'+idname+'v');
+        width = 435;
+        height = 300;
+        id('kuang'+idname + 'v').style.display = 'none';
+        id('kuang'+idname + 'h').style.display = 'block';
+    }
+    else
+    {
+        divname = idname + 'v';
+        div = id('div'+idname+'v');
+        div1 = id('div'+idname+'h');
+        width = 383;
+        height = 585;
+        id('kuang'+idname + 'h').style.display = 'none';
+        id('kuang'+idname + 'v').style.display = 'block';
+    }
+
+    div.style.display = 'block';
+    div1.style.display = 'none';
+
+    var img = id('img'+divname);
+    img.src = Onload_imgs_url[image_url_index];
+    // console.log('setimg:'+img.src);
+
+    var word = id('word' + divname);
+    var word_string = words[get_pid(Onload_imgs_url[image_url_index])];
+    if(word_string != undefined)
+    {
+        word_string = word_string.replace(/[\n]/ig,'');
+        word.style.height = "50px";
+        word.style.lineHeight = "50px";
+        word.style.top = "95%";
+        word.style.width = "100%";
+        var word_length = word_string.length;
+        // word.style.backgroundColor = "rgba(255, 255, 255, 0.4)";
+        if(word_length <= 5)
+        {
+            word.style.fontSize = "23px";
+        }else {
+            word.style.fontSize = "20px";
+            if(word_length > 10)
+            {
+                word_string = insertEnter(word_string, 5);
+                word.style.height = "70px";
+                word.style.lineHeight = "35px";
+                word.style.top = "90%";
+                // word.style.backgroundColor = "rgba(255, 255, 255, 0)";
+            }
+        }
+        word.innerText = word_string;
+    }else {
+        word.innerText = "";
+        word.style.width = "0%";
+    }
+
+    if(img_bili > (width/height))
+    {
+        img.style.top = '0px';
+        img.style.height = height + 'px';
+        img.style.width = height*img_bili + 'px';
+        img.style.left = -((height*img_bili-width)/2)+'px';
+    }
+    else
+    {
+        img.style.left = '0px';
+        img.style.width = width+'px';
+        img.style.height = width/img_bili + 'px';
+        img.style.top = -((width/img_bili-height)/2) + 'px';
+    }
+
+    image_url_index++;
+    if(image_url_index==Onload_imgs_url.length)
+        image_url_index = 0;
+}
+call_me(load_images);
+
+function reload_scene()
+{
+    clearnode();
+    reshow = true;
+    setTimeout(load_images,100);
+}
+
+function clearnode()
+{
+    id('pagetitle').style.webkitAnimation = '';
+    id('div1').style.webkitAnimation = '';
+    id('div2').style.webkitAnimation = '';
+    id('page1').style.webkitAnimation = '';
+    id('page2').style.webkitAnimation = '';
+
+    id('yanwu').style.webkitAnimation = '';
+    id('kuang1v').style.display = 'none';
+    id('kuang1h').style.display = 'none';
+    id('kuang2v').style.display = 'none';
+    id('kuang2h').style.display = 'none';
+    id('div1h').style.display = 'none';
+    id('div1v').style.display = 'none';
+    id('div2h').style.display = 'none';
+    id('div2v').style.display = 'none';
+    clearTimeout(timeout0);
+    clearTimeout(timeout1);
+    clearTimeout(timeout2);
+    clearTimeout(timeout3);
+    clearTimeout(timeout4);
+    clearTimeout(timeout5);
+    clearTimeout(timeout6);
+}
+
+</script>		
+<!-- 模板结束 -->

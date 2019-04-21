@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模板消息测试</title>
+	<meta name="renderer" content="webkit">	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">	
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">	
+	<meta name="apple-mobile-web-app-capable" content="yes">	
+	<meta name="format-detection" content="telephone=no">	
+	<link rel="stylesheet" type="text/css" href="{$_W['siteroot']}addons/hr_album/style/component/layui/css/layui.css" media="all">
+	<style>
+.layui-form-pane .layui-form-label {
+    min-width: 200px;
+}
+.layui-form-pane .layui-input-block {
+    margin-left: 200px;
+}
+.demoimg,#logoimg{
+	width: 38px;height: 38px; margin-left: 10px;display:none;
+}
+.demoimg img,#logoimg img{width: 100%; border-radius: 5px;height: 100%;}
+.btnsnum{
+    width: 100px;
+    height: 36px;
+    text-align: center;
+    color: #504B4B;
+    border: 0;
+    background-color: #F3F3F3;
+    line-height: 36px;
+    line-height: 50rpx;
+    border: 1px solid #E8E8E8;
+    border-left: none;
+}
+.tushi{
+	cursor:pointer;margin-left:5px;color:#D21D1D;font-size:12px
+}
+	</style>
+</head>
+<body>
+<blockquote class="layui-elem-quote layui-text">
+    用户ID请去用户管理搜索测试用户昵称，测试前注意，用户必须点击开启创作添加照片。
+    如果测试发送模板消息时，测试用户接收不到，要清理下微擎缓存，再发送。
+</blockquote>
+<form class="layui-form layui-form-pane" style="padding:20px;" action="" method="post">
+<input type="hidden" name="id" value="{$item['id']}"/>
+  <div class="layui-form-item"> 
+    <label class="layui-form-label">模板ID</label>
+    <div class="layui-input-block">
+      <input type="text" name="templateid" value="{$item['templateid']}" lay-verify="required" placeholder="请输入模板ID" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">日程主题</label>
+    <div class="layui-input-block">
+      <input type="text" name="content[]" value="{$item['content'][0]}" lay-verify="required" placeholder="请输入日程主题 例如喜迎新春" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">日程时间</label>
+    <div class="layui-input-block">
+      <input type="text" name="content[]" value="{$item['content'][1]}" lay-verify="required" placeholder="请输入日程时间 例如节日时间" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">日程描述</label>
+    <div class="layui-input-block">
+      <input type="text" name="content[]" value="{$item['content'][2]}" lay-verify="required" placeholder="请输入日程描述 例如节日由来" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">小程序地址</label>
+    <div class="layui-input-block">
+      <input type="text" name="path" value="{if $item['path']}{$item['path']}{else}hr_album/pages/index/index{/if}" lay-verify="required" placeholder="请输入日程描述 例如节日由来" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">测试用户ID</label>
+    <div class="layui-input-block">
+      <input type="text" name="userid" lay-verify="required" value=""  placeholder="ID请去用户管理搜索您要测试的用户名称，添加确认即可。" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" name="submit" value="提交" type="submit">立即提交</button>
+      <input type="hidden" name="token" value="{$_W['token']}">
+    </div>    
+  </div>
+</form>
+<script type="text/javascript" src="{$_W['siteroot']}addons/hr_album/style/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="{$_W['siteroot']}addons/hr_album/style/component/layui/layui.js"></script>
+<script type="text/javascript">
+	layui.use(['form','upload'],function(){
+         var form = layui.form();
+         layui.upload({ 
+        	 elem:'#share',
+             url: '{$_W['siteroot']}web/index.php?c=site&a=entry&do=uppic&m=hr_album' ,//上传接口 
+             success: function(res){
+              //上传成功后的回调 
+              layer.msg(res.message); 
+              $("#shareimg").find('img').attr('src',res.reurl);
+              $("#shareimg").css('display','-webkit-inline-box');    
+              $("input[name='sharepic']").val(res.src);
+              console.log(res); 
+            } 
+         });
+         layui.upload({ 
+        	 elem:'#kf',
+             url: '{$_W['siteroot']}web/index.php?c=site&a=entry&do=uppic&m=hr_album' ,//上传接口 
+             success: function(res){
+              //上传成功后的回调 
+              layer.msg(res.message); 
+              $("#kfimg").find('img').attr('src',res.reurl);
+              $("#kfimg").css('display','-webkit-inline-box');    
+              $("input[name='kfpic']").val(res.src);
+              console.log(res); 
+            } 
+         });
+         layui.upload({ 
+        	 elem:'#headbg',
+             url: '{$_W['siteroot']}web/index.php?c=site&a=entry&do=uppic&m=hr_album' ,//上传接口 
+             success: function(res){
+              //上传成功后的回调 
+              layer.msg(res.message); 
+              $("#headbgimg").find('img').attr('src',res.reurl);
+              $("#headbgimg").css('display','-webkit-inline-box');    
+              $("input[name='headbg']").val(res.src);
+              console.log(res); 
+            } 
+         });
+
+	});	
+	$("#shareimg").hover(function(e){
+		var x=$("#shareimg").offset();
+		var src = $("#shareimg").find('img').attr('src');
+		var html = '<div id="sharebig" style="z-index:10001;position:fixed;top:30%;left:40%;max-width:260px;max-height:260px"><img style="width:100%;height:100%" src="'+src+'" /></div>';
+		$("#sharebig").append(html);	
+	}, function(e){
+		$("#sharebig").remove();
+	});
+	$("#kfimg").hover(function(e){
+		var x=$("#kfimg").offset();
+		var src = $("#kfimg").find('img').attr('src');
+		var html = '<div id="kfbig" style="z-index:10001;position:fixed;top:30%;left:40%;max-width:260px;max-height:260px"><img style="width:100%;height:100%" src="'+src+'" /></div>';
+		$("#kfimg").append(html);	
+	}, function(e){
+		$("#kfbig").remove();
+	});
+	$("#testset").on('click',function(){
+		var key = $.trim($('input[name="accesskey"]').val());
+		if (key == '') {
+			layui.use('layer', function(){
+				  var layer = layui.layer;			  
+				  layer.msg('请填写Accesskey');
+			});
+			return false;
+		}
+		var secret = $.trim($('input[name="secretkey"]').val());
+		if (secret == '') {
+			layui.use('layer', function(){
+				  var layer = layui.layer;
+				  
+				  layer.msg('请填写Secretkey');
+			});
+			return false;
+		}	
+		var url = $.trim($('input[name="qnurl"]').val());	
+		var param = {
+			'accesskey' : $.trim($('input[name="accesskey"]').val()),
+			'secretkey' : $.trim($('input[name="secretkey"]').val()),
+			'url'  : url,
+			'bucket' :  $.trim($('input[name="bucket"]').val())
+		};
+		$.post("{php echo url('system/attachment/qiniu')}",param, function(data) {
+			var data = $.parseJSON(data);
+			if(data.message.errno == 0) {
+				layui.use('layer', function(){
+					  var layer = layui.layer;				  
+					  layer.msg('配置成功');
+					});   
+				return false;
+			}
+			if(data.message.errno < 0) {
+				layui.use('layer', function(){
+					  var layer = layui.layer;
+					  
+					  layer.msg(data.message.message);
+				});
+				return false;
+			}
+		});
+	});
+	$('#savemode').on('click','.layui-form-radio',function(){
+		var cctype = $(this).prev().val();
+		$("input[name='type']").each(function(){
+			var val = $(this).val();
+			$("#remote-"+val).hide();
+		});
+		$("#remote-"+cctype).show();
+	});
+	$('.js-checkremoteftp').on('click', function(){
+		var ssl =  parseInt($(':radio[name="ftp[ssl]"]:checked').val());
+		var pasv = parseInt($(':radio[name="ftp[pasv]"]:checked').val());
+		var param = {
+			'ssl' : ssl,
+			'host' : $.trim($(':text[name="ftp[host]"]').val()),
+			'username'  : $.trim($(':text[name="ftp[username]"]').val()),
+			'password' : $.trim($(':text[name="ftp[password]"]').val()),
+			'pasv' : pasv,
+			'dir': $.trim($(':text[name="ftp[dir]"]').val()),
+			'url': $.trim($(':text[name="ftp[url]"]').val()),
+			'port' : parseInt($(':text[name="ftp[port]"]').val()),
+			'overtime' : parseInt($(':text[name="ftp[overtime]"]').val())
+		};
+		$.post("{php echo url('system/attachment/ftp')}", param, function(data){
+			var data = $.parseJSON(data);
+			if(data.message.errno == 0) {
+				layui.use('layer', function(){
+					  var layer = layui.layer;				  
+					  layer.msg('配置成功');
+					});   
+				return false;
+			}
+			if(data.message.errno < 0) {
+				layui.use('layer', function(){
+					  var layer = layui.layer;
+					  
+					  layer.msg(data.message.message);
+				});
+				return false;
+			}
+		});
+	});
+	$('.js-checkremoteoss').on('click', function(){
+		var bucket = $.trim($('select[name="alioss[bucket]"]').val());
+		if (bucket == '') {
+			bucket = $.trim($(':text[name="alioss[bucket]"]').val());
+		}
+		var param = {
+			'key' : $.trim($(':text[name="alioss[key]"]').val()),
+			'secret' : $.trim($(':text[name="alioss[secret]"]').val()),
+			'url'  : $.trim($(':text[name="custom[url]"]').val()),
+			'bucket' : bucket
+		};
+		$.post("{php echo url('system/attachment/oss')}",param, function(data) {
+			var data = $.parseJSON(data);
+			if(data.message.errno == 0) {
+				layui.use('layer', function(){
+					  var layer = layui.layer;				  
+					  layer.msg('配置成功');
+					});   
+				return false;
+			}
+			if(data.message.errno < 0) {
+				layui.use('layer', function(){
+					  var layer = layui.layer;
+					  
+					  layer.msg(data.message.message);
+				});
+				return false;
+			}
+		});
+	});
+	$('.js-checkremoteqiniu').on('click', function(){
+		var key = $.trim($(':text[name="qiniu[accesskey]"]').val());
+		if (key == '') {
+			util.message('请填写Accesskey');
+			return false;
+		}
+		var secret = $.trim($(':text[name="qiniu[secretkey]"]').val());
+		if (secret == '') {
+			util.message('请填写Secretkey');
+			return false;
+		}
+		var param = {
+			'accesskey' : $.trim($(':text[name="qiniu[accesskey]"]').val()),
+			'secretkey' : $.trim($(':text[name="qiniu[secretkey]"]').val()),
+			'url'  : $.trim($(':text[name="qiniu[url]"]').val()),
+			'bucket' :  $.trim($(':text[name="qiniu[bucket]"]').val())
+		};
+		$.post("{php echo url('system/attachment/qiniu')}",param, function(data) {
+			var data = $.parseJSON(data);
+			if(data.message.errno == 0) {
+				layui.use('layer', function(){
+					  var layer = layui.layer;				  
+					  layer.msg('配置成功');
+					});   
+				return false;
+			}
+			if(data.message.errno < 0) {
+				layui.use('layer', function(){
+					  var layer = layui.layer;
+					  
+					  layer.msg(data.message.message);
+				});
+				return false;
+			}
+
+		});
+	});
+	$('.js-checkremotecos').on('click', function(){
+		var appid = $.trim($(':text[name="cos[appid]"]').val());
+		if (appid == '') {
+			util.message('请填写APPID');
+			return false;
+		}
+		var secretid = $.trim($(':text[name="cos[secretid]"]').val());
+		if (secretid == '') {
+			util.message('请填写secretid');
+			return false;
+		}
+		var secretkey = $.trim($(':text[name="cos[secretkey]"]').val());
+		if (secretkey == '') {
+			util.message('请填写Secretkey');
+			return false;
+		}
+		var bucket = $.trim($(':text[name="cos[bucket]"]').val());
+		if (bucket == '') {
+			util.message('请填写bucket');
+			return false;
+		}
+		var url = $.trim($(':text[name="cos[url]"]').val());
+		var param = {
+			'appid' : appid,
+			'secretid' : secretid,
+			'secretkey'  : secretkey,
+			'bucket' :  bucket,
+			'url' : url
+		};
+		$.post("{php echo url('system/attachment/cos')}",param, function(data) {
+			var data = $.parseJSON(data);
+			if(data.message.errno == 0) {
+				layui.use('layer', function(){
+					  var layer = layui.layer;				  
+					  layer.msg('配置成功');
+					});   
+				return false;
+			}
+			if(data.message.errno < 0) {
+				layui.use('layer', function(){
+					  var layer = layui.layer;
+					  
+					  layer.msg(data.message.message);
+				});
+				return false;
+			}
+		});
+	});
+	var buck =  function() {
+		var key = $(':text[name="alioss[key]"]').val();
+		var secret = $(':text[name="alioss[secret]"]').val();		
+		if (key == '' || secret == '') {
+			layui.use('layer', function(){
+				  var layer = layui.layer;				  
+				  layer.msg('请填写完整Access Key ID Access Key Secret。');
+				});   
+			$('[name="submit"]').prop('disabled', true);
+			return false;
+		}
+		$.post("{php echo url('system/attachment/buckets')}", {'key' : key, 'secret' : secret}, function(data) {
+			var data = $.parseJSON(data);
+			if (data.message.errno < 0 ) {
+				layui.use('layer', function(){
+					  var layer = layui.layer;				  
+					  layer.msg('请填写完整Access Key ID Access Key Secret。');
+					});   
+				$('[name="submit"]').prop('disabled', true);
+				return false;
+			} else {
+				$('#bucket').show();
+				$('[name="submit"]').prop('disabled', false);
+				var bucket = $('select[name="alioss[bucket]"]');
+				bucket.empty();
+				var buckets = eval(data.message.message);
+				for (var i in buckets) {
+					bucket.append('<option value='+buckets[i]['name']+'@@'+buckets[i]['location']+'>'+buckets[i]['loca_name']+'</option>');
+				}
+				layui.form('select').render();
+			}
+		});		
+	};
+	$(':text[name="alioss[secret]"]').blur(buck);
+	$("#chtoken").on('click',function(){
+		for(var e="",t=0;t<32;t++)e+="abcdefghijklmnopqrstuvwxyz0123456789"[parseInt(32*Math.random())];
+		$('[name="tokens"]').val(e)
+	});
+	$("#chkey").on('click',function(){
+		for(var e="",t=0;t<43;t++)e+="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"[parseInt(61*Math.random())];
+		$('[name="encodingAesKey"]').val(e)
+	});
+	$(".sharebtn").on('click',function(){
+		var src = '{$_W['siteroot']}addons/hr_album/style/images/tu1.jpg';
+		layui.use('layer', function(){
+			layer.open({
+				  type: 1,
+				  title: false,
+				  content: '<img style="width:100%;height:100%;" src="'+src+'" />',
+				  area: ['200px', '300px'],
+				});  
+		});
+
+	})
+	$(".edbtns").on('click',function(){
+		var src = '{$_W['siteroot']}addons/hr_album/style/images/zhizuo.jpg';
+		layui.use('layer', function(){
+			layer.open({
+				  type: 1,
+				  title: false,
+				  content: '<img style="width:100%;height:100%;" src="'+src+'" />',
+				  area: ['200px', '300px'],
+				});  
+		});
+
+	})
+</script>
+</body>
+</html>

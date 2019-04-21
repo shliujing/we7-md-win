@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.17878.pw" versionCode="0.8,1.0">
+	<application setting="true">
+		<name><![CDATA[酷炫小程序相册]]></name>
+		<identifie><![CDATA[hr_album]]></identifie>
+		<version><![CDATA[4.5.4]]></version>
+		<type><![CDATA[activity]]></type>
+		<ability><![CDATA[酷炫小程序相册]]></ability>
+		<description><![CDATA[酷炫小程序相册]]></description>
+		<author><![CDATA[一起吧源码]]></author>
+		<url><![CDATA[https://wwww.17878.pw]]></url>
+	</application>
+	<platform>
+		<subscribes>
+		</subscribes>
+		<handles>
+		</handles>
+		<rule embed="false" />
+		<card embed="false" />
+		<supports>
+    			<item type="wxapp" />
+                </supports>
+	</platform>
+	<bindings>
+		<menu>
+			<entry title="音乐管理" do="music" state="" direct="false" />
+			<entry title="相册管理" do="list" state="" direct="false" />
+			<entry title="基本设置" do="set" state="" direct="false" />
+			<entry title="评论管理" do="review" state="" direct="false" />
+			<entry title="举报管理" do="report" state="" direct="false" />
+		</menu>
+		<page>
+			<entry title="我的相册" do="/hr_album/pages/user/user" state="" direct="false" />
+		</page>
+	</bindings>
+	<permissions>
+	</permissions>
+	<install><![CDATA[CREATE TABLE IF NOT EXISTS `ims_hr_album_ads` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL DEFAULT '0',
+  `displayorder` int(10) NOT NULL DEFAULT '0',
+  `type` tinyint(1) DEFAULT '0',
+  `thumb` varchar(500) NOT NULL DEFAULT '',
+  `title` varchar(50) NOT NULL DEFAULT '',
+  `path` varchar(500) NOT NULL DEFAULT '',
+  `appid` varchar(50) NOT NULL DEFAULT '',
+  `addtime` int(10) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `indx_id` (`id`),
+  KEY `indx_uniacid` (`uniacid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_app` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL DEFAULT '0',
+  `displayorder` int(10) NOT NULL DEFAULT '0',
+  `thumb` varchar(500) NOT NULL DEFAULT '',
+  `title` varchar(50) NOT NULL DEFAULT '',
+  `desc` varchar(200) NOT NULL DEFAULT '',
+  `path` varchar(500) NOT NULL DEFAULT '',
+  `appid` varchar(50) NOT NULL DEFAULT '',
+  `addtime` int(10) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `indx_id` (`id`),
+  KEY `indx_uniacid` (`uniacid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_cashpay` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) unsigned NOT NULL,
+  `openid` varchar(255) NOT NULL,
+  `avatar` varchar(255) NOT NULL,
+  `nickname` varchar(50) NOT NULL,
+  `cost` decimal(10,2) NOT NULL COMMENT '提现金额',
+  `rcost` decimal(10,2) NOT NULL COMMENT '实际金额',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0未审核，1已审核',
+  `addtime` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_data` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `openid` varchar(255) NOT NULL,
+  `nickname` varchar(50) NOT NULL,
+  `avatar` varchar(200) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `skin` varchar(20) NOT NULL,
+  `content` text NOT NULL,
+  `music` varchar(255) NOT NULL,
+  `click` int(10) NOT NULL,
+  `share` int(10) NOT NULL,
+  `pass` varchar(20) NOT NULL,
+  `best` int(10) NOT NULL DEFAULT '0',
+  `isshow` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否展示，0否，1是',
+  `isverify` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0不开启默认，1开启',
+  `addtime` int(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_uniacid` (`uniacid`),
+  KEY `index_openid` (`openid`)
+) ENGINE=MyISAM AUTO_INCREMENT=279 DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_formdata` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) DEFAULT '0',
+  `openid` varchar(255) DEFAULT '',
+  `formid` varchar(255) DEFAULT '',
+  `addtime` int(10) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `indx_id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=444 DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_incate` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `displayorder` int(10) NOT NULL,
+  `title` varchar(20) NOT NULL,
+  `addtime` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_inskin` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `displayorder` int(10) NOT NULL,
+  `cid` int(10) NOT NULL,
+  `title` varchar(20) NOT NULL,
+  `thumb` varchar(500) NOT NULL,
+  `skin` int(10) NOT NULL,
+  `addtime` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_mucate` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `displayorder` int(10) NOT NULL,
+  `title` varchar(20) NOT NULL,
+  `oldtitle` varchar(20) NOT NULL,
+  `addtime` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_music` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `singer` varchar(20) NOT NULL,
+  `music` varchar(500) NOT NULL,
+  `addtime` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=273 DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_paydata` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) unsigned NOT NULL,
+  `leastmon` int(10) unsigned NOT NULL,
+  `service` int(10) unsigned NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `addtime` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_paylog` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) unsigned NOT NULL,
+  `pid` int(10) NOT NULL,
+  `tid` varchar(255) NOT NULL,
+  `openid` varchar(255) NOT NULL,
+  `avatar` varchar(255) NOT NULL,
+  `nickname` varchar(50) NOT NULL,
+  `tnickname` varchar(50) NOT NULL,
+  `cost` decimal(10,2) NOT NULL COMMENT '打赏金额',
+  `out_trade_no` varchar(255) NOT NULL,
+  `transaction_id` varchar(255) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0未支付，1已支付',
+  `addtime` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_pl` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `cid` int(10) NOT NULL,
+  `nickname` varchar(50) NOT NULL,
+  `avatar` varchar(500) NOT NULL,
+  `content` text NOT NULL,
+  `addtime` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_review` (
+  `id` int(10) unsigned NOT NULL,
+  `uniacid` int(10) unsigned NOT NULL,
+  `openid` varchar(255) NOT NULL,
+  `addtime` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_sended` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) DEFAULT '0',
+  `templateid` varchar(255) DEFAULT '',
+  `content` varchar(255) DEFAULT '',
+  `path` varchar(255) DEFAULT '',
+  `rate` int(10) DEFAULT '0',
+  `send` int(10) DEFAULT '0',
+  `addtime` int(10) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `indx_id` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_sendlog` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `msgid` int(10) DEFAULT '0',
+  `uniacid` int(10) DEFAULT '0',
+  `templateid` varchar(255) DEFAULT '',
+  `openid` varchar(255) DEFAULT '',
+  `addtime` int(10) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `indx_id` (`id`),
+  KEY `index_templateid` (`templateid`),
+  KEY `index_openid` (`openid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_shenhe` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) unsigned NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `content` varchar(500) NOT NULL,
+  `addtime` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_skin` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `displayorder` int(10) NOT NULL,
+  `cid` int(10) NOT NULL,
+  `skintitle` varchar(255) NOT NULL,
+  `skiname` varchar(50) NOT NULL,
+  `music` varchar(255) NOT NULL,
+  `ishot` tinyint(1) DEFAULT '0',
+  `type` tinyint(1) DEFAULT '0' COMMENT '0正常，1整套轮换，2图文',
+  `remoted` tinyint(1) DEFAULT '0',
+  `addtime` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_skincate` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) NOT NULL,
+  `displayorder` int(10) NOT NULL,
+  `title` varchar(20) NOT NULL,
+  `addtime` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_hr_album_user` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(10) unsigned NOT NULL,
+  `openid` varchar(255) NOT NULL,
+  `nickname` varchar(50) NOT NULL,
+  `avatar` varchar(200) NOT NULL,
+  `fee` decimal(10,2) DEFAULT '0.00' COMMENT '金额',
+  `souce` int(10) NOT NULL DEFAULT '0' COMMENT '积分',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0启用，1禁用',
+  `addtime` int(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_uniacid` (`uniacid`),
+  KEY `index_openid` (`openid`)
+) ENGINE=MyISAM AUTO_INCREMENT=81 DEFAULT CHARSET=utf8;
+]]></install>
+	<uninstall><![CDATA[DROP TABLE IF EXISTS `ims_hr_album_ads`;
+DROP TABLE IF EXISTS `ims_hr_album_app`;
+DROP TABLE IF EXISTS `ims_hr_album_cashpay`;
+DROP TABLE IF EXISTS `ims_hr_album_data`;
+DROP TABLE IF EXISTS `ims_hr_album_formdata`;
+DROP TABLE IF EXISTS `ims_hr_album_incate`;
+DROP TABLE IF EXISTS `ims_hr_album_inskin`;
+DROP TABLE IF EXISTS `ims_hr_album_mucate`;
+DROP TABLE IF EXISTS `ims_hr_album_music`;
+DROP TABLE IF EXISTS `ims_hr_album_paydata`;
+DROP TABLE IF EXISTS `ims_hr_album_paylog`;
+DROP TABLE IF EXISTS `ims_hr_album_pl`;
+DROP TABLE IF EXISTS `ims_hr_album_review`;
+DROP TABLE IF EXISTS `ims_hr_album_sended`;
+DROP TABLE IF EXISTS `ims_hr_album_sendlog`;
+DROP TABLE IF EXISTS `ims_hr_album_shenhe`;
+DROP TABLE IF EXISTS `ims_hr_album_skin`;
+DROP TABLE IF EXISTS `ims_hr_album_skincate`;
+DROP TABLE IF EXISTS `ims_hr_album_user`;
+]]></uninstall>
+	<upgrade><![CDATA[upgrade.php]]></upgrade>
+</manifest>

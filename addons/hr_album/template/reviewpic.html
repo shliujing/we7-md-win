@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片管理</title>
+	<meta name="renderer" content="webkit">	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">	
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">	
+	<meta name="apple-mobile-web-app-capable" content="yes">	
+	<meta name="format-detection" content="telephone=no">	
+	<link rel="stylesheet" type="text/css" href="{$_W['siteroot']}addons/hr_album/style/component/layui/css/layui.css" media="all">
+	<style>
+     body{padding:10px 15px 10px 15px;}
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+.pagination>li {
+    display: inline;
+}
+.pagination>li:first-child>a, .pagination>li:first-child>span {
+    margin-left: 0;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #009688;
+    border-color: #009688;
+}
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.428571429;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #009688;
+    border-color: #009688;
+}
+.cubtn{
+	height: 30px;
+    line-height: 30px;
+}
+	</style>
+</head>
+<body>
+<div class="layui-form-item">
+    <div class="layui-input-block" style="margin-left:0">       
+      <a href="{$_W['siteroot']}web/index.php?c=site&a=entry&do=reviewpic&m=hr_album&op=add" style="float:right;margin-left:5px;margin-right:5px;" class="layui-btn">添加图片</a>         
+      <button id="push" type="button" style="float:right;margin-left:5px;margin-right:5px;" class="layui-btn">导入审核图片</button>       
+     </div>
+  </div>
+<table class="layui-table">
+  <colgroup>
+    <col width="100">
+    <col width="200">
+    <col width="300">
+    <col width="400">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>序号</th>	
+      <th>标题</th>	
+	  <th>图片</th>
+	  <th>操作</th>
+    </tr> 
+  </thead>
+  <tbody class="pics">
+    {loop $list  $row}
+		<tr id="div_{$row['id']}">
+		    <td>
+				<span>{$row['id']}</span>
+			</td>
+			<td>
+				<span>{$row['title']}</span>
+			</td>
+			<td>
+				<img src="{$row['content']}" style="width:100px;height:200px;">
+			</td>			
+			<td>
+			   <a href="{$_W['siteroot']}web/index.php?c=site&a=entry&do=reviewpic&m=hr_album&op=add&id={$row['id']}" class="layui-btn">修改</a> 
+			    <button class="layui-btn layui-btn-normal delpic" data-id="{$row['id']}">删除</button>   
+				  </div>
+			</td>
+		</tr>
+		{/loop}
+  </tbody>
+</table>
+<div class="page" style=float:right;">
+		{$pager}
+</div>
+<script type="text/javascript" src="{$_W['siteroot']}addons/hr_album/style/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="{$_W['siteroot']}addons/hr_album/style/component/layui/layui.js"></script>
+<script type="text/javascript">
+$("#push").on('click',function(){
+	var id = $(this).data('id');
+	var that = $(this);
+	layui.use('layer', function(){
+	   var layer = layui.layer;
+	   layer.confirm('确定导入系统审核图片么？', {
+			  btn: ['确定','取消'] //按钮
+			}, function(){				
+				$.post("{$_W['siteroot']}web/index.php?c=site&a=entry&do=reviewpic&m=hr_album&op=sys",function(data) {
+					var data = $.parseJSON(data);					
+					if(data.result){
+						layer.msg('导入成功'); 
+						location=location;
+					}else{
+						layer.msg('导入失败', {icon: 2});
+					}					
+				});
+			}, function(){
+			  
+			});
+    });
+});
+$(".delpic").on('click',function(){
+	var id = $(this).data('id');
+	var that = $(this);
+	layui.use('layer', function(){
+	   var layer = layui.layer;
+	   layer.confirm('确定导入系统审核图片么？', {
+			  btn: ['确定','取消'] //按钮
+			}, function(){				
+				$.post("{$_W['siteroot']}web/index.php?c=site&a=entry&do=reviewpic&m=hr_album&op=del",{id:id},function(data) {
+					var data = $.parseJSON(data);					
+					if(data.result){
+						layer.msg('删除成功'); 
+						location=location;
+					}else{
+						layer.msg('删除失败', {icon: 2});
+					}					
+				});
+			}, function(){
+			  
+			});
+    });
+});
+</script>
+</body>
+</html>

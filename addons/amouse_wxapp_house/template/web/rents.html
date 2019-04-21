@@ -1,0 +1,658 @@
+{template 'common/header'}
+<ul class="nav nav-tabs">
+    <li {if $operation =='display'}class="active"{/if}><a href="{php echo $this->createWebUrl('rents', array('op' => 'display'))}">求租/求购信息</a></li>
+    <li {if $operation =='detail'}class="active"{/if}><a href="{php echo $this->createWebUrl('rents', array('op' => 'detail','id'=>$id))}">求租/求购详情</a></li>
+    <li {if $operation =='export_submit'}class="active"{/if}><a href="{php echo $this->createWebUrl('rents', array('op' => 'export_submit'))}">导出求租/求购</a></li>
+</ul>
+
+<style>
+    .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio]{ margin-left:-25px;}
+    .checkbox label, .radio label{ padding-left:25px;}
+    input[type=checkbox], input[type=radio]{ margin:1px;}
+    input[type=checkbox],input[type=radio]{ position: relative; width: 18px; height:18px; background-clip: border-box; -webkit-appearance: none; -moz-appearance: none; appearance: none; vertical-align:top; border-radius: 2px; -webkit-transition: background-color .25s; transition: background-color .25s; background-color: #fff; border: 1px solid #d7d7d7; }
+    input[type=checkbox]:hover,input[type=radio]:hover{ border:1px solid #09bb07;}
+    input[type=checkbox]:checked:after,input[type=radio]:checked:after{ content: ''; display: block; height: 6px; width: 10px; border: 0 solid #333; border-width: 0 0 2px 2px; -webkit-transform: rotate(-45deg); transform: rotate(-45deg); position: absolute; top: 4px; left: 3px; border-color:#fff;}
+    input[type=checkbox]:checked,input[type=radio]:checked{ color:#fff; background-color: #5cb85c; border-color: #5cb85c; }
+</style>
+{if $operation == 'display'}
+<div class="main">
+    <div class="panel panel-info">
+        <div class="panel-heading">筛选</div>
+        <div class="panel-body">
+            <form action="./index.php" method="get" class="form-horizontal" role="form">
+                <input type="hidden" name="c" value="site" />
+                <input type="hidden" name="a" value="entry" />
+                <input type="hidden" name="m" value="amouse_wxapp_house" />
+                <input type="hidden" name="do" value="rents" />
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">联系方式</label>
+                    <div class="col-sm-2 col-lg-2">
+                        <input class="form-control" name="tel" id="" type="text" value="{$_GPC['tel']}">
+                    </div>
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">联系人</label>
+                    <div class="col-sm-2 col-lg-2">
+                        <input class="form-control" name="username"  type="text" value="{$_GPC['username']}">
+                    </div>
+                    <div class="col-sm-4">
+
+                        <label class="radio-inline">
+                            <input type="radio" name="house_type" value="4" {if $_GPC['house_type']==4}checked="checked"{/if}>求租
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="house_type" value="5" {if $_GPC['house_type']==5}checked="checked"{/if}>求购
+                        </label>
+                    </div>
+                    <div class="col-sm-2 col-lg-2">
+                        <button class="btn btn-default"> <i class="fa fa-search"></i> 搜索</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <form id="form2" class="form-horizontal" method="post">
+            <div class="table-responsive panel-body">
+                <table class="table table-hover">
+                    <thead class="navbar-inner">
+                    <tr>
+                        <th>用户信息</th>
+                        <th>所属区域</th>
+                        <th>装修情况</th>
+                        <th>用途</th>
+                        <th>审核状态</th>
+                        <th style="text-align:right;">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {loop $list $item}
+                    <tr>
+                        <td><img src="{php echo tomedia($item['avater'])}" style='width:30px;height:30px;padding:1px;border:1px solid #ccc' /> {$item['title']}
+                            ({$item['nickname']}/{$item['mobile']})
+                            <br/>
+                            <label class="label label-default {if $item['house_type']=='4'}label-success{/if}{if $item['house_type']=='5'}label-info{/if}label-info">{if $item['house_type']=='4'}求租{/if}{if $item['house_type']=='5'}求购{/if}
+                                {if $item['house_type']=='4'}求租 {/if} {if $item['house_type']=='5'}求购{/if}
+                        </td>
+                        <td style="text-align:left;">
+                            {$item['area']}
+                        </td>
+                        <td style="text-align:left;">{$item['fit']}
+                        </td>
+                        <td style="text-align:left;">{$item['use']}
+                        </td>
+                        <td>
+                            <label title="点击自动切换是否审核" data="{$item['status']}" class='label label-default {if $item['status']==1}label-success{/if}'
+                            onclick="setProperty(this,{$item['id']},'status')">{if $item['status']==0}已审核{else if $item['status']==1}待审核{/if}
+                            </label>
+                        </td>
+                        <td style="text-align:right;">
+                            <a href="{php echo $this->createWebUrl('rents', array('op' => 'detail', 'id' => $item['id']))}" title="编辑" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="详情" >
+                                <i class="fa fa-view">详情</i>
+                            </a>
+                            {if $item['house_type']=='2' || $item['house_type']=='3'}
+                            <a href="{php echo $this->createWebUrl('rents', array('op' => 'post', 'id' => $item['id']))}" title="编辑" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="详情" >
+                                <i class="fa fa-view">编辑</i>
+                            </a>
+                            {/if}
+                            <a onclick="return confirm('删除无法恢复，确认吗？');return false;"
+                               href="{php echo $this->createWebUrl('rents', array('op' => 'delete','id' => $item['id']))}" class="btn btn-default btn-sm"> <i class="fa fa-times">删除</i></a>
+                        </td>
+                    </tr>
+                    {/loop}
+                    </tbody>
+                </table>
+                {$pager}
+            </div>
+        </form>
+    </div>
+    <script>
+
+        function setProperty(obj, id,type) {
+            $(obj).html($(obj).html() + "...");
+            $.post("{php echo $this->createWebUrl('rents',array('op'=>'setstatus','version_id'=>$_GPC['version_id']))}",{id: id,type: type,data: obj.getAttribute("data")},function (d) {
+                $(obj).html($(obj).html().replace("...", ""));
+                if (type == 'status') {
+                    $(obj).html(d.data == '0' ? '已审核' : '待审核');
+                }
+                $(obj).attr("data", d.data);
+                if (d.result == 1) {
+                    $(obj).toggleClass("label-info");
+
+                }
+            }, "json");
+        }
+    </script>
+</div>
+{elseif $operation== 'detail'}
+<div class="main">
+    <form action="" method="post" onsubmit="return check();" class="form-horizontal form" enctype="multipart/form-data">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+               求租/求购信息
+            </div>
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">房屋类型</label>
+                    <div class="col-sm-9">
+                        <label class="radio-inline">
+                            <input type="radio" name="house_type" value="4"   {if $house['house_type']==4}checked="checked"{/if} >求租
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="house_type" value="5"  {if $house['house_type']==5}checked="checked"{/if}>求购
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group rental" >
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">标题 </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" name="title" placeholder="" readonly class="form-control" value="{$house['title']}" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">所属区域</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <select name="area_id" class="form-control">
+                            {loop $areas $m}
+                            <option value="{$m['id']}" {if $house['area_id']==$m['id']} selected{/if}> {$m['name']} </option>
+                            {/loop}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">装修</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <select name="fit_id" class="form-control" >
+                            <option value="0">请选择</option>
+                            {loop $fits $fit}
+                            <option value="{$fit['id']}" {if $house['fit_id']==$fit['id']} selected{/if}> {$fit['name']} </option>
+                            {/loop}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">用途</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <select name="type_id" class="form-control" >
+                            <option value="0">请选择</option>
+                            {loop $uses $type}
+                            <option value="{$type['id']}" {if $house['use_id']==$type['id']} selected{/if}> {$type['name']}  </option>
+                            {/loop}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">户型</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <select name="type_id" class="form-control">
+                            <option value="0">请选择</option>
+                            {loop $types $type}
+                            <option value="{$type['id']}" {if $house['type_id']==$type['id']} selected{/if}> {$type['name']}  </option>
+                            {/loop}
+                        </select>
+                    </div>
+                </div>
+
+                <!--<div class="form-group rental" >
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">租金 </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="input-group">
+                        <input type="text" name="rental" id="rental" class="form-control" readonly value="{$house['rental']}" />
+                        <span class="input-group-addon">元/月</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group rental" >
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">押金类型 </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" name="cash_type" placeholder="付三押一" readonly class="form-control" value="{$house['cash_type']}" />
+                    </div>
+                </div>
+                <div class="form-group price" >
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">单价</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="input-group">
+                            <input type="text" name="price" id="price" readonly class="form-control" value="{$house['price']}" />
+                            <span class="input-group-addon">万元</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group price" >
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">总价</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="input-group">
+                            <input type="text" name="total_price" id="total_price" readonly class="form-control" value="{$house['total_price']}" />
+                            <span class="input-group-addon">万元</span>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">楼层</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text"   class="form-control" name="floor"   value="{$house['floor']}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">联系人</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text"   class="form-control" name="nickname"   value="{$house['nickname']}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">联系电话</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text"   class="form-control" name="mobile"   value="{$house['mobile']}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">描述</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <textarea name="desc" class="form-control"  >{$house['desc']}</textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input name="submit" type="submit" value="提交" class="btn btn-primary col-lg-1">
+                        <input type="hidden" name="token" value="{$_W['token']}" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+    <script>
+
+        {if $house['house_type']==2}
+            $(".rental").show();
+            $(".price").hide();
+        {elseif $house['house_type']==3}
+            $(".rental").hide();
+            $(".price").show();
+        {/if}
+    </script>
+
+    <script>
+
+    </script>
+
+</div>
+{elseif $operation== 'post'}
+<div class="main">
+    <form action="" method="post" onsubmit="return check();" class="form-horizontal form" enctype="multipart/form-data">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                房产信息
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">房产名称</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" name="title" id="title" class="form-control" value="{$house['title']}" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">环境图片</label>
+                    <div class="col-sm-9 col-xs-12">
+                        {php echo tpl_form_field_multi_image('imgs',$piclist)}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">所属区域</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <select name="area_id" class="form-control">
+                            {loop $areas $m}
+                            <option value="{$m['id']}" {if $house['area_id']==$m['id']} selected{/if}> {$m['name']} </option>
+                            {/loop}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">所属小区</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <select name="vill_id" class="form-control">
+                            <option value="0" >请选择所属小区</option>
+                            {loop $vills $v}
+                            <option value="{$v['id']}" {if $house['vill_id']==$v['id']} selected{/if}> {$v['name']} </option>
+                            {/loop}
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">所属门店</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <select name="shop_id" class="form-control" onchange="ajax_get_agent(this)">
+                            <option value="0">选择门店</option>
+                            {loop $shops $agent}
+                            <option value="{$agent['id']}" {if $house['shop_id']==$agent['id']} selected{/if}> {$agent['name']} </option>
+                            {/loop}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">所属经纪人</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <select name="agent_id" class="form-control" id="agents">
+                            <option value="0">选择经纪人</option>
+                            {loop $agents $agent}
+                            <option value="{$agent['id']}" {if $house['agent_id']==$agent['id']} selected{/if}> {$agent['realname']} </option>
+                            {/loop}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">房屋年代</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <select name="age_id" class="form-control" id="age">
+                            <option value="0">选择房屋年代</option>
+                            {loop $ages $age}
+                            <option value="{$age['id']}" {if $house['age_id']==$age['id']} selected{/if}> {$age['name']} </option>
+                            {/loop}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">房屋类型</label>
+                    <div class="col-sm-9">
+                        <label class="radio-inline">
+                            <input type="radio" name="house_type" value="1" onclick="setonclick(false)" {if $house['house_type']==1 || $house['house_type']==3}checked="checked"{/if} >出售
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="house_type" value="0" onclick="setonclick(true)" {if $house['house_type']==0 ||$house['house_type']==2}checked="checked"{/if}>出租
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group rental" >
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">租金 </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="input-group">
+                            <input type="text" name="rental"  class="form-control" value="{$house['rental']}" />
+                            <span class="input-group-addon">元/月</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group rental" >
+                    <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">押金类型 </label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" name="cash_type" placeholder="付三押一" class="form-control" value="{$house['cash_type']}" />
+                    </div>
+                </div>
+                <div class="form-group price" >
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">单价</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="input-group">
+                            <input type="text" name="price" id="price" class="form-control" value="{$house['price']}" />
+                            <span class="input-group-addon">万元</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group price" >
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">总价</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="input-group">
+                            <input type="text" name="total_price" id="total_price" class="form-control" value="{$house['total_price']}" />
+                            <span class="input-group-addon">万元</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">房屋所属:</label>
+                    <div class="col-sm-10">
+                        <label class="radio-inline" for="is_person_0">
+                            <input type="radio" value="0" name="is_person" onclick="setDisable(0)" id="is_person_0" {if $house['is_person']==0}checked="checked"{/if} class="">官方
+                        </label>
+                        <label class="radio-inline" for="is_person_1">
+                            <input type="radio" value="1" name="is_person" id="is_person_1" onclick="setDisable(1)" {if $house['is_person']==1}checked="checked"{/if} id="is_person_1">房东
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group person_mobile" >
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">房东电话</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <input type="text" name="person_mobile" id="person_mobile" class="form-control" value="{$house['person_mobile']}" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">上架/下架:</label>
+                <div class="col-sm-10">
+                    <label class="radio-inline" for="status_0">
+                        <input type="radio" value="0" name="status" id="status_0" {if $house['status']==0}checked="checked"{/if} class="">上架
+                    </label>
+                    <label class="radio-inline" for="status_1">
+                        <input type="radio" value="1" name="status" id="status_1" {if $house['status']==1}checked="checked"{/if} id="status_1">下架
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">面积</label>
+                <div class="col-sm-8 col-xs-12">
+                    <div class="input-group">
+                        <input type="text"   class="form-control" name="house_area" value="{$house['house_area']}"/>
+                        <span class="input-group-addon">平方米</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">楼层</label>
+                <div class="col-sm-8 col-xs-12">
+                    <input type="text"   class="form-control" name="floor" value="{$house['floor']}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">户型</label>
+                <div class="col-sm-8 col-xs-12">
+                    <select name="type_id" class="form-control">
+                        {loop $types $type}
+                        <option value="{$type['id']}" {if $house['type_id']==$type['id']} selected{/if}> {$type['name']}  </option>
+                        {/loop}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">装修</label>
+                <div class="col-sm-8 col-xs-12">
+                    <select name="fit_id" class="form-control">
+                        {loop $fits $fit}
+                        <option value="{$fit['id']}" {if $house['fit_id']==$fit['id']} selected{/if}> {$fit['name']} </option>
+                        {/loop}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">用途</label>
+                <div class="col-sm-8 col-xs-12">
+                    <select name="use_id" class="form-control">
+                        {loop $uses $type}
+                        <option value="{$type['id']}" {if $house['use_id']==$type['id']} selected{/if}> {$type['name']}  </option>
+                        {/loop}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">是否开启地图:</label>
+                <div class="col-sm-10">
+                    <label class="radio-inline" for="is_open_map_0">
+                        <input type="radio" value="0" name="is_open_map" id="is_open_map_0" {if $house['is_open_map']==0}checked="checked"{/if}>开启
+                    </label>
+                    <label class="radio-inline" for="is_open_map_1">
+                        <input type="radio" value="1" name="is_open_map" id="is_open_map_1" {if $house['is_open_map']==1}checked="checked"{/if} >关闭
+                    </label>
+                    <span class="help-block m-b-none"> (小程序房源详情页不显示)</span>
+                </div>
+            </div>
+
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">经度</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="longitude" name="lng" value="{$house['lng']}">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">纬度</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="latitude" name="lat" value="{$house['lat']}">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <script charset="utf-8" src="//map.qq.com/api/js?v=2.exp"></script>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">地图:</label>
+                <div class="col-sm-10">
+                    <div class="input-group">
+                        <input type="text" id="address" name="address" class="form-control" value="{$house['address']}">
+                        <span class="input-group-btn">
+                            <button type="button"  id="mapseacrh" class="btn btn-primary">搜索</button></span>
+                    </div>
+                    <span class="help-block m-b-none"> 地图上选自己公司的位置会自动获取到你的经纬度</span>
+                    <div id="container" style="width:100%;height:300px;"></div>
+                </div>
+            </div>
+        </div>
+</div>
+<div class="form-group col-sm-12">
+    <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1"/>
+    <input type="hidden" name="token" value="{$_W['token']}"/>
+</div>
+</form>
+<script>
+    function  ajax_get_agent(obj) {
+        $.post("{php echo $this->createWebUrl('houses', array('op' =>'getAgent'))}",{shopid:obj.value} ,function(d){
+            console.log(d);
+            $('#agents').html(d);
+        },"json");
+    }
+    setonclick=function (e) {
+        if(e){
+            $(".rental").show();
+            $(".price").hide();
+        }else{
+            $(".rental").hide();
+            $(".price").show();
+        }
+    }
+    setDisable=function (e) {
+        if(e==0){
+            $(".person_mobile").hide();
+        } else{
+            $(".person_mobile").show();
+        }
+    }
+
+    {if $house['house_type']==2}
+        $(".rental").show();
+        $(".price").hide();
+    {elseif $house['house_type']==3}
+        $(".rental").hide();
+        $(".price").show();
+    {/if}
+    {if $house['is_person']==0}
+        $(".person_mobile").hide();
+    {elseif $house['is_person']==1}
+        $(".person_mobile").show();
+    {/if}
+</script>
+
+<script>
+    $(function(){
+        var geocoder,citylocation,map,marker = null;
+        var markersArray=[];
+        var x=$("#longitude").val();
+        var y=$("#latitude").val();
+        var center = new qq.maps.LatLng(y,x);
+        map = new qq.maps.Map(document.getElementById('container'),{
+            center: center,
+            zoom: 13
+        });
+        geocoder = new qq.maps.Geocoder({
+            complete : function(result){
+                map.setCenter(result.detail.location);
+                var marker = new qq.maps.Marker({
+                    map:map,
+                    position: result.detail.location
+                });
+            }
+        });
+        marker = new qq.maps.Marker({
+            position: new qq.maps.LatLng(y,x),
+            map: map
+        });
+        //获取城市列表接口设置中心点
+        if(y==''||x==''){
+            citylocation = new qq.maps.CityService({
+                complete : function(result){
+                    map.setCenter(result.detail.latLng);
+                }
+            });
+            citylocation.searchLocalCity();
+        }
+
+        geocoder = new qq.maps.Geocoder({
+            complete : function(result){
+                marker.setMap(null);
+                map.setCenter(result.detail.location);
+                marker = new qq.maps.Marker({
+                    map:map,
+                    position: result.detail.location
+                });
+                $("#latitude").attr("value",marker.position.lat);
+                $("#longitude").attr("value",marker.position.lng);
+            }
+        });
+        qq.maps.event.addListener(map, 'click', function(event) {
+            qq.maps.event.addListener(map, 'click', function(event) {
+                marker.setMap(null);
+                $("#longitude").attr("value","");
+                $("#longitude").attr("value",event.latLng.getLng());
+                $("#latitude").attr("value","");
+                $("#latitude").attr("value",event.latLng.getLat());
+                var latLng = new qq.maps.LatLng(event.latLng.getLat(), event.latLng.getLng());
+                marker=new qq.maps.Marker({
+                    position:latLng,
+                    map:map
+                });
+            });
+        });
+        $("#mapseacrh").click(function(){
+            var address =$("#address").val();
+            geocoder.getLocation(address);
+        });
+
+        {if $id>0}
+        var address =$("#address").val();
+        geocoder.getLocation(address);
+        {/if}
+
+            document.onkeydown=function(event){
+                var e = event || window.event || arguments.callee.caller.arguments[0];
+                if(e && e.keyCode==27){ // 按 Esc
+                }
+                if(e && e.keyCode==113){ // 按 F2
+                }
+                if(e && e.keyCode==13){ // enter 键
+                    $("#mapseacrh").click();
+                    return false;
+                }
+            };
+
+        });
+</script>
+
+</div>
+{/if}

@@ -1,0 +1,755 @@
+<!--模板开始-->
+<style type="text/css">
+
+    .showwords
+    {
+        font-size: 25px;
+        color: black;
+        letter-spacing: 5px;
+        position: absolute;
+        font-weight: bold;
+        z-index: 1;
+        top: 95%;
+        margin: -39px;
+        left: 39px;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        text-shadow: 2px 2px 20px white, -2px -2px 20px white, -2px 2px 20px white, 2px -2px 20px white;
+        /*background-color: rgba(255, 255, 255, 0.4);*/
+    }
+
+    *
+    {
+        padding: 0px;
+        margin: 0px;
+        -webkit-box-sizing: border-box;
+    }
+
+    body
+    {
+        background-color: black;
+    }
+
+    #container
+    {
+        width: 500px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+    }
+    #container > img
+    {
+        position: absolute;
+    }
+    .shang
+    {
+        position: absolute;
+        top: 0px;
+    }
+    .xia
+    {
+        position: absolute;
+        top: 405px;
+    }
+    .guang1
+    {
+        position: absolute;
+        top: 0px;
+        opacity: 0;
+        -webkit-animation: fadeing 1.2s linear infinite;
+    }
+    .guang2
+    {
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        -webkit-transform: scale(-1,1);
+        -webkit-animation: fadeing 1.2s 0.6s linear infinite;
+    }
+    .circle1
+    {
+        left: 1px;
+        top: 40px;
+        -webkit-animation: circleing 2s linear infinite alternate;
+    }
+    .circle2
+    {
+        left: 47px;
+        top: 19px;
+        -webkit-animation: circleing1 2s linear infinite alternate;
+    }
+    .circle3
+    {
+        left: 96px;
+        top: 47px;
+        -webkit-animation: circleing 2s linear infinite alternate;
+    }
+    .circle4
+    {
+        left: 135px;
+        top: 27px;
+        -webkit-animation: circleing1 2s linear infinite alternate;
+    }
+    .word1
+    {
+        background-image: url({$skinurl}skin/xialiang/word.png);
+        width: 35px;
+        height: 50px;
+        background-position: 0px 0px;
+        position: absolute;
+        top: 49px;
+        left: 20px;
+        -webkit-animation: xia 2s linear infinite alternate;
+    }
+    .word2
+    {
+        background-image: url({$skinurl}skin/xialiang/word.png);
+        width: 35px;
+        height: 26px;
+        background-position: -49px 0px;
+        position: absolute;
+        top: 35px;
+        left: 66px;
+        -webkit-animation: zhi 2s linear infinite alternate;
+    }
+    .word3
+    {
+        background-image: url({$skinurl}skin/xialiang/word.png);
+        width: 35px;
+        height: 50px;
+        background-position: -98px -13px;
+        position: absolute;
+        top: 55px;
+        left: 113px;
+        -webkit-animation: qing 2s linear infinite alternate;
+    }
+    .word4
+    {
+        background-image: url({$skinurl}skin/xialiang/word.png);
+        width: 35px;
+        height: 50px;
+        background-position: 33px 0px;
+        position: absolute;
+        top: 43px;
+        left: 150px;
+        -webkit-animation: liang 2s linear infinite alternate;
+    }
+</style>
+<style type="text/css">
+    @-webkit-keyframes fadeing
+    {
+        0%  {opacity: 0}
+        20% {opacity: 1}
+        50% {opacity: 0}
+        100%{opacity: 0}
+    }
+    @-webkit-keyframes circleing
+    {
+        from  {-webkit-transfrom: scale(1);}
+        to    {-webkit-transform: scale(0.85);}
+    }
+    @-webkit-keyframes circleing1
+    {
+        from  {-webkit-transform: scale(0.7);}
+        to    {-webkit-transform: scale(0.85);}
+    }
+    @-webkit-keyframes xia
+    {
+        from  {-webkit-transform: rotate(0deg);}
+        to    {-webkit-transform: rotate(5deg);}
+    }
+    @-webkit-keyframes zhi
+    {
+        from  {-webkit-transform: rotate(-20deg);}
+        to    {-webkit-transform: rotate(20deg);}
+    }
+    @-webkit-keyframes qing
+    {
+        from  {-webkit-transform: rotate(0deg);}
+        to    {-webkit-transform: rotate(20deg);}
+    }
+    @-webkit-keyframes liang
+    {
+        from  {-webkit-transform: rotate(20deg);}
+        to    {-webkti-transform: rotate(-20deg);}
+    }
+    .flower1
+    {
+        left: 120px;
+        top: -30px;
+        position: absolute;
+        -webkit-animation: flower1 15s linear infinite;
+    }
+    .flower2
+    {
+        left: 20px;
+        top: -30px;
+        position: absolute;
+        -webkit-animation: flower1 30s 3s linear infinite;
+    }
+    .flower3
+    {
+        left: 80px;
+        top: -30px;
+        position: absolute;
+        -webkit-animation: flower1 24s 8s linear infinite;
+    }
+    .flowerin1
+    {
+        width: 20px;
+        position: absolute;
+        -webkit-animation: flower1r 10s linear infinite;
+
+    }
+    .flowerying1
+    {
+        width: 20px;
+        position: absolute;
+        -webkit-animation: flower1r 15s linear infinite;
+        top: 6px;
+        left: 3px;
+        opacity: 0.5;
+    }
+    .flowerout1
+    {
+        position: absolute;
+        -webkit-animation: flowerin1 3s ease-in-out infinite alternate;
+    }
+    @-webkit-keyframes flowerin1
+    {
+        from  {-webkit-transform: translate(0px,0px);}
+        to    {-webkit-transform: translate(30px,0px);}
+    }
+    @-webkit-keyframes flower1
+    {
+        from  {-webkit-transform: translate(0px,0px);}
+        to    {-webkit-transform: translate(0px,850px);}
+    }
+    @-webkit-keyframes flower1r
+    {
+        from  {-webkit-transform: rotate(0deg);}
+        to    {-webkit-transform: rotate(360deg);}
+    }
+    .title
+    {
+        left: 0px;
+        top: 0px;
+    }
+    @-webkit-keyframes title_in
+    {
+        0%  {-webkit-transform: translate(-100px,0px);-webkit-animation-timing-function: ease-out;}
+        50%    {-webkit-transform: translate(50px,0px);-webkit-animation-timing-function: ease-in;}
+        100%    {-webkit-transform: translate(-50px,0px);}
+    }
+    @-webkit-keyframes title_out
+    {
+        0%  {-webkit-transform: translate(0px,400px);opacity: 0;-webkit-animation-timing-function: cubic-bezier(.37,.49,.57,.8);}
+        50% {-webkit-transform: translate(0px,0px);opacity: 1;-webkit-animation-timing-function:cubic-bezier(.31,.2,.69,.53);}
+        100%{-webkit-transform: translate(0px,-400px);opacity: 1}
+    }
+    .divv
+    {
+        width: 350px;
+        height: 530px;
+        left: 78px;
+        top: 144px;
+        background-color: gray;
+        border: 5px solid #fff;
+        position: absolute;
+        box-shadow: 15px 16px 3px rgba(91, 107, 17, 0.5);
+        opacity: 0;
+        overflow: hidden;
+    }
+    .divh
+    {
+        width: 490px;
+        height: 348px;
+        left: 8px;
+        top: 200px;
+        background-color: gray;
+        border: 5px solid #fff;
+        position: absolute;
+        box-shadow: 15px 16px 3px rgba(91, 107, 17, 0.5);
+        opacity: 0;
+        overflow: hidden;
+
+    }
+    #divbox1,#divbox2
+    {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        /*opacity: 0;*/
+    }
+    @-webkit-keyframes divhup
+    {
+        from  {-webkit-transform: translate(0px,100px);}
+        to    {-webkit-transform: translate(0px,-100px);}
+    }
+    @-webkit-keyframes divhmove
+    {
+        0%   {-webkit-transform: translate(-40px,200px);}
+        40%  {-webkit-transform: translate(-100px,20px);}
+        100% {-webkit-transform: translate(0px,0px);}
+    }
+    @-webkit-keyframes div1
+    {
+        0%      {-webkit-transform: translate(93px,509px);opacity: 0;}
+        13.8%   {-webkit-transform: translate(-36px,395px);opacity: 0.5}
+        19.6%   {-webkit-transform: translate(-63px,314px);opacity: 1;}
+        25.3%   {-webkit-transform: translate(-74px,230px);}
+        30.7%   {-webkit-transform: translate(-40px,155px);}
+        35.9%   {-webkit-transform: translate(-5px,90px);}
+        63.7%   {-webkit-transform: translate(5px,-26px);}
+        /*71.9%   {-webkit-transform: translate(-15px,-101px);}*/
+        68%   {-webkit-transform: translate(-15px,-101px);opacity: 1;}
+        /*  73.5%   {-webkit-transform: translate(-50px,-170px);}
+          80.2%   {-webkit-transform: translate(-155px,-374px);}*/
+        85%    {-webkit-transform: translate(-201px,-458px);opacity: 0.5}
+        100%    {-webkit-transform: translate(-201px,-458px);opacity: 0;}
+    }
+    @-webkit-keyframes div2
+    {
+        0%    {-webkit-transform: translate(-2px,584px);opacity: 0}
+        12.8% {-webkit-transform: translate(-73px,511px);opacity: 0.5}
+        18.9% {-webkit-transform: translate(-103px,439px);opacity: 1}
+        25.4% {-webkit-transform: translate(-79px,352px);}
+        31.6% {-webkit-transform: translate(-40px,280px);}
+        36.9% {-webkit-transform: translate(7px,220px);}
+        42.8% {-webkit-transform: translate(52px,153px);}
+        48%   {-webkit-transform: translate(63px,93px);}
+        67.2% {-webkit-transform: translate(68px,-26px);}
+        73.3% {-webkit-transform: translate(52px,-100px);}
+        78%   {-webkit-transform: translate(12px,-176px);}
+        83.1% {-webkit-transform: translate(-23px,-248px);opacity: 1}
+        88.4% {-webkit-transform: translate(-48px,-323px);opacity: 0.5}
+        100%  {-webkit-transform: translate(-68px,-563px);opacity: 0}
+    }
+    .imgp
+    {
+        position: absolute;
+    }
+</style>
+
+<div id='container'>
+    <img src='{$skinurl}skin/xialiang/bg.jpg'>
+
+    <div id='div1h' class='divh'>
+        <img id='img1h' class='imgp'>
+        <span id='word1h' class='showwords'></span>
+    </div>
+    <div id='div2h' class='divh'>
+        <img id='img2h' class='imgp'>
+        <span id='word2h' class='showwords'></span>
+    </div>
+    <div id='div1v' class='divv'>
+        <img id='img1v' class='imgp'>
+        <span id='word1v' class='showwords'></span>
+    </div>
+    <div id='div2v' class='divv'>
+        <img id='img2v' class='imgp'>
+        <span id='word2v' class='showwords'></span>
+    </div>
+
+    <div id='titleout' style='position:absolute;opacity:0;'>
+        <div id='pagetitle' style='position:absolute;width:349px;height:454px;top:250px;left:75px;'>
+            <img src='{$skinurl}skin/xialiang/title.png'>
+            <div style='position:absolute;width:256px;height:105px;top:61px;left:46px;overflow:hidden;display:table'>
+                <div id='titlecontent' style='width:256px;height:105px;vertical-align:middle;display:table-cell;text-align:center;font-size:25px;line-height:40px;color:#687C15;'></div>
+            </div>
+        </div>
+    </div>
+
+    <img class='shang' src='{$skinurl}skin/xialiang/shangtiao.png'>
+    <img class='xia' src='{$skinurl}skin/xialiang/dizi.png'>
+    <img class='guang1' src='{$skinurl}skin/xialiang/dian.png'>
+    <img class='guang2' src='{$skinurl}skin/xialiang/dian.png'>
+
+
+    <img class='circle1' src='{$skinurl}skin/xialiang/circle.png'>
+    <img class='circle2' src='{$skinurl}skin/xialiang/circle.png'>
+    <img class='circle3' src='{$skinurl}skin/xialiang/circle.png'>
+    <img class='circle4' src='{$skinurl}skin/xialiang/circle.png'>
+    <div class='word1'></div>
+    <div class='word2'></div>
+    <div class='word3'></div>
+    <div class='word4'></div>
+
+    <div class='flower1'>
+        <div class='flowerout1'>
+            <img class='flowerying1' width='25' src='{$skinurl}skin/xialiang/yinying.png'>
+        </div>
+        <div class='flowerout1'>
+            <img class='flowerin1' width='25' src='{$skinurl}skin/xialiang/flower.png'>
+        </div>
+    </div>
+
+
+    <div class='flower2'>
+        <div class='flowerout1' style='-webkit-animation: flowerin1 5s ease-in-out infinite alternate;'>
+            <img class='flowerying1' width='25' src='{$skinurl}skin/xialiang/yinying.png'>
+        </div>
+        <div class='flowerout1' style='-webkit-animation: flowerin1 5s ease-in-out infinite alternate;'>
+            <img class='flowerin1' width='25' src='{$skinurl}skin/xialiang/flower.png'>
+        </div>
+    </div>
+
+    <div class='flower3'>
+        <div class='flowerout1'>
+            <img class='flowerying1' width='25' src='{$skinurl}skin/xialiang/yinying.png'>
+        </div>
+        <div class='flowerout1'>
+            <img class='flowerin1' width='25' src='{$skinurl}skin/xialiang/flower.png'>
+        </div>
+    </div>
+</div>
+<script>
+    function id(name)
+    {
+        return document.getElementById(name)
+    }
+
+    function showtitle()
+    {
+        id('titlecontent').innerHTML = e_title;
+        id('titleout').style.webkitAnimation = 'title_out 8s linear both';
+        id('pagetitle').style.webkitAnimation = 'title_in 8s linear both';
+
+        // setTimeout(show1,5000);
+    }
+
+    function show1()
+    {
+        // id('divbox1').style.webkitAnimation = 'divhup 10s linear both';
+        setImage('1');
+
+        id('div1h').style.webkitAnimation = '';
+        id('div1v').style.webkitAnimation = '';
+        timeout3 = setTimeout(function()
+        {
+            id('div1h').style.webkitAnimation = 'div1 10s linear both';
+            id('div1v').style.webkitAnimation = 'div2 10s linear both';
+        },100)
+
+        timeout1 = setTimeout(show2,7000)
+    }
+    function show2()
+    {
+        setImage('2');
+
+        id('div2h').style.webkitAnimation = '';
+        id('div2v').style.webkitAnimation = '';
+        timeout4 = setTimeout(function()
+        {
+            id('div2h').style.webkitAnimation = 'div1 10s linear both';
+            id('div2v').style.webkitAnimation = 'div2 10s linear both';
+        },100)
+
+        timeout2 = setTimeout(show1,7000)
+    }
+
+
+    call_me(load_images);
+    var image_size_width=[];
+    var image_size_height=[];
+    var image_url_index=0;
+    var have_num = 0;
+    var error_num = 0;
+    var canshow = true;
+    var reshow = false;
+    var delaytime=5000;
+
+    var timeout0;
+    var timeout1;
+    var timeout2;
+    var timeout3;
+    var timeout4;
+
+    function load_images()
+    {
+        reshow = false;
+        image_size_width=[];
+        image_size_height=[];
+        Onload_imgs_url=[];
+        image_url_index=0;
+        have_num = 0;
+        error_num = 0;
+        begin_titletime = new Date();
+        begin_titletime = begin_titletime.getTime();
+        canshow = true;
+        showtitle();
+
+        bl_keepload = 'first';
+        step_load();
+
+    }
+    //每次执行加载后5张图片
+    var bl_keepload = 'first';
+    var step_loadnum = 5;
+    function step_load()
+    {
+        var load_num = 0
+        //初步加载X张
+        if(image_url_index  == 0 && bl_keepload == 'first')
+        {
+            // console.log('loading continue');
+            if(slider_images_url.length > step_loadnum)
+            {
+                load_num = step_loadnum;
+                bl_keepload = 'next';
+            }
+            else
+            {
+                load_num = slider_images_url.length;
+                bl_keepload = 'end';
+            }
+            for(var i = 0; i< load_num; i++)
+            {
+                var img=new Image();
+                img.index=i;
+                img.src=slider_images_url[i];
+                img.onload=image_onload;
+                img.onerror= image_onerror;
+                Onload_imgs_url[i] = 'loading';
+            }
+        }
+        else if(bl_keepload == 'end')
+        {
+            return;
+        }
+        else
+        {
+            // console.log('loading continue');
+            if(slider_images_url.length - image_url_index >step_loadnum*2)
+            {
+                load_num = step_loadnum;
+            }
+            else
+            {
+                load_num = slider_images_url.length - image_url_index - step_loadnum;
+                bl_keepload = 'end';
+            }
+            for(var i = image_url_index +step_loadnum; i< image_url_index + step_loadnum + load_num; i++)
+            {
+                var img=new Image();
+                img.index=i;
+                img.src=slider_images_url[i];
+                img.onload=image_onload;
+                img.onerror= image_onerror;
+                Onload_imgs_url[i] = 'loading';
+            }
+        }
+
+    }
+    function image_onerror(event)
+    {
+        var img = event.target;
+        var index = img.index;
+        if(index<step_loadnum)
+            error_num ++;
+        Onload_imgs_url[index] = 'not find';
+        // console.log(Onload_imgs_url[index]);
+        // console.log(have_num + '-' + error_num);
+        if((have_num+error_num >= step_loadnum || slider_images_url.length == (have_num+error_num)) && canshow == true)
+        {
+            reshow = false;
+            canshow =false;
+            if(have_num == 0)
+                return;
+            var end_titletime = new Date();
+            end_titletime = end_titletime.getTime();
+            var dis_titletime = Math.abs(end_titletime-begin_titletime);
+            if(dis_titletime>delaytime)
+            {
+                show1();
+            }
+            else
+            {
+                dis_titletime = delaytime- dis_titletime;
+                timeout0 = setTimeout(function()
+                {
+                    show1();
+                },dis_titletime);
+            }
+        }
+    }
+
+    function image_onload(event)
+    {
+        if(reshow == true)
+            return;
+
+        var img = event.target;
+        var index = img.index;
+
+        if(index<step_loadnum)
+        {
+            have_num++;
+        }
+        Onload_imgs_url[index] = img.src;
+        image_size_height[index] = img.height;
+        image_size_width[index] = img.width;
+
+        // console.log(Onload_imgs_url[index]);
+        // console.log(have_num + '-' + error_num);
+
+        if((have_num + error_num >= step_loadnum ||slider_images_url.length == (have_num+error_num)) && canshow == true)
+        {
+            reshow = false;
+            canshow =false;
+            if(have_num == 0)
+                return;
+            var end_titletime = new Date();
+            end_titletime = end_titletime.getTime();
+            var dis_titletime = Math.abs(end_titletime-begin_titletime);
+            if(dis_titletime>delaytime)
+            {
+                show1();
+            }
+            else
+            {
+                dis_titletime = delaytime- dis_titletime;
+                timeout0 = setTimeout(function()
+                {
+                    show1();
+                },dis_titletime);
+            }
+
+        }
+
+    }
+
+    function setImage(idname)
+    {
+        if(reshow == true)
+            return;
+
+        while(Onload_imgs_url[image_url_index] == 'not find' || Onload_imgs_url[image_url_index] == 'loading')
+        {
+            // console.log(Onload_imgs_url[image_url_index]);
+            if(image_url_index % step_loadnum == 0)
+            {
+                step_load();
+            }
+            image_url_index++;
+            if(image_url_index == Onload_imgs_url.length)
+                image_url_index = 0;
+        }
+
+        if(image_url_index % step_loadnum == 0)
+        {
+            step_load();
+        }
+        // console.log('setimg:' + Onload_imgs_url[image_url_index]);
+
+        var img_bili = image_size_width[image_url_index]/image_size_height[image_url_index];
+        var div;
+        var div1;
+        var divname;
+
+        if(img_bili > 1)
+        {
+            divname = idname + 'h';
+            div = id('div'+idname+'h');
+            div1 = id('div'+idname+'v');
+            width = 490;
+            height = 348;
+        }
+        else
+        {
+            divname = idname + 'v';
+            div = id('div'+idname+'v');
+            div1 = id('div'+idname+'h');
+            width = 350;
+            height = 530;
+        }
+
+        div.style.display = 'block';
+        div1.style.display = 'none';
+
+        var img = id('img'+divname);
+        img.src = Onload_imgs_url[image_url_index];
+
+        var word = id('word'+divname);
+        var word_string = words[get_pid(Onload_imgs_url[image_url_index])];
+        if(word_string!= undefined)
+        {
+            word_string = word_string.replace(/[\n]/ig,'');
+
+            var word_length = word_string.length;
+            // console.log(word_string);
+            word.style.top = "93%";
+            if(word_length <= 5)
+            {
+                word.style.fontSize = "27px";
+            }else {
+                word.style.fontSize = "24px";
+                if(word_length > 10)
+                {
+                    word_string = insertEnter(word_string, 5);
+                    word.style.top = "88%";
+                }
+            }
+            word.innerText = word_string;
+        }
+        else
+            word.innerText = "";
+
+        if(img_bili > (width/height))
+        {
+            img.style.top = '0px';
+            img.style.height = height + 'px';
+            img.style.width = height*img_bili + 'px';
+            img.style.left = -((height*img_bili-width)/2)+'px';
+        }
+        else
+        {
+            img.style.left = '0px';
+            img.style.width = width+'px';
+            img.style.height = width/img_bili + 'px';
+            img.style.top = -((width/img_bili-height)/2) + 'px';
+        }
+
+        image_url_index++;
+        if(image_url_index==Onload_imgs_url.length)
+            image_url_index = 0;
+    }
+
+    function insertEnter(str,n){
+        var len = str.length;
+        var strTemp = '';
+        if(len > n){
+            strTemp = str.substring(0,n);
+            str = str.substring(n,len);
+            return strTemp+'\n'+str;
+        }else{
+            return str;
+        }
+    }
+    function reload_scene()
+    {
+        clearnode();
+        reshow = true;
+        setTimeout(load_images,100);
+    }
+
+    function clearnode()
+    {
+        id('titleout').style.webkitAnimation = '';
+        id('pagetitle').style.webkitAnimation = '';
+        id('div1h').style.webkitAnimation = '';
+        id('div1v').style.webkitAnimation = '';
+        id('div2h').style.webkitAnimation = '';
+        id('div2v').style.webkitAnimation = '';
+
+        clearTimeout(timeout0);
+        clearTimeout(timeout1);
+        clearTimeout(timeout2);
+        clearTimeout(timeout3);
+        clearTimeout(timeout4);
+
+    }
+</script>
+<!-- 模板结束 -->

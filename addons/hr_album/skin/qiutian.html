@@ -1,0 +1,1151 @@
+<!--模板开始-->
+<style type="text/css">
+    * {
+        padding: 0px;
+        margin: 0px;
+        -webkit-box-sizing: border-box
+    }
+
+    body {
+        background-color: white
+    }
+
+    #container {
+        position: relative;
+        width: 500px;
+        height: 815px;
+        overflow: hidden;
+    }
+    #container > img,#container > div {
+        position: absolute;
+    }
+
+    #bg1 {
+        opacity: 0;
+    }
+
+    #fengzheng {
+        position: absolute;
+        top: 10px;
+        left: 200px;
+        opacity: 0;
+    }
+    #qiqiu {
+        position: absolute;
+        top: 570px;
+        left: 0px;
+        opacity: 0;
+    }
+
+    #shan {
+        position: absolute;
+        top: 605px;
+        left: 0px;
+        opacity: 0;
+    }
+
+    #huli {
+        position: absolute;
+        top: 750px;
+        left: 362px;
+        opacity: 0;
+    }
+    #niao {
+        position: absolute;
+        top: 677px;
+        left: 300px;
+        opacity: 0;
+    }
+    #niao_img {
+    }
+    #guo {
+        position: absolute;
+        top: 200px;
+        left: 430px;
+        opacity: 0;
+    }
+    #qiu {
+        position: absolute;
+        top: 510px;
+        left: 0px;
+    }
+    #fengye1 {
+        position: absolute;
+        top: 440px;
+        left: 367px;
+        -webkit-transform: rotate(-135deg);
+        opacity: 0;
+    }
+
+    #fengye2 {
+        position: absolute;
+        top: -100px;
+        left: 30px;
+    }
+
+    #pagetitle {
+        position:absolute;
+        width:406px;
+        height:166px;
+        top: 300px;
+        left: 47px;
+        opacity:0;
+    }
+
+    .titletable {
+        position: absolute;
+        width: 240px;
+        height: 150px;
+        top: 2px;
+        left: 50px;
+        display: table;
+    }
+
+    #titlecontent {
+        vertical-align:middle;
+        display:table-cell;
+        text-align:center;
+        font-size:22px;
+        line-height:33px;
+        color:#E17B29;
+    }
+
+    #yezi1 {
+        position: absolute;
+        top: -50px;
+        left: 200px;
+    }
+    #yezi2 {
+        position: absolute;
+        top: -50px;
+        left: 400px;
+    }
+
+    #yezi3 {
+        position: absolute;
+        top: 200px;
+        right: -50px;
+    }
+
+
+    #bg2 {
+        opacity: 0;
+    }
+
+    #shuzhi1 {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        opacity: 0;
+    }
+    #shuzhi2 {
+        position: absolute;
+        top: 690px;
+        left: 0px;
+        opacity: 0;
+    }
+    #fengye3 {
+        position: absolute;
+        top: 100px;
+        left: 30px;
+        opacity: 0;
+    }
+    #fengye4 {
+        position: absolute;
+        top: 350px;
+        left: 100px;
+        opacity: 0;
+    }
+    #fengye5 {
+        position: absolute;
+        top: 600px;
+        right: 100px;
+        opacity: 0;
+    }
+    #fengye3_img {
+        -webkit-transform-origin: left;
+        -webkit-animation: fengye3_img 3s linear infinite alternate both;
+
+    }
+    #fengye4_img {
+        -webkit-transform-origin: left;
+        -webkit-animation: fengye3_img 3s linear infinite alternate both;
+    }
+    #fengye5_img {
+        -webkit-transform-origin: right;
+        -webkit-animation: fengye5_img 3s linear infinite alternate both;
+    }
+
+    #bg3 {
+        opacity: 0;
+    }
+    #bg3_bian {
+        opacity: 0;
+    }
+    #jinqiu {
+        position: absolute;
+        top: 690px;
+        right: 55px;
+        opacity: 0;
+    }
+
+    .page_ctn {
+        position: absolute;
+        opacity: 0;
+    }
+    .page {
+        position: absolute;
+        opacity: 0;
+    }
+    .showwords {
+        font-size: 20px;
+        color: white;
+        position: absolute;
+        z-index: 1;
+        /*bottom: 20px;*/
+        /*left: 15%;*/
+        left: 47px;
+        /*width: 70%;*/
+        line-height: 40px;
+        text-align: center;
+        text-shadow: 1px 1px 2px #000;
+        letter-spacing: 2px;
+        opacity: 0;
+    }
+
+    #word1 {
+        position: absolute;
+        top: 600px;
+        left: 50px;
+        width: 405px;
+        height: 40px;
+        background-image: url({$skinurl}skin/qiutian/word1.png);
+        background-size: 100% 100%;
+    }
+    #word2 {
+        position: absolute;
+        top: 600px;
+        left: 50px;
+        width: 405px;
+        height: 40px;
+        background-image: url({$skinurl}skin/qiutian/word2.png);
+        background-size: 100% 100%;
+    }
+    #word4 {
+        position: absolute;
+        top: 600px;
+        left: 50px;
+        width: 405px;
+        height: 40px;
+        background-image: url({$skinurl}skin/qiutian/word4.png);
+        background-size: 100% 100%;
+    }
+
+
+</style>
+<style type="text/css">
+    @-webkit-keyframes page2
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: translateX(-100px);
+        }
+        6%  {
+            opacity: 1;
+            -webkit-transform: translateX(20px);
+        }
+        10%  {
+            -webkit-transform: translateX(0px);
+        }
+        64%  {
+            -webkit-transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+        }
+    }
+    @-webkit-keyframes word2
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: translateX(100px);
+        }
+        63%  {
+            -webkit-transform: translateX(-20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateX(0px);
+        }
+    }
+    @-webkit-keyframes page4
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: scale(.6);
+        }
+        7%  {
+            opacity: 1;
+            -webkit-transform: scale(1);
+        }
+        11%  {
+            -webkit-transform: scale(.95);
+        }
+        59%  {
+            -webkit-transform: scale(1);
+        }
+        90% {
+            opacity: 1;
+            -webkit-transform: scale(.98);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: scale(.98);
+        }
+    }
+    @-webkit-keyframes word4
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: scale(.95);
+        }
+        67%  {
+            opacity: 1;
+            -webkit-transform: scale(1);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: scale(.95);
+        }
+    }
+    @-webkit-keyframes page1
+    {
+        0%  {
+            opacity: 0;
+        }
+        13%  {
+            opacity: 1;
+        }
+        55%  {
+            -webkit-transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+        }
+    }
+    @-webkit-keyframes word1
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+        }
+    }
+    @-webkit-keyframes page1_line1
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: translate(100px,-100px);
+        }
+        90% {
+            opacity: 1;
+            -webkit-transform: translate(0px);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: translate(0px);
+        }
+    }
+    @-webkit-keyframes page1_line2
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: translate(-100px,100px);
+        }
+        90% {
+            opacity: 1;
+            -webkit-transform: translate(0px);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: translate(0px);
+        }
+    }
+
+    @-webkit-keyframes fadein
+    {
+        0%  {opacity: 0}
+        100%    {opacity: 1}
+    }
+    @-webkit-keyframes fadeout
+    {
+        from  {opacity: 1}
+        to    {opacity: 0}
+    }
+
+    @-webkit-keyframes bg1in
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: scale(1.2);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: scale(1);
+        }
+    }
+
+    @-webkit-keyframes fengzhengin
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: translate(-130px,100px);
+        }
+        11% {
+            opacity: 1;
+            -webkit-transform: translate(0px,0px);
+        }
+        56% {
+            -webkit-transform: translate(-20px,20px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translate(0px,0px);
+        }
+    }
+    @-webkit-keyframes qiqiuin
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: translateY(50px);
+        }
+        8% {
+            opacity: 1;
+            -webkit-transform: translateY(20px);
+        }
+        38% {
+            -webkit-transform: translateY(0px);
+        }
+        65% {
+            -webkit-transform: translateY(20px);
+        }
+        83% {
+            -webkit-transform: translateY(0px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(20px);
+        }
+    }
+    @-webkit-keyframes shanin
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: translateY(50px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+        }
+    }
+    @-webkit-keyframes guoin
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: translateY(-50px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+        }
+    }
+
+    @-webkit-keyframes qiuin
+    {
+        0%  {
+            -webkit-transform: translateY(0px);
+        }
+        52%  {
+            -webkit-transform: translateY(20px);
+        }
+        100% {
+            -webkit-transform: translateY(0px);
+        }
+    }
+    @-webkit-keyframes fengye1
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: translateY(0px) rotate(-135deg);
+        }
+        1% {
+            opacity: 1;
+        }
+        39%  {
+            -webkit-transform: translateY(400px) rotate(0deg);
+            opacity: 1;
+        }
+        40%  {
+            -webkit-transform: translateY(400px);
+            opacity: 0;
+        }
+        41%  {
+            opacity: 0;
+            -webkit-transform: translateY(-500px) rotate(0deg);
+        }
+        42%  {
+            opacity: 1;
+            -webkit-transform: translateY(-500px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0px) rotate(-135deg);
+        }
+    }
+    @-webkit-keyframes fengye2
+    {
+        0%  {
+            -webkit-transform: translateY(0px) rotate(0deg);
+        }
+        95% {
+            opacity: 1;
+
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: translateY(650px) rotate(135deg);
+        }
+    }
+
+    @-webkit-keyframes niao_imgin
+    {
+        0%  {
+            -webkit-transform: translateY(0px);
+        }
+        6%  {
+            -webkit-transform: translateY(-5px);
+        }
+        13%  {
+            -webkit-transform: translateY(0px);
+        }
+        17%  {
+            -webkit-transform: translateY(0px);
+        }
+        20%  {
+            -webkit-transform: translateY(-5px);
+        }
+        27% {
+            -webkit-transform: translateY(0px);
+        }
+        100% {
+            -webkit-transform: translateY(0px);
+        }
+    }
+    @-webkit-keyframes titlein
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: scale(.8);
+        }
+        17%  {
+            opacity: 1;
+            -webkit-transform: scale(1);
+        }
+        50%  {
+            -webkit-transform: scale(1) translateY(20px);
+        }
+        83%  {
+            -webkit-transform: scale(1) translateY(0px);
+        }
+        98%  {
+            -webkit-transform: scale(1,0.05);
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: scale(1.5,0.05);
+        }
+    }
+    @-webkit-keyframes yezi1
+    {
+        0%  {
+            -webkit-transform: translate(0px,0px);
+        }
+        100% {
+            -webkit-transform: translate(-550px,500px);
+        }
+    }
+
+    @-webkit-keyframes bg3in
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: translateY(200px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+        }
+    }
+    @-webkit-keyframes bg3_bianin
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: scale(1.1);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: scale(1);
+        }
+    }
+
+    @-webkit-keyframes bg2in
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: translateY(700px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+        }
+    }
+    @-webkit-keyframes shuzhi1
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: translateY(-100px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+        }
+    }
+    @-webkit-keyframes shuzhi2
+    {
+        0%  {
+            opacity: 0;
+            -webkit-transform: translateY(100px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0px);
+        }
+    }
+    @-webkit-keyframes fengye3_img
+    {
+        0%  {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(-45deg);
+        }
+    }
+    @-webkit-keyframes fengye5_img
+    {
+        0%  {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(45deg);
+        }
+    }
+</style>
+
+
+<div id='container'>
+    <img id='bg1'  src="{$skinurl}skin/qiutian/bg.jpg"/>
+
+    <div id='page1' class='page'>
+    </div>
+    <div id='page1_line1' class='page_ctn'></div>
+    <div id='page1_line2' class='page_ctn'></div>
+    <div id='page1_ctn' class='page_ctn'></div>
+
+
+    <img id='fengzheng'  src="{$skinurl}skin/qiutian/fengzheng.png"/>
+    <img id='qiqiu'  src="{$skinurl}skin/qiutian/qiqiu.png"/>
+    <img id='shan'  src="{$skinurl}skin/qiutian/shan.png"/>
+    <img id='huli'  src="{$skinurl}skin/qiutian/huli.png"/>
+    <div id='niao'>
+        <img id='niao_img'  src="{$skinurl}skin/qiutian/niao.png"/>
+    </div>
+    <img id='guo'  src="{$skinurl}skin/qiutian/guo.png"/>
+    <img id='qiu'  src="{$skinurl}skin/qiutian/qiu.png"/>
+
+    <div id='pagetitle'>
+        <img src='{$skinurl}skin/qiutian/titie_bg.png'/>
+        <div class='titletable'>
+            <div id='titlecontent'>
+            </div>
+        </div>
+    </div>
+
+    <img id='fengye1'  src="{$skinurl}skin/qiutian/fengye.png"/>
+    <img id='fengye2'  src="{$skinurl}skin/qiutian/fengye.png"/>
+
+
+    <div id='word1' class='showwords'></div>
+
+
+    <img id='bg2'  src="{$skinurl}skin/qiutian/bg2.jpg"/>
+    <div id='fengye4'>
+        <img id='fengye4_img'  src="{$skinurl}skin/qiutian/fengye4.png"/>
+    </div>
+    <div id='page2' class='page'>
+    </div>
+    <div id='page2_ctn' class='page_ctn'></div>
+
+
+    <img id='shuzhi1'  src="{$skinurl}skin/qiutian/shuzhi1.png"/>
+    <img id='shuzhi2'  src="{$skinurl}skin/qiutian/shuzhi2.png"/>
+    <div id='fengye3'>
+        <img id='fengye3_img'  src="{$skinurl}skin/qiutian/fengye3.png"/>
+    </div>
+
+    <div id='fengye5'>
+        <img id='fengye5_img'  src="{$skinurl}skin/qiutian/fengye5.png"/>
+    </div>
+
+    <div id='word2' class='showwords'></div>
+
+
+    <img id='bg3'  src="{$skinurl}skin/qiutian/bg3.jpg"/>
+
+    <div id='page4' class='page'>
+    </div>
+    <div id='page4_ctn' class='page_ctn'></div>
+
+    <img id='bg3_bian'  src="{$skinurl}skin/qiutian/bg3_bian.png"/>
+    <img id='jinqiu'  src="{$skinurl}skin/qiutian/jinqiu.png"/>
+
+    <div id='word4' class='showwords'></div>
+
+    <img id='yezi1' src='{$skinurl}skin/qiutian/yezi.png'/>
+    <img id='yezi2' src='{$skinurl}skin/qiutian/yezi.png'/>
+    <img id='yezi3' src='{$skinurl}skin/qiutian/yezi.png'/>
+</div>
+
+<script>
+    var image_size_width=[];
+    var image_size_height=[];
+    var image_url_index=0;
+    var have_num = 0;
+    var error_num = 0;
+    var canshow = true;
+    var reshow = false;
+    var timeout = [];
+    var delaytime=4500;
+
+    var get_pid = function(url){
+        var index1 = url.indexOf("?");
+        if(index1 != -1)
+        {
+            url = url.substr(0, index1);
+        }
+        return url.toString().substr(url.lastIndexOf("/") + 1);
+    }
+
+    function id(name)
+    {
+        return document.getElementById(name);
+    }
+    function load_images()
+    {
+        reshow = false;
+        image_size_width=[];
+        image_size_height=[];
+        Onload_imgs_url=[];
+        image_url_index=0;
+        have_num = 0;
+        error_num = 0;
+        begin_titletime = new Date();
+        begin_titletime = begin_titletime.getTime();
+        showtitle();
+        canshow = true;
+        for(var i=0;i<slider_images_url.length;i++)
+        {
+            var img=new Image();
+            img.index=i;
+            img.src=slider_images_url[i];
+            img.onload=image_onload;
+            img.onerror= image_onerror;
+            Onload_imgs_url[i] = 'loading';
+        }
+    }
+
+    function image_onerror(event)
+    {
+        var img = event.target;
+        var index = img.index;
+        if(index<10)
+            error_num ++;
+        Onload_imgs_url[index] = 'not find';
+        console.log(Onload_imgs_url[index]);
+        console.log(have_num + '-' + error_num);
+        if((have_num+error_num >= 10 || slider_images_url.length == (have_num+error_num)) && canshow == true)
+        {
+            reshow = false;
+            canshow =false;
+            if(have_num == 0)
+                return;
+            var end_titletime = new Date();
+            end_titletime = end_titletime.getTime();
+            var dis_titletime = Math.abs(end_titletime-begin_titletime);
+            if(dis_titletime>delaytime)
+            {
+                kuxuan();
+            }
+            else
+            {
+                dis_titletime = delaytime- dis_titletime;
+                timeout[0] = setTimeout(function()
+                {
+                    kuxuan();
+                },dis_titletime);
+            }
+        }
+    }
+
+    function image_onload(event)
+    {
+        if(reshow == true)
+            return;
+
+        var img = event.target;
+        var index = img.index;
+
+        if(index<10)
+        {
+            have_num++;
+        }
+        Onload_imgs_url[index] = img.src;
+        image_size_height[index] = img.height;
+        image_size_width[index] = img.width;
+        if((have_num + error_num >= 10 ||slider_images_url.length == (have_num+error_num)) && canshow == true)
+        {
+            reshow = false;
+            canshow =false;
+            if(have_num == 0)
+                return;
+            var end_titletime = new Date();
+            end_titletime = end_titletime.getTime();
+            var dis_titletime = Math.abs(end_titletime-begin_titletime);
+            if(dis_titletime>delaytime)
+            {
+                kuxuan();
+            }
+            else
+            {
+                dis_titletime = delaytime- dis_titletime;
+                timeout[0] = setTimeout(function()
+                {
+                    kuxuan();
+                },dis_titletime);
+            }
+
+        }
+    }
+    function showtitle()
+    {
+
+        id('yezi1').style.webkitAnimation = 'yezi1  10s linear infinite both';
+        id('yezi2').style.webkitAnimation = 'yezi1  10s 1s linear infinite both';
+        id('yezi3').style.webkitAnimation = 'yezi1  10s 2s linear infinite both';
+        id('bg1').style.webkitAnimation = 'bg1in 0.8s linear both';
+        id('fengzheng').style.webkitAnimation = 'fengzhengin 6.3s 0.3s ease-out both';
+        id('qiqiu').style.webkitAnimation = 'qiqiuin 10.1s ease-out both';
+        id('shan').style.webkitAnimation = 'shanin 0.8s 0.3s ease-out both';
+        id('huli').style.webkitAnimation = 'fadein 0.5s 0.8s ease-out both';
+        id('niao').style.webkitAnimation = 'fadein 0.4s 1.1s ease-out both';
+        id('niao_img').style.webkitAnimation = 'niao_imgin 1.5s 1.5s step-start infinite both';
+        id('guo').style.webkitAnimation = 'guoin 0.9s ease-out both';
+        id('qiu').style.webkitAnimation = 'qiuin  5.8s 0.8s ease-out both';
+        id('fengye1').style.webkitAnimation = 'fengye1  10s 0.9s ease-out both';
+        id('fengye2').style.webkitAnimation = 'fengye2  10s 0.9s ease-out both';
+
+        id('pagetitle').style.webkitAnimation = 'titlein 4.6s ease-out both';
+
+        id('titlecontent').innerHTML = e_title
+
+    }
+
+    function kuxuan()
+    {
+        show1_1();
+    }
+
+    function show1_1()
+    {
+        setImage('1');
+
+        id('page1').style.webkitAnimation = 'page1 6s 0.9s cubic-bezier(.41,.6,.63,.99) both';
+        id('page1_ctn').style.webkitAnimation = 'page1 6s 0.9s cubic-bezier(.41,.6,.63,.99) both';
+        id('page1_line1').style.webkitAnimation = 'page1_line1 1s cubic-bezier(.41,.6,.63,.99) both';
+        id('page1_line2').style.webkitAnimation = 'page1_line2 1s cubic-bezier(.41,.6,.63,.99) both';
+
+        var word =  id('word1').innerText;
+        if (word !== '') {
+            id('word1').style.webkitAnimation = 'word1 0.6s 1.1s cubic-bezier(.41,.6,.63,.99) both';
+        };
+
+        timeout[1] = setTimeout(show2,6000);
+    }
+
+    function show1_2()
+    {
+        setImage('1');
+        id('bg2').style.webkitAnimation = '';
+        id('shuzhi1').style.webkitAnimation = '';
+        id('shuzhi2').style.webkitAnimation = '';
+        id('fengye3').style.webkitAnimation = '';
+        id('fengye4').style.webkitAnimation = '';
+        id('fengye5').style.webkitAnimation = '';
+
+        id('page2').style.webkitAnimation = '';
+        id('page2_ctn').style.webkitAnimation = '';
+
+        id('bg3').style.webkitAnimation = 'fadeout 0.5s ease-out both';
+        id('bg3_bian').style.webkitAnimation = 'fadeout 0.5s ease-out both';
+        id('jinqiu').style.webkitAnimation = 'fadeout 0.5s ease-out both';
+        id('word4').style.webkitAnimation = 'fadeout 0.5s ease-out both';
+
+
+
+        id('bg1').style.webkitAnimation = 'bg1in 0.8s linear both';
+        id('fengzheng').style.webkitAnimation = 'fengzhengin 6.3s 0.3s ease-out both';
+        id('qiqiu').style.webkitAnimation = 'qiqiuin 10.1s ease-out both';
+        id('shan').style.webkitAnimation = 'shanin 0.8s 0.3s ease-out both';
+        id('huli').style.webkitAnimation = 'fadein 0.5s 0.8s ease-out both';
+        id('niao').style.webkitAnimation = 'fadein 0.4s 1.1s ease-out both';
+        id('niao_img').style.webkitAnimation = 'niao_imgin 1.5s 1.5s step-start infinite both';
+        id('guo').style.webkitAnimation = 'guoin 0.9s ease-out both';
+        id('qiu').style.webkitAnimation = 'qiuin  5.8s 0.8s ease-out both';
+        id('fengye1').style.webkitAnimation = 'fengye1  10s 0.9s ease-out both';
+        id('fengye2').style.webkitAnimation = 'fengye2  10s 0.9s ease-out both';
+
+        id('page1').style.webkitAnimation = 'page1 6s 0.9s cubic-bezier(.41,.6,.63,.99) both';
+        id('page1_ctn').style.webkitAnimation = 'page1 6s 0.9s cubic-bezier(.41,.6,.63,.99) both';
+        id('page1_line1').style.webkitAnimation = 'page1_line1 1s cubic-bezier(.41,.6,.63,.99) both';
+        id('page1_line2').style.webkitAnimation = 'page1_line2 1s cubic-bezier(.41,.6,.63,.99) both';
+
+        var word =  id('word1').innerText;
+        if (word !== '') {
+            id('word1').style.webkitAnimation = 'word1 0.6s 1.1s cubic-bezier(.41,.6,.63,.99) both';
+        };
+
+        timeout[1] = setTimeout(show2,6000);
+    }
+
+    function show2()
+    {
+        setImage('2');
+        id('page4').style.webkitAnimation = '';
+        id('page4_ctn').style.webkitAnimation = '';
+        id('word1').style.webkitAnimation = 'fadeout 0.5s ease-out both';
+
+
+        id('bg2').style.webkitAnimation = 'bg2in 0.9s ease-out both';
+        id('shuzhi1').style.webkitAnimation = 'shuzhi1 0.6s 0.3s ease-out both';
+        id('shuzhi2').style.webkitAnimation = 'shuzhi2 0.6s 0.3s ease-out both';
+        id('fengye3').style.webkitAnimation = 'fadein 1s 1.5s ease-out both';
+        id('fengye4').style.webkitAnimation = 'fadein 1s 1.5s ease-out both';
+        id('fengye5').style.webkitAnimation = 'fadein 1s 1.5s ease-out both';
+
+        id('page2').style.webkitAnimation = 'page2 6s 0.4s cubic-bezier(.41,.6,.63,.99) both';
+        id('page2_ctn').style.webkitAnimation = 'page2 6s 0.4s cubic-bezier(.41,.6,.63,.99) both';
+
+        var word =  id('word2').innerText;
+        if (word !== '') {
+            id('word2').style.webkitAnimation = 'word2 0.6s 0.4s cubic-bezier(.41,.6,.63,.99) both';
+        };
+
+        timeout[2] = setTimeout(show3,6000);
+    }
+    function show3()
+    {
+        setImage('4');
+        id('bg1').style.webkitAnimation = '';
+        id('fengzheng').style.webkitAnimation = '';
+        id('qiqiu').style.webkitAnimation = '';
+        id('shan').style.webkitAnimation = '';
+        id('huli').style.webkitAnimation = '';
+        id('niao').style.webkitAnimation = '';
+        id('niao_img').style.webkitAnimation = '';
+        id('guo').style.webkitAnimation = '';
+        id('qiu').style.webkitAnimation = '';
+        id('fengye1').style.webkitAnimation = '';
+        id('fengye2').style.webkitAnimation = '';
+
+        id('page1').style.webkitAnimation = '';
+        id('page1_ctn').style.webkitAnimation = '';
+        id('page1_line1').style.webkitAnimation = '';
+        id('page1_line2').style.webkitAnimation = '';
+
+        id('word2').style.webkitAnimation = 'fadeout 0.5s ease-out both';
+
+        id('bg3').style.webkitAnimation = 'bg3in 0.8s ease-out both';
+        id('bg3_bian').style.webkitAnimation = 'bg3_bianin 0.8s ease-out both';
+        id('jinqiu').style.webkitAnimation = 'fadein 0.8s 0.2s ease-out both';
+
+        id('page4').style.webkitAnimation = 'page4 6s 0.4s cubic-bezier(.41,.6,.63,.99) both';
+        id('page4_ctn').style.webkitAnimation = 'page4 6s 0.4s cubic-bezier(.41,.6,.63,.99) both';
+        var word =  id('word4').innerText;
+        if (word !== '') {
+            id('word4').style.webkitAnimation = 'word4 0.6s 0.4s cubic-bezier(.41,.6,.63,.99) both';
+        };
+
+
+        timeout[3] = setTimeout(show1_2,6000);
+    }
+
+
+    function setImage(idname)
+    {
+        if(reshow == true)
+            return;
+
+        while(Onload_imgs_url[image_url_index] == 'not find' || Onload_imgs_url[image_url_index] == 'loading')
+        {
+            image_url_index++;
+            if(image_url_index == Onload_imgs_url.length)
+                image_url_index = 0;
+        }
+
+        var img_bili = image_size_width[image_url_index]/image_size_height[image_url_index];
+        var div;
+        var div_ctn;
+
+
+
+        div = id('page'+idname);
+        div_ctn = id('page'+idname + '_ctn');
+
+
+        if(img_bili < (380/600))
+        {
+            var height = 600;
+            var width = 600 * img_bili;
+            var top = 80;
+            var left = (500-width)/2;
+        }
+        else if(img_bili <= 1)
+        {
+            var width = 420;
+            var height = 420 / img_bili;
+            var left = 40;
+            var top = (740-height)/2
+        }
+        else if(img_bili > 1)
+        {
+            var width = 420;
+            var height = 420/img_bili;
+            var left = 40;
+            var top = (740-height)/2;
+        }
+        div.style.width = width + 'px';
+        div.style.height = height + 'px';
+        div.style.backgroundSize = (width) + 'px ' + (height) + 'px';
+        div.style.backgroundImage = 'url('+Onload_imgs_url[image_url_index]+')';
+        div.style.backgroundRepeat = 'no-repeat';
+        div.style.top = (top) + 'px';
+        div.style.left = (left) + 'px';
+
+        div_ctn.style.width = (width) + 'px';
+        div_ctn.style.height = (height) + 'px';
+        div_ctn.style.backgroundSize = (width) + 'px ' + (height) + 'px';
+        div_ctn.style.top = (top) + 'px';
+        div_ctn.style.left = (left) + 'px';
+        div_ctn.style.backgroundRepeat = 'no-repeat';
+        if(img_bili <= 1) {
+            div_ctn.style.backgroundImage = 'url({$skinurl}skin/qiutian/page_box_v.png)';
+        } else {
+            div_ctn.style.width = (width+2) + 'px';
+            div_ctn.style.backgroundSize = (width+2) + 'px ' + (height) + 'px';
+            div_ctn.style.backgroundImage = 'url({$skinurl}skin/qiutian/page_box_h.png)';
+        }
+
+        if (idname == '1') {
+            var div_ctn_linel = id('page1_line1');
+            var div_ctn_line2 = id('page1_line2');
+            div_ctn_linel.style.width = (width) + 'px';
+            div_ctn_linel.style.height = (height) + 'px';
+            div_ctn_linel.style.backgroundSize = (width) + 'px ' + (height) + 'px';
+            div_ctn_linel.style.top = (top) + 'px';
+            div_ctn_linel.style.left = (left) + 'px';
+            div_ctn_linel.style.backgroundRepeat = 'no-repeat';
+            if(img_bili <= 1) {
+                div_ctn_linel.style.backgroundImage = 'url({$skinurl}skin/qiutian/page_box_v.png)';
+            } else {
+                div_ctn_linel.style.width = (width+2) + 'px';
+                div_ctn_linel.style.backgroundSize = (width+2) + 'px ' + (height) + 'px';
+                div_ctn_linel.style.backgroundImage = 'url({$skinurl}skin/qiutian/page_box_h.png)';
+            }
+
+            div_ctn_line2.style.width = (width) + 'px';
+            div_ctn_line2.style.height = (height) + 'px';
+            div_ctn_line2.style.backgroundSize = (width) + 'px ' + (height) + 'px';
+            div_ctn_line2.style.top = (top) + 'px';
+            div_ctn_line2.style.left = (left) + 'px';
+            div_ctn_line2.style.backgroundRepeat = 'no-repeat';
+            if(img_bili <= 1) {
+                div_ctn_line2.style.backgroundImage = 'url({$skinurl}skin/qiutian/page_box_v.png)';
+            } else {
+                div_ctn_line2.style.width = (width+2) + 'px';
+                div_ctn_line2.style.backgroundSize = (width+2) + 'px ' + (height) + 'px';
+                div_ctn_line2.style.backgroundImage = 'url({$skinurl}skin/qiutian/page_box_h.png)';
+            }
+        };
+
+
+
+        var word = id('word'+idname);
+
+        var word_string = words[get_pid(Onload_imgs_url[image_url_index])];
+        if(word_string != undefined)
+        {
+            word_string = word_string.replace(/[\n]/ig,'');
+
+            word.innerText = word_string;
+        }
+        else
+        {
+            word.innerText = "";
+        }
+
+        image_url_index++;
+        if(image_url_index==Onload_imgs_url.length)
+            image_url_index = 0;
+    }
+
+    call_me(load_images);
+
+    function reload_scene()
+    {
+        clearnode();
+        reshow = true;
+        setTimeout(load_images,100);
+    }
+
+    function clearnode()
+    {
+        for(var i = 0; i<timeout.length; i++)
+        {
+            clearTimeout(timeout[i]);
+        }
+
+        var xinArr = ['pagetitle','bg1','bg2','bg3','fengzheng','qiqiu','shan','huli','niao','niao_img','guo','qiu','fengye1','fengye1','shuzhi1','shuzhi2','fengye3','fengye4','fengye5','page1','page2','page4','page1_ctn','page2_ctn','page4_ctn','bg3_bian','jinqiu','word1','word2','word4','yezi1','yezi2','yezi3'];
+
+        for(var i = 0 ;i < xinArr.length ;i++)
+        {
+            id(xinArr[i]).style.webkitAnimation = '';
+        }
+    }
+
+</script>
+<!--模板结束-->

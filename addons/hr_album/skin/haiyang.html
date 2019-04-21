@@ -1,0 +1,876 @@
+<!--模板开始-->
+<style type="text/css">
+		* {
+			padding: 0px;
+			margin: 0px;
+			-webkit-box-sizing: border-box
+		}
+
+		body {
+			background-color: white
+		}
+
+		#container {
+			position: relative;
+			width: 500px;
+    		height: 815px;
+			overflow: hidden;
+		}
+		#container > img,#container > div {
+			position: absolute;
+		}
+
+		img{ 
+			/*max-width: 100%;
+			height: auto;*/
+		}
+
+		#bg_middle {
+			top: 644px;
+		}
+
+		#bg_btm {
+			top: 691px;
+		}
+		
+		#ying1 {
+			opacity: 1;
+		}
+
+		#ying2 {
+			opacity: 0;
+		}
+
+		#yun1 {
+			top: -20px;
+			right: -300px;
+			-webkit-animation: yun1 6s linear infinite alternate;
+		}
+
+		#yun2 {
+			top: -30px;
+			left: -300px;
+			-webkit-animation: yun2 6s linear infinite alternate;
+		}
+
+		#pagetitle {
+			position:absolute;
+			width:300px;
+			height:220px;
+			top:280px;
+			left:110px;
+			opacity:0;
+		}
+
+		.titletable {
+		    position: absolute;
+		    width: 200px;
+		    height: 116px;
+		    top: 67px;
+		    left: 34px;
+		    display: table;
+		}
+
+		#titlecontent {
+			vertical-align:middle;
+			display:table-cell;
+			text-align:center;
+			font-size:20px;
+			line-height:30px;
+			color:#fff;
+		}
+
+		#tiao {
+			position: absolute;
+			top: -20px;
+			-webkit-transform-origin:left;
+			-webkit-transform: rotate(-26deg);
+		}
+
+		#chibang {
+			top: 216px;
+    		left: 356px;
+    		opacity: 0;
+    		-webkit-transform: rotate(75deg);
+		}
+
+		#titlecontent_bg {
+			position: absolute;
+		}
+
+		#xin1 {
+			top: 475px;
+    		left: 30px;
+		}
+
+		#banyuan {
+			top: 540px;
+    		right: -370px;
+		}
+
+		#xin2 {
+			top: 500px;
+    		right: -250px;
+		}
+
+		#haitun_ctn1 {
+			top: 525px;
+    		left: 160px;
+    		
+		}
+
+		#haitun1 {
+			position: absolute;
+		}
+
+		#tuizi {
+			position: absolute;
+			top: 85px;
+    		left: 90px;
+		}
+
+
+		#haitun_ctn2 {
+			top: 525px;
+    		right: -130px;
+    		/*-webkit-animation: haitun_ctn2 8s 3s linear both;*/
+		}
+
+		#haitun2 {
+			position: absolute;
+			/*-webkit-animation: haitun2 4s 3s infinite both;*/
+		}
+
+		#banbantang {
+		    top: 420px;
+    		right: -208px;
+		}
+
+		#div1h img,#div1v img,#div2h img,#div2v img{
+			position: absolute;
+		}
+		#div1h {
+			position: absolute;
+			top: 260px;
+			display: none;
+		}
+		#div1v {
+			position: absolute;
+			top: 100px;
+			left: 40px;
+			display: none;
+		}
+		#div2h {
+			position: absolute;
+			top: 210px;
+			right:0px;
+			display: none;
+
+		}
+		#div2v {
+			position: absolute;
+			top: 40px;
+			left: 40px;
+			display: none;
+		}
+
+		.divh {
+			position: absolute;
+		    left: 42px;
+		    top: 38px;
+		    width: 404px;
+		    height: 271px;
+		    overflow: hidden;
+		}
+		.divv {
+			position: absolute;
+		    left: 42px;
+		    top: 46px;
+		    width: 325px;
+		    height: 482px;
+		    overflow: hidden;
+		}
+
+		.slider_bg {
+
+		}
+
+		.showwords {
+		    font-size: 24px;
+		    color: white;
+		    position: absolute;
+		    z-index: 1;
+		    top: 68%;
+		    left: 10%;
+		    width: 80%;
+		    height: 35px;
+		    line-height: 35px;
+		    text-align: center;
+			text-shadow: 1px 1px 2px #000;
+		    letter-spacing: 2px;
+		} 
+
+
+
+	</style>
+	<style type="text/css">
+		
+		@-webkit-keyframes yun1 {
+			0%{
+				-webkit-transform: translate(0px,0px) ;
+			}
+			100%{
+				-webkit-transform: translate(-200px,0px);
+			}
+		}
+		@-webkit-keyframes yun2 {
+			0%{
+				-webkit-transform: translate(0px,0px) ;
+			}
+			100%{
+				-webkit-transform: translate(200px,0px);
+			}
+		}
+
+		@-webkit-keyframes titiein {
+			0%{
+				opacity: 1;
+				-webkit-transform: rotate(-8deg) translate(-600px,0px);
+			}
+			90%{
+				-webkit-transform: rotate(-8deg) translate(0px,0px);
+			}
+			100%{
+				opacity: 1;
+				-webkit-transform: rotate(-10deg) translate(0px,0px);
+			}
+		}
+
+		@-webkit-keyframes titieout {
+			0%{
+				opacity: 1;
+				-webkit-transform: rotate(-10deg) translate(0px,0px);
+			}
+			100%{
+				opacity: 1;
+				-webkit-transform: rotate(10deg) translate(600px,0px);
+			}
+		}
+		@-webkit-keyframes titlecontentin {
+			0%{
+				opacity: 0;
+				-webkit-clip-path: polygon(0 100%, 0 0, 0 0, 0 100%);
+			}
+			100%{
+				opacity: 1;
+				-webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
+			}
+		}
+
+		@-webkit-keyframes tiaodown {
+			0%{
+				-webkit-transform: rotate(-26deg);
+			}
+			15%{
+				-webkit-transform: rotate(-36deg);
+			}
+			100%{
+				-webkit-transform: rotate(0deg);
+			}
+		}
+		@-webkit-keyframes chibang {
+			0%{
+				-webkit-transform: rotate(75deg) scale(1,1) translate(0px,0px);
+				opacity: 0;
+			}
+			10% {
+				opacity: 1;
+			}
+			100%{
+				-webkit-transform: rotate(75deg) scale(1.2,1.2) translate(-20px,-10px);
+				opacity: 0;
+			}
+		}
+
+		@-webkit-keyframes xin1 {
+			0%{
+				-webkit-transform: translate(0px,0px);
+			}
+			50% {
+				-webkit-transform: translate(-150px,30px);
+			}
+			100%{
+				-webkit-transform: translate(-300px,0px);
+			}
+		}
+		@-webkit-keyframes xin2 {
+			0%{
+				-webkit-transform: translate(0px,0px);
+			}
+			30% {
+				-webkit-transform: translate(-100px,50px);
+			}
+			70%{
+				-webkit-transform: translate(-600px,0px);
+			}
+			85%{
+				-webkit-transform: translate(-700px,50px);
+			}
+			100%{
+				-webkit-transform: translate(-900px,0px);
+			}
+		}
+		@-webkit-keyframes haitun_ctn1 {
+			0%{
+				-webkit-transform: translate(0px,0px);
+			}
+			50% {
+				-webkit-transform: translate(-220px,200px);
+			}
+			100%{
+				-webkit-transform: translate(-440px,0px);
+			}
+		}
+		@-webkit-keyframes haitun_ctn2 {
+			0%{
+				-webkit-transform: translate(0px,0px);
+			}
+			25% {
+				-webkit-transform: translate(-150px,200px);
+			}
+			50%{
+				-webkit-transform: translate(-450px,0px);
+			}
+			75%{
+				-webkit-transform: translate(-750px,200px);
+			}
+			100%{
+				-webkit-transform: translate(-900px,0px);
+			}
+		}
+		@-webkit-keyframes haitun2 {
+			0%{
+				-webkit-transform: rotate(0deg);
+			}
+			50%{
+				-webkit-transform: rotate(-60deg);
+			}
+			51%{
+				-webkit-transform: rotate(60deg);
+			}
+			100%{
+				-webkit-transform: rotate(0deg);
+			}
+		}
+		@-webkit-keyframes haitun1 {
+			0%{
+				-webkit-transform: rotate(0deg);
+			}
+			50%{
+				-webkit-transform: rotate(-60deg);
+			}
+			51%{
+				-webkit-transform: rotate(60deg);
+			}
+			100%{
+				-webkit-transform: rotate(0deg);
+			}
+		}
+
+		@-webkit-keyframes banbantang {
+			0%{
+				-webkit-transform:  translate(0px,0px) rotate(-10deg);
+			}
+			30% {
+				-webkit-transform:  translate(-100px,50px) rotate(10deg);
+			}
+			70%{
+				-webkit-transform:  translate(-600px,0px) rotate(-10deg);
+			}
+			85%{
+				-webkit-transform:  translate(-700px,50px) rotate(10deg);
+			}
+			100%{
+				-webkit-transform:  translate(-900px,0px) rotate(-10deg);
+			}
+		}
+
+		@-webkit-keyframes banyuan {
+			0%{
+				-webkit-transform: translate(0px,0px);
+			}
+			30% {
+				-webkit-transform: translate(-100px,30px);
+			}
+			70%{
+				-webkit-transform: translate(-600px,0px);
+			}
+			85%{
+				-webkit-transform: translate(-700px,30px);
+			}
+			100%{
+				-webkit-transform: translate(-900px,0px);
+			}
+
+		}
+		@-webkit-keyframes kuangin {
+			0%{
+				-webkit-transform: translate(600px,0px);
+			}
+			15% {
+				-webkit-transform: translate(400px,30px);
+			}
+			30% {
+				-webkit-transform: translate(200px,0px);
+			}
+			50%{
+				-webkit-transform: translate(50px,30px);
+			}
+			70%{
+				-webkit-transform: translate(-50px,0px);
+			}
+			85%{
+				-webkit-transform: translate(-200px,30px);
+			}
+			100%{
+				-webkit-transform: translate(-500px,0px);
+			}
+		}
+
+		@-webkit-keyframes kuangout
+		{
+		    from {
+		    	-webkit-transform: translate(-600px,0px);
+		    	opacity: 1;
+		    }
+		    to {
+		    	-webkit-transform: translate(-600px,0px);
+		    	opacity: 0;
+		    }
+		}
+
+		@-webkit-keyframes fadein
+		{
+		    0%  {opacity: 0}
+		    100%    {opacity: 1}
+		}
+		@-webkit-keyframes fadeout
+		{
+		    from  {opacity: 1}
+		    to    {opacity: 0}
+		}
+		
+		
+
+	</style>
+		<div id='container'>
+			<img src='{$skinurl}skin/haiyang/bg.jpg'/>
+			
+			<div id='div2'>
+				<div id='div2h'>
+		            <div class='divh'>
+		               <img id='img2h' style='position:absolute'>
+		               <span id='word2h' class='showwords'></span>
+		            </div>
+		            <img class='slider_bg' style="opacity:1" src='{$skinurl}skin/haiyang/heng01.png'>
+		            <img class='slider_bg' style="opacity:0" src='{$skinurl}skin/haiyang/heng02.png'>
+		        </div>
+		        <div id='div2v'>
+		            <div class='divv'>
+		                <img id='img2v' style='position:absolute'>
+		                <span id='word2v' class='showwords'></span>
+		            </div>
+		            <img class='slider_bg' style="opacity:1" src='{$skinurl}skin/haiyang/shu01.png'>
+		            <img class='slider_bg' style="opacity:0" src='{$skinurl}skin/haiyang/shu02.png'>
+		        </div>
+			</div>
+			<img id='yun1' src='{$skinurl}skin/haiyang/yun01.png'>
+			<img id='yun2' src='{$skinurl}skin/haiyang/yun02.png'>
+			
+			<img id='xin1' src='{$skinurl}skin/haiyang/xin.png'>
+			<img id='banyuan' src='{$skinurl}skin/haiyang/zhuangshi2.png'>
+
+			<img id='bg_middle' src='{$skinurl}skin/haiyang/bg_middle.png'/>
+			
+			<div id='div1'>
+				<div id='div1h'>
+		            <div class='divh'>
+		               <img id='img1h' style='position:absolute'>
+		               <span id='word1h' class='showwords'></span>
+		            </div>
+		            <img class='slider_bg' style="opacity:1" src='{$skinurl}skin/haiyang/heng01.png'>
+		            <img class='slider_bg' style="opacity:0" src='{$skinurl}skin/haiyang/heng02.png'>
+		        </div>
+		        <div id='div1v'>
+		            <div class='divv'>
+		                <img id='img1v' style='position:absolute'>
+		                <span id='word1v' class='showwords'></span>
+		            </div>
+		            <img  class='slider_bg' style="opacity:1" src='{$skinurl}skin/haiyang/shu01.png'>
+		            <img class='slider_bg' style="opacity:0" src='{$skinurl}skin/haiyang/shu02.png'>
+		        </div>
+			</div>
+			<img id='xin2' src='{$skinurl}skin/haiyang/xin.png'>
+			<div id='haitun_ctn1'>
+				<img id='haitun1' src='{$skinurl}skin/haiyang/haitun.png'>
+				<img id='tuizi' src='{$skinurl}skin/haiyang/tuizi.png'>
+			</div>
+			<div id='haitun_ctn2'>
+				<img id='haitun2' src='{$skinurl}skin/haiyang/haitun.png'>
+				<img id='tuizi' src='{$skinurl}skin/haiyang/tuizi.png'>
+			</div>
+			<img id='banbantang' src='{$skinurl}skin/haiyang/banbantang.png'>
+			
+			<img id='bg_btm' src='{$skinurl}skin/haiyang/bg_btm.png'/>
+
+			<img id='ying1' src='{$skinurl}skin/haiyang/ying1.png'>
+			<img id='ying2' src='{$skinurl}skin/haiyang/ying2.png'>
+
+			<div id='pagetitle'>
+					<img id='tiao' src='{$skinurl}skin/haiyang/biaotishang.png'>
+					<img id='titlecontent_bg' src='{$skinurl}skin/haiyang/xia.png'>
+			        <div class='titletable'>
+		                <div id='titlecontent'>
+		                </div>
+			        </div>
+			</div>
+			<img id='chibang' src='{$skinurl}skin/haiyang/chibang.png'/>
+		</div>
+
+<script>
+var image_size_width=[];
+var image_size_height=[];
+var image_url_index=0;
+var have_num = 0;
+var error_num = 0;
+var canshow = true;
+var reshow = false;
+var timeout = [];
+var delaytime=4000;
+
+function id(name)
+{
+    return document.getElementById(name);
+}
+function load_images()
+{
+    reshow = false;
+    image_size_width=[];
+    image_size_height=[];
+    Onload_imgs_url=[];
+    image_url_index=0;
+    have_num = 0;
+    error_num = 0;
+    begin_titletime = new Date();
+    begin_titletime = begin_titletime.getTime();
+    showtitle();
+    canshow = true;
+    for(var i=0;i<slider_images_url.length;i++)
+    {
+        var img=new Image();
+        img.index=i;
+        img.src=slider_images_url[i];
+        img.onload=image_onload;
+        img.onerror= image_onerror;
+        Onload_imgs_url[i] = 'loading';
+    }       
+}
+
+function image_onerror(event)
+{
+    var img = event.target;
+    var index = img.index;
+    if(index<10)
+        error_num ++;
+    Onload_imgs_url[index] = 'not find';
+    console.log(Onload_imgs_url[index]);
+    console.log(have_num + '-' + error_num);
+    if((have_num+error_num >= 10 || slider_images_url.length == (have_num+error_num)) && canshow == true)
+    {   
+        reshow = false;
+        canshow =false;
+        if(have_num == 0)
+            return;
+        var end_titletime = new Date();
+        end_titletime = end_titletime.getTime();
+        var dis_titletime = Math.abs(end_titletime-begin_titletime);
+        if(dis_titletime>delaytime)
+        {
+            kuxuan();
+        }
+        else
+        {
+            dis_titletime = delaytime- dis_titletime;
+            timeout[0] = setTimeout(function()
+                {
+                    kuxuan();
+                },dis_titletime);
+        }
+    }
+}
+
+function image_onload(event)
+{
+    if(reshow == true)
+        return;
+
+    var img = event.target;
+    var index = img.index;
+
+    if(index<10)
+    {
+        have_num++;
+    }
+    Onload_imgs_url[index] = img.src;
+    image_size_height[index] = img.height;
+    image_size_width[index] = img.width;
+
+    // console.log(Onload_imgs_url[index]);
+    // console.log(have_num + '-' + error_num);
+
+    if((have_num + error_num >= 10 ||slider_images_url.length == (have_num+error_num)) && canshow == true)
+    {   
+        reshow = false;
+        canshow =false;
+        if(have_num == 0)
+            return;
+        var end_titletime = new Date();
+        end_titletime = end_titletime.getTime();
+        var dis_titletime = Math.abs(end_titletime-begin_titletime);
+        if(dis_titletime>delaytime)
+        {
+            kuxuan();
+        }
+        else
+        {
+            dis_titletime = delaytime- dis_titletime;
+            timeout[0] = setTimeout(function()
+                {
+                    kuxuan();
+                },dis_titletime);
+        }
+
+    }
+}
+function showtitle()
+{
+    id('pagetitle').style.webkitAnimation = 'titiein 1s linear both';
+    id('titlecontent').style.webkitAnimation = 'titlecontentin 1s 1s linear both';
+    id('titlecontent').innerHTML = e_title;
+}
+
+function kuxuan()
+{
+    id('pagetitle').style.webkitAnimation = 'titieout 0.6s 0.5s linear both';
+    id('tiao').style.webkitAnimation = 'tiaodown 0.1s linear both';
+    id('chibang').style.webkitAnimation = 'chibang 0.5s linear both';
+    id('ying1').style.webkitAnimation = 'fadeout 1s 0.5s linear both';
+    id('ying2').style.webkitAnimation = 'fadein 1s 0.5s linear both';
+    
+    timeout[9] = setTimeout(function function_name (argument) {
+    	show1_1();
+    	changslider();
+    }, 1000);
+    
+}
+
+function changslider () {
+	var slider_bgs = document.querySelectorAll('.slider_bg');
+	setInterval(function function_name () {
+		for (var i = 0; i < slider_bgs.length; i++) {
+			opacity = slider_bgs[i].style.opacity;
+			if (opacity == '0') {
+				slider_bgs[i].style.opacity = '1';
+			} else{
+				slider_bgs[i].style.opacity = '0';
+			};
+		};
+	}, 300);
+}
+
+function show1_1()
+{
+    setImage('1');
+    id('div1').style.webkitAnimation = 'kuangin 8s linear both';
+
+    id('xin1').style.webkitAnimation = 'xin1 2s linear both';
+    id('haitun_ctn1').style.webkitAnimation = 'haitun_ctn1 2s linear both';
+    id('haitun1').style.webkitAnimation = 'haitun1 2s linear infinite';
+
+    id('banyuan').style.webkitAnimation = 'banyuan 8s 2.5s linear both';
+
+    timeout[1] = setTimeout(show2,6000);
+}
+function show1_2()
+{
+    setImage('1');
+    id('div1').style.webkitAnimation = 'kuangin 8s linear both';
+
+    id('banyuan').style.webkitAnimation = 'banyuan 8s 2.5s linear both';
+    timeout[1] = setTimeout(function() {
+    	id('div2').style.webkitAnimation = 'kuangout 1s linear both';
+    	id('banbantang').style.webkitAnimation = '';
+    }, 5000);
+
+    timeout[2] = setTimeout(show2,6000);
+}
+
+function show2()
+{
+    setImage('2');
+    id('div2').style.webkitAnimation = 'kuangin 8s linear both';
+
+   	id('xin2').style.webkitAnimation = 'xin2 8s 2.5s linear both';
+    timeout[3] = setTimeout(function() {
+    	id('div1').style.webkitAnimation = 'kuangout 1s linear both';
+    	id('banyuan').style.webkitAnimation = '';
+    }, 5000);
+
+    timeout[4] = setTimeout(show3,6000);
+}
+
+function show3()
+{
+    setImage('1');
+    id('div1').style.webkitAnimation = 'kuangin 8s linear both';
+
+    id('haitun_ctn2').style.webkitAnimation = 'haitun_ctn2 8s 2.5s linear both';
+    id('haitun2').style.webkitAnimation = 'haitun2 4s 2.5s linear infinite';
+    timeout[5] = setTimeout(function() {
+    	id('div2').style.webkitAnimation = 'kuangout 1s linear both';
+    	id('xin2').style.webkitAnimation = '';
+    }, 5000);
+
+    timeout[6] = setTimeout(show4,6000);
+}
+
+function show4()
+{
+    setImage('2');
+    id('div2').style.webkitAnimation = 'kuangin 8s linear both';
+
+    id('banbantang').style.webkitAnimation = 'banbantang 8s 2.5s linear both';
+    timeout[7] = setTimeout(function() {
+    	id('div1').style.webkitAnimation = 'kuangout 1s linear both';
+    	id('haitun_ctn2').style.webkitAnimation = '';
+    	id('haitun2').style.webkitAnimation = '';
+    }, 5000);
+
+    timeout[8] = setTimeout(show1_2,6000);
+}
+
+function setImage(idname)
+{
+    if(reshow == true)
+        return;
+
+    while(Onload_imgs_url[image_url_index] == 'not find' || Onload_imgs_url[image_url_index] == 'loading')
+    {
+        // console.log(Onload_imgs_url[image_url_index]);
+        image_url_index++;
+        if(image_url_index == Onload_imgs_url.length)
+            image_url_index = 0;
+    }
+
+    var img_bili = image_size_width[image_url_index]/image_size_height[image_url_index];
+    var div;
+    var div1;
+    var divname;
+
+    if(img_bili > 1)
+    {
+        divname = idname + 'h';
+        div = id('div'+idname+'h');
+        div1 = id('div'+idname+'v');
+        idname = idname + 'h';
+        width = 404;
+        height = 271;
+    }
+    else
+    {
+        divname = idname + 'v';
+        div = id('div'+idname+'v');
+        div1 = id('div'+idname+'h');
+        idname = idname + 'v';
+        width = 325;
+        height = 482;
+    }
+
+    div.style.display = 'block';
+    div1.style.display = 'none';
+
+    var img = id('img'+divname);
+    img.src = Onload_imgs_url[image_url_index];
+    // console.log(img.src);
+    var word = id('word'+idname);
+
+    var word_string = words[get_pid(Onload_imgs_url[image_url_index])];
+    if(word_string != undefined)
+    {
+        word_string = word_string.replace(/[\n]/ig,'');
+        
+       	if (idname == '1v' || idname == '2v') {
+        	word.style.top = "80%";
+        } else{
+        	word.style.top = "68%";
+        };
+
+        word.innerText = word_string;
+    }
+    else
+    {
+        word.innerText = "";
+    }
+
+    if(img_bili > (width/height))
+    {
+        img.style.top = '0px';
+        img.style.height = height + 'px';
+        img.style.width = height*img_bili + 'px';
+        img.style.left = -((height*img_bili-width)/2)+'px';
+    }
+    else
+    {
+        img.style.left = '0px';
+        img.style.width = width+'px';
+        img.style.height = width/img_bili + 'px';
+        img.style.top = -((width/img_bili-height)/2) + 'px';
+    }
+
+    image_url_index++;
+    if(image_url_index==Onload_imgs_url.length)
+        image_url_index = 0;
+}
+
+
+call_me(load_images);
+
+function reload_scene()
+{
+    clearnode();
+    reshow = true;
+    setTimeout(load_images,100);
+}
+
+function clearnode()
+{
+	for(var i = 0; i<timeout.length; i++)
+    {
+        clearTimeout(timeout[i]);
+    }
+
+    var xinArr = ['pagetitle','titlecontent','tiao','chibang','ying1','ying2','xin1','xin2','haitun_ctn1','haitun1','banyuan','haitun_ctn2','haitun2','banbantang','div1','div2'];
+
+    for(var i = 0 ;i < xinArr.length ;i++)
+    {
+        id(xinArr[i]).style.webkitAnimation = '';
+    }
+
+    id('div1h').style.display = 'none';
+   	id('div1v').style.display = 'none';
+   	id('div2h').style.display = 'none';
+   	id('div2v').style.display = 'none';
+
+}
+
+</script>

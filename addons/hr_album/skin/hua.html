@@ -1,0 +1,691 @@
+<!--模板开始-->
+<style type="text/css">
+    
+*
+{
+    padding: 0px;
+    margin: 0px;
+    -webkit-box-sizing: border-box;
+}
+
+body
+{
+    background-color: white;
+}
+
+#container
+{
+    width: 500px;
+    height: 815px;
+    position: absolute;
+    /*border: 1px solid #000;*/
+    overflow: hidden;
+}
+#container > div,#container > img
+{
+    position: absolute;
+}
+.page >img,.page > div,.con >img,.con > div
+{
+    position: absolute;
+}
+#div1v
+{
+    background-color: #ccc;
+    width: 334px;
+    height: 553px;
+    -webkit-transform: rotate(5deg);
+    left: 269px;
+    top: 72px;
+    overflow: hidden;
+}
+#div1h
+{
+    background-color: #ccc;
+    width: 765px;
+    height: 553px;
+    -webkit-transform: rotate(5deg);
+    left: 269px;
+    top: 72px;
+    overflow: hidden;
+}
+.bg2
+{
+    /*top: -50px;*/
+    left: 130px;
+}
+@-webkit-keyframes fadein
+{
+    from  {opacity: 0}
+    to    {opacity: 1}
+}
+@-webkit-keyframes fadeout
+{
+    from  {opacity: 1}
+    to    {opacity: 0}
+}
+.page
+{
+    opacity: 0;
+}
+@-webkit-keyframes page1_in
+{
+    from {-webkit-transform: translate(-130px,0px);opacity: 0}
+    to   {-webkit-transform: translate(-160px,0px);opacity: 1}
+}
+@-webkit-keyframes page1_out
+{
+    from  {-webkit-transform: translate(-160px,0px);opacity: 1}
+    to    {-webkit-transform: translate(-180px,0px);opacity: 0}
+}
+@-webkit-keyframes moving_left
+{
+    from  {-webkit-transform: translate(0px,0px);}
+    to    {-webkit-transform: translate(-20px,0px);}
+}
+@-webkit-keyframes div1h
+{
+    from  {-webkit-transform: translate(0px,0px) rotate(5deg);}
+    to    {-webkit-transform: translate(-430px,-20px) rotate(5deg);}
+}
+.img
+{
+    position: absolute;
+}
+#div2v
+{
+    width: 402px;
+    height: 611px;
+    top: 19px;
+    left: 9px;
+    background-color: #ccc;
+    overflow: hidden;
+}
+#div2h
+{
+    width: 900px;
+    height: 611px;
+    top: 19px;
+    left: 9px;
+    background-color: #ccc;
+    overflow: hidden;
+}
+@-webkit-keyframes div2h
+{
+    from  {-webkit-transform: translate(-500px,0px);}
+    to    {-webkit-transform: translate(-0px,0px);}
+}
+#div3h
+{
+    width: 426px;
+    height: 307px;
+    background-color: #ccc;
+    left: 78px;
+    top: 167px;
+    -webkit-transform: rotate(-12deg);
+    overflow: hidden;
+}
+#div3v
+{
+    width: 426px;
+    height: 600px;
+    background-color: #ccc;
+    left: 113px;
+    top: 167px;
+    -webkit-transform: rotate(-12deg);
+    overflow: hidden;
+}
+@-webkit-keyframes div3v
+{
+    from  {-webkit-transform: translate(0px,0px) rotate(-12deg);}
+    to    {-webkit-transform: translate(-60px,-290px) rotate(-12deg);}
+}
+@-webkit-keyframes page3_in
+{
+    from  {-webkit-transform: translate(0px,0px);opacity: 0}
+    to    {-webkit-transform: translate(-40px,0px);opacity: 1}
+}
+@-webkit-keyframes page3_out
+{
+    from  {-webkit-transform: translate(-40px,0px);opacity: 1}
+    to    {-webkit-transform: translate(-80px,0px);opacity: 0}
+}
+#div4v
+{
+    width: 290px;
+    height: 521px;
+    position: absolute;
+    background-color: #ccc;
+    left: 113px;
+    top: 93px;
+    -webkit-transform: rotate(2deg);
+    overflow: hidden;
+}
+#div4h
+{
+    width: 700px;
+    height: 521px;
+    position: absolute;
+    background-color: #ccc;
+    left: 113px;
+    top: 98px;
+    -webkit-transform: rotate(2deg);
+    overflow: hidden;
+}
+@-webkit-keyframes div4h
+{
+    from  {-webkit-transform: translate(0px,0px) rotate(2deg);}
+    to    {-webkit-transform: translate(-410px,0px) rotate(2deg);}
+}
+#div5v
+{
+    width: 373px;
+    height: 610px;
+    position: absolute;
+    background-color: #ccc;
+    left: 65px;
+    top: 70px;
+    overflow: hidden;
+}
+#div5h
+{
+    width: 900px;
+    height: 610px;
+    position: absolute;
+    background-color: #ccc;
+    left: 65px;
+    top: 70px;
+    overflow: hidden;
+}
+@-webkit-keyframes div5h
+{
+    from  {-webkit-transform: translate(-500px,0px);}
+    to    {-webkit-transform: translate(0px,0px);}
+}
+.wordspan
+{
+    width: 260px;
+    height: 100px;
+    color: #fff;
+    font-family: bold;
+    text-shadow: 1px 1px 1px #000;
+    font-size: 25px;
+    position: absolute;
+    text-align: center;
+}
+#con2
+{
+    width: 431px;
+    height: 635px;
+    left: 38px;
+    top: 63px;
+    overflow: hidden;
+    background-color: #000;
+}
+</style>
+
+<div id='container'>
+    <img id='bg1' src='{$skinurl}skin/hua/1.jpg'>
+    <div id='pagetitle' style='position:absolute;top:280px;left:125px;width:250px;height:146px;opacity:0;font-weight:bold'>
+        <div id='titlecontent' style='width:280px;height:146px;vertical-align:middle;display:table-cell;text-align:center;font-size:24px;line-height:45px;color:#000;'></div>
+    </div>
+
+    <div id='page1' class='page' >
+        <div id='con1' class='con'>
+            <div id='div1h'>
+                <img class='img' id='img1h'>
+            </div>
+            <div id='div1v'>
+                <img class='img' id='img1v'>
+            </div>
+            <img class='bg2' src='{$skinurl}skin/hua/0.png'>
+            <span id='word1' class='wordspan' style='left:267px;top:510px;'></span>
+        </div>
+    </div>
+
+    <div id='page2' class='page'>
+        <img src='{$skinurl}skin/hua/2.jpg'>
+        <div id='con2' class='con'>
+            <div id='div2h'>
+                <img class='img' id='img2h'>
+            </div>
+            <div id='div2v'>
+                <img class='img' id='img2v'>
+            </div>
+        </div>
+        <img src='{$skinurl}skin/hua/22.png'>
+        <span id='word2' class='wordspan' style='left:75px;top:601px;'></span>
+    </div>
+
+    <div id='page3' class='page'>
+        <div id='div3h'>
+            <img class='img' id='img3h'>
+        </div>
+        <div id='div3v'>
+            <img class='img' id='img3v'>
+        </div>
+        <img src='{$skinurl}skin/hua/3.png'>
+        <span id='word3' class='wordspan' style='left:195px;top:483px;-webkit-transform: rotate(-11deg);font-weight: bold;'></span>
+    </div>
+
+    <div id='page4' class='page'>
+        <div id='div4v'>
+            <img class='img' id='img4v'>
+        </div>
+        <div id='div4h'>
+            <img class='img' id='img4h'>
+        </div>
+        <img src='{$skinurl}skin/hua/4.png'>
+        <span id='word4' class='wordspan' style='left:114px;top:546px;-webkit-transform: rotate(1deg)'></span>
+    </div>
+
+
+    <div id='page5' class='page'>
+        <div id='div5v'>
+            <img class='img' id='img5v'>
+        </div>
+        <div id='div5h'>
+            <img class='img' id='img5h'>
+        </div>
+        <img src='{$skinurl}skin/hua/5.png'>
+        <span id='word5' class='wordspan' style='left:127px;top:602px;width:183px;-webkit-transform: rotate(-6deg);font-family: bold;text-shadow: 1px 1px 1px #FFF;font-weight:bold;color:#000;'></span>
+    </div>
+
+</div>
+<script>
+var image_size_width=[];
+var image_size_height=[];
+var image_url_index=0;
+var canshow = true;
+var reshow = false;
+var delaytime = 4500;
+var timeout = [];
+var imgtype = 0;
+
+function load_images()
+{ 
+    reshow = false;
+    image_size_width=[];
+    image_size_height=[];
+    Onload_imgs_url=[];
+    image_url_index=0;
+    have_num = 0;
+    error_num = 0;
+    begin_titletime = new Date();
+    begin_titletime = begin_titletime.getTime();
+    canshow = true;
+    showtitle();
+    kload_pics = 'first';
+    step_load();     
+}
+
+function image_onerror(event)
+{
+    var img = event.target;
+    var index = img.index;
+    if(index<step_loadnum)
+        error_num ++;
+    Onload_imgs_url[index] = 'not find';
+
+    if((have_num+error_num >= step_loadnum || slider_images_url.length == (have_num+error_num)) && canshow == true)
+    {   
+        reshow = false;
+        canshow =false;
+        if(have_num == 0)
+            return;
+        var end_titletime = new Date();
+        end_titletime = end_titletime.getTime();
+        var dis_titletime = Math.abs(end_titletime-begin_titletime);
+        if(dis_titletime>delaytime)
+        {
+            hua_gushi();
+        }
+        else
+        {
+            dis_titletime = delaytime- dis_titletime;
+            timeout[0] = setTimeout(function()
+                {
+                    hua_gushi();
+                },dis_titletime);
+        }
+    }
+}
+
+function image_onload(event)
+{
+    if(reshow == true)
+        return;
+
+    var img = event.target;
+    var index = img.index;
+
+    if(index<step_loadnum)
+    {
+        have_num++;
+    }
+    Onload_imgs_url[index] = img.src;
+    image_size_height[index] = img.height;
+    image_size_width[index] = img.width;
+
+    console.log(Onload_imgs_url[index]);
+
+    if((have_num + error_num >= step_loadnum || slider_images_url.length == (have_num+error_num)) && canshow == true)
+    {   
+        reshow = false;
+        canshow =false;
+        if(have_num == 0)
+            return;
+        var end_titletime = new Date();
+        end_titletime = end_titletime.getTime();
+        var dis_titletime = Math.abs(end_titletime-begin_titletime);
+        if(dis_titletime>delaytime)
+        {
+            hua_gushi();
+        }
+        else
+        {
+            dis_titletime = delaytime- dis_titletime;
+            timeout[0] = setTimeout(function()
+                {
+                    hua_gushi();
+                },dis_titletime);
+        }
+
+    }
+}
+//每次执行加载后5张图片
+var kload_pics = 'first';
+var step_loadnum = 5;
+function step_load()
+{
+    var load_num = 0
+    //初步加载X张
+    if(image_url_index  == 0 && kload_pics == 'first')
+    {
+        console.log('loading continue');
+        if(slider_images_url.length > step_loadnum)
+        {
+            load_num = step_loadnum;
+            kload_pics = 'next';
+        }
+        else
+        {
+            load_num = slider_images_url.length;
+            kload_pics = 'end';
+        }
+        for(var i = 0; i< load_num; i++)
+        {
+            var img=new Image();
+            img.index=i;
+            img.src=slider_images_url[i];
+            img.onload=image_onload;
+            img.onerror= image_onerror;
+            Onload_imgs_url[i] = 'loading';
+        }
+    }
+    else if(kload_pics == 'end')
+    {
+        return;
+    }
+    else
+    {
+         console.log('loading continue');
+        if(slider_images_url.length - image_url_index >step_loadnum*2)
+        { 
+            load_num = step_loadnum;
+        }
+        else
+        {
+            load_num = slider_images_url.length - image_url_index - step_loadnum;
+            kload_pics = 'end';
+        }
+        for(var i = image_url_index +step_loadnum; i< image_url_index + step_loadnum + load_num; i++)
+        {
+            var img=new Image();
+            img.index=i;
+            img.src=slider_images_url[i];
+            img.onload=image_onload;
+            img.onerror= image_onerror;
+            Onload_imgs_url[i] = 'loading';
+        }
+    }
+}
+function id(name)
+{
+    return document.getElementById(name);
+}
+
+function showtitle()
+{
+    id('pagetitle').style.webkitAnimation = 'fadein 1s linear both';
+    id('titlecontent').innerHTML = e_title;
+
+}
+
+function hua_gushi()
+{
+    id('pagetitle').style.webkitAnimation = 'fadeout 1s linear both';
+    id('bg1').style.webkitAnimation = 'fadeout 1s 0.5s linear both';
+
+    setImage('1');
+    nexttime = 7000;
+    if(imgtype == 1)
+        nexttime = 5000;
+    id('page1').style.webkitAnimation = 'page1_in 2s 0.5s ease-out both';
+    id('con1').style.webkitAnimation = 'moving_left 7s linear both';
+
+    id('div1h').style.webkitAnimation = 'div1h 8s linear both';
+
+
+    timeout[1] = setTimeout(show2,nexttime)
+}
+
+function show2()
+{
+    setImage('2');
+    nexttime = 7000;
+    if(imgtype == 1)
+        nexttime = 5000;
+    id('page1').style.webkitAnimation = 'page1_out 1s ease-in both';
+    id('page2').style.webkitAnimation = 'fadein 2s linear both';
+
+    id('div2h').style.webkitAnimation = 'div2h 8s linear both';
+    id('div3v').style.webkitAnimation = '';
+
+    timeout[2] = setTimeout(show3, nexttime)
+}
+var get_pid = function(url)
+{
+    var index1 = url.indexOf("?");
+    if(index1 != -1)
+    {
+        url = url.substr(0, index1);
+    }
+    return url.toString().substr(url.lastIndexOf("/") + 1);
+}
+function show3()
+{
+    setImage('3');
+    nexttime = 8000;
+    if(imgtype == 0)
+        nexttime = 5000;
+    id('page2').style.webkitAnimation = 'fadeout 1s linear both';
+    id('page3').style.webkitAnimation = 'page3_in 2s ease-out both';
+
+    id('div3v').style.webkitAnimation = 'div3v 8s linear both';
+    id('div4h').style.webkitAnimation = '';
+
+    timeout[3] = setTimeout(show4,nexttime)
+}
+
+function show4()
+{
+    setImage('4');
+    nexttime = 7000;
+    if(imgtype == 1)
+        nexttime = 5000;
+    id('page3').style.webkitAnimation = 'page3_out 1s ease-in both';
+
+    id('page4').style.webkitAnimation = 'fadein 1s linear both';
+
+    id('div4h').style.webkitAnimation = 'div4h 8s linear both';
+    id('div5h').style.webkitAnimation = '';
+
+    timeout[4] = setTimeout(show5, nexttime)
+}
+
+function show5()
+{
+    setImage('5');
+    nexttime = 7000;
+    if(imgtype == 1)
+        nexttime = 5000;
+    id('page4').style.webkitAnimation = 'fadeout 1s linear both';
+    id('page5').style.webkitAnimation = 'fadein 1s linear both';
+
+    id('div5h').style.webkitAnimation = 'div5h 8s linear both';
+    id('div1h').style.webkitAnimation = '';
+    id('con1').style.webkitAnimation = '';
+
+    timeout[5] = setTimeout(show1,nexttime)
+}
+
+function show1()
+{
+    setImage('1');
+    nexttime = 7000;
+    if(imgtype == 1)
+        nexttime = 5000;
+    id('page5').style.webkitAnimation = 'fadeout 1s linear both';
+    id('page1').style.webkitAnimation = 'page1_in 2s 0.5s ease-out both';
+    id('con1').style.webkitAnimation = 'moving_left 7s linear both';
+
+    id('div1h').style.webkitAnimation = 'div1h 8s linear both';
+    id('div2h').style.webkitAnimation = '';
+
+    timeout[6] = setTimeout(show2, nexttime)
+}
+
+
+var divwidth  = {'1h': 765,'1v': 334, '2h': 900, '2v': 402, '3h': 426, '3v': 426, '4h': 700, '4v': 290, '5h': 900, '5v': 373};
+var divheight = {'1h': 553,'1v': 553, '2h': 611, '2v': 611, '3h': 307, '3v': 600, '4h': 521, '4v': 521, '5h': 610, '5v': 610};
+function setImage(idname)
+{
+    if(reshow == true)
+        return;
+
+    while(Onload_imgs_url[image_url_index] == 'not find' || Onload_imgs_url[image_url_index] == 'loading')
+    {
+        if(image_url_index % step_loadnum == 0)
+        {
+            step_load();
+        }
+        image_url_index++;
+        if(image_url_index == Onload_imgs_url.length)
+            image_url_index = 0;
+    }
+
+    if(image_url_index % step_loadnum == 0)
+    {
+        step_load();
+    }
+    var img_bili = image_size_width[image_url_index]/image_size_height[image_url_index];
+    var wordspan = id('word'+idname);
+    var str = words[get_pid(Onload_imgs_url[image_url_index])];
+    if(str != undefined)
+        wordspan.innerHTML = str;
+    else
+        wordspan.innerHTML = '';
+    var div;
+    var div1;
+    var img;
+
+    if(img_bili > 1)
+    {
+        div = id('div'+idname + 'h');
+        div1 = id('div'+idname + 'v');
+        idname = idname + 'h';
+
+    }
+    else
+    {
+        div = id('div'+idname + 'v');
+        div1 = id('div'+idname + 'h');
+        idname = idname + 'v';
+
+    }
+
+    width = divwidth[idname];
+    height = divheight[idname];
+
+    div.style.display = 'block';
+    div1.style.display = 'none';
+
+
+    var img = id('img'+idname);
+    img.src = Onload_imgs_url[image_url_index];
+
+
+    if(img_bili>1)
+    {
+        imgtype = 0;
+    }
+    else
+    {
+        imgtype = 1;
+    }
+
+    if(img_bili > (width/height))
+    {
+        img.style.top = '0px';
+        img.style.height = height + 'px';
+        img.style.width = height*img_bili + 'px';
+        img.style.left = -((height*img_bili-width)/2)+'px';
+    }
+    else
+    {
+        img.style.left = '0px';
+        img.style.width = width+'px';
+        img.style.height = width/img_bili + 'px';
+        img.style.top = -((width/img_bili-height)/2) + 'px';
+    }
+
+    image_url_index ++;
+    if(image_url_index == Onload_imgs_url.length)
+      image_url_index = 0;
+}
+
+call_me(load_images)
+
+function reload_scene()
+{
+    clearnode();
+    reshow = true;
+    setTimeout(load_images,100);
+}
+
+function clearnode()
+{
+
+    for(var i = 0; i<timeout.length; i++)
+    {
+        clearTimeout(timeout[i])
+    }
+
+    var itemlist = ['bg1','pagetitle','div1h','con1','page1','div2h','page2','div3v','page3','page4','div4h','page5','div5h'];
+
+    for(var i =0; i<itemlist.length;i++)
+    {
+        id(itemlist[i]).style.webkitAnimation = '';
+    }
+    for(var i = 1 ;i <6 ;i++)
+    {
+        id('div'+ i + 'h').style.display = 'none';
+        id('div'+ i + 'v').style.display = 'none';
+    }
+
+
+
+}
+</script>
+<!-- 模板结束 -->

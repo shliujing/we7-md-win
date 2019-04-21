@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>编辑模板分类</title>
+	<meta name="renderer" content="webkit">	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">	
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">	
+	<meta name="apple-mobile-web-app-capable" content="yes">	
+	<meta name="format-detection" content="telephone=no">	
+	<link rel="stylesheet" type="text/css" href="{$_W['siteroot']}addons/hr_album/style/component/layui/css/layui.css" media="all">
+	<style>
+.layui-form-pane .layui-form-label {
+    min-width: 200px;
+}
+.layui-form-pane .layui-input-block {
+    margin-left: 200px;
+}
+.demoimg,#logoimg{
+	width: 38px;height: 38px; margin-left: 10px;display:none;
+}
+.demoimg img,#logoimg img{width: 100%; border-radius: 5px;height: 100%;}
+.delbtn{
+    display: inline-block;
+    margin-left: 15px;
+    color: #FFF;
+    background-color: red;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+	</style>
+</head>
+<body>
+<form class="layui-form layui-form-pane" style="padding:20px;" action="{php echo url('site/entry/index', array('m' => 'hr_album','op' => 'inmoadd'));}" method="post">
+<input type="hidden" name="id" value="{$item['id']}">
+  <div class="layui-form-item">
+    <label class="layui-form-label">模板排序：</label>
+    <div class="layui-input-block">
+      <input type="text" name="displayorder"  value="{$item['displayorder']}"  placeholder="数值越大越靠前" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">模板名称：</label>
+    <div class="layui-input-block">
+      <input type="text" name="title"  lay-verify="required" value="{$item['title']}"  placeholder="请输入名称，不要超过三个字符否则会造成样式错乱。" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">缩略图</label>
+        <div class="layui-input-block">
+            <input class="layui-input" type="text" style="width:300px;display: inline-block" name="thumb" value="{$item['thumb']}">
+            <input type="file" name="file" id="thumb" class="layui-upload-file">
+            <div id="thumbimg" class="demoimg" {if $item['thumb']} style="display:-webkit-inline-box"{/if}>
+            <img src="{if $item['thumb']}{$item['thumb']}{/if}">
+        </div>
+        {if $item['thumb']}
+        <div class="delbtn" id="delbtn">删除图片</div>{/if}
+    </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">选择首页模板分类</label>
+        <div class="layui-input-block">
+            <select name="cid">
+                {loop $cate $row}
+                <option value="{$row['id']}" {if $cid == $row['id']} selected{/if}>{$row['title']}</option>
+                {/loop}
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">选择模板</label>
+        <div class="layui-input-block">
+            <select name="skin">
+                {loop $items $row}
+                <option value="{$row['id']}" {if $item['skin'] == $row['id']} selected{/if}>{$row['skintitle']}</option>
+                {/loop}
+            </select>
+        </div>
+    </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="layui-form">立即提交</button>
+      <input type="hidden" name="token" value="{$_W['token']}" />
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>     
+    </div>
+  </div>
+</form>
+<script type="text/javascript" src="{$_W['siteroot']}addons/hr_album/style/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="{$_W['siteroot']}addons/hr_album/style/component/layui/layui.js"></script>
+<script type="text/javascript">
+    layui.use(['form','upload'],function(){
+        var form = layui.form();
+        layui.upload({
+            elem:'#thumb',
+            url: '{$_W['siteroot']}web/index.php?c=site&a=entry&do=uppic&m=hr_album' ,//上传接口
+            success: function(res){
+                //上传成功后的回调
+                layer.msg(res.message);
+                $("#thumbimg").find('img').attr('src',res.reurl);
+                $("#thumbimg").css('display','-webkit-inline-box');
+                $("input[name='thumb']").val(res.reurl);
+                console.log(res);
+            }
+        });
+
+    });
+
+    $("#delbtn").on('click',function(){
+        $("input[name='thumb']").val('');
+        $("#thumbimg").css('display','none');
+        $(this).remove();
+    });
+</script>
+</body>
+</html>

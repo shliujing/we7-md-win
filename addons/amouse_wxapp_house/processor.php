@@ -1,0 +1,2 @@
+<?php
+ defined("\111\x4e\137\x49\101") or die("\101\x63\143\x65\163\163\x20\104\x65\156\x69\145\x64"); class Amouse_Wxapp_CardModuleProcessor extends WeModuleProcessor { public function respond() { } }

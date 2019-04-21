@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.0418it.com" versionCode="0.6,0.7,0.8,1.0">
+	<application setting="false">
+		<name><![CDATA[房产中介小程序]]></name>
+		<identifie><![CDATA[amouse_wxapp_house]]></identifie>
+		<version><![CDATA[1.7.2]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[房产(小程序版本)]]></ability>
+		<description><![CDATA[房产中介小程序版本]]></description>
+		<author><![CDATA[爬行者网络科技]]></author>
+		<url><![CDATA[http://www.pxzteam.com]]></url>
+	</application>
+	<platform>
+		<subscribes>
+		</subscribes>
+		<handles>
+		</handles>
+		<rule embed="false" />
+		<card embed="false" />
+		<supports><item type="wxapp" /></supports>
+	</platform>
+	<bindings>
+		<menu>
+			<entry title="幻灯片管理" do="slide" state="" direct="false" />
+			<entry title="房源管理" do="houses" state="" direct="false" />
+			<entry title="新房管理" do="new" state="" direct="false" />
+			<entry title="求租/求购" do="rents" state="" direct="false" />
+			<entry title="小区管理" do="vill" state="" direct="false" />
+			<entry title="经纪人管理" do="agent" state="" direct="false" />
+			<entry title="门店管理" do="shop" state="" direct="false" />
+			<entry title="区域设置" do="area" state="" direct="false" />
+			<entry title="装修情况设置" do="fit" state="" direct="false" />
+			<entry title="户型设置" do="types" state="" direct="false" />
+			<entry title="模块参数设置" do="sysset" state="" direct="false" />
+			<entry title="会员管理" do="member" state="" direct="false" />
+			<entry title="订单管理" do="orders" state="" direct="false" />
+			<entry title="房屋类型设置" do="use" state="" direct="false" />
+		</menu>
+	</bindings>
+	<permissions>
+	</permissions>
+	<install><![CDATA[]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>
